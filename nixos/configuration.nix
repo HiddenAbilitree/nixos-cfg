@@ -166,7 +166,7 @@
 
   services = {
     getty.autologinUser = "ezhang";
-
+    gvfs.enable = true;
     fwupd.enable = true; # firmware updates
     # pcscd.enable = true;
     fprintd.enable = true;
