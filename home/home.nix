@@ -68,6 +68,7 @@
 
     # games 
     prismlauncher
+    steam
 
     # utils
     hunspell

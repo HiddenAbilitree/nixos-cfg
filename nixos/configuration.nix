@@ -114,6 +114,7 @@
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
   };
+
   environment = {
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
@@ -152,20 +153,12 @@
 
     zsh.enable = true;
 
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-      localNetworkGameTransfers.openFirewall = true;
-    };
-
     thunar.enable = true;
 
     hyprland.enable = true;
   };
 
   services = {
-    getty.autologinUser = "ezhang";
     gvfs.enable = true;
     fwupd.enable = true; # firmware updates
     # pcscd.enable = true;
