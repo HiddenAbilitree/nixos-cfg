@@ -2,7 +2,7 @@
   description = "loser flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/master"; # master or nixos-unstable
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # master or nixos-unstable
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
