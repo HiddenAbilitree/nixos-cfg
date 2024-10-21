@@ -127,6 +127,13 @@
   # allow unfree haha
   nixpkgs.config.allowUnfree = true;
 
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=yes
+    AllowHibernation=yes
+    AllowHybridSleep=yes
+    AllowSuspendThenHibernate=yes
+  '';
+
   hardware = {
     openrazer.enable = true;
     bluetooth.enable = true;
@@ -164,6 +171,9 @@
     ];
   };
 
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.extraSpecialArgs = inputs;
   programs = {
     gnupg.agent = {
       enable = true;

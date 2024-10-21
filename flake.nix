@@ -40,18 +40,14 @@
           modules = [
             ./nixos/configuration.nix
             ./fw13/hardware-configuration.nix
-            { networking.hostName = "loser"; }
+            {
+              home-manager.users.ezhang = import ./fw13/home/home.nix;
+              networking.hostName = "loser";
+            }
 
             home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.ezhang = import ./fw13/home/home.nix;
-              home-manager.extraSpecialArgs = inputs;
-            }
             sops-nix.nixosModules.sops
             lanzaboote.nixosModules.lanzaboote
-
           ];
         };
         winner = nixpkgs.lib.nixosSystem {
@@ -59,14 +55,11 @@
           modules = [
             ./nixos/configuration.nix
             ./bpc/hardware-configuration.nix
-            { networking.hostName = "winner"; }
-            home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
               home-manager.users.ezhang = import ./bpc/home/home.nix;
-              home-manager.extraSpecialArgs = inputs;
+              networking.hostName = "winner";
             }
+            home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
           ];
         };
