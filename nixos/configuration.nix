@@ -183,7 +183,7 @@
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      pinentryPackage = pkgs.pinentry-gtk2;
+      pinentryPackage = pkgs.pinentry-tty;
     };
 
     thunar.enable = true;
