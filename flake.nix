@@ -50,6 +50,7 @@
               home-manager.extraSpecialArgs = inputs;
             }
             sops-nix.nixosModules.sops
+            lanzaboote.nixosModules.lanzaboote
 
           ];
         };
