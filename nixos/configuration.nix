@@ -67,7 +67,12 @@
     };
   };
   # Configure keymap in X11
-
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 16 * 1024; # 16GB
+    }
+  ];
   users.users.ezhang = {
     isNormalUser = true;
     description = "Eric Zhang";
@@ -130,7 +135,7 @@
   systemd.sleep.extraConfig = ''
     AllowSuspend=yes
     AllowHibernation=yes
-    AllowHybridSleep=yes
+    AllowHybridSleep=no
     AllowSuspendThenHibernate=yes
   '';
 
