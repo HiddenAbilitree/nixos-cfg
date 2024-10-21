@@ -41,7 +41,6 @@
 
     # cli/tuis
     starship
-    bottom
     btop
     fastfetch
     fzf

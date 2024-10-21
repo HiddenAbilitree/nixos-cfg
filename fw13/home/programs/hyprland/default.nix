@@ -11,7 +11,7 @@
       settings = {
         "$menu" = "rofi -show drun";
         "$mod" = "SUPER";
-        "$browser" = "firefox";
+        "$browser" = "brave";
         "$terminal" = "kitty";
 
         bind = builtins.concatLists (
