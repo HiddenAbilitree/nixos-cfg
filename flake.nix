@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,6 +25,9 @@
     {
       nixosConfigurations = {
         loser = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
           system = "x86_64-linux";
           modules = [
             ./nixos/configuration.nix

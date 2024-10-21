@@ -33,6 +33,7 @@
       enable = true;
       plugins = [
         "git"
+        "fzf"
         "thefuck"
       ];
     };

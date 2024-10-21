@@ -5,7 +5,7 @@
 }:
 {
   programs.git.signing = {
-    key = "1DE84ED2BAEED6CC";
+    key = "503DEDEE1AC71158";
     signByDefault = true;
   };
 }

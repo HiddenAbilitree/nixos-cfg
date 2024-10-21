@@ -42,6 +42,7 @@
     # cli/tuis
     starship
     bottom
+    btop
     fastfetch
     fzf
     cbonsai
@@ -55,7 +56,6 @@
     brave
     drawing
     easyeffects
-    hugin
     libqalculate
     networkmanagerapplet
     obsidian
