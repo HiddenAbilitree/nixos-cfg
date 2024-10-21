@@ -9,6 +9,11 @@
     };
     hyprland.url = "github:hyprwm/Hyprland";
     sops-nix.url = "github:Mic92/sops-nix";
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,6 +27,7 @@
       home-manager,
       spicetify-nix,
       sops-nix,
+      lanzaboote,
       ...
     }:
     {
@@ -44,6 +50,7 @@
               home-manager.extraSpecialArgs = inputs;
             }
             sops-nix.nixosModules.sops
+
           ];
         };
         winner = nixpkgs.lib.nixosSystem {

@@ -14,10 +14,19 @@
 
   # Bootloader.
   boot = {
-    loader.systemd-boot.enable = true;
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
+    loader.systemd-boot.enable = false;
     loader.efi.canTouchEfiVariables = true;
     kernelPackages = pkgs.linuxPackages_latest;
   };
+
+  # Lanzaboote currently replaces the systemd-boot module.
+  # This setting is usually set to true in configuration.nix
+  # generated at installation time. So we force it to false
+  # for now.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -139,6 +148,8 @@
       })
 
       # utils
+      sbctl
+
       nixfmt-rfc-style
       ripgrep
       fd
