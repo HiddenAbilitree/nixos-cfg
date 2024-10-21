@@ -8,6 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    inputs.sops-nix.url = "github:Mic92/sops-nix";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +21,7 @@
       nixpkgs,
       home-manager,
       spicetify-nix,
+      sops-nix,
       ...
     }:
     {
@@ -41,6 +43,7 @@
               home-manager.users.ezhang = import ./fw13/home/home.nix;
               home-manager.extraSpecialArgs = inputs;
             }
+            sops-nix.nixosModules.sops
           ];
         };
         winner = nixpkgs.lib.nixosSystem {
@@ -56,6 +59,7 @@
               home-manager.users.ezhang = import ./bpc/home/home.nix;
               home-manager.extraSpecialArgs = inputs;
             }
+            sops-nix.nixosModules.sops
           ];
         };
       };
