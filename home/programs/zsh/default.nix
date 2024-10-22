@@ -15,7 +15,7 @@
     shellAliases = {
       cfg = "code ~/nixos-cfg/";
       nix-test = "git -C ~/nixos-cfg/ add -A && nh os test ~/nixos-cfg -H ${nixosConfig.networking.hostName} -v && source ~/.zshrc";
-      nix-rebuild = "git -C ~/nixos-cfg/ add -A && git -C ~/nixos-cfg/ commit -a && git -C ~/nixos-cfg/ push; nh switch ~/nixos-cfg -H ${nixosConfig.networking.hostName} -v && source ~/.zshrc";
+      nix-rebuild = "git -C ~/nixos-cfg/ add -A && git -C ~/nixos-cfg/ commit -a && git -C ~/nixos-cfg/ push; nh os switch ~/nixos-cfg -H ${nixosConfig.networking.hostName} -v  && source ~/.zshrc";
       nix-cleanup = "nh cleanup all";
       fetch = "fastfetch\nsource /etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh";
       cs367 = "cd ~/School/cs367";
