@@ -38,6 +38,7 @@
           };
           system = "x86_64-linux";
           modules = [
+            ./fw13
             ./nixos/configuration.nix
             ./fw13/hardware-configuration.nix
             {
@@ -53,6 +54,7 @@
         winner = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            ./bpc
             ./nixos/configuration.nix
             ./bpc/hardware-configuration.nix
             {
