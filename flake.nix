@@ -30,7 +30,15 @@
       lanzaboote,
       ...
     }:
+    let
+      universalModules = [
+        ./nixos/configuration.nix
+        home-manager.nixosModules.home-manager
+        sops-nix.nixosModules.sops
+      ];
+    in
     {
+
       nixosConfigurations = {
         loser = nixpkgs.lib.nixosSystem {
           specialArgs = {
@@ -39,31 +47,14 @@
           system = "x86_64-linux";
           modules = [
             ./fw13
-            ./nixos/configuration.nix
-            ./fw13/hardware-configuration.nix
-            {
-              home-manager.users.ezhang = import ./fw13/home/home.nix;
-              networking.hostName = "loser";
-            }
-
-            home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
             lanzaboote.nixosModules.lanzaboote
-          ];
+          ] ++ universalModules;
         };
         winner = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./bpc
-            ./nixos/configuration.nix
-            ./bpc/hardware-configuration.nix
-            {
-              home-manager.users.ezhang = import ./bpc/home/home.nix;
-              networking.hostName = "winner";
-            }
-            home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
-          ];
+          ] ++ universalModules;
         };
       };
     };

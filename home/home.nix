@@ -63,7 +63,6 @@
     polychromatic
     themechanger
     vesktop
-    vscode
     zotero
 
     # games 

@@ -161,7 +161,6 @@
 
       # utils
       sbctl
-
       nixfmt-rfc-style
       ripgrep
       fd
@@ -184,7 +183,7 @@
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = "/home/ezhang7/nixos-cfg";
+      flake = "/home/ezhang/nixos-cfg";
     };
 
     gnupg.agent = {

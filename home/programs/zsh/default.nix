@@ -20,7 +20,7 @@
       nix-rebuild = "git -C ~/nixos-cfg/ add -A && sh ~/nixos-cfg/home/programs/zsh/scripts/nix-commit.sh && git -C ~/nixos-cfg/ push && nh os switch ~/nixos-cfg -H ${nixosConfig.networking.hostName} -v  && source ~/.zshrc";
       nix-cleanup = "nh clean all";
       nix-shell = "nix-shell --command \"zsh\"";
-      nix-update = "sudo nix flake update /home/ezhang/nixos-cfg/";
+      nix-update = "sudo nix flake update --flake /home/ezhang/nixos-cfg/";
 
       fetch = "fastfetch\nsource /etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh";
 

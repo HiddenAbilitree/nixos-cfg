@@ -13,6 +13,7 @@
     ./spicetify
     ./starship
     ./waybar
+    ./vscodium
     ./zsh
   ];
 }
