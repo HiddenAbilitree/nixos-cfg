@@ -19,7 +19,7 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
-  "editor.fontFamily": "'FuraCode Nerd Font Mono', 'FiraCode Nerd Font Mono', 'Fira Code', 'Droid Sans Mono', Menlo, Monaco, 'Courier New', monospace, 'Droid Sans Fallback'",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', 'FiraCode Nerd Font Mono', 'Fira Code', 'Droid Sans Mono', Menlo, Monaco, 'Courier New', monospace, 'Droid Sans Fallback'",
   "editor.fontLigatures": true,
   "git.openRepositoryInParentFolders": "never",
   "typescript.updateImportsOnFileMove.enabled": "always",
@@ -72,9 +72,7 @@
           }
         },
         {
-          "scope": [
-            "comment.block.documentation entity.name.type.instance"
-          ],
+          "scope": ["comment.block.documentation entity.name.type.instance"],
           "settings": {
             "foreground": "#73daca",
             "fontStyle": "italic"
@@ -89,9 +87,7 @@
           }
         },
         {
-          "scope": [
-            "comment.block.documentation variable"
-          ],
+          "scope": ["comment.block.documentation variable"],
           "settings": {
             "foreground": "#e0af68",
             "fontStyle": "italic"
