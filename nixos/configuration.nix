@@ -1,18 +1,10 @@
-# Edit this configuration file to define what should be installed on
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   config,
   pkgs,
   inputs,
   ...
 }:
-
 {
-
-  # Bootloader.
   boot = {
     lanzaboote = {
       enable = true;
@@ -23,16 +15,6 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
-  # Lanzaboote currently replaces the systemd-boot module.
-  # This setting is usually set to true in configuration.nix
-  # generated at installation time. So we force it to false
-  # for now.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
   networking.networkmanager.enable = true;
 
   nix.settings = {
@@ -40,17 +22,13 @@
       "nix-command"
       "flakes"
     ];
-    substituters = [ "https://hyprland.cachix.org" ];
-    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
 
-  # Set your time zone.
   time = {
     timeZone = "America/New_York";
     hardwareClockInLocalTime = true;
   };
 
-  # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
 
@@ -66,13 +44,14 @@
       LC_TIME = "en_US.UTF-8";
     };
   };
-  # Configure keymap in X11
+
   swapDevices = [
     {
       device = "/swapfile";
       size = 16 * 1024; # 16GB
     }
   ];
+
   users.users.ezhang = {
     isNormalUser = true;
     description = "Eric Zhang";
@@ -93,6 +72,7 @@
           "JetBrainsMono"
         ];
       })
+      inter
       dejavu_fonts
       noto-fonts
       noto-fonts-extra
@@ -113,23 +93,25 @@
       ];
 
       sansSerif = [
-        "JetBrains Mono"
-        "FiraCode"
+        "Inter"
         "DejaVu Sans"
         "Noto Sans CJK SC"
         "Noto Sans CJK TC"
+        "JetBrains Mono"
+        "FiraCode"
       ];
 
       serif = [
-        "JetBrains Mono"
-        "FiraCode"
         "DejaVu Serif"
         "Noto Serif CJK SC"
         "Noto Serif CJK TC"
+        "JetBrains Mono"
+        "FiraCode"
+
       ];
     };
   };
-  # allow unfree haha
+
   nixpkgs.config.allowUnfree = true;
 
   systemd.sleep.extraConfig = ''
@@ -146,16 +128,20 @@
   };
 
   environment = {
-    sessionVariables.NIXOS_OZONE_WL = "1";
+    sessionVariables = {
+      XDG_CACHE_HOME = "$HOME/.cache";
+      XDG_CONFIG_HOME = "$HOME/.config";
+      XDG_DATA_HOME = "$HOME/.local/share";
+      XDG_STATE_HOME = "$HOME/.local/state";
+    };
+
     systemPackages = with pkgs; [
-      firefox
       fprintd
 
       (catppuccin-sddm.override {
         flavor = "macchiato";
         font = "JetBrainsMono";
         fontSize = "12";
-        # # background = "${./wallpaper.png}";
         loginBackground = true;
       })
 
@@ -178,6 +164,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.extraSpecialArgs = inputs;
+
   programs = {
     nh = {
       enable = true;
@@ -207,7 +194,6 @@
   services = {
     gvfs.enable = true;
     fwupd.enable = true; # firmware updates
-    # pcscd.enable = true;
     fprintd.enable = true;
 
     displayManager = {
@@ -236,7 +222,6 @@
         layout = "us";
         variant = "";
       };
-
     };
 
     gnome.core-utilities.enable = false;
@@ -244,15 +229,11 @@
     pipewire = {
       enable = true;
       alsa.enable = true;
-
-      #alsa.support32Bit = true;
       pulse.enable = true;
-      # If you want to use JACK applications, uncomment this
-      #jack.enable = true;
     };
   };
 
-  # audio
+  # for audio purposes
   security.rtkit.enable = true;
 
   system.stateVersion = "24.05";
