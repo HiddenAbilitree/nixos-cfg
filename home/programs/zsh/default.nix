@@ -26,6 +26,8 @@
 
       cs367 = "cd ~/School/cs367";
 
+      code = "codium";
+
       calq = "qalc";
       calc = "qalc";
       qalq = "qalc";

@@ -3,17 +3,21 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # master or nixos-unstable
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     hyprland.url = "github:hyprwm/Hyprland";
-    sops-nix.url = "github:Mic92/sops-nix";
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix.url = "github:Mic92/sops-nix";
+
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,7 +42,6 @@
       ];
     in
     {
-
       nixosConfigurations = {
         loser = nixpkgs.lib.nixosSystem {
           specialArgs = {
