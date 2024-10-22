@@ -40,9 +40,6 @@
     swaynotificationcenter
 
     # cli/tuis
-    starship
-    btop
-    fastfetch
     fzf
     gum
     cbonsai
@@ -80,7 +77,6 @@
     # development
     bun
     deno
-    git
     gh
   ];
 

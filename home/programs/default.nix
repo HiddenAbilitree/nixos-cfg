@@ -9,7 +9,6 @@
     ./neovim
     ./pipewire
     ./rofi
-    #./sops-nix
     ./spicetify
     ./starship
     ./waybar

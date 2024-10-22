@@ -7,6 +7,7 @@
         gcc
       ]
     );
+    mutableExtensionsDir = false;
     extensions = with pkgs.vscode-extensions; [
       # general
       enkia.tokyo-night
@@ -20,6 +21,7 @@
       # nix
       bbenoist.nix
       brettm12345.nixfmt-vscode
+      jnoortheen.nix-ide
 
       # c/c++
       ms-vscode.cpptools
