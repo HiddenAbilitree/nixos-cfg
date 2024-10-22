@@ -44,6 +44,7 @@
     btop
     fastfetch
     fzf
+    gum
     cbonsai
     gambit-chess
     bluetuith
