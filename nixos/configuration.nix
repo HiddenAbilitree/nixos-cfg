@@ -135,7 +135,7 @@
   systemd.sleep.extraConfig = ''
     AllowSuspend=yes
     AllowHibernation=yes
-    AllowHybridSleep=no
+    AllowHybridSleep=yes
     AllowSuspendThenHibernate=yes
   '';
 
