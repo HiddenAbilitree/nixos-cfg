@@ -1,1 +1,1 @@
-{ imports = [ ./nixos ]; }
+{ imports = [ ]; }

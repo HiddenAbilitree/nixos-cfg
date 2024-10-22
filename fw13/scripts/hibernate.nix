@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+
 let
   hibernateEnvironment = {
     HIBERNATE_SECONDS = "10";
@@ -7,18 +8,23 @@ let
 in
 {
   systemd.services."awake-after-suspend-for-a-time" = {
-    description = "Sets up the suspend so that it'll wake for hibernation";
+    description = "Sets up the suspend so that it'll wake for hibernation only if not on AC power";
     wantedBy = [ "suspend.target" ];
     before = [ "systemd-suspend.service" ];
     environment = hibernateEnvironment;
     script = ''
-      curtime=$(date +%s)
-      echo "$curtime $1" >> /tmp/autohibernate.log
-      echo "$curtime" > $HIBERNATE_LOCK
-      ${pkgs.utillinux}/bin/rtcwake -m no -s $HIBERNATE_SECONDS
+      if [ $(cat /sys/class/power_supply/ACAD/online) -eq 0 ]; then
+        curtime=$(date +%s)
+        echo "$curtime $1" >> /tmp/autohibernate.log
+        echo "$curtime" > $HIBERNATE_LOCK
+        ${pkgs.utillinux}/bin/rtcwake -m no -s $HIBERNATE_SECONDS
+      else
+        echo "System is on AC power, skipping wake-up scheduling for hibernation." >> /tmp/autohibernate.log
+      fi
     '';
     serviceConfig.Type = "simple";
   };
+
   systemd.services."hibernate-after-recovery" = {
     description = "Hibernates after a suspend recovery due to timeout";
     wantedBy = [ "suspend.target" ];
@@ -36,4 +42,5 @@ in
     '';
     serviceConfig.Type = "simple";
   };
+
 }
