@@ -157,6 +157,7 @@
       wl-clipboard
       playerctl
       brightnessctl
+      p7zip
       zip
       unzip
     ];

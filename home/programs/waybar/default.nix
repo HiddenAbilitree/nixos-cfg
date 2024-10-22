@@ -44,7 +44,10 @@
             "󰂂"
             "󰁹"
           ];
-
+          states = {
+            warning = 30;
+            critical = 15;
+          };
         };
         "custom/notification" = {
           tooltip = false;

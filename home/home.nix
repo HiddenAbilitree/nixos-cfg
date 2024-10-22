@@ -53,6 +53,7 @@
     brave
     drawing
     easyeffects
+    evince
     libqalculate
     networkmanagerapplet
     obsidian
@@ -60,6 +61,7 @@
     polychromatic
     themechanger
     vesktop
+    zathura
     zotero
 
     # games 

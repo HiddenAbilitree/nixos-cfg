@@ -106,12 +106,13 @@ textbox-prompt-colon {
     enabled:                     true;
     padding:                     5px 0px;
     expand:                      false;
-    str:                         "";
+    str:                         " ";
     background-color:            inherit;
     text-color:                  inherit;
 }
 entry {
     enabled:                     true;
+    expand:                      true;
     padding:                     5px 0px;
     background-color:            inherit;
     text-color:                  inherit;

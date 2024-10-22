@@ -3,7 +3,7 @@
   programs.rofi = {
     enable = true;
     terminal = "${pkgs.kitty}/bin/kitty";
-    font = "FuraCode Nerd Font Mono 12";
+    font = "JetBrainsMono Nerd Font 12";
     package = pkgs.rofi-wayland;
     theme = ./theme.rasi;
     extraConfig = {
