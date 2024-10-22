@@ -42,5 +42,4 @@ in
     '';
     serviceConfig.Type = "simple";
   };
-
 }
