@@ -180,6 +180,13 @@
   home-manager.useUserPackages = true;
   home-manager.extraSpecialArgs = inputs;
   programs = {
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/ezhang7/nixos-cfg";
+    };
+
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
