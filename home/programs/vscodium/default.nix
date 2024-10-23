@@ -34,6 +34,9 @@
       prisma.prisma
       formulahendry.auto-close-tag
       formulahendry.auto-rename-tag
+
+      # sh
+      foxundermoon.shell-format
     ];
     enableUpdateCheck = false;
     # lib.importJSON gets rid of the quotes on LHS from settings.json and consequently, doesn't work.
@@ -55,19 +58,23 @@
       "[c]" = {
         "editor.defaultFormatter" = "ms-vscode.cpptools";
       };
+      "[shellscript]" = {
+        "editor.defaultFormatter" = "foxundermoon.shell-format";
+      };
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "explorer.confirmDragAndDrop" = false;
       "explorer.confirmDelete" = false;
       "editor.formatOnSave" = true;
       "editor.formatOnPaste" = true;
       "editor.formatOnType" = true;
-      "editor.fontFamily" = "'FuraCode Nerd Font Mono', 'FiraCode Nerd Font Mono', 'Fira Code', 'Droid Sans Mono', Menlo, Monaco, 'Courier New', monospace, 'Droid Sans Fallback'";
+      "editor.fontFamily" = "'FiraCode Nerd Font Mono', 'Fira Code', 'Droid Sans Mono', Menlo, Monaco, 'Courier New', monospace, 'Droid Sans Fallback'";
       "editor.fontLigatures" = true;
       "git.openRepositoryInParentFolders" = "never";
       "typescript.updateImportsOnFileMove.enabled" = "always";
       "javascript.updateImportsOnFileMove.enabled" = "always";
       "C_Cpp.clang_format_fallbackStyle" = "LLVM";
       "C_Cpp.clang_format_sortIncludes" = false;
+      "workbench.startupEditor" = "none";
       "workbench.sideBar.location" = "right";
       "workbench.activityBar.location" = "top";
       "workbench.colorTheme" = "Tokyo Night Storm";

@@ -2,6 +2,7 @@
   nixosConfig,
   config,
   pkgs,
+  root,
   ...
 }:
 {
@@ -11,16 +12,15 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     autocd = true;
-    initExtra = "fastfetch";
+    initExtra = builtins.readFile ./initExtra.sh;
     shellAliases = {
-      cfg = "code ~/nixos-cfg/";
-
+      cfg = "code ${root}";
       # nix aliases
-      nix-test = "git -C ~/nixos-cfg/ add -A && nh os test ~/nixos-cfg -H ${nixosConfig.networking.hostName} -v -- --accept-flake-config && source ~/.zshrc";
-      nix-rebuild = "git -C ~/nixos-cfg/ add -A && sh ~/nixos-cfg/home/programs/zsh/scripts/nix-commit.sh && git -C ~/nixos-cfg/ push && nh os switch ~/nixos-cfg -H ${nixosConfig.networking.hostName} -v -- --accept-flake-config && source ~/.zshrc";
+      nix-test = "git -C ${root} add -A && nh os test ${root} -H ${nixosConfig.networking.hostName} -v -- --accept-flake-config && source ~/.zshrc";
+      nix-rebuild = "git -C ${root} add -A && commit ${root} && git -C ${root} push && nh os switch ${root} -H ${nixosConfig.networking.hostName} -v -- --accept-flake-config && source ~/.zshrc";
       nix-cleanup = "nh clean all";
       nix-shell = "nix-shell --command \"zsh\"";
-      nix-update = "sudo nix flake update --flake /home/ezhang/nixos-cfg/";
+      nix-update = "sudo nix flake update --flake ${root}";
 
       fetch = "fastfetch\nsource /etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh";
 

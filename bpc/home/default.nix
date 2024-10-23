@@ -7,6 +7,6 @@
   imports = [
     ./programs
     ./services
-    ../../home/home.nix
+    ../../home
   ];
 }

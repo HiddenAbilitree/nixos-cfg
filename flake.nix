@@ -29,7 +29,7 @@
       "https://hyprland.cachix.org"
       "https://nix-community.cachix.org"
     ];
-    extra-trusted-public-keys = [
+    trusted-public-keys = [
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
@@ -46,35 +46,46 @@
       ...
     }:
     let
+      specialArgs = {
+        inherit inputs;
+      };
+
       universalModules = [
-        ./nixos/configuration.nix
+        ./configuration.nix
         home-manager.nixosModules.home-manager
         sops-nix.nixosModules.sops
       ];
+
     in
     {
       nixosConfigurations = {
         loser = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-
-          specialArgs = {
-            inherit inputs;
-          };
-
+          specialArgs = specialArgs;
           modules = [
             ./fw13
+            ./utils/hibernate.nix
             lanzaboote.nixosModules.lanzaboote
+            {
+              home-manager.extraSpecialArgs = inputs // {
+                root = "~/nixos-cfg";
+              };
+              networking.hostName = "loser";
+            }
           ] ++ universalModules;
         };
         winner = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-
-          specialArgs = {
-            inherit inputs;
-          };
-
+          specialArgs = specialArgs;
           modules = [
             ./bpc
+            {
+              home-manager.extraSpecialArgs = inputs // {
+                root = "~/nixos-cfg";
+              };
+              networking.hostName = "winner";
+            }
+
           ] ++ universalModules;
         };
       };
