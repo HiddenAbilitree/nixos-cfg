@@ -16,7 +16,7 @@
       usernamehw.errorlens
 
       # utilities
-      tomoki1207.pdf
+      # tomoki1207.pdf
 
       # nix
       bbenoist.nix
@@ -37,6 +37,9 @@
 
       # sh
       foxundermoon.shell-format
+
+      # latex
+      james-yu.latex-workshop
     ];
     enableUpdateCheck = false;
     # lib.importJSON gets rid of the quotes on LHS from settings.json and consequently, doesn't work.
@@ -60,6 +63,9 @@
       };
       "[shellscript]" = {
         "editor.defaultFormatter" = "foxundermoon.shell-format";
+      };
+      "[latex]" = {
+        "editor.defaultFormatter" = "james-yu.latex-workshop";
       };
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "explorer.confirmDragAndDrop" = false;

@@ -66,6 +66,8 @@
     zathura
     zotero
 
+    texliveFull
+
     # games 
     prismlauncher
     steam
