@@ -43,6 +43,7 @@
     fzf
     gum
     cbonsai
+    chroma
     gambit-chess
     bluetuith
     gnupg1
@@ -57,6 +58,7 @@
     libqalculate
     networkmanagerapplet
     obsidian
+    obs-studio
     pavucontrol
     polychromatic
     themechanger

@@ -196,6 +196,7 @@
     gvfs.enable = true;
     fwupd.enable = true; # firmware updates
     fprintd.enable = true;
+    blueman.enable = true;
 
     displayManager = {
       sddm = {
@@ -231,6 +232,50 @@
       enable = true;
       alsa.enable = true;
       pulse.enable = true;
+      wireplumber.configPackages = [
+        (pkgs.writeTextDir "share/wireplumber/main.lua.d/99-alsa-lowlatency.lua" ''
+          alsa_monitor.rules = {
+            {
+              matches = {{{ "node.name", "matches", "alsa_output.*" }}};
+              apply_properties = {
+                ["audio.format"] = "S32LE",
+                ["audio.rate"] = "96000", -- for USB soundcards it should be twice your desired rate
+                ["api.alsa.period-size"] = 2, -- defaults to 1024, tweak by trial-and-error
+                -- ["api.alsa.disable-batch"] = true, -- generally, USB soundcards use the batch mode
+              },
+            },
+          }
+        '')
+      ];
+      extraConfig = {
+        pipewire."92-low-latency" = {
+          "context.properties" = {
+            "default.clock.rate" = 96000;
+            "default.clock.quantum" = 2;
+            "default.clock.min-quantum" = 2;
+            "default.clock.max-quantum" = 2;
+          };
+        };
+        pipewire-pulse."92-low-latency" = {
+          context.modules = [
+            {
+              name = "libpipewire-module-protocol-pulse";
+              args = {
+                pulse.min.req = "2/96000";
+                pulse.default.req = "2/96000";
+                pulse.max.req = "2/96000";
+                pulse.min.quantum = "2/96000";
+                pulse.max.quantum = "2/96000";
+              };
+            }
+          ];
+
+          stream.properties = {
+            node.latency = "2/96000";
+            resample.quality = 1;
+          };
+        };
+      };
     };
   };
 
