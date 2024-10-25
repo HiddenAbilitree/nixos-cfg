@@ -196,8 +196,6 @@
     gvfs.enable = true;
     fwupd.enable = true; # firmware updates
     fprintd.enable = true;
-    blueman.enable = true;
-
     displayManager = {
       sddm = {
         enable = false;
