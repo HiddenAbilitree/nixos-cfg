@@ -12,19 +12,22 @@
       useNetworkd = true;
     };
 
-    systemd.network = {
-      enable = true;
-      netdevs = {
-        "50-wg0" = {
+    systemd = {
+      services.systemd-networkd.serviceConfig.LoadCredential = ["network.wireguard.private.50-wg0:${config.sops.secrets.wg-server-private-key.path}"];
+      network = {
+        enable = true;
+        netdevs."50-wg0" = {
           netdevConfig = {
             Kind = "wireguard";
             Name = "wg0";
             MTUBytes = "1440";
           };
+
           wireguardConfig = {
             PrivateKeyFile = config.sops.secrets.wg-server-private-key.path;
             ListenPort = config.wireguard.listenPort;
           };
+
           wireguardPeers = [
             {
               PublicKey = "nL4DkJLnD/EwRGg+DHAsjDE2rg/hEibFb88b6Y7szBc="; # loser
@@ -38,13 +41,14 @@
             }
           ];
         };
-      };
-      networks.wg0 = {
-        matchConfig.Name = "wg0";
-        address = ["10.100.0.1/24"];
-        networkConfig = {
-          IPMasquerade = "ipv4";
-          IPv4Forwarding = true;
+
+        networks.wg0 = {
+          matchConfig.Name = "wg0";
+          address = ["10.100.0.1/24"];
+          networkConfig = {
+            IPMasquerade = "ipv4";
+            IPv4Forwarding = true;
+          };
         };
       };
     };

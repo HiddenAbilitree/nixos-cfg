@@ -6,7 +6,7 @@
       listenPort = lib.mkOption {
         type = lib.types.int;
         description = "Port to listen on for wireguard";
-        default = 53;
+        default = 51820;
       };
 
       server.enable = lib.mkEnableOption "wireguard server";
