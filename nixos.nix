@@ -47,7 +47,7 @@
       "8.8.8.8"
       "9.9.9.9"
     ];
-    networkmanager.enable = false;
+    networkmanager.enable = lib.mkDefault false;
     useNetworkd = true;
   };
 
