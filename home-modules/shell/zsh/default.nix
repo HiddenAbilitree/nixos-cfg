@@ -21,7 +21,7 @@
     shellAliases = {
       cfg = "xvim ${root}";
       pcfg = "xvim ${proot}";
-      secrets = "sops ${proot}/home/sops/secrets.yaml";
+      secrets = "sops ${proot}/nixos/sops/secrets.yaml";
 
       nix-commit = "git -C ${root} add -A && commit ${root} && git -C ${root} push";
       nix-develop = "nix develop -c zsh";
