@@ -15,7 +15,7 @@
           };
           wireguardConfig = {
             PrivateKeyFile = config.wireguard.client.PrivateKeyFile;
-            ListenPort = 9918;
+            ListenPort = config.wireguard.listenPort;
           };
           wireguardPeers = [
             {
