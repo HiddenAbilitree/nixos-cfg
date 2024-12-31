@@ -1,4 +1,4 @@
-x# ❄️ nix configs ❄️
+# ❄️ nix configs ❄️
 haha yeah
 
 > [!WARNING]  
@@ -15,7 +15,7 @@ $ nixos-rebuild switch --flake /flake/dir#hostname --use-remote-sudo
  Current valid hostnames are: 
 >  loser [fw13]
 >
->  winner [bpc]x
+>  winner [bpc]
 
 ## Adding a Host 🖥️
 Add a new directory in `~/hosts` named the desired hostname.
