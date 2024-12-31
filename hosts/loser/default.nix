@@ -3,11 +3,21 @@
     ./hardware-configuration.nix
     ./disk-config.nix
   ];
+
   laptop.enable = true;
+
   syncthing.enable = true;
+
   bootx.plymouth.enable = true;
+
   distributed-builds.enable = true;
+
   desktop.enable = true;
+
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "ezhang";
+  };
 
   wireguard.client = {
     enable = true;
