@@ -29,13 +29,6 @@
 
     distributed-builds.enable = lib.mkEnableOption "distributed builds";
 
-    laptop = {
-      enable = lib.mkEnableOption "laptop";
-      fingerprint.enable = lib.mkEnableOption "fingerprint";
-      hibernate.enable = lib.mkEnableOption "hibernation";
-      sleep.enable = lib.mkEnableOption "sleep";
-    };
-
     desktop = {
       enable = lib.mkEnableOption "desktop";
       hyprland.enable = lib.mkEnableOption "Hyprland";
@@ -55,6 +48,7 @@
       plymouth.enable = lib.mkEnableOption "Plymouth";
     };
   };
+
   config = {
     desktop = lib.mkIf config.desktop.enable {
       fonts.enable = lib.mkDefault true;
@@ -68,11 +62,5 @@
     };
 
     server.ssh.fail2ban.enable = lib.mkDefault true;
-
-    laptop = lib.mkIf config.laptop.enable {
-      fingerprint.enable = lib.mkDefault true;
-      hibernate.enable = lib.mkDefault true;
-      sleep.enable = lib.mkDefault true;
-    };
   };
 }
