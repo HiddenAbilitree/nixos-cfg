@@ -40,13 +40,13 @@ $ sops --config ~/flake/dir/.sops.yaml updatekeys ~/flake/dir/home/sops/secrets.
 To reference secrets:
 in home-manager, use
 ```nix
-{ config, ... }:
+{ osConfig, ... }:
 ...
-config.sops.secrets.<name>.path
+osConfig.sops.secrets.<name>.path
 ```
 in nixos, use
 ```nix
 { config, ... }:
 ...
-config.home-manager.users.<user>.sops.secrets.<name>.path
+config.sops.secrets.<name>.path
 ```
