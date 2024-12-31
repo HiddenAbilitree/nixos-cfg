@@ -35,7 +35,7 @@
               PersistentKeepalive = 25;
             }
             {
-              PublicKey = "qPEAvFY7/rwheiLX1Xn3EI1pnDmbF4VslClPmkDn10o=";
+              PublicKey = "qPEAvFY7/rwheiLX1Xn3EI1pnDmbF4VslClPmkDn10o="; # winner
               AllowedIPs = ["10.100.0.3"];
               PersistentKeepalive = 25;
             }
