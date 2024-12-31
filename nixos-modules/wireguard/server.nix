@@ -28,12 +28,12 @@
           wireguardPeers = [
             {
               PublicKey = "nL4DkJLnD/EwRGg+DHAsjDE2rg/hEibFb88b6Y7szBc="; # loser
-              AllowedIPs = ["10.100.0.2/24"];
+              AllowedIPs = ["10.100.0.2"];
               PersistentKeepalive = 25;
             }
             {
               PublicKey = "qPEAvFY7/rwheiLX1Xn3EI1pnDmbF4VslClPmkDn10o=";
-              AllowedIPs = ["10.100.0.3/24"];
+              AllowedIPs = ["10.100.0.3"];
               PersistentKeepalive = 25;
             }
           ];
