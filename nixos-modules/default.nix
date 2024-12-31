@@ -12,6 +12,7 @@
     ./swap.nix
     ./syncthing.nix
     ./virtualization
+    ./wireguard
   ];
 
   options = {

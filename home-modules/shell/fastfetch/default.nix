@@ -101,7 +101,6 @@
           keyColor = "blue";
         }
         "break"
-        "break"
         {
           type = "lm";
           key = "   ";

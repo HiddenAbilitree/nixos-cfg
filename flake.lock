@@ -1073,11 +1073,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1735600249,
-        "narHash": "sha256-7W5v98B2cQfvtsv42YsDM+6rk0hvLRz6IzUhE6NvPgw=",
+        "lastModified": 1735639220,
+        "narHash": "sha256-WveMlpmtNAdM6LY40X2z1RzDrl/MfMKiJI+blHq5UWY=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "c04dda021b18a192c421ee79b877b341db5b2d69",
+        "rev": "caef39133f187a9ba138c5779a6c33307caaf149",
         "type": "github"
       },
       "original": {
@@ -1243,11 +1243,11 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1735607946,
-        "narHash": "sha256-ucTBkSOXN3lsEACOdLJrrUv2zIuFrzS8Ho+bqXyIdjs=",
+        "lastModified": 1735676610,
+        "narHash": "sha256-+1B8o5dY7ChQwT5SKrnBwGvl9AUXE6o8vF9oBSn7sjs=",
         "ref": "main",
-        "rev": "4127f15a2e5213ff01a8f9e926c5e2b8f3e9158e",
-        "revCount": 41,
+        "rev": "e14c5ef8b90b9926ec1622448c8c8dcb870e3b99",
+        "revCount": 45,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git"
       },
@@ -1364,11 +1364,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1735532154,
-        "narHash": "sha256-b+Yz6cOqcDmWYt8BIifTrY1n8q5zTJEHuEh/16nhS7k=",
+        "lastModified": 1735618543,
+        "narHash": "sha256-Aqhp0PcsoEn4FRWZYJZHbHeB+FOJDQcbsaEsXv0iA9k=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "52c3363e4a6896c263657491e8177ee8b63af3b4",
+        "rev": "2da20133b52ac69a1f348c08dc801c8638261548",
         "type": "github"
       },
       "original": {
