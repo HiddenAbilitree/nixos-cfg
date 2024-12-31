@@ -1,15 +1,11 @@
-# ❄️ nix configs ❄️
+x# ❄️ nix configs ❄️
 haha yeah
 
 > [!WARNING]  
 > Instructions are for me. Things probably won't work out of the box.
----
-## 🔄 To switch to this config:
-### Clone this repo somewhere
-```sh
-$ git clone https://github.com/HiddenAbilitree/nixos-cfg.git
-```
-If hardware changes, run `sudo nixos-generate-config` and copy `hardware-config.nix` from `/etc/nixos` into the newly cloned repo. 
+
+### Installation
+go read [nixos-anywhere docs](https://github.com/nix-community/nixos-anywhere/blob/main/docs/quickstart.md)
 
 ### Switch to it 
 ```sh
@@ -19,7 +15,7 @@ $ nixos-rebuild switch --flake /flake/dir#hostname --use-remote-sudo
  Current valid hostnames are: 
 >  loser [fw13]
 >
->  winner [bpc]
+>  winner [bpc]x
 
 ## Adding a Host 🖥️
 Add a new directory in `~/hosts` named the desired hostname.
