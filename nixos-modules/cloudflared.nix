@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  services.cloudflared = lib.mkIf config.server.cloudflared.enable {
+  services.cloudflared = lib.mkIf config.cloudflared.enable {
     enable = true;
     user = "ezhang";
     tunnels = {

@@ -5,10 +5,11 @@
 }: {
   imports = [
     ./boot
+    ./cloudflared.nix
     ./desktop
     ./distributed-builds.nix
     ./laptop
-    ./server
+    ./ssh.nix
     ./swap.nix
     ./syncthing.nix
     ./virtualization
@@ -16,12 +17,11 @@
   ];
 
   options = {
-    server = {
-      cloudflared.enable = lib.mkEnableOption "Cloudflared Tunnels";
-      ssh = {
-        enable = lib.mkEnableOption "ssh";
-        fail2ban.enable = lib.mkEnableOption "fail2ban";
-      };
+    cloudflared.enable = lib.mkEnableOption "Cloudflared Tunnels";
+
+    ssh = {
+      enable = lib.mkEnableOption "ssh";
+      fail2ban.enable = lib.mkEnableOption "fail2ban";
     };
 
     syncthing.enable = lib.mkEnableOption "Syncthing";
@@ -62,6 +62,6 @@
       vm.enable = lib.mkDefault true;
     };
 
-    server.ssh.fail2ban.enable = lib.mkDefault true;
+    ssh.fail2ban.enable = lib.mkDefault true;
   };
 }

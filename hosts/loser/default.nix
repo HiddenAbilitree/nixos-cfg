@@ -14,6 +14,11 @@
 
   desktop.enable = true;
 
+  ssh = {
+    enable = true;
+    fail2ban.enable = false;
+  };
+
   services.displayManager.autoLogin = {
     enable = true;
     user = "ezhang";

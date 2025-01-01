@@ -6,12 +6,11 @@
 
   virtualization.enable = true;
 
-  server = {
-    cloudflared.enable = true;
-    ssh = {
-      enable = true;
-      fail2ban.enable = false;
-    };
+  cloudflared.enable = true;
+
+  ssh = {
+    enable = true;
+    fail2ban.enable = false;
   };
 
   bootx.plymouth.enable = true;

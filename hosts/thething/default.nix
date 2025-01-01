@@ -1,11 +1,9 @@
 {
   imports = [./disk-config.nix ./hardware-configuration.nix];
 
-  server = {
-    ssh = {
-      enable = true;
-      fail2ban.enable = false;
-    };
+  ssh = {
+    enable = true;
+    fail2ban.enable = false;
   };
 
   wireguard.server.enable = true;
