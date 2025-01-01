@@ -30,12 +30,14 @@
 
           wireguardPeers = [
             {
-              PublicKey = "nL4DkJLnD/EwRGg+DHAsjDE2rg/hEibFb88b6Y7szBc="; # loser
+              PresharedKeyFile = config.sops.secrets.wg-loser-psk.path;
+              PublicKey = "nL4DkJLnD/EwRGg+DHAsjDE2rg/hEibFb88b6Y7szBc=";
               AllowedIPs = ["10.100.0.2"];
               PersistentKeepalive = 25;
             }
             {
-              PublicKey = "qPEAvFY7/rwheiLX1Xn3EI1pnDmbF4VslClPmkDn10o="; # winner
+              PresharedKeyFile = config.sops.secrets.wg-winner-psk.path;
+              PublicKey = "qPEAvFY7/rwheiLX1Xn3EI1pnDmbF4VslClPmkDn10o=";
               AllowedIPs = ["10.100.0.3"];
               PersistentKeepalive = 25;
             }
