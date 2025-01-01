@@ -8,7 +8,10 @@
 
   server = {
     cloudflared.enable = true;
-    ssh.enable = true;
+    ssh = {
+      enable = true;
+      fail2ban.enable = false;
+    };
   };
 
   bootx.plymouth.enable = true;
