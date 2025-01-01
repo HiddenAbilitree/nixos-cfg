@@ -14,6 +14,11 @@
       client = {
         enable = lib.mkEnableOption "wireguard client";
 
+        PresharedKeyFile = lib.mkOption {
+          type = lib.types.str;
+          description = "Path to the client's wireguard preshared key file";
+        };
+
         PrivateKeyFile = lib.mkOption {
           type = lib.types.str;
           description = "Path to the client's wireguard private key file";

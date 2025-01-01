@@ -23,6 +23,7 @@
   wireguard.client = {
     enable = true;
     PrivateKeyFile = config.sops.secrets.wg-winner-private-key.path;
+    PresharedKeyFile = config.sops.secrets.wg-winner-psk.path;
     address = "10.100.0.3/24";
   };
 
