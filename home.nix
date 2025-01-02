@@ -4,16 +4,7 @@
   root,
   ...
 }: {
-  imports = [
-    (
-      {
-        "loser" = ./hosts/loser/home;
-        "winner" = ./hosts/winner/home;
-        "thething" = ./hosts/thething/home;
-      }
-      ."${osConfig.networking.hostName}"
-    )
-  ];
+  imports = [./hosts/${osConfig.networking.hostName}/home];
   nixpkgs.config.allowUnfree = true;
 
   programs = {

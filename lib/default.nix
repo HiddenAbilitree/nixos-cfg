@@ -1,1 +1,1 @@
-{imports = [./generateConfig.nix ./mkHost.nix];}
+{imports = [./mkHost.nix];}
