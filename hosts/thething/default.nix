@@ -6,6 +6,8 @@
     fail2ban.enable = false;
   };
 
+  virtualization.docker.enable = true;
+
   wireguard.server.enable = true;
 
   users.users.root.openssh.authorizedKeys.keys = [
