@@ -18,6 +18,7 @@
     typst
     vesktop
     wineWowPackages.waylandFull
+    wl-clicker
     zoom
     zotero
 

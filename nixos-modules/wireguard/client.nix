@@ -14,12 +14,12 @@
             MTUBytes = "1440";
           };
           wireguardConfig = {
-            PrivateKeyFile = config.wireguard.client.PrivateKeyFile;
+            inherit (config.wireguard.client) PrivateKeyFile;
             ListenPort = config.wireguard.listenPort;
           };
           wireguardPeers = [
             {
-              PresharedKeyFile = config.wireguard.client.PresharedKeyFile;
+              inherit (config.wireguard.client) PresharedKeyFile;
               PublicKey = "lHHJlzI/DCtaptEw75Uz121FcPeiAPAq91l6PZET0xc="; # server public key
               AllowedIPs = ["10.100.0.1" "10.100.0.2" "10.100.0.3"];
               Endpoint = "${config.ip}:${toString config.wireguard.listenPort}";

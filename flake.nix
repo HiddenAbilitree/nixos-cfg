@@ -69,8 +69,8 @@
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
-    lib = nixpkgs.lib;
-    mkHost = (import ./lib/mkHost.nix {inherit lib inputs;}).mkHost;
+    inherit (nixpkgs) lib;
+    inherit ((import ./lib/mkHost.nix {inherit lib inputs;})) mkHost;
   in {
     nixosConfigurations = {
       loser = mkHost {

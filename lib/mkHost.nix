@@ -10,7 +10,7 @@
     install,
   } @ args:
     lib.nixosSystem {
-      system = system;
+      inherit system;
       specialArgs =
         inputs // args;
       modules = [

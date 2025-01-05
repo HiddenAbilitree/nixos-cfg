@@ -11,6 +11,7 @@
       "sudo"
       "wheel"
       "openrazer"
+      "inputs"
     ];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
