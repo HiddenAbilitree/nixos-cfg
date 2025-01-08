@@ -17,7 +17,12 @@
       "usbhid"
       "sd_mod"
     ];
-    kernelModules = ["kvm-amd"];
+    kernelModules = ["kvm-amd amdgpu"];
+  };
+
+  services.xserver = {
+    enable = true;
+    videoDrivers = ["amdgpu"];
   };
 
   fileSystems = {

@@ -6,6 +6,7 @@
   imports = [
     ./brave
     ./dark-mode
+    ./ghostty
     ./kitty
     ./rofi
     ./zathura
@@ -19,6 +20,7 @@
     enable = lib.mkEnableOption "desktop configuration";
     dark-mode.enable = lib.mkEnableOption "Dark Mode";
     brave.enable = lib.mkEnableOption "Brave Browser";
+    ghostty.enable = lib.mkEnableOption "Ghostty";
     kitty.enable = lib.mkEnableOption "Kitty";
     rofi.enable = lib.mkEnableOption "Rofi";
     waybar.enable = lib.mkEnableOption "Waybar";
@@ -38,6 +40,7 @@
     desktop = lib.mkIf config.desktop.enable {
       brave.enable = lib.mkDefault true;
       kitty.enable = lib.mkDefault true;
+      ghostty.enable = lib.mkDefault true;
       dark-mode.enable = lib.mkDefault true;
       rofi.enable = lib.mkDefault true;
       waybar.enable = lib.mkDefault true;
