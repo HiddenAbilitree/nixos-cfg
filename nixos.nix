@@ -23,6 +23,7 @@
   environment = {
     systemPackages = with pkgs; [
       duf
+      dmidecode
       fd
       fprintd
       fzf

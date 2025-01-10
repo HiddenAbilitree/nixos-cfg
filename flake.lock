@@ -1070,11 +1070,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1736236905,
-        "narHash": "sha256-f/4teuVTJB5yJ/KqBQ+902yO2loxfvaiJDNTVFPOwH4=",
+        "lastModified": 1736312600,
+        "narHash": "sha256-tT0QYL8hXHiphw5H1hLBqYVbyox+OYPVqfAVfMjE1LU=",
         "owner": "HiddenAbilitree",
         "repo": "nixvim-cfg",
-        "rev": "72f6558dd7bbf4ca63ac07582a525c55274be870",
+        "rev": "06cd6a57cb8dab5c52836ceeea8cd62b595015a2",
         "type": "github"
       },
       "original": {

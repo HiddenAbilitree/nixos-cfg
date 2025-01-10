@@ -1,6 +1,11 @@
 {
-  "[nix]": {
-    "editor.defaultFormatter": "brettm12345.nixfmt-vscode"
+  "C_Cpp.clang_format_fallbackStyle": "LLVM",
+  "C_Cpp.clang_format_sortIncludes": false,
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
   },
   "[css]": {
     "editor.defaultFormatter": "vscode.css-language-features"
@@ -8,59 +13,27 @@
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode"
+  "[latex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop"
   },
-  "[c]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
+  "[nix]": {
+    "editor.defaultFormatter": "kamadorueda.alejandra"
   },
-  "[Properties]": {
-    "editor.defaultFormatter": ""
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnType": true,
-  "editor.fontFamily": "'JetBrainsMono Nerd Font', 'FiraCode Nerd Font Mono', 'Fira Code', 'Droid Sans Mono', Menlo, Monaco, 'Courier New', monospace, 'Droid Sans Fallback'",
+  "breadcrumbs.enabled": false,
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": "explicit",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "'0xProto'",
   "editor.fontLigatures": true,
-  "git.openRepositoryInParentFolders": "never",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "C_Cpp.clang_format_fallbackStyle": "LLVM",
-  "C_Cpp.clang_format_sortIncludes": false,
-  "workbench.sideBar.location": "right",
-  "workbench.activityBar.location": "top",
-  "workbench.colorTheme": "Tokyo Night Storm",
-  "workbench.colorCustomizations": {
-    "[Tokyo Night Storm]": {
-      "foreground": "#959cbd",
-      "panelTitle.activeBorder": "#3d59a1",
-      "panelTitle.activeForeground": "#bdc7f0",
-      "panelTitle.inactiveForeground": "#959cbd",
-      "tab.activeForeground": "#bdc7f0",
-      "tab.inactiveForeground": "#959cbd",
-      "breadcrumb.foreground": "#959cbd",
-      "breadcrumb.focusForeground": "#bdc7f0",
-      "breadcrumb.activeSelectionForeground": "#bdc7f0",
-      "statusBar.foreground": "#bdc7f0",
-      "list.focusForeground": "#bdc7f0",
-      "list.hoverForeground": "#bdc7f0",
-      "list.activeSelectionForeground": "#bdc7f0",
-      "list.inactiveSelectionForeground": "#bdc7f0",
-      "list.inactiveSelectionBackground": "#202330",
-      "sideBar.foreground": "#959cbd",
-      "dropdown.foreground": "#959cbd",
-      "menu.foreground": "#bdc7f0",
-      "menubar.selectionForeground": "#bdc7f0",
-      "input.foreground": "#959cbd",
-      "input.placeholderForeground": "#959cbd",
-      "activityBar.foreground": "#bdc7f0",
-      "activityBar.inactiveForeground": "#787c99",
-      "gitDecoration.ignoredResourceForeground": "#696d87",
-      "editorCodeLens.foreground": "#7982a9" // Preferred hex color
-    }
-  },
+  "editor.fontWeight": "600",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.renderLineHighlight": "all",
+  "editor.smoothScrolling": true,
   "editor.tokenColorCustomizations": {
     "[Tokyo Night Storm]": {
       "textMateRules": [
@@ -75,10 +48,12 @@
           }
         },
         {
-          "scope": ["comment.block.documentation entity.name.type.instance"],
+          "scope": [
+            "comment.block.documentation entity.name.type.instance"
+          ],
           "settings": {
-            "foreground": "#73daca",
-            "fontStyle": "italic"
+            "fontStyle": "italic",
+            "foreground": "#73daca"
           }
         },
         {
@@ -90,13 +65,58 @@
           }
         },
         {
-          "scope": ["comment.block.documentation variable"],
+          "scope": [
+            "comment.block.documentation variable"
+          ],
           "settings": {
-            "foreground": "#e0af68",
-            "fontStyle": "italic"
+            "fontStyle": "italic",
+            "foreground": "#e0af68"
           }
         }
       ]
     }
-  }
+  },
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "git.openRepositoryInParentFolders": "never",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.smoothScrolling": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "update.mode": "none",
+  "window.menuBarVisibility": "toggle",
+  "workbench.activityBar.location": "top",
+  "workbench.colorCustomizations": {
+    "[Tokyo Night Storm]": {
+      "activityBar.foreground": "#bdc7f0",
+      "activityBar.inactiveForeground": "#787c99",
+      "breadcrumb.activeSelectionForeground": "#bdc7f0",
+      "breadcrumb.focusForeground": "#bdc7f0",
+      "breadcrumb.foreground": "#959cbd",
+      "dropdown.foreground": "#959cbd",
+      "editorCodeLens.foreground": "#7982a9",
+      "foreground": "#959cbd",
+      "gitDecoration.ignoredResourceForeground": "#696d87",
+      "input.foreground": "#959cbd",
+      "input.placeholderForeground": "#959cbd",
+      "list.activeSelectionForeground": "#bdc7f0",
+      "list.focusForeground": "#bdc7f0",
+      "list.hoverForeground": "#bdc7f0",
+      "list.inactiveSelectionBackground": "#202330",
+      "list.inactiveSelectionForeground": "#bdc7f0",
+      "menu.foreground": "#bdc7f0",
+      "menubar.selectionForeground": "#bdc7f0",
+      "panelTitle.activeBorder": "#3d59a1",
+      "panelTitle.activeForeground": "#bdc7f0",
+      "panelTitle.inactiveForeground": "#959cbd",
+      "sideBar.foreground": "#959cbd",
+      "statusBar.foreground": "#bdc7f0",
+      "tab.activeForeground": "#bdc7f0",
+      "tab.inactiveForeground": "#959cbd"
+    }
+  },
+  "workbench.colorTheme": "Tokyo Night Storm",
+  "workbench.editor.enablePreview": false,
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
+  "workbench.statusBar.visible": false
 }
