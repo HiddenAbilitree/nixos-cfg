@@ -24,29 +24,3 @@ Init the new host's config using `libx.mkHost` in `~/flake.nix`.
 
 ## Secure Boot 🔒
 go read [lanzaboote docs](https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md)
-## sops-nix 🔑
-to add access to a new system,
-first, generate a new age key
-```sh
-$ mkdir -p ~/.config/sops/age
-$ age-keygen -o ~/.config/sops/age/keys.txt
-```
-add the public key into `~/flake/dir/.sops.yaml`, then run the following:
-```sh
-$ sops --config ~/flake/dir/.sops.yaml updatekeys ~/flake/dir/home/sops/secrets.yaml
-```
-<sub>obviously ^ this ^ only works when run on a machine that can decrypt the things already.</sub>
-
-To reference secrets:
-in home-manager, use
-```nix
-{ osConfig, ... }:
-...
-osConfig.sops.secrets.<name>.path
-```
-in nixos, use
-```nix
-{ config, ... }:
-...
-config.sops.secrets.<name>.path
-```
