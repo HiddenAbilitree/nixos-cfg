@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+ssh://git@github.com/hyprwm/Hyprland.git?rev=b9f110ef8726fcba2b4ee69856027731e73003a5&ref=main";
 
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.1";
 
