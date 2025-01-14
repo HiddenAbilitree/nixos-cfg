@@ -52,15 +52,17 @@
     useNetworkd = true;
   };
 
-  nix.settings = {
-    trusted-users = [
-      "root"
-      "ezhang"
-    ];
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+  nix = {
+    settings = {
+      trusted-users = [
+        "root"
+        "ezhang"
+      ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
   };
 
   time = {

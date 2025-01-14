@@ -13,6 +13,7 @@
         sshUser = "ezhang";
         sshKey = config.sops.secrets.personal-ssh-private.path;
         system = "x86_64-linux";
+        supportedFeatures = ["big-parallel" "kvm" "nixos-test" "benchmark"];
       }
       {
         hostName = "thething";
@@ -22,6 +23,7 @@
         sshUser = "ezhang";
         sshKey = config.sops.secrets.personal-ssh-private.path;
         system = "x86_64-linux";
+        supportedFeatures = ["big-parallel" "kvm" "nixos-test" "benchmark"];
       }
     ];
     extraOptions = ''
