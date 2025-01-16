@@ -30,7 +30,6 @@
 
     nixvim-cfg = {
       url = "github:HiddenAbilitree/nixvim-cfg";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixvim = {

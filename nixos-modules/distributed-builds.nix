@@ -10,7 +10,7 @@
         maxJobs = 15;
         speedFactor = 2;
         protocol = "ssh-ng";
-        sshUser = "ezhang";
+        sshUser = "root";
         sshKey = config.sops.secrets.personal-ssh-private.path;
         system = "x86_64-linux";
         supportedFeatures = ["big-parallel" "kvm" "nixos-test" "benchmark"];
@@ -20,7 +20,7 @@
         maxJobs = 23;
         speedFactor = 3;
         protocol = "ssh-ng";
-        sshUser = "ezhang";
+        sshUser = "root";
         sshKey = config.sops.secrets.personal-ssh-private.path;
         system = "x86_64-linux";
         supportedFeatures = ["big-parallel" "kvm" "nixos-test" "benchmark"];
