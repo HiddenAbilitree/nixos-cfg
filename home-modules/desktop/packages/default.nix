@@ -7,7 +7,6 @@
   home.packages = lib.mkIf config.desktop.enable (with pkgs; [
     gimp
     easyeffects
-    ghidra
     nautilus
     obs-studio
     obsidian

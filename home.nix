@@ -83,6 +83,8 @@
       brightnessctl
 
       # development
+      bun
+      nodejs_23
       gh
     ];
     stateVersion = "24.05";

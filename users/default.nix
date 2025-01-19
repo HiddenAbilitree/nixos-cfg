@@ -1,1 +1,1 @@
-{imports = [./ezhang];}
+{imports = [./ezhang ./root];}

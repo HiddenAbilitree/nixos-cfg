@@ -5,6 +5,5 @@
       enable = true;
       extraArgs = "--keep-since 4d --keep 3 --nogcroots";
     };
-    flake = "/home/ezhang/nixos-cfg";
   };
 }

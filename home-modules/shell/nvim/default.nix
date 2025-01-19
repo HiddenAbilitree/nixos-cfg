@@ -1,4 +1,6 @@
 {
+  lib,
+  config,
   system,
   nixvim-cfg,
   nixpkgs,
@@ -12,8 +14,9 @@
       })
     ];
   };
-in {
-  home.packages = with pkgs; [
-    neovim
-  ];
-}
+in
+  lib.mkIf config.shell.nvim.enable {
+    home.packages = with pkgs; [
+      neovim
+    ];
+  }

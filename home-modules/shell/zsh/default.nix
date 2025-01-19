@@ -2,6 +2,7 @@
   pkgs,
   proot,
   root,
+  nroot,
   config,
   osConfig,
   lib,
@@ -21,16 +22,16 @@
     shellAliases = {
       cfg = "xvim ${root}";
       pcfg = "xvim ${proot}";
+      ncfg = "xvim ${nroot}";
+
       secrets = "sops ${proot}/nixos/sops/secrets.yaml";
 
-      nix-commit = "git -C ${root} add -A && commit ${root} && git -C ${root} push";
-      nix-develop = "nix develop -c zsh";
-      nix-test = "git -C ${root} add -A && nh os test ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.zshrc";
-      nix-switch = "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -- --accept-flake-config --quiet && source ~/.zshrc";
-      nix-cleanup = "nh clean all";
-      nix-rollback = "nixos-rebuild switch --flake ${root} --rollback";
-      nix-update = "nix flake update --flake ${root}";
-      nix-pull = "git -C ${root} pull";
+      nt = "git -C ${root} add -A && nh os test ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.zshrc";
+      ns = "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -- --accept-flake-config --quiet && source ~/.zshrc";
+      nc = "nh clean all";
+      nr = "nixos-rebuild switch --flake ${root} --rollback";
+      nu = "nix flake update --flake ${root}";
+      nus = "nu && ns";
 
       fetch = "fastfetch\nsource /etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh";
 

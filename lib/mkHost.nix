@@ -30,8 +30,9 @@
               inputs
               // args
               // {
-                root = "/home/ezhang/nixos-cfg";
-                proot = "/home/ezhang/private-nixos-cfg";
+                root = "/home/ezhang/code/nix/nixos-cfg";
+                proot = "/home/ezhang/code/nix/private-nixos-cfg";
+                nroot = "/home/ezhang/code/nix/nixvim-cfg";
               };
             sharedModules = [
               inputs.nixvim.homeManagerModules.nixvim

@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  imports = [./atuin ./btop ./eza ./fastfetch ./nvim ./starship ./zoxide ./zsh];
+  imports = [./atuin ./btop ./eza ./fastfetch ./nvim ./starship ./tmux ./zoxide ./zsh];
   options = {
     shell = {
       enable = lib.mkEnableOption "shell configuration";
@@ -13,6 +13,7 @@
       fastfetch.enable = lib.mkEnableOption "fastfetch";
       nvim.enable = lib.mkEnableOption "nvim";
       starship.enable = lib.mkEnableOption "Starship";
+      tmux.enable = lib.mkEnableOption "tmux";
       zellij.enable = lib.mkEnableOption "Zellij";
       zoxide.enable = lib.mkEnableOption "Zoxide";
       zsh.enable = lib.mkEnableOption "zsh";
@@ -26,6 +27,7 @@
       fastfetch.enable = lib.mkDefault true;
       nvim.enable = lib.mkDefault true;
       starship.enable = lib.mkDefault true;
+      tmux.enable = lib.mkDefault true;
       zellij.enable = lib.mkDefault true;
       zoxide.enable = lib.mkDefault true;
       zsh.enable = lib.mkDefault true;
