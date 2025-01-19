@@ -41,14 +41,13 @@
               ../home-modules
             ];
             users.ezhang = import ../home.nix;
-            users.root = {
-              home.stateVersion = "24.05";
-            };
             useGlobalPkgs = true;
             useUserPackages = true;
           };
-          bootx.secureboot.enable = secureboot;
-          bootx.install.enable = install;
+          bootx = {
+            secureboot.enable = secureboot;
+            install.enable = install;
+          };
         }
       ];
     };

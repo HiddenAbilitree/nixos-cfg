@@ -2,8 +2,10 @@
   config,
   lib,
   ...
-}: {
-  nix = lib.mkIf config.distributed-builds.enable {
+}:
+lib.mkIf config.distributed-builds.enable {
+  home-manager.users.root.home.stateVersion = "24.05";
+  nix = {
     buildMachines = [
       {
         hostName = "winner";
