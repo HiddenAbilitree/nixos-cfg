@@ -41,6 +41,9 @@
               ../home-modules
             ];
             users.ezhang = import ../home.nix;
+            users.root = {
+              home.stateVersion = "24.05";
+            };
             useGlobalPkgs = true;
             useUserPackages = true;
           };
