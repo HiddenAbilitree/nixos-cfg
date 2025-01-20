@@ -101,6 +101,7 @@
   };
 
   services = {
+    mullvad-vpn.enable = true;
     udev.packages = [
       (pkgs.writeTextFile {
         name = "drunkdeer-udev";

@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   osConfig,
   root,
   ...
@@ -44,10 +45,10 @@
       EDITOR = "nvim";
       FLAKE = "${root}";
       YSU_HARDCORE = 1;
-      XDG_CACHE_HOME = "$HOME/.cache";
-      XDG_CONFIG_HOME = "$HOME/.config";
-      XDG_DATA_HOME = "$HOME/.local/share";
-      XDG_STATE_HOME = "$HOME/.local/state";
+      XDG_CACHE_HOME = lib.mkForce "$HOME/.cache";
+      XDG_CONFIG_HOME = lib.mkForce "$HOME/.config";
+      XDG_DATA_HOME = lib.mkForce "$HOME/.local/share";
+      XDG_STATE_HOME = lib.mkForce "$HOME/.local/state";
       BRAVE = pkgs.brave;
     };
 

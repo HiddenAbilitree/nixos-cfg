@@ -25,6 +25,7 @@
       spice-gtk
       spice-protocol
       virt-viewer
+      distrobox
       #virtio-win
       #win-spice
     ];

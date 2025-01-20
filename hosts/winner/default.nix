@@ -6,8 +6,6 @@
 
   virtualization.enable = true;
 
-  cloudflared.enable = true;
-
   ssh = {
     enable = true;
     fail2ban.enable = false;
@@ -28,11 +26,13 @@
 
   desktop.enable = true;
 
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "ezhang";
+  services = {
+    displayManager.autoLogin = {
+      enable = true;
+      user = "ezhang";
+    };
+    flatpak.enable = true;
   };
-
   programs.steam.enable = true;
 
   nix = {
