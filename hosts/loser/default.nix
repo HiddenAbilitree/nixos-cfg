@@ -24,6 +24,8 @@
     user = "ezhang";
   };
 
+  mullvad.enable = true;
+
   wireguard.client = {
     enable = true;
     PrivateKeyFile = config.sops.secrets.wg-loser-private-key.path;

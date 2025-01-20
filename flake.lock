@@ -1262,11 +1262,11 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1737274112,
-        "narHash": "sha256-MjtikubqEC0SvfDj/wBgvCJmrqqZC+HpenV+b9bBsmc=",
+        "lastModified": 1737345155,
+        "narHash": "sha256-2y/V/Emhwf/LjUnp7DSVASfRVHvZt3z1DmNYmzCeE5E=",
         "ref": "main",
-        "rev": "8b312c116faf90aa25162f55aeb7a4b15f66319d",
-        "revCount": 60,
+        "rev": "94d0c18acbaa051fbc8addf7489a064e9a932a68",
+        "revCount": 62,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git"
       },

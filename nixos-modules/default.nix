@@ -9,6 +9,7 @@
     ./desktop
     ./distributed-builds.nix
     ./laptop
+    ./mullvad
     ./ssh.nix
     ./swap.nix
     ./syncthing.nix
