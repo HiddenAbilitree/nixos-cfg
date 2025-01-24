@@ -7,9 +7,11 @@
     enable = true;
     uninstallUnmanaged = true;
 
-    overrides = {
-      global = {
-        Context.sockets = ["wayland" "!x11" "!fallback-x11"];
+    overrides.global = {
+      Context.sockets = ["wayland"];
+
+      Environment = {
+        GTK_THEME = "Tokyonight:dark";
       };
     };
   };

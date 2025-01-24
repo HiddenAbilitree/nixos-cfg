@@ -67,6 +67,7 @@
       sops
       tldr # man pages
       wireguard-tools
+      wireshark-qt
 
       rustlings
 

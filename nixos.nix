@@ -87,7 +87,7 @@
   };
 
   hardware = {
-    openrazer.enable = true;
+    openrazer.enable = false;
     bluetooth = {
       enable = true;
       powerOnBoot = true;
