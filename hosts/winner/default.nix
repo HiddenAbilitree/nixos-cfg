@@ -33,7 +33,6 @@
       enable = true;
       user = "ezhang";
     };
-    flatpak.enable = true;
   };
   programs.steam.enable = true;
 
