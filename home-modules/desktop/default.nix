@@ -23,6 +23,7 @@
     brave.enable = lib.mkEnableOption "Brave Browser";
     games = {
       enable = lib.mkEnableOption "Games";
+      lutris.enable = lib.mkEnableOption "lutris";
       osu.enable = lib.mkEnableOption "osu!";
       roblox.enable = lib.mkEnableOption "Roblox";
     };
@@ -47,6 +48,7 @@
       dark-mode.enable = lib.mkDefault true;
       games = {
         enable = lib.mkDefault true;
+        lutris.enable = lib.mkDefault true;
         osu.enable = lib.mkDefault true;
         roblox.enable = lib.mkDefault true;
       };

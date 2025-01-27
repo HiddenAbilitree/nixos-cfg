@@ -23,7 +23,7 @@
 
     hyprland.url = "git+ssh://git@github.com/hyprwm/Hyprland.git?rev=b9f110ef8726fcba2b4ee69856027731e73003a5&ref=main";
 
-    lanzaboote.url = "github:nix-community/lanzaboote/v0.4.1";
+    lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
 
     private = {
       url = "git+ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git?ref=main";
