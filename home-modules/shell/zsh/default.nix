@@ -47,7 +47,8 @@
       b = "bluetuith";
       lg = "lazygit";
 
-      vpn = "cat ${osConfig.sops.secrets.zeuspwd.path} | sudo openconnect --protocol=anyconnect --user=ezhang7 --usergroup=STUDENT --useragent='AnyConnect*' --passwd-on-stdin vpn.gmu.edu";
+      # vpn = "cat ${osConfig.sops.secrets.zeuspwd.path} | sudo openconnect --protocol=anyconnect --user=ezhang7 --authgroup=STUDENT --useragent='AnyConnect*' --passwd-on-stdin vpn.gmu.edu";
+      vpn = "cat ${osConfig.sops.secrets.zeuspwd.path} | sudo openconnect --user=ezhang7 --authgroup=STUDENT --passwd-on-stdin vpn.gmu.edu";
     };
     plugins = [
       # {

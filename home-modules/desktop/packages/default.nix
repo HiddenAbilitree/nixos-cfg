@@ -6,7 +6,6 @@
 }: {
   home.packages = lib.mkIf config.desktop.enable (with pkgs; [
     gimp
-    easyeffects
     nautilus
     obs-studio
     obsidian

@@ -8,14 +8,15 @@
     ./dark-mode
     ./games
     ./ghostty
-    ./kitty
-    ./rofi
-    ./zathura
-    ./swaync
-    ./packages
     ./hyprland
-    ./waybar
+    ./kitty
+    ./packages
+    ./rofi
     ./spicetify
+    ./swaync
+    ./tor
+    ./waybar
+    ./zathura
   ];
   options.desktop = {
     enable = lib.mkEnableOption "desktop configuration";
@@ -33,6 +34,7 @@
     waybar.enable = lib.mkEnableOption "Waybar";
     spicetify.enable = lib.mkEnableOption "Spicetify";
     swaync.enable = lib.mkEnableOption "Swaync";
+    tor-browser.enable = lib.mkEnableOption "Tor Browser";
     zathura.enable = lib.mkEnableOption "Zathura";
     hyprland = {
       enable = lib.mkEnableOption "Hyprland";
@@ -46,12 +48,6 @@
     desktop = lib.mkIf config.desktop.enable {
       brave.enable = lib.mkDefault true;
       dark-mode.enable = lib.mkDefault true;
-      games = {
-        enable = lib.mkDefault true;
-        lutris.enable = lib.mkDefault true;
-        osu.enable = lib.mkDefault true;
-        roblox.enable = lib.mkDefault true;
-      };
       ghostty.enable = lib.mkDefault true;
       hyprland = {
         enable = lib.mkDefault true;
@@ -63,6 +59,7 @@
       rofi.enable = lib.mkDefault true;
       spicetify.enable = lib.mkDefault true;
       swaync.enable = lib.mkDefault true;
+      tor-browser.enable = lib.mkDefault true;
       waybar.enable = lib.mkDefault true;
       zathura.enable = lib.mkDefault true;
     };

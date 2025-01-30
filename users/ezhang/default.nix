@@ -11,6 +11,7 @@
       "sudo"
       "wheel"
       "openrazer"
+      "wireshark"
       "inputs"
     ];
     shell = pkgs.zsh;

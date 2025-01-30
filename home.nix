@@ -8,28 +8,6 @@
   imports = [./hosts/${osConfig.networking.hostName}/home];
   nixpkgs.config.allowUnfree = true;
 
-  programs = {
-    git = {
-      enable = true;
-      userName = "Eric Zhang";
-      userEmail = "eric@ericzhang.dev";
-    };
-    lazygit = {
-      enable = true;
-      settings = {
-        gui.nerdFontsVersion = "3";
-        git.overrideGpg = true;
-      };
-    };
-
-    direnv = {
-      enable = true;
-      enableZshIntegration = true;
-      nix-direnv.enable = true;
-      silent = true;
-    };
-  };
-
   home = {
     pointerCursor = {
       gtk.enable = true;

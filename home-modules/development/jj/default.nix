@@ -1,0 +1,27 @@
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+lib.mkIf config.development.jj.enable {
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      ui.allow-init-native = true;
+      user = {
+        name = "Eric Zhang";
+        email = "me@ericzhang.dev";
+      };
+      signing = {
+        sign-all = true;
+        backend = "gpg";
+        backends.gpg.allow-expired-keys = false;
+        key = config.programs.git.signing.key;
+      };
+    };
+  };
+  home.packages = with pkgs; [
+    jjui
+  ];
+}

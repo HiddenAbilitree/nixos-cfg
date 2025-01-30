@@ -26,7 +26,10 @@
     address = "10.100.0.3/24";
   };
 
-  desktop.enable = true;
+  desktop = {
+    enable = true;
+    games.enable = true;
+  };
 
   services = {
     displayManager.autoLogin = {

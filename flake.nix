@@ -25,10 +25,7 @@
 
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
 
-    private = {
-      url = "git+ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    private.url = "git+ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git?ref=main";
 
     nixvim-cfg = {
       url = "github:HiddenAbilitree/nixvim-cfg";
