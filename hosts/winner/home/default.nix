@@ -5,7 +5,10 @@
 
   shell.enable = true;
   development.enable = true;
-  desktop.enable = true;
+  desktop = {
+    enable = true;
+    games.enable = true;
+  };
 
   misc.enable = true;
 
