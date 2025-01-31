@@ -21,6 +21,5 @@
     zotero
 
     # games
-    prismlauncher
   ]);
 }

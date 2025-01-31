@@ -1,11 +1,18 @@
 {
-  config,
+  pkgs,
   lib,
+  config,
   ...
 }: {
-  imports = [./lutris.nix ./osu.nix ./roblox.nix];
+  imports = [./lutris.nix ./roblox.nix];
+  home.packages = with pkgs; [
+    (lib.mkIf config.desktop.games.osu.enable osu-lazer-bin)
+    (lib.mkIf config.desktop.games.minecraft.enable prismlauncher)
+  ];
+
   desktop.games = lib.mkIf config.desktop.games.enable {
     osu.enable = lib.mkDefault true;
+    minecraft.enable = lib.mkDefault true;
     lutris.enable = lib.mkDefault true;
     roblox.enable = lib.mkDefault true;
   };

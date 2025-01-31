@@ -25,6 +25,7 @@
     games = {
       enable = lib.mkEnableOption "Games";
       lutris.enable = lib.mkEnableOption "lutris";
+      minecraft.enable = lib.mkEnableOption "Minecraft";
       osu.enable = lib.mkEnableOption "osu!";
       roblox.enable = lib.mkEnableOption "Roblox";
     };
