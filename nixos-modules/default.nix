@@ -52,6 +52,8 @@
   };
 
   config = {
+    services.flatpak.enable = config.home-manager.users.ezhang.misc.flatpak.enable;
+
     desktop = lib.mkIf config.desktop.enable {
       fonts.enable = lib.mkDefault true;
       hyprland.enable = lib.mkDefault true;

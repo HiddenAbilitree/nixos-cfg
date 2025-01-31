@@ -2,8 +2,9 @@
   config,
   lib,
   ...
-}: {
-  services.flatpak = lib.mkIf config.misc.flatpak.enable {
+}:
+lib.mkIf config.misc.flatpak.enable {
+  services.flatpak = {
     enable = true;
     uninstallUnmanaged = true;
 
