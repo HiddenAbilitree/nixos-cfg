@@ -17,7 +17,7 @@ lib.mkIf config.development.jj.enable {
         sign-all = true;
         backend = "gpg";
         backends.gpg.allow-expired-keys = false;
-        key = config.programs.git.signing.key;
+        inherit (config.programs.git.signing) key;
       };
     };
   };
