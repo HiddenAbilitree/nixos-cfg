@@ -10,6 +10,8 @@
     ./distributed-builds.nix
     ./laptop
     ./mullvad
+    ./nixvim.nix
+    ./ollama
     ./ssh.nix
     ./swap.nix
     ./syncthing.nix
@@ -43,6 +45,8 @@
       docker.enable = lib.mkEnableOption "docker";
       vm.enable = lib.mkEnableOption "vm";
     };
+
+    ollama.enable = lib.mkEnableOption "ollama";
 
     bootx = {
       secureboot.enable = lib.mkEnableOption "secureboot";

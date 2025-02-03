@@ -35,7 +35,6 @@
                 nroot = "/home/ezhang/code/nix/nixvim-cfg";
               };
             sharedModules = [
-              inputs.nixvim.homeManagerModules.nixvim
               inputs.spicetify-nix.homeManagerModules.default
               inputs.nix-flatpak.homeManagerModules.nix-flatpak
               inputs.private.homeManagerModules.private

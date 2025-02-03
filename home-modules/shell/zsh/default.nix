@@ -74,6 +74,7 @@
         "fzf"
         "docker"
         "docker-compose"
+        "tmux"
       ];
     };
   };

@@ -3,7 +3,17 @@
   lib,
   ...
 }: {
-  imports = [./atuin ./btop ./eza ./fastfetch ./nvim ./starship ./tmux ./zoxide ./zsh];
+  imports = [
+    ./atuin
+    ./btop
+    ./eza
+    ./fastfetch
+    # ./nvim
+    ./starship
+    ./tmux
+    ./zoxide
+    ./zsh
+  ];
   options = {
     shell = {
       enable = lib.mkEnableOption "shell configuration";
