@@ -37,6 +37,7 @@
       hyprland.enable = lib.mkEnableOption "Hyprland";
       xserver.enable = lib.mkEnableOption "xserver";
       fonts.enable = lib.mkEnableOption "fonts";
+      services.enable = lib.mkEnableOption "desktop services";
     };
 
     virtualization = {
@@ -61,6 +62,7 @@
       fonts.enable = lib.mkDefault true;
       hyprland.enable = lib.mkDefault true;
       xserver.enable = lib.mkDefault true;
+      services.enable = lib.mkDefault true;
     };
 
     virtualization = lib.mkIf config.virtualization.enable {

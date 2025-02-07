@@ -5,9 +5,7 @@
 }: {
   imports = [./users];
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  nixpkgs.config.allowUnfree = true;
 
   boot = {
     loader = {
@@ -42,7 +40,6 @@
       udiskie
       udisks
     ];
-    sessionVariables.NIXOS_OZONE_WL = 1;
   };
   networking = {
     nameservers = [
@@ -88,14 +85,6 @@
     };
   };
 
-  hardware = {
-    openrazer.enable = false;
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
-  };
-
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -103,23 +92,6 @@
   };
 
   services = {
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-    udev.packages = [
-      (pkgs.writeTextFile {
-        name = "drunkdeer-udev";
-        text = ''
-          SUBSYSTEM=="hidraw", ATTRS{idVendor}=="352d", ATTRS{idProduct}=="2383", TAG+="uaccess"
-          SUBSYSTEM=="usb", ATTRS{idVendor}=="352d", ATTRS{idProduct}=="2383", TAG+="uaccess"
-        '';
-        destination = "/etc/udev/rules.d/70-drunkdeer.rules";
-      })
-    ];
-
     fwupd.enable = true; # firmware updates
     gnome.core-utilities.enable = false;
 
@@ -127,9 +99,6 @@
     gvfs.enable = true;
     udisks2.enable = true;
   };
-
-  # for audio purposes
-  security.rtkit.enable = true;
 
   system.stateVersion = "24.05";
 }
