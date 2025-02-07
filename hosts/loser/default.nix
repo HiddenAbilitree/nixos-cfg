@@ -3,7 +3,6 @@
     ./hardware-configuration.nix
     ./disk-config.nix
   ];
-
   laptop.enable = true;
 
   syncthing.enable = true;

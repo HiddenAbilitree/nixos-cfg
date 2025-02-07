@@ -21,14 +21,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "git+ssh://git@github.com/hyprwm/Hyprland.git?rev=b9f110ef8726fcba2b4ee69856027731e73003a5&ref=main";
+    hyprland.url = "git+ssh://git@github.com/hyprwm/Hyprland.git?rev=54441e0c4e51dd182f78876c014446d5d0359ba8&ref=main";
+
+    # hyprland.url = "github:hyprwm/Hyprland";
 
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
 
     private.url = "git+ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git?ref=main";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     nixvim-cfg = {
-      url = "github:HiddenAbilitree/nixvim-cfg";
+      url = "git+ssh://git@github.com/HiddenAbilitree/nixvim-cfg.git?ref=main";
     };
 
     sops-nix = {
@@ -42,9 +46,13 @@
     };
 
     split-monitor-workspaces = {
-      url = "git+ssh://git@github.com/Duckonaut/split-monitor-workspaces.git?rev=c75ec3a643a98169acdea03336c06f3656fe0e76&ref=main";
+      url = "git+ssh://git@github.com/Duckonaut/split-monitor-workspaces.git?rev=917e9ad52e910ffa0ab7d61fecd5a2e3d3f66d87&ref=main";
       inputs.hyprland.follows = "hyprland";
     };
+    # split-monitor-workspaces = {
+    #   url = "github:Duckonaut/split-monitor-workspaces";
+    #   inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
+    # };
   };
 
   nixConfig = {
@@ -71,18 +79,21 @@
         system = "x86_64-linux";
         secureboot = true;
         install = false;
+        modulesx = [];
       };
       winner = mkHost {
         hostName = "winner";
         system = "x86_64-linux";
         secureboot = true;
         install = false;
+        modulesx = [];
       };
       thething = mkHost {
         hostName = "thething";
         system = "x86_64-linux";
         secureboot = false;
         install = false;
+        modulesx = [inputs.nixos-hardware.nixosModules.framework-13-7040-amd];
       };
     };
   };

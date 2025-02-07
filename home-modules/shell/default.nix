@@ -8,7 +8,7 @@
     ./btop
     ./eza
     ./fastfetch
-    # ./nvim
+    ./nvim
     ./starship
     ./tmux
     ./zoxide

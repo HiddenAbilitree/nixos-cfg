@@ -5,7 +5,9 @@
 }: {
   imports = [./users];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   boot = {
     loader = {
@@ -101,6 +103,12 @@
   };
 
   services = {
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
     udev.packages = [
       (pkgs.writeTextFile {
         name = "drunkdeer-udev";

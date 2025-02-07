@@ -10,7 +10,6 @@
     ./distributed-builds.nix
     ./laptop
     ./mullvad
-    ./nixvim.nix
     ./ollama
     ./ssh.nix
     ./swap.nix
