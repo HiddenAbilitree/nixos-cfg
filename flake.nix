@@ -79,7 +79,7 @@
         system = "x86_64-linux";
         secureboot = true;
         install = false;
-        modulesx = [];
+        modulesx = [inputs.nixos-hardware.nixosModules.framework-13-7040-amd];
       };
       winner = mkHost {
         hostName = "winner";
@@ -93,7 +93,7 @@
         system = "x86_64-linux";
         secureboot = false;
         install = false;
-        modulesx = [inputs.nixos-hardware.nixosModules.framework-13-7040-amd];
+        modulesx = [];
       };
     };
   };
