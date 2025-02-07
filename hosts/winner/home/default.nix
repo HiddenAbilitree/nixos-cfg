@@ -8,6 +8,7 @@
   desktop = {
     enable = true;
     games.enable = true;
+    primary-monitor = "DP-2";
   };
 
   misc.enable = true;

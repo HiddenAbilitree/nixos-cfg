@@ -35,7 +35,6 @@
     };
   };
   programs.steam.enable = true;
-
   nix = {
     settings = {
       system-features = [
