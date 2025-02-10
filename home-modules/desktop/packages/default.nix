@@ -17,6 +17,7 @@
     vesktop
     wineWowPackages.waylandFull
     wl-clicker
+    ventoy-full
     zoom
     zotero
 
