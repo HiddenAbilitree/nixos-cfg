@@ -15,6 +15,8 @@
       foreground = "rgba(255,255,255,0.8)";
       background = "rgb(36,40,59,1)";
     in {
+      auth.fingerprint.enabled = true;
+
       background = {
         path = "${root}/assets/wallpapers/2880x1920/water.png";
         blur_passes = 2;
@@ -26,7 +28,6 @@
 
       # GENERAL
       general = {
-        enable_fingerprint = true;
         no_fade_in = true;
         no_fade_out = true;
         hide_cursor = true;

@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   imports = [
@@ -45,8 +46,15 @@
     };
   };
 
-  config = {
-    desktop = lib.mkIf config.desktop.enable {
+  config = lib.mkIf config.desktop.enable {
+    home.pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 24;
+    };
+
+    desktop = {
       brave.enable = lib.mkDefault true;
       dark-mode.enable = lib.mkDefault true;
       ghostty.enable = lib.mkDefault true;

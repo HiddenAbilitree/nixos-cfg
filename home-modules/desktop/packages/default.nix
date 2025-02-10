@@ -16,11 +16,13 @@
     typst
     vesktop
     wineWowPackages.waylandFull
+    wireguard-tools
+    wireshark-qt
     wl-clicker
+    xwaylandvideobridge
+    gnome-themes-extra
     ventoy-full
     zoom
     zotero
-
-    # games
   ]);
 }

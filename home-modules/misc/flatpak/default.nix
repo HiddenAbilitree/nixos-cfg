@@ -12,7 +12,7 @@ lib.mkIf config.misc.flatpak.enable {
       Context.sockets = ["wayland"];
 
       Environment = {
-        GTK_THEME = "Tokyonight:dark";
+        GTK_THEME = "Tokyonight-Dark";
       };
     };
   };

@@ -9,19 +9,12 @@
   nixpkgs.config.allowUnfree = true;
 
   home = {
-    pointerCursor = {
-      gtk.enable = true;
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 24;
-    };
-
     username = "ezhang";
     homeDirectory = "/home/ezhang";
 
     sessionVariables = {
       EDITOR = "nvim";
-      FLAKE = "${root}";
+      FLAKE = root;
       YSU_HARDCORE = 1;
       XDG_CACHE_HOME = lib.mkForce "$HOME/.cache";
       XDG_CONFIG_HOME = lib.mkForce "$HOME/.config";
@@ -44,8 +37,6 @@
       nmap
       sops
       tldr # man pages
-      wireguard-tools
-      wireshark-qt
 
       rustlings
 
@@ -56,7 +47,6 @@
       hyprls
       openconnect
       texliveFull
-      xwaylandvideobridge
       glib
       wl-clipboard
       playerctl

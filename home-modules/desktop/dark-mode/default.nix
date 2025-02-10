@@ -3,13 +3,14 @@
   config,
   lib,
   ...
-}: {
-  dconf.settings = lib.mkIf config.desktop.dark-mode.enable {
+}:
+lib.mkIf config.desktop.dark-mode.enable {
+  dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
   };
-  gtk = lib.mkIf config.desktop.dark-mode.enable {
+  gtk = {
     enable = true;
     iconTheme = {
       name = "Papirus-Dark";
