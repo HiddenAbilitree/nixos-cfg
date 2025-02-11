@@ -15,13 +15,21 @@ lib.mkIf config.desktop.dark-mode.enable {
     enable = true;
 
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "Tokyonight-Dark-Cyan";
+      package = pkgs.tokyonight-gtk-theme.override {
+        colorVariants = ["dark"];
+        tweakVariants = ["storm" "macos" "outline"];
+        iconVariants = ["Dark-Cyan"];
+      };
     };
 
     theme = {
-      name = "Tokyonight-Dark";
-      package = pkgs.tokyonight-gtk-theme;
+      name = "Tokyonight-Dark-Storm";
+      package = pkgs.tokyonight-gtk-theme.override {
+        colorVariants = ["dark"];
+        tweakVariants = ["storm" "macos" "outline"];
+        iconVariants = ["Dark-Cyan"];
+      };
     };
 
     gtk3.extraConfig = {
