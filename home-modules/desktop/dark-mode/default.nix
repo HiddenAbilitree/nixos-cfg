@@ -10,16 +10,20 @@ lib.mkIf config.desktop.dark-mode.enable {
       color-scheme = "prefer-dark";
     };
   };
+
   gtk = {
     enable = true;
+
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
+
     theme = {
       name = "Tokyonight-Dark";
       package = pkgs.tokyonight-gtk-theme;
     };
+
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
