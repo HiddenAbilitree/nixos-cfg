@@ -29,6 +29,7 @@
       minecraft.enable = lib.mkEnableOption "Minecraft";
       osu.enable = lib.mkEnableOption "osu!";
       roblox.enable = lib.mkEnableOption "Roblox";
+      honkers.enable = lib.mkEnableOption "Honkers";
     };
     ghostty.enable = lib.mkEnableOption "Ghostty";
     kitty.enable = lib.mkEnableOption "Kitty";

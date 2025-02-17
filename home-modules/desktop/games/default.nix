@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  imports = [./lutris.nix ./roblox.nix];
+  imports = [./lutris.nix ./roblox.nix ./honkers.nix];
   home.packages = with pkgs; [
     (lib.mkIf config.desktop.games.osu.enable osu-lazer-bin)
     (lib.mkIf config.desktop.games.minecraft.enable prismlauncher)
@@ -15,5 +15,6 @@
     minecraft.enable = lib.mkDefault true;
     lutris.enable = lib.mkDefault true;
     roblox.enable = lib.mkDefault true;
+    honkers.enable = lib.mkDefault true;
   };
 }

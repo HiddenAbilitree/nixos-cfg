@@ -6,7 +6,6 @@
   ...
 }: {
   imports = [./hosts/${osConfig.networking.hostName}/home];
-  nixpkgs.config.allowUnfree = true;
 
   home = {
     username = "ezhang";

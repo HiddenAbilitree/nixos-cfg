@@ -13,6 +13,8 @@
     openrazer-daemon
     pavucontrol
     polychromatic
+    mpv
+    vlc
     themechanger
     typst
     vesktop
