@@ -13,6 +13,7 @@
     openrazer-daemon
     pavucontrol
     polychromatic
+    postman
     mpv
     vlc
     themechanger
