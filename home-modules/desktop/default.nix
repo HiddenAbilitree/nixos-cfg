@@ -55,6 +55,8 @@
       size = 24;
     };
 
+    services.clipman.enable = true;
+
     desktop = {
       brave.enable = lib.mkDefault true;
       dark-mode.enable = lib.mkDefault true;

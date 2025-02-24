@@ -5,8 +5,8 @@
 }:
 lib.mkIf config.distributed-builds.enable {
   home-manager.users.root.home.stateVersion = "24.05";
-  nix = {
-    buildMachines = [
+  nix = let
+    builders = [
       {
         hostName = "winner";
         maxJobs = 15;
@@ -28,6 +28,8 @@ lib.mkIf config.distributed-builds.enable {
         supportedFeatures = ["big-parallel" "kvm" "nixos-test" "benchmark"];
       }
     ];
+  in {
+    buildMachines = lib.lists.remove (lib.lists.findFirst (hostName: hostName == config.networking.hostName) builders) builders;
     extraOptions = ''
       builders-use-substitutes = true
     '';

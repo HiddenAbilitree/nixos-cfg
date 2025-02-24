@@ -7,7 +7,10 @@
   development.enable = true;
   desktop = {
     enable = true;
-    games.enable = true;
+    games = {
+      enable = true;
+      roblox.enable = false;
+    };
     primary-monitor = "DP-2";
   };
 

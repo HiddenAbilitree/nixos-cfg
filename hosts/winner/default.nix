@@ -26,7 +26,13 @@
     address = "10.100.0.3/24";
   };
 
-  desktop.enable = true;
+  desktop = {
+    enable = true;
+    services = {
+      drunkdeer.enable = true;
+      sunshine.enable = true;
+    };
+  };
 
   services = {
     displayManager.autoLogin = {

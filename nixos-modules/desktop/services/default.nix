@@ -1,32 +1,19 @@
 {
   lib,
   config,
-  pkgs,
   ...
-}:
-lib.mkIf config.desktop.services.enable {
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-  services = {
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
+}: {
+  imports = [./pipewire.nix ./drunkdeer.nix ./sunshine.nix];
 
-    udev.packages = [
-      (pkgs.writeTextFile {
-        name = "drunkdeer-udev";
-        text = ''
-          SUBSYSTEM=="hidraw", ATTRS{idVendor}=="352d", ATTRS{idProduct}=="2383", TAG+="uaccess"
-          SUBSYSTEM=="usb", ATTRS{idVendor}=="352d", ATTRS{idProduct}=="2383", TAG+="uaccess"
-        '';
-        destination = "/etc/udev/rules.d/70-drunkdeer.rules";
-      })
-    ];
+  options.desktop.services = {
+    enable = lib.mkEnableOption "desktop services";
+    pipewire.enable = lib.mkEnableOption "Pipewire";
+    drunkdeer.enable = lib.mkEnableOption "Drunkdeer udev options";
+    sunshine.enable = lib.mkEnableOption "Sunshine";
   };
-  security.rtkit.enable = true;
+  config = {
+    desktop.services = lib.mkIf config.desktop.services.enable {
+      pipewire.enable = lib.mkDefault true;
+    };
+  };
 }

@@ -37,7 +37,6 @@
       hyprland.enable = lib.mkEnableOption "Hyprland";
       xserver.enable = lib.mkEnableOption "xserver";
       fonts.enable = lib.mkEnableOption "fonts";
-      services.enable = lib.mkEnableOption "desktop services";
     };
 
     virtualization = {

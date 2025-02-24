@@ -85,6 +85,11 @@
     };
   };
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;

@@ -27,7 +27,7 @@
       secrets = "sops ${proot}/nixos/sops/secrets.yaml";
 
       nt = "git -C ${root} add -A && nh os test ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.zshrc";
-      ns = "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -- --accept-flake-config --quiet && source ~/.zshrc";
+      ns = "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.zshrc";
       nc = "nh clean all";
       nr = "nixos-rebuild switch --flake ${root} --rollback --use-remote-sudo";
       nu = "nix flake update --flake ${root}";

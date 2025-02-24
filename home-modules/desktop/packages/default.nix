@@ -11,11 +11,14 @@
     obs-studio
     obsidian
     openrazer-daemon
+    hyprsunset
     pavucontrol
     polychromatic
     postman
+    moonlight-qt
     mpv
     vlc
+    swww
     themechanger
     typst
     vesktop
@@ -23,7 +26,7 @@
     wireguard-tools
     wireshark-qt
     wl-clicker
-    xwaylandvideobridge
+    kdePackages.xwaylandvideobridge
     gnome-themes-extra
     ventoy-full
     zoom
