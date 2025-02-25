@@ -23,6 +23,7 @@
 
     ssh = {
       enable = lib.mkEnableOption "ssh";
+      x11forwarding = lib.mkEnableOption "x11 forwarding";
       fail2ban.enable = lib.mkEnableOption "fail2ban";
     };
 
@@ -69,6 +70,9 @@
       vm.enable = lib.mkDefault true;
     };
 
-    ssh.fail2ban.enable = lib.mkDefault true;
+    ssh = {
+      fail2ban.enable = lib.mkDefault true;
+      x11forwarding = lib.mkDefault false;
+    };
   };
 }

@@ -18,6 +18,7 @@
           ];
           UseDns = true;
           PermitRootLogin = "yes";
+          X11Forwarding = config.ssh.x11forwarding;
         };
       };
     };

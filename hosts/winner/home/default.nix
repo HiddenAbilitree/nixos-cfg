@@ -6,6 +6,10 @@
   shell.enable = true;
   development.enable = true;
   desktop = {
+    hyprland = {
+      hypridle.enable = false;
+      hyprlock.enable = false;
+    };
     enable = true;
     games = {
       enable = true;

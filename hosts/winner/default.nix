@@ -8,6 +8,7 @@
 
   ssh = {
     enable = true;
+    x11forwarding = true;
     fail2ban.enable = false;
   };
 
