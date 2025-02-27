@@ -2,12 +2,13 @@
   pkgs,
   lib,
   config,
+  prismlauncher,
   ...
 }: {
   imports = [./lutris.nix ./roblox.nix ./honkers.nix];
   home.packages = with pkgs; [
     (lib.mkIf config.desktop.games.osu.enable osu-lazer-bin)
-    (lib.mkIf config.desktop.games.minecraft.enable prismlauncher)
+    (lib.mkIf config.desktop.games.minecraft.enable prismlauncher.packages.${pkgs.system}.prismlauncher)
   ];
 
   desktop.games = lib.mkIf config.desktop.games.enable {

@@ -27,6 +27,8 @@
 
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
 
+    prismlauncher.url = "github:PrismLauncher/PrismLauncher";
+
     private.url = "git+ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git?ref=main";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -62,6 +64,7 @@
       "https://nix-community.cachix.org"
       "https://lanzaboote.cachix.org"
       "https://ezkea.cachix.org"
+      "https://prismlauncher.cachix.org"
     ];
     trusted-public-keys = [
       "lanzaboote.cachix.org-1:Nt9//zGmqkg1k5iu+B3bkj3OmHKjSw9pvf3faffLLNk="
@@ -69,6 +72,7 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+      "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
     ];
   };
 
