@@ -23,7 +23,7 @@
     user = "ezhang";
   };
 
-  mullvad.enable = true;
+  # mullvad.enable = true;
 
   wireguard.client = {
     enable = true;
