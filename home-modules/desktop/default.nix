@@ -6,9 +6,9 @@
 }: {
   imports = [
     ./brave
-    ./dark-mode
     ./games
     ./ghostty
+    ./gtk
     ./hyprland
     ./kitty
     ./packages
