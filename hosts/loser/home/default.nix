@@ -20,6 +20,6 @@
 
   programs.zsh.shellAliases = {
     ns = lib.mkForce "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -- -j0 --accept-flake-config --quiet && source ~/.zshrc";
-    nsl = lib.mkForce "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -- --builders='' --accept-flake-config --quiet && source ~/.zshrc";
+    nsl = lib.mkForce "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -- --builders '' --accept-flake-config --quiet && source ~/.zshrc";
   };
 }
