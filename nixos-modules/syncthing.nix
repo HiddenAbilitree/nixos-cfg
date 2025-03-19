@@ -28,6 +28,13 @@
             "loser"
           ];
         };
+        "Downloads" = {
+          path = "/home/ezhang/Downloads";
+          devices = [
+            "winner"
+            "loser"
+          ];
+        };
         "school" = {
           path = "/home/ezhang/school";
           devices = [
