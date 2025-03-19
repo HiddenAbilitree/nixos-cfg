@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   imports = [./disk-config.nix ./hardware-configuration.nix];
 
   ssh = {
@@ -26,5 +26,5 @@
     };
   };
 
-  thething.enable = true;
+  thething.enable = false;
 }
