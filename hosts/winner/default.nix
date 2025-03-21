@@ -30,7 +30,7 @@
   desktop = {
     enable = true;
     services = {
-      drunkdeer.enable = true;
+      keyboard.enable = true;
       sunshine.enable = true;
     };
   };

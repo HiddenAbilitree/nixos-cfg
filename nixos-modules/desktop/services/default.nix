@@ -3,12 +3,12 @@
   config,
   ...
 }: {
-  imports = [./pipewire.nix ./drunkdeer.nix ./sunshine.nix];
+  imports = [./pipewire.nix ./keyboard.nix ./sunshine.nix];
 
   options.desktop.services = {
     enable = lib.mkEnableOption "desktop services";
     pipewire.enable = lib.mkEnableOption "Pipewire";
-    drunkdeer.enable = lib.mkEnableOption "Drunkdeer udev options";
+    keyboard.enable = lib.mkEnableOption "Keyboard udev options";
     sunshine.enable = lib.mkEnableOption "Sunshine";
   };
   config = {
