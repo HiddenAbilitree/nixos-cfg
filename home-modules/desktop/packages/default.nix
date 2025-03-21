@@ -7,7 +7,7 @@
   home.packages = lib.mkIf config.desktop.enable (with pkgs; [
     gimp
     google-chrome
-    libreoffice-qt6-fresh
+    libreoffice
     nautilus
     obs-studio
     obsidian

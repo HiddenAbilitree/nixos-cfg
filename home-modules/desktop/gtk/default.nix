@@ -15,12 +15,8 @@ lib.mkIf config.desktop.dark-mode.enable {
     enable = true;
 
     iconTheme = {
-      name = "Tokyonight-Dark-Cyan";
-      package = pkgs.tokyonight-gtk-theme.override {
-        colorVariants = ["dark"];
-        tweakVariants = ["storm" "macos" "outline"];
-        iconVariants = ["Dark-Cyan"];
-      };
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
     };
 
     theme = {
