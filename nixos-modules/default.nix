@@ -11,6 +11,7 @@
     ./laptop
     ./mullvad
     ./ollama
+    ./printing.nix
     ./ssh.nix
     ./swap.nix
     ./syncthing.nix
@@ -47,6 +48,8 @@
     };
 
     ollama.enable = lib.mkEnableOption "ollama";
+
+    printing.enable = lib.mkEnableOption "printing";
 
     bootx = {
       secureboot.enable = lib.mkEnableOption "secureboot";
