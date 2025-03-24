@@ -42,3 +42,7 @@ direnv-init() {
 }
 eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(direnv hook zsh)"
+
+rm-spaces(){
+  for file in *; do mv "$file" "$(echo "$file" | tr ' ' '-')"; done
+}

@@ -13,6 +13,7 @@
     obsidian
     openrazer-daemon
     hyprsunset
+    jetbrains.idea-community
     pavucontrol
     polychromatic
     postman

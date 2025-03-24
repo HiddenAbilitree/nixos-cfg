@@ -13,7 +13,6 @@
     enable = true;
     games = {
       enable = true;
-      roblox.enable = false;
     };
     primary-monitor = "DP-2";
   };

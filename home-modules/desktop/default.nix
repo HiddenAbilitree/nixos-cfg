@@ -30,6 +30,7 @@
       osu.enable = lib.mkEnableOption "osu!";
       roblox.enable = lib.mkEnableOption "Roblox";
       honkers.enable = lib.mkEnableOption "Honkers";
+      emulators.enable = lib.mkEnableOption "emulators";
     };
     ghostty.enable = lib.mkEnableOption "Ghostty";
     kitty.enable = lib.mkEnableOption "Kitty";
