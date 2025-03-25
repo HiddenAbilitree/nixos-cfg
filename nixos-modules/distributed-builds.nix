@@ -29,7 +29,7 @@ lib.mkIf config.distributed-builds.enable {
       }
     ];
   in {
-    buildMachines = lib.lists.remove (lib.lists.findFirst (item: item.hostName == config.networking.hostName) builders) builders;
+    buildMachines = lib.lists.filter (item: item.hostName != config.networking.hostName) builders;
     extraOptions = ''
       builders-use-substitutes = true
     '';
