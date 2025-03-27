@@ -37,12 +37,28 @@ nix-init() {
 		nix flake init --refresh --template "github:HiddenAbilitree/flake-templates#$1" && direnv-init
 	fi
 }
+
 direnv-init() {
 	echo "use flake" >>.envrc && direnv allow
 }
-eval "$(atuin init zsh --disable-up-arrow)"
-eval "$(direnv hook zsh)"
 
 rm-spaces(){
   for file in *; do mv "$file" "$(echo "$file" | tr ' ' '-')"; done
 }
+
+# https://gist.github.com/jsongerber/7dfd9f2d22ae060b98e15c5590c4828d
+remote-nvim(){
+  host=$(grep 'Host\>' ~/.ssh/config | sed 's/^Host //' | grep -v '\*' | fzf --cycle --layout=reverse)
+
+  if [ -z "$host" ]; then
+	  exit 0
+  fi
+
+  user=$(ssh -G "$host" | grep '^user\>'  | sed 's/^user //')
+
+  nvim oil-ssh://"$user"@"$host"/
+}
+
+eval "$(atuin init zsh --disable-up-arrow)"
+eval "$(direnv hook zsh)"
+

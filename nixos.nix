@@ -29,6 +29,7 @@
       fzf
       gnupg1
       jq
+      killall
       p7zip
       ripgrep
       sbctl
