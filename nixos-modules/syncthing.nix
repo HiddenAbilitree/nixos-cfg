@@ -42,6 +42,13 @@
             "loser"
           ];
         };
+        "notes" = {
+          path = "/home/ezhang/notes";
+          devices = [
+            "winner"
+            "loser"
+          ];
+        };
       };
     };
   };

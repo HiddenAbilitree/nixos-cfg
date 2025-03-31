@@ -7,6 +7,7 @@
   home.packages = lib.mkIf config.desktop.enable (with pkgs; [
     gimp
     google-chrome
+    gnome-disk-utility
     libreoffice
     nautilus
     obs-studio
@@ -20,6 +21,7 @@
     moonlight-qt
     mpv
     vlc
+    rquickshare
     swww
     themechanger
     typst

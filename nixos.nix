@@ -22,8 +22,8 @@
 
   environment = {
     systemPackages = with pkgs; [
-      duf
       dmidecode
+      duf
       fd
       fprintd
       fzf
@@ -99,7 +99,6 @@
 
   services = {
     fwupd.enable = true; # firmware updates
-    gnome.core-utilities.enable = false;
 
     # auto mount/unmount usb drives
     gvfs.enable = true;
