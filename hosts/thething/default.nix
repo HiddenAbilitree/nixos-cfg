@@ -11,6 +11,8 @@
     "net.core.wmem_max" = 7500000;
   };
 
+  syncthing.enable = true;
+
   virtualization.docker.enable = true;
 
   wireguard.server.enable = true;

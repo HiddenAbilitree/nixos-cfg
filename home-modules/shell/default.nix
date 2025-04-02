@@ -31,7 +31,10 @@
     packages.enable = lib.mkEnableOption "misc packages (cli)";
     starship.enable = lib.mkEnableOption "Starship";
     tmux.enable = lib.mkEnableOption "tmux";
-    zellij.enable = lib.mkEnableOption "Zellij";
+    zellij = {
+      enable = lib.mkEnableOption "Zellij";
+      autostart = lib.mkEnableOption "Zellij autostart";
+    };
     zoxide.enable = lib.mkEnableOption "Zoxide";
     zsh.enable = lib.mkEnableOption "zsh";
   };
@@ -47,7 +50,10 @@
     packages.enable = lib.mkDefault true;
     starship.enable = lib.mkDefault true;
     tmux.enable = lib.mkDefault true;
-    zellij.enable = lib.mkDefault true;
+    zellij = {
+      enable = lib.mkDefault true;
+      autostart = lib.mkDefault true;
+    };
     zoxide.enable = lib.mkDefault true;
     zsh.enable = lib.mkDefault true;
   };

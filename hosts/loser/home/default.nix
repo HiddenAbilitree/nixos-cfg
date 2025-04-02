@@ -8,13 +8,20 @@
     ./programs
   ];
 
-  shell.enable = true;
+  shell = {
+    enable = true;
+    zellij.autostart = false;
+  };
+
   desktop = {
     enable = true;
     primary-monitor = "eDP-1";
-    games.roblox.enable = true;
-    games.minecraft.enable = true;
+    games = {
+      roblox.enable = true;
+      minecraft.enable = true;
+    };
   };
+
   misc.enable = true;
 
   programs.zsh.shellAliases = {
