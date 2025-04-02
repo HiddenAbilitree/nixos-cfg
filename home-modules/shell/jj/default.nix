@@ -4,7 +4,7 @@
   pkgs,
   ...
 }:
-lib.mkIf config.development.jj.enable {
+lib.mkIf config.shell.jj.enable {
   programs.jujutsu = {
     enable = true;
     settings = {

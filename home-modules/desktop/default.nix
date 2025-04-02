@@ -16,13 +16,14 @@
     ./spicetify
     ./swaync
     ./tor
+    ./vscodium
     ./waybar
     ./zathura
   ];
   options.desktop = {
     enable = lib.mkEnableOption "desktop configuration";
-    dark-mode.enable = lib.mkEnableOption "Dark Mode";
     brave.enable = lib.mkEnableOption "Brave Browser";
+    dark-mode.enable = lib.mkEnableOption "Dark Mode";
     games = {
       enable = lib.mkEnableOption "Games";
       lutris.enable = lib.mkEnableOption "lutris";
@@ -33,19 +34,20 @@
       emulators.enable = lib.mkEnableOption "emulators";
     };
     ghostty.enable = lib.mkEnableOption "Ghostty";
-    kitty.enable = lib.mkEnableOption "Kitty";
-    rofi.enable = lib.mkEnableOption "Rofi";
-    waybar.enable = lib.mkEnableOption "Waybar";
-    spicetify.enable = lib.mkEnableOption "Spicetify";
-    swaync.enable = lib.mkEnableOption "Swaync";
-    tor-browser.enable = lib.mkEnableOption "Tor Browser";
-    zathura.enable = lib.mkEnableOption "Zathura";
     hyprland = {
       enable = lib.mkEnableOption "Hyprland";
       hyprlock.enable = lib.mkEnableOption "Hyprlock";
       hypridle.enable = lib.mkEnableOption "Hypridle";
       hyprpaper.enable = lib.mkEnableOption "Hyprpaper";
     };
+    kitty.enable = lib.mkEnableOption "Kitty";
+    rofi.enable = lib.mkEnableOption "Rofi";
+    spicetify.enable = lib.mkEnableOption "Spicetify";
+    swaync.enable = lib.mkEnableOption "Swaync";
+    tor-browser.enable = lib.mkEnableOption "Tor Browser";
+    vscodium.enable = lib.mkEnableOption "VSCodium";
+    waybar.enable = lib.mkEnableOption "Waybar";
+    zathura.enable = lib.mkEnableOption "Zathura";
   };
 
   config = lib.mkIf config.desktop.enable {
@@ -73,6 +75,7 @@
       spicetify.enable = lib.mkDefault true;
       swaync.enable = lib.mkDefault true;
       tor-browser.enable = lib.mkDefault true;
+      vscodium.enable = lib.mkDefault true;
       waybar.enable = lib.mkDefault true;
       zathura.enable = lib.mkDefault true;
     };

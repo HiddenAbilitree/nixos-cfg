@@ -9,9 +9,7 @@
 
   boot = {
     loader = {
-      efi = {
-        canTouchEfiVariables = true;
-      };
+      efi.canTouchEfiVariables = true;
       systemd-boot = {
         enable = lib.mkDefault true;
         consoleMode = "max";
@@ -20,28 +18,26 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
-  environment = {
-    systemPackages = with pkgs; [
-      dmidecode
-      duf
-      fd
-      fprintd
-      fzf
-      gnupg1
-      jq
-      killall
-      p7zip
-      ripgrep
-      sbctl
-      unzip
-      wget
-      zip
+  environment.systemPackages = with pkgs; [
+    dmidecode
+    duf
+    fd
+    fprintd
+    fzf
+    gnupg1
+    jq
+    killall
+    p7zip
+    ripgrep
+    sbctl
+    unzip
+    wget
+    zip
 
-      usbutils
-      udiskie
-      udisks
-    ];
-  };
+    usbutils
+    udiskie
+    udisks
+  ];
   networking = {
     nameservers = [
       "1.1.1.1"
@@ -52,18 +48,17 @@
     useNetworkd = true;
   };
 
-  nix = {
-    settings = {
-      auto-optimise-store = true;
+  nix.settings = {
+    auto-optimise-store = true;
 
-      trusted-users = [
-        "ezhang"
-      ];
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-    };
+    trusted-users = [
+      "ezhang"
+    ];
+
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   time = {

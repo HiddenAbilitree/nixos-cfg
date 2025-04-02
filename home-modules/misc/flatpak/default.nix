@@ -10,10 +10,7 @@ lib.mkIf config.misc.flatpak.enable {
 
     overrides.global = {
       Context.sockets = ["wayland"];
-
-      Environment = {
-        GTK_THEME = "Tokyonight-Dark";
-      };
+      Environment.GTK_THEME = "Tokyonight-Dark";
     };
   };
 }

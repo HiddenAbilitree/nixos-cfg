@@ -1,4 +1,9 @@
 {
+  config,
+  lib,
+  ...
+}:
+lib.mkIf config.shell.nh.enable {
   programs.nh = {
     enable = true;
     clean = {

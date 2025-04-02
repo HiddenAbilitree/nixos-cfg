@@ -37,26 +37,28 @@
       sops
       tldr # man pages
 
-      rustlings
-
       # utils
+      brightnessctl
       colemak-dh
+      glib
       hunspell
       hunspellDicts.en_US
       hyprls
       openconnect
-      texliveFull
-      glib
-      wl-clipboard
       playerctl
-      brightnessctl
+      texliveFull
+      wl-clipboard
 
       # development
       bun
-      nodejs_23
       gh
+      man-pages
+      man-pages-posix
+      nodejs_23
+      rustlings
     ];
     stateVersion = "24.05";
   };
+
   programs.home-manager.enable = true;
 }

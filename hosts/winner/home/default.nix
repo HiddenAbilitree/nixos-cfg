@@ -4,7 +4,6 @@
   ];
 
   shell.enable = true;
-  development.enable = true;
   desktop = {
     hyprland = {
       hypridle.enable = false;

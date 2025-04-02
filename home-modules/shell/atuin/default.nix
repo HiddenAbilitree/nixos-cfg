@@ -1,4 +1,9 @@
 {
+  config,
+  lib,
+  ...
+}:
+lib.mkIf config.shell.atuin.enable {
   programs.atuin = {
     enable = true;
     enableZshIntegration = false;

@@ -15,7 +15,7 @@
 
   config.laptop = lib.mkIf config.laptop.enable {
     fingerprint.enable = lib.mkDefault true;
-    hibernate.enable = lib.mkDefault true;
+    hibernate.enable = lib.mkDefault false;
     sleep.enable = lib.mkDefault true;
     wifi.enable = lib.mkDefault true;
   };
