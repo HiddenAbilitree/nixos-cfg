@@ -3,7 +3,10 @@
     ./programs
   ];
 
-  shell.enable = true;
+  shell = {
+    enable = true;
+    zellij.autostart = false;
+  };
   desktop = {
     hyprland = {
       hypridle.enable = false;
