@@ -44,9 +44,10 @@
     jj.enable = lib.mkDefault true;
     nh.enable = lib.mkDefault true;
     nvim.enable = lib.mkDefault true;
+    packages.enable = lib.mkDefault true;
     starship.enable = lib.mkDefault true;
     tmux.enable = lib.mkDefault true;
-    zellij.enable = lib.mkDefault false;
+    zellij.enable = lib.mkDefault true;
     zoxide.enable = lib.mkDefault true;
     zsh.enable = lib.mkDefault true;
   };
