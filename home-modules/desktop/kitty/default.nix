@@ -13,7 +13,7 @@
       background_opacity = ".95";
       enable_audio_bell = false;
       cursor_shape = "beam";
-      window_margin_width = "20";
+      window_margin_width = "5";
       cursor_trail = 3;
     };
   };
