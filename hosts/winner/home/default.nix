@@ -23,6 +23,5 @@
 
   home.packages = with pkgs; [
     headsetcontrol
-    cloudflared
   ];
 }
