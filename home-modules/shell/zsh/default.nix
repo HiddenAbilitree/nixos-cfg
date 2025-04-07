@@ -32,6 +32,7 @@
       nr = "nixos-rebuild switch --flake ${root} --rollback --use-remote-sudo";
       nu = "nix flake update --flake ${root}";
       nus = "nu && ns";
+      nfu = "nix flake update";
 
       fetch = "fastfetch\nsource /etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh";
 

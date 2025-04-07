@@ -1,7 +1,6 @@
 {config, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ../../nixos-modules
   ];
 
   virtualization.enable = true;
@@ -13,7 +12,6 @@
   };
 
   bootx.plymouth.enable = true;
-
   syncthing.enable = true;
   distributed-builds.enable = true;
   swap.enable = true;
@@ -44,7 +42,12 @@
       user = "ezhang";
     };
   };
-  programs.steam.enable = true;
+
+  programs = {
+    steam.enable = true;
+    gamemode.enable = true;
+  };
+
   nix = {
     settings = {
       system-features = [

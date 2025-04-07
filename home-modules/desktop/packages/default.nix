@@ -8,31 +8,31 @@
     gimp
     google-chrome
     gnome-disk-utility
-    libreoffice
-    nautilus
-    obs-studio
-    obsidian
-    openrazer-daemon
     hyprsunset
     jetbrains.idea-community
+    kdePackages.xwaylandvideobridge
+    libreoffice
+    moonlight-qt
+    mpv
+    nautilus
+    obsidian
+    obs-studio
+    openrazer-daemon
     pavucontrol
     polychromatic
     postman
-    moonlight-qt
-    mpv
-    vlc
     rquickshare
     swww
     themechanger
     typst
+    ventoy-full
     vesktop
+    vivaldi
+    vlc
     wineWowPackages.waylandFull
     wireguard-tools
     wireshark-qt
     wl-clicker
-    kdePackages.xwaylandvideobridge
-    gnome-themes-extra
-    ventoy-full
     zoom
     zotero
   ]);
