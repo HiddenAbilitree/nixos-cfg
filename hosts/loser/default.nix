@@ -23,6 +23,11 @@
     user = "ezhang";
   };
 
+  programs = {
+    steam.enable = true;
+    gamemode.enable = true;
+  };
+
   # mullvad.enable = true;
 
   wireguard.client = {
