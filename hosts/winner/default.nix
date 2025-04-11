@@ -36,11 +36,9 @@
     };
   };
 
-  services = {
-    displayManager.autoLogin = {
-      enable = true;
-      user = "ezhang";
-    };
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "ezhang";
   };
 
   programs = {

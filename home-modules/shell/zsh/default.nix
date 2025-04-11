@@ -44,8 +44,6 @@
 
       pdf = "nohup zathura $(fzf)";
 
-      ssh = "kitten ssh";
-
       q = "qalc";
       b = "bluetuith";
       lg = "lazygit";
