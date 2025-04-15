@@ -21,9 +21,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hyprland.url = "git+ssh://git@github.com/hyprwm/Hyprland.git?rev=f261fb6fe028a1427cfd672eee6e7d5705cd696f&ref=main";
+    # hyprland.url = "git+ssh://git@github.com/hyprwm/Hyprland.git?rev=b15c2bfff6941bd2072eade13177433d7ab58a00&ref=main";
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
 
@@ -48,7 +51,7 @@
     };
 
     split-monitor-workspaces = {
-      # url = "git+ssh://git@github.com/Duckonaut/split-monitor-workspaces.git?rev=917e9ad52e910ffa0ab7d61fecd5a2e3d3f66d87&ref=main";
+      # url = "git+ssh://git@github.com/Duckonaut/split-monitor-workspaces.git?rev=a8e39ff10dfb5ff451416a791a30388a8517e038&ref=main";
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };

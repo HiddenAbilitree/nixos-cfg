@@ -11,6 +11,7 @@
     ./gtk
     ./hyprland
     ./kitty
+    ./mpv
     ./packages
     ./rofi
     ./spicetify
@@ -41,6 +42,7 @@
       hyprpaper.enable = lib.mkEnableOption "Hyprpaper";
     };
     kitty.enable = lib.mkEnableOption "Kitty";
+    mpv.enable = lib.mkEnableOption "mpv";
     rofi.enable = lib.mkEnableOption "Rofi";
     spicetify.enable = lib.mkEnableOption "Spicetify";
     swaync.enable = lib.mkEnableOption "Swaync";
@@ -71,6 +73,7 @@
         hyprpaper.enable = lib.mkDefault true;
       };
       kitty.enable = lib.mkDefault true;
+      mpv.enable = lib.mkDefault true;
       rofi.enable = lib.mkDefault true;
       spicetify.enable = lib.mkDefault true;
       swaync.enable = lib.mkDefault true;

@@ -9,11 +9,10 @@
     google-chrome
     gnome-disk-utility
     hyprsunset
-    jetbrains.idea-community
+    jetbrains.idea-ultimate
     kdePackages.xwaylandvideobridge
     libreoffice
     moonlight-qt
-    mpv
     nautilus
     obsidian
     obs-studio
