@@ -47,6 +47,13 @@
             "loser"
           ];
         };
+        "prismlauncher" = {
+          path = "/home/ezhang/.local/share/PrismLauncher/instances";
+          devices = [
+            "winner"
+            "loser"
+          ];
+        };
       };
     };
   };
