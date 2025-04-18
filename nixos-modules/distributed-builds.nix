@@ -10,7 +10,7 @@ lib.mkIf config.distributed-builds.enable {
       {
         hostName = "winner";
         maxJobs = 15;
-        speedFactor = 2;
+        speedFactor = 3;
         protocol = "ssh-ng";
         sshUser = "ezhang";
         sshKey = config.sops.secrets.personal-ssh-private.path;
@@ -20,7 +20,7 @@ lib.mkIf config.distributed-builds.enable {
       {
         hostName = "thething";
         maxJobs = 23;
-        speedFactor = 2;
+        speedFactor = 3;
         protocol = "ssh-ng";
         sshUser = "ezhang";
         sshKey = config.sops.secrets.personal-ssh-private.path;

@@ -8,6 +8,7 @@
   imports = [./lutris.nix ./roblox.nix ./honkers.nix];
   home.packages = with pkgs;
     [
+      mangohud
       (lib.mkIf config.desktop.games.osu.enable osu-lazer-bin)
       (lib.mkIf config.desktop.games.emulators.enable
         (retroarch.withCores (cores: with cores; [mgba dolphin citra])))

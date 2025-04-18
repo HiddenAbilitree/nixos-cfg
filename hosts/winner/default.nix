@@ -46,14 +46,10 @@
     gamemode.enable = true;
   };
 
-  nix = {
-    settings = {
-      system-features = [
-        "kvm"
-        "big-parallel"
-        "benchmark"
-        "nixos-test"
-      ];
-    };
-  };
+  nix.settings.system-features = [
+    "kvm"
+    "big-parallel"
+    "benchmark"
+    "nixos-test"
+  ];
 }

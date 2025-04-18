@@ -39,11 +39,6 @@
     udisks
   ];
   networking = {
-    nameservers = [
-      "1.1.1.1"
-      "8.8.8.8"
-      "9.9.9.9"
-    ];
     networkmanager.enable = lib.mkDefault false;
     useNetworkd = true;
   };
