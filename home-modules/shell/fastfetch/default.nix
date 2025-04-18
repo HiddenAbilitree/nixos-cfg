@@ -60,6 +60,12 @@
           keyColor = "cyan";
         }
         {
+          type = "gpu";
+          key = "   ";
+          showPeCoreCount = true;
+          keyColor = "cyan";
+        }
+        {
           type = "memory";
           key = "   ";
           keyColor = "cyan";

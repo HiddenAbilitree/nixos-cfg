@@ -5,6 +5,7 @@
   ...
 }: {
   home.packages = lib.mkIf config.desktop.enable (with pkgs; [
+    brave
     gimp
     google-chrome
     gnome-disk-utility

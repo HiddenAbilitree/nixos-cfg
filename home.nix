@@ -19,7 +19,6 @@
       XDG_CONFIG_HOME = lib.mkForce "$HOME/.config";
       XDG_DATA_HOME = lib.mkForce "$HOME/.local/share";
       XDG_STATE_HOME = lib.mkForce "$HOME/.local/state";
-      BRAVE = pkgs.brave;
     };
 
     packages = with pkgs; [
