@@ -6,7 +6,7 @@
 }: {
   programs.chromium = lib.mkIf config.desktop.brave.enable {
     enable = true;
-    package = pkgs.brave;
+    # package = pkgs.brave;
     # extraOpts = {
     #   "SyncDisabled" = true;
     # };

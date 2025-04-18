@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   modulesPath,
   ...
@@ -9,20 +10,18 @@
   ];
 
   boot = {
-    initrd.availableKernelModules = [
-      "nvme"
-      "ahci"
-      "xhci_pci"
-      "usb_storage"
-      "usbhid"
-      "sd_mod"
-    ];
-    kernelModules = ["kvm-amd amdgpu"];
-  };
-
-  services.xserver = {
-    enable = true;
-    videoDrivers = ["amdgpu"];
+    initrd = {
+      availableKernelModules = [
+        "nvme"
+        "ahci"
+        "xhci_pci"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
+      kernelModules = [];
+    };
+    kernelModules = ["kvm-amd"];
   };
 
   fileSystems = {
@@ -43,5 +42,11 @@
 
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware = {
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [amdvlk];
+    };
+  };
 }
