@@ -16,6 +16,7 @@
     home.packages = with pkgs; [
       hyprshot
       hyprpicker
+      xdg-desktop-portal-gtk
     ];
 
     wayland.windowManager.hyprland = {

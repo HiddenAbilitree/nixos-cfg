@@ -6,6 +6,7 @@
 }: {
   home.packages = lib.mkIf config.desktop.enable (with pkgs; [
     brave
+    firefox
     gimp
     google-chrome
     gnome-disk-utility
@@ -13,6 +14,7 @@
     jetbrains.idea-ultimate
     kdePackages.xwaylandvideobridge
     libreoffice
+    librewolf
     moonlight-qt
     nautilus
     obsidian
@@ -33,6 +35,7 @@
     wireguard-tools
     wireshark-qt
     wl-clicker
+    zenity
     zoom
     zotero
   ]);

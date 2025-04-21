@@ -46,7 +46,12 @@
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     graphics = {
       enable = true;
-      extraPackages = with pkgs; [amdvlk];
+      extraPackages = with pkgs; [
+        intel-media-driver
+        libvdpau-va-gl
+        vaapiIntel
+      ];
     };
+    openrazer.enable = true;
   };
 }
