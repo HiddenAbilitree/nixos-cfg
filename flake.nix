@@ -33,6 +33,8 @@
 
     private.url = "git+ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git?ref=main";
 
+    fonts.url = "git+ssh://git@github.com/HiddenAbilitree/fonts.git?ref=main";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nixvim-cfg = {

@@ -7,6 +7,7 @@
   home.packages = lib.mkIf config.desktop.enable (with pkgs; [
     brave
     firefox
+    font-manager
     gimp
     google-chrome
     gnome-disk-utility

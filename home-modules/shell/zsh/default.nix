@@ -14,10 +14,6 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     autocd = true;
-    initExtraFirst = ''
-      export GITHUB_TOKEN="$(cat ${osConfig.sops.secrets.github-token.path})"
-      export GH_TOKEN="$GITHUB_TOKEN"
-    '';
     initExtra = builtins.readFile ./initExtra.sh;
     shellAliases = {
       cfg = "xvim ${root}";
@@ -38,6 +34,8 @@
 
       cd = "z";
       ls = "eza";
+
+      gh = "GITHUB_TOKEN=$(cat ${osConfig.sops.secrets.github-token.path}) gh";
 
       edit = "$EDITOR";
       code = "codium";

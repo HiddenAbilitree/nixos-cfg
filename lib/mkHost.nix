@@ -24,6 +24,7 @@
           inputs.lanzaboote.nixosModules.lanzaboote
           inputs.private.nixosModules
           inputs.sops-nix.nixosModules.sops
+          inputs.fonts.nixosModules
           {
             environment.systemPackages = [inputs.alejandra.defaultPackage.${system}];
             networking.hostName = hostName;
