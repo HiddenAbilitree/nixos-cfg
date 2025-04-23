@@ -14,7 +14,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     autocd = true;
-    initExtra = builtins.readFile ./initExtra.sh;
+    initContent = builtins.readFile ./initContent.sh;
     shellAliases = {
       cfg = "xvim ${root}";
       pcfg = "xvim ${proot}";
