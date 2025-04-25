@@ -36,6 +36,7 @@
                   root = "/home/ezhang/code/nix/nixos-cfg";
                   proot = "/home/ezhang/code/nix/private-nixos-cfg";
                   nroot = "/home/ezhang/code/nix/nixvim-cfg";
+                  froot = "/home/ezhang/code/nix/fonts";
                 };
               sharedModules = [
                 inputs.spicetify-nix.homeManagerModules.default

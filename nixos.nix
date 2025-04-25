@@ -39,6 +39,7 @@
     udiskie
     udisks
   ];
+
   networking = {
     networkmanager.enable = lib.mkDefault false;
     useNetworkd = true;

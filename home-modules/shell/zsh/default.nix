@@ -3,6 +3,7 @@
   proot,
   root,
   nroot,
+  froot,
   config,
   osConfig,
   lib,
@@ -19,6 +20,7 @@
       cfg = "xvim ${root}";
       pcfg = "xvim ${proot}";
       ncfg = "xvim ${nroot}";
+      fcfg = "xvim ${froot}";
 
       secrets = "sops ${proot}/nixos/sops/secrets.yaml";
 
