@@ -15,6 +15,13 @@
     ]
     ++ lib.optionals config.desktop.games.minecraft.enable [lunar-client prismlauncher.packages.${pkgs.system}.prismlauncher];
 
+  home.file = {
+    ".local/share/PrismLauncher/themes/Tokyo-Night-Storm" = {
+      enable = config.desktop.games.minecraft.enable;
+      source = ./prism-launcher;
+    };
+  };
+
   desktop.games = lib.mkIf config.desktop.games.enable {
     osu.enable = lib.mkDefault true;
     minecraft.enable = lib.mkDefault true;
