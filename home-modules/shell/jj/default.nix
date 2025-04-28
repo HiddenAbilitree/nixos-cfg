@@ -14,9 +14,9 @@ lib.mkIf config.shell.jj.enable {
         email = "me@ericzhang.dev";
       };
       signing = {
-        sign-all = true;
         backend = "gpg";
         backends.gpg.allow-expired-keys = false;
+        behavior = "own";
         inherit (config.programs.git.signing) key;
       };
     };
