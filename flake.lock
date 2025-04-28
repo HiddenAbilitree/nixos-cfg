@@ -245,11 +245,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1745428503,
-        "narHash": "sha256-5yV3j92oEbbYNRndfpQmAhk36i14MfKq+g4rIpANseM=",
+        "lastModified": 1745858413,
+        "narHash": "sha256-AHcfLaIpUatUuoH4ndN0usYEhm6KYZQWilIVxOxhnm4=",
         "ref": "main",
-        "rev": "62383b3fd0dc5b7deb6bc6f27a9015a669a0c894",
-        "revCount": 14,
+        "rev": "84ac4765ecc51949fdc85c386038ae2d2d56c3a1",
+        "revCount": 16,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/fonts.git"
       },
@@ -310,11 +310,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745810134,
-        "narHash": "sha256-WfnYH/i7DFzn4SESQfWviXiNUZjohZhzODqLwKYHIPI=",
+        "lastModified": 1745853192,
+        "narHash": "sha256-ardehuT9qtSXtY1XdOY6fEM3Kf3bQa3LZxxKdAScCnU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "be7cf1709b469a2a2c62169172a167d1fed3509f",
+        "rev": "c54a8ab0d2ea7486eadb14f1dc498817ff164f59",
         "type": "github"
       },
       "original": {
@@ -1011,11 +1011,11 @@
         "qt-qrcodegenerator": "qt-qrcodegenerator"
       },
       "locked": {
-        "lastModified": 1745836741,
-        "narHash": "sha256-0MsDuvjQ5aOK9yAOn2wECW7zNBpLja0j+lEvT+KqyGg=",
+        "lastModified": 1745854397,
+        "narHash": "sha256-FKASdbkmm0/+pDNHRfE/m5A0DvWpmOzekD5a3nvJN+E=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "da30904630d03144319b43127bac320a854fcf8c",
+        "rev": "21c90527d27fe4fbc5026b20b97be4e0835f0cda",
         "type": "github"
       },
       "original": {

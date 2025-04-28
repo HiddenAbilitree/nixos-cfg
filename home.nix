@@ -13,7 +13,7 @@
 
     sessionVariables = {
       EDITOR = "nvim";
-      FLAKE = root;
+      NH_FLAKE = root;
       YSU_HARDCORE = 1;
       XDG_CACHE_HOME = lib.mkForce "$HOME/.cache";
       XDG_CONFIG_HOME = lib.mkForce "$HOME/.config";
