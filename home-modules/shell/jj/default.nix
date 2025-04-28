@@ -8,7 +8,10 @@ lib.mkIf config.shell.jj.enable {
   programs.jujutsu = {
     enable = true;
     settings = {
-      ui.allow-init-native = true;
+      ui = {
+        allow-init-native = true;
+        default-command = "log";
+      };
       user = {
         name = "Eric Zhang";
         email = "me@ericzhang.dev";
