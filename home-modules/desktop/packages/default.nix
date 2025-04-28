@@ -3,8 +3,9 @@
   lib,
   pkgs,
   ...
-}: {
-  home.packages = lib.mkIf config.desktop.enable (with pkgs; [
+}:
+lib.mkIf config.desktop.enable {
+  home.packages = with pkgs; [
     brave
     firefox
     font-manager
@@ -36,8 +37,7 @@
     wireguard-tools
     wireshark-qt
     wl-clicker
-    zenity
     zoom
     zotero
-  ]);
+  ];
 }

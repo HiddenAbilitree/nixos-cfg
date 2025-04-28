@@ -27,7 +27,6 @@
     gnupg1
     jq
     killall
-    libGL
     p7zip
     ripgrep
     sbctl

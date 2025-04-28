@@ -1,11 +1,10 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }: {
-  programs.rofi = lib.mkIf config.desktop.rofi.enable {
-    enable = true;
+  programs.rofi = {
+    enable = config.desktop.rofi.enable;
     terminal = "${pkgs.kitty}/bin/kitty";
     font = "JetBrainsMono Nerd Font 12";
     package = pkgs.rofi-wayland;
