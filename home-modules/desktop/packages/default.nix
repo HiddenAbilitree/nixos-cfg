@@ -38,6 +38,7 @@ lib.mkIf config.desktop.enable {
     wireguard-tools
     wireshark-qt
     wl-clicker
+    wl-clipboard
     zoom
     zotero
   ];

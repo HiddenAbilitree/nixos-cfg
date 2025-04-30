@@ -23,30 +23,15 @@
 
     packages = with pkgs; [
       # cli/tuis
-      age
-      bat # fancy cat
-      bluetuith
-      dig
-      glow # markdown renderer
-      gum
-      hyperfine
-      hwinfo
-      libqalculate
-      nmap
-      sops
-      tldr # man pages
 
       # utils
       brightnessctl
       colemak-dh
       glib
-      hunspell
-      hunspellDicts.en_US
       hyprls
       openconnect
       playerctl
       texliveFull
-      wl-clipboard
 
       # development
       bun
