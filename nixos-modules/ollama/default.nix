@@ -1,11 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}:
-lib.mkIf config.ollama.enable {
+{config, ...}: {
   services.ollama = {
-    enable = true;
+    inherit (config.ollama) enable;
     acceleration = "rocm";
   };
 }

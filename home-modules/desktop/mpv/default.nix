@@ -1,16 +1,17 @@
 {
   pkgs,
-  lib,
   config,
   ...
-}:
-lib.mkIf config.desktop.mpv.enable {
+}: {
   programs.mpv = {
-    enable = true;
+    inherit (config.desktop.mpv) enable;
     config = {
       border = "no";
       osd-bar = "no";
     };
+    includes = [
+      "mpv.conf"
+    ];
     scripts = with pkgs.mpvScripts; [
       inhibit-gnome
       thumbfast

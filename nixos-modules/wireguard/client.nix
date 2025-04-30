@@ -1,11 +1,7 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  config = lib.mkIf config.wireguard.client.enable {
+{config, ...}: {
+  config = {
     systemd.network = {
-      enable = true;
+      inherit (config.wireguard.client) enable;
       netdevs = {
         "10-wg0" = {
           netdevConfig = {

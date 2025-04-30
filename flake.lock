@@ -310,11 +310,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745977079,
-        "narHash": "sha256-eEOmrgpenIs+JwuCdqgEYly6sdz8vbCQVgvo8dk3DZM=",
+        "lastModified": 1745987135,
+        "narHash": "sha256-8Up4QPuMZEJBU0eefAY+nUe7DYKQQzvaHnMpNdwRgKA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "84d262115e10ad321ef01cd85903d0f5c3ec113f",
+        "rev": "d2b3e6c83d457aa0e7f9344c61c3fed32bad0f7e",
         "type": "github"
       },
       "original": {
@@ -916,11 +916,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1745488271,
-        "narHash": "sha256-7jyrCFUh7WuNrO800vFVrZQoZNp4SspR38YXO5hFCUs=",
+        "lastModified": 1745992246,
+        "narHash": "sha256-h1pDRQWZ31QbM8krJtG2AcbFmJR9/sRa8/fucFkmEk8=",
         "ref": "main",
-        "rev": "ca41892431b3373db49016401fcf54c85f060aa3",
-        "revCount": 62,
+        "rev": "edd7b41e7d2fc629fad829bbf90880e5abb12858",
+        "revCount": 64,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/nixvim-cfg.git"
       },
@@ -1011,11 +1011,11 @@
         "qt-qrcodegenerator": "qt-qrcodegenerator"
       },
       "locked": {
-        "lastModified": 1745915033,
-        "narHash": "sha256-Avk7Sh0+NTsPUHXSfBKBnXwwIOVQ0gOfuBzrG42KZ/o=",
+        "lastModified": 1745990661,
+        "narHash": "sha256-/jMAEZpXL6lGitUjQg1CvwTmmqUlYojQt7gzZHUEg6Q=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "f086233186b769eff3273555cf20a0a3164a9054",
+        "rev": "224503cc93de1d48f085b389394bec529357f870",
         "type": "github"
       },
       "original": {

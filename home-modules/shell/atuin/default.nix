@@ -1,11 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}:
-lib.mkIf config.shell.atuin.enable {
+{config, ...}: {
   programs.atuin = {
-    enable = true;
+    inherit (config.shell.atuin) enable;
     enableZshIntegration = false;
     settings = {
       auto_sync = true;

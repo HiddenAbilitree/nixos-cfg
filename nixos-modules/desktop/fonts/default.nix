@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+lib.mkIf config.desktop.fonts.enable {
   fonts = {
     fontDir.enable = true;
     enableGhostscriptFonts = true;

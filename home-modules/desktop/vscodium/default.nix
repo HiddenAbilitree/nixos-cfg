@@ -4,8 +4,8 @@
   lib,
   ...
 }: {
-  programs.vscode = lib.mkIf config.desktop.vscodium.enable {
-    enable = true;
+  programs.vscode = {
+    inherit (config.desktop.vscodium) enable;
     package = pkgs.vscodium.fhsWithPackages (
       ps:
         with ps; [

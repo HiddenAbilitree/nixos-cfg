@@ -1,10 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  programs.zathura = lib.mkIf config.desktop.zathura.enable {
-    enable = true;
+{config, ...}: {
+  programs.zathura = {
+    inherit (config.desktop.zathura) enable;
     extraConfig = builtins.readFile ./.zathurarc;
   };
 }

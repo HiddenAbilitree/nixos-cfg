@@ -1,12 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}:
-lib.mkIf config.shell.btop.enable
-{
+{config, ...}: {
   programs.btop = {
-    enable = true;
+    inherit (config.shell.btop) enable;
     settings = {
       theme_background = false;
     };

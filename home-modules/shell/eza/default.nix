@@ -1,11 +1,8 @@
-{
-  config,
-  lib,
-  ...
-}:
-lib.mkIf config.shell.eza.enable {
+{config, ...}: {
   programs.eza = {
-    enable = true;
+    inherit (config.shell.eza) enable;
     icons = "auto";
+    colors = "always";
+    enableZshIntegration = true;
   };
 }

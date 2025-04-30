@@ -1,10 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  services.syncthing = lib.mkIf config.syncthing.enable {
-    enable = true;
+{config, ...}: {
+  services.syncthing = {
+    inherit (config.syncthing) enable;
     group = "syncthing";
     user = "ezhang";
     dataDir = "/home/ezhang/";

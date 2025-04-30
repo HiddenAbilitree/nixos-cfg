@@ -1,11 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}:
-lib.mkIf config.shell.zellij.enable {
+{config, ...}: {
   programs.zellij = {
-    enable = true;
+    inherit (config.shell.zellij) enable;
     enableZshIntegration = config.shell.zellij.autostart;
     settings = {
       theme = "tokyo-night-storm";

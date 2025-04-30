@@ -17,7 +17,7 @@
 
   home.file = {
     ".local/share/PrismLauncher/themes/Tokyo-Night-Storm" = {
-      enable = config.desktop.games.minecraft.enable;
+      inherit (config.desktop.games.minecraft) enable;
       source = ./prism-launcher;
     };
   };

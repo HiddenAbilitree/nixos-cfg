@@ -6,11 +6,10 @@
   froot,
   config,
   osConfig,
-  lib,
   ...
 }: {
-  programs.zsh = lib.mkIf config.shell.zsh.enable {
-    enable = true;
+  programs.zsh = {
+    inherit (config.shell.zsh) enable;
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;

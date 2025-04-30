@@ -1,11 +1,6 @@
-{
-  lib,
-  config,
-  ...
-}: {
-  services.cloudflared = lib.mkIf config.cloudflared.enable {
-    enable = true;
-    user = "ezhang";
+{config, ...}: {
+  services.cloudflared = {
+    inherit (config.cloudflared) enable;
     tunnels = {
       "ericzhang.dev-1" = {
         credentialsFile = "/home/ezhang/.cloudflared/e6ac982a-c434-4d39-9e8a-b1b163f6b817.json";

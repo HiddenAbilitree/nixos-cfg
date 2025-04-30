@@ -1,11 +1,6 @@
-{
-  lib,
-  config,
-  ...
-}:
-lib.mkIf config.desktop.services.sunshine.enable {
+{config, ...}: {
   services.sunshine = {
-    enable = true;
+    inherit (config.desktop.services.sunshine) enable;
     autoStart = true;
     capSysAdmin = true;
     openFirewall = true;

@@ -1,10 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  programs.waybar = lib.mkIf config.desktop.waybar.enable {
-    enable = true;
+{config, ...}: {
+  programs.waybar = {
+    inherit (config.desktop.waybar) enable;
 
     style = builtins.readFile ./style.css;
 

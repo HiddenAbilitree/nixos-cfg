@@ -1,6 +1,7 @@
   * {
     border-radius: 8px;
-    font-family: "JetBrainsMono Nerd Font";
+    /* font-family: "JetBrainsMono Nerd Font"; */
+    font-family: "0xProto Nerd Font";
     font-size: 12pt;
     font-weight: bold;
     transition-property: background-color;

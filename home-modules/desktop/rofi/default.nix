@@ -4,9 +4,10 @@
   ...
 }: {
   programs.rofi = {
-    enable = config.desktop.rofi.enable;
+    inherit (config.desktop.rofi) enable;
     terminal = "${pkgs.kitty}/bin/kitty";
-    font = "JetBrainsMono Nerd Font 12";
+    # font = "JetBrainsMono Nerd Font 12";
+    font = "0xProto Nerd Font 12";
     package = pkgs.rofi-wayland;
     theme = ./theme.rasi;
     extraConfig = {

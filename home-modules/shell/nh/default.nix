@@ -1,11 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}:
-lib.mkIf config.shell.nh.enable {
+{config, ...}: {
   programs.nh = {
-    enable = true;
+    inherit (config.shell.nh) enable;
     clean = {
       enable = true;
       extraArgs = "--keep-since 4d --keep 3 --nogcroots";

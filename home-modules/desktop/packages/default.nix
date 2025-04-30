@@ -28,6 +28,7 @@ lib.mkIf config.desktop.enable {
     rquickshare
     swww
     themechanger
+    tor-browser
     typst
     ventoy-full
     vesktop

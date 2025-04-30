@@ -1,11 +1,6 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: {
-  programs.chromium = lib.mkIf config.desktop.brave.enable {
-    enable = true;
+{config, ...}: {
+  programs.chromium = {
+    inherit (config.desktop.browser) enable;
     # package = pkgs.brave;
     # extraOpts = {
     #   "SyncDisabled" = true;

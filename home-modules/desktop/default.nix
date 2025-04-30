@@ -12,18 +12,18 @@
     ./hyprland
     ./kitty
     ./mpv
+    ./notifications
     ./packages
     ./rofi
     ./spicetify
-    ./swaync
-    ./tor
     ./vscodium
     ./waybar
     ./zathura
   ];
   options.desktop = {
     enable = lib.mkEnableOption "desktop configuration";
-    brave.enable = lib.mkEnableOption "Brave Browser";
+    browser.enable = lib.mkEnableOption "Browser";
+    cava.enable = lib.mkEnableOption "Cava";
     dark-mode.enable = lib.mkEnableOption "Dark Mode";
     games = {
       enable = lib.mkEnableOption "Games";
@@ -45,7 +45,7 @@
     mpv.enable = lib.mkEnableOption "mpv";
     rofi.enable = lib.mkEnableOption "Rofi";
     spicetify.enable = lib.mkEnableOption "Spicetify";
-    swaync.enable = lib.mkEnableOption "Swaync";
+    notifications.enable = lib.mkEnableOption "Notifications";
     tor-browser.enable = lib.mkEnableOption "Tor Browser";
     vscodium.enable = lib.mkEnableOption "VSCodium";
     waybar.enable = lib.mkEnableOption "Waybar";
@@ -63,7 +63,8 @@
     services.clipman.enable = true;
 
     desktop = {
-      brave.enable = lib.mkDefault true;
+      browser.enable = lib.mkDefault true;
+      cava.enable = lib.mkDefault true;
       dark-mode.enable = lib.mkDefault true;
       ghostty.enable = lib.mkDefault true;
       hyprland = {
@@ -76,7 +77,7 @@
       mpv.enable = lib.mkDefault true;
       rofi.enable = lib.mkDefault true;
       spicetify.enable = lib.mkDefault true;
-      swaync.enable = lib.mkDefault true;
+      notifications.enable = lib.mkDefault true;
       tor-browser.enable = lib.mkDefault true;
       vscodium.enable = lib.mkDefault true;
       waybar.enable = lib.mkDefault true;

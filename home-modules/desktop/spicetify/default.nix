@@ -7,7 +7,7 @@
   programs.spicetify = let
     spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
   in {
-    enable = config.desktop.spicetify.enable;
+    inherit (config.desktop.spicetify) enable;
     enabledExtensions = with spicePkgs.extensions; [
       # https://github.com/Gerg-L/spicetify-nix/blob/master/docs/EXTENSIONS.md
       adblock

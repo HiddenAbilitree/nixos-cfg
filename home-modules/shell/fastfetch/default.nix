@@ -1,10 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  programs.fastfetch = lib.mkIf config.shell.fastfetch.enable {
-    enable = true;
+{config, ...}: {
+  programs.fastfetch = {
+    inherit (config.shell.fastfetch) enable;
     settings = {
       logo = {
         source = "~/.config/fastfetch/xero.png";

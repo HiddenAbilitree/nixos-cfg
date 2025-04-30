@@ -1,11 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}:
-lib.mkIf config.misc.flatpak.enable {
+{config, ...}: {
   services.flatpak = {
-    enable = true;
+    inherit (config.misc.flatpak) enable;
     uninstallUnmanaged = true;
 
     overrides.global = {

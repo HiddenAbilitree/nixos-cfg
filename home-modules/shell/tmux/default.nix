@@ -1,11 +1,10 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: {
-  programs.tmux = lib.mkIf config.shell.tmux.enable {
-    enable = true;
+  programs.tmux = {
+    inherit (config.shell.tmux) enable;
     terminal = "xterm-kitty";
     focusEvents = true;
     newSession = true;

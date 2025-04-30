@@ -1,9 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  virtualisation.docker = lib.mkIf config.virtualization.docker.enable {
-    enable = true;
+{config, ...}: {
+  virtualisation.docker = {
+    inherit (config.virtualization.docker) enable;
   };
 }
