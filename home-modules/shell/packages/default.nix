@@ -5,5 +5,5 @@
   ...
 }:
 lib.mkIf config.shell.packages.enable {
-  home.packages = with pkgs; [reptyr];
+  home.packages = with pkgs; [reptyr w3m];
 }

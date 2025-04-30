@@ -15,7 +15,7 @@
       window-decoration = false;
       # window-padding-x = 20;
       # window-padding-y = 20;
-      background-opacity = 0.95;
+      background-opacity = 0;
       font-size = 11;
       # keybind = [
       #   "ctrl+shift+t=new_tab"

@@ -10,7 +10,7 @@
     themeFile = "tokyo_night_storm";
 
     settings = {
-      background_opacity = ".95";
+      background_opacity = "0.6";
       enable_audio_bell = false;
       cursor_shape = "beam";
       window_margin_width = "5";
