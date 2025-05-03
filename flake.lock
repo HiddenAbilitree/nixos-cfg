@@ -310,11 +310,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745987135,
-        "narHash": "sha256-8Up4QPuMZEJBU0eefAY+nUe7DYKQQzvaHnMpNdwRgKA=",
+        "lastModified": 1746287478,
+        "narHash": "sha256-z3HiHR2CNAdwyZTWPM2kkzhE1gD1G6ExPxkaiQfNh7s=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d2b3e6c83d457aa0e7f9344c61c3fed32bad0f7e",
+        "rev": "75268f62525920c4936404a056f37b91e299c97e",
         "type": "github"
       },
       "original": {
@@ -397,11 +397,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1745994418,
-        "narHash": "sha256-6XBBacpZfBGpNLiE48AALuRdMfpf1KzzdG3zHiY2jdg=",
+        "lastModified": 1746291290,
+        "narHash": "sha256-96SpKoIyUsRas+h6RhnPcgbduyH2j2YrujWpsuKdK8Q=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "b2ad21a65c9801012cdb4cb49a94257c0e44adf6",
+        "rev": "46ac115bd19ee3aff5c816033de0b1d55a74e33f",
         "type": "github"
       },
       "original": {
@@ -763,11 +763,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1745930157,
-        "narHash": "sha256-y3h3NLnzRSiUkYpnfvnS669zWZLoqqI6NprtLQ+5dck=",
+        "lastModified": 1746141548,
+        "narHash": "sha256-IgBWhX7A2oJmZFIrpRuMnw5RAufVnfvOgHWgIdds+hc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "46e634be05ce9dc6d4db8e664515ba10b78151ae",
+        "rev": "f02fddb8acef29a8b32f10a335d44828d7825b78",
         "type": "github"
       },
       "original": {
@@ -795,11 +795,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1745930157,
-        "narHash": "sha256-y3h3NLnzRSiUkYpnfvnS669zWZLoqqI6NprtLQ+5dck=",
+        "lastModified": 1746232882,
+        "narHash": "sha256-MHmBH2rS8KkRRdoU/feC/dKbdlMkcNkB5mwkuipVHeQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "46e634be05ce9dc6d4db8e664515ba10b78151ae",
+        "rev": "7a2622e2c0dbad5c4493cb268aba12896e28b008",
         "type": "github"
       },
       "original": {
@@ -916,11 +916,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1745995846,
-        "narHash": "sha256-H+9GZhJSUKz/Y1GV8UZ2ovnFx4ECDHFn/3c6vB3IKB8=",
+        "lastModified": 1746207890,
+        "narHash": "sha256-Kksm1RMmw8/Pc4CnA9SxRLBPCOK80J1Ufz9Y3oTGBqw=",
         "ref": "main",
-        "rev": "eb53b91500d16419b91880ade07c6f5d34810dae",
-        "revCount": 65,
+        "rev": "820eb7d1c6b71c0c67a7e3384bb2389f98237b5b",
+        "revCount": 66,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/nixvim-cfg.git"
       },
@@ -1011,11 +1011,11 @@
         "qt-qrcodegenerator": "qt-qrcodegenerator"
       },
       "locked": {
-        "lastModified": 1745990661,
-        "narHash": "sha256-/jMAEZpXL6lGitUjQg1CvwTmmqUlYojQt7gzZHUEg6Q=",
+        "lastModified": 1746119911,
+        "narHash": "sha256-x2lKxY/Z9i+Doesj+3vsleKBTf8kH69pY79omozK9mI=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "224503cc93de1d48f085b389394bec529357f870",
+        "rev": "62afb86c6bcb0c4d048baeebc7096c8c9d4b3484",
         "type": "github"
       },
       "original": {
@@ -1164,11 +1164,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1745983288,
-        "narHash": "sha256-XUNZDucHnw5SpTG3iJ8xrc6vGdVaP/5jlWErVjOdl/4=",
+        "lastModified": 1746287507,
+        "narHash": "sha256-XzxmpEUbCXcBS7H00QmTAQf9xrMdvaFHrprkwb4i9CU=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "96d7adda80b8bfc06fc0669b68a40feb2339fa95",
+        "rev": "c09c8cbc0d650d451e4b48d00c63831437dae1b2",
         "type": "github"
       },
       "original": {
@@ -1185,11 +1185,11 @@
         "nix-filter": "nix-filter"
       },
       "locked": {
-        "lastModified": 1745956812,
-        "narHash": "sha256-UIFYtXkY+2y2XKkHLm9qegiDPT86g0z7AvMqsE6rfp4=",
+        "lastModified": 1746173444,
+        "narHash": "sha256-Qpd862a1+ram8NOx83XQmQ2PBznEXFtEHn7Npq84Bmo=",
         "owner": "Duckonaut",
         "repo": "split-monitor-workspaces",
-        "rev": "f51470c09e42304525ca32bdc38e08893bd9bf38",
+        "rev": "b91cf0a420680ed219ef252ce84375d3b3d7e870",
         "type": "github"
       },
       "original": {
