@@ -1,6 +1,11 @@
 {config, ...}: {
   services.mako = {
     inherit (config.desktop.notifications) enable;
-    extraConfig = builtins.readFile ./mako.conf;
+  };
+  home.file = {
+    ".config/mako/config" = {
+      inherit (config.desktop.notifications) enable;
+      source = ./mako.conf;
+    };
   };
 }
