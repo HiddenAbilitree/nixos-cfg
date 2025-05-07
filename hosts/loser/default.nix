@@ -19,6 +19,8 @@
     fail2ban.enable = false;
   };
 
+  mongodb.enable = true;
+
   services.displayManager.autoLogin = {
     enable = true;
     user = "ezhang";

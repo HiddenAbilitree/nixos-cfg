@@ -9,6 +9,7 @@
     ./desktop
     ./distributed-builds.nix
     ./laptop
+    ./mongodb.nix
     ./mullvad
     ./ollama
     ./printing.nix
@@ -40,6 +41,8 @@
       xserver.enable = lib.mkEnableOption "xserver";
       fonts.enable = lib.mkEnableOption "fonts";
     };
+
+    mongodb.enable = lib.mkEnableOption "mongodb";
 
     virtualization = {
       enable = lib.mkEnableOption "virtualization";

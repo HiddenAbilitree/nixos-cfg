@@ -14,6 +14,7 @@ lib.mkIf config.shell.packages.enable {
     hwinfo
     hyperfine
     libqalculate
+    mongosh
     nmap
     reptyr
     tldr # man pages

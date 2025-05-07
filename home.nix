@@ -38,7 +38,6 @@
       gh
       man-pages
       man-pages-posix
-      nodejs_23
       rustlings
     ];
     stateVersion = "24.05";
