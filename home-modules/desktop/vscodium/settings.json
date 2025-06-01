@@ -26,7 +26,7 @@
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": "explicit",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "'0xProto'",
+  "editor.fontFamily": "0xProto Nerd Font",
   "editor.fontLigatures": true,
   "editor.fontWeight": "600",
   "editor.formatOnPaste": true,

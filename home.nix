@@ -35,6 +35,7 @@
 
       # development
       bun
+      nodejs_latest
       gh
       man-pages
       man-pages-posix

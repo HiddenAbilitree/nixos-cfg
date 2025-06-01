@@ -1,13 +1,40 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 lib.mkIf config.desktop.games.honkers.enable {
-  home.packages = let
-    aagl-gtk-on-nix = import (builtins.fetchTarball {
-      url = "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz";
-      sha256 = "1z8z53p7qd4mfawi098dls7mx52ax2cvygn3bd20n1va1l4zsx0z";
-    });
-  in [aagl-gtk-on-nix.the-honkers-railway-launcher];
+  services.flatpak = {
+    remotes = [
+      {
+        name = "flathub";
+        location = "https://flathub.org/repo/flathub.flatpakrepo";
+      }
+      {
+        name = "launcher.moe";
+        location = "https://gol.launcher.moe/gol.launcher.moe.flatpakrepo";
+      }
+    ];
+    packages = [
+      {
+        appId = "moe.launcher.the-honkers-railway-launcher";
+        origin = "launcher.moe";
+      }
+    ];
+  };
+  misc.flatpak.enable = lib.mkDefault true;
+  # home.packages = let
+  #   aagl-gtk-on-nix = import (builtins.fetchTarball {
+  #     url = "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz";
+  #     sha256 = "1j4lppqrlg2vkvw601igrs85f1dnvrs401879mvgzdnp6a31sq8n";
+  #   });
+  # in
+  #   [aagl-gtk-on-nix.the-honkers-railway-launcher]
+  #   ++ (with pkgs.gst_all_1; [
+  #     gst-libav
+  #     gst-plugins-good
+  #     gst-plugins-bad
+  #     gst-plugins-base
+  #   ]);
 }

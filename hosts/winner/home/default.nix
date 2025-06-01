@@ -15,7 +15,7 @@
     enable = true;
     games = {
       enable = true;
-      honkers.enable = false;
+      honkers.enable = true;
     };
     primary-monitor = "DP-2";
   };

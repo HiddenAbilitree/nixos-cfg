@@ -7,6 +7,7 @@
 lib.mkIf config.desktop.enable {
   home.packages = with pkgs; [
     brave
+    easyeffects
     firefox
     font-manager
     gimp
@@ -25,12 +26,12 @@ lib.mkIf config.desktop.enable {
     pavucontrol
     polychromatic
     postman
+    protonup-qt
     rquickshare
     swww
     themechanger
     tor-browser
     typst
-    ventoy-full
     vesktop
     vivaldi
     vlc
