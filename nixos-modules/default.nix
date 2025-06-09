@@ -76,6 +76,8 @@
       vm.enable = lib.mkDefault true;
     };
 
+    virtualisation.waydroid.enable = config.virtualization.enable;
+
     ssh = {
       fail2ban.enable = lib.mkDefault true;
       x11forwarding = lib.mkDefault false;

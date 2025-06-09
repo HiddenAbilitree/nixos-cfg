@@ -7,6 +7,7 @@
 lib.mkIf config.desktop.enable {
   home.packages = with pkgs; [
     brave
+    dbeaver-bin
     easyeffects
     firefox
     font-manager
@@ -33,7 +34,6 @@ lib.mkIf config.desktop.enable {
     tor-browser
     typst
     vesktop
-    vivaldi
     vlc
     wineWowPackages.waylandFull
     wireguard-tools

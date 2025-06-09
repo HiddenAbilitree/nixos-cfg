@@ -52,6 +52,5 @@
         vaapiIntel
       ];
     };
-    openrazer.enable = true;
   };
 }
