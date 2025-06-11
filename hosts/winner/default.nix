@@ -19,6 +19,8 @@
   # mullvad.enable = true;
   ollama.enable = true;
 
+  dev.enable = true;
+
   printing.enable = true;
 
   wireguard.client = {
