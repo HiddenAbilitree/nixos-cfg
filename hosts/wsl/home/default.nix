@@ -1,0 +1,3 @@
+{
+  shell.enable = true;
+}

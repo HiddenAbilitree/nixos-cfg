@@ -44,7 +44,7 @@
     btop.enable = lib.mkDefault true;
     eza.enable = lib.mkDefault true;
     fastfetch.enable = lib.mkDefault true;
-    jj.enable = lib.mkDefault true;
+    jj.enable = lib.mkDefault false;
     nh.enable = lib.mkDefault true;
     nvim.enable = lib.mkDefault true;
     packages.enable = lib.mkDefault true;

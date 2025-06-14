@@ -106,6 +106,13 @@
         install = false;
         modulesx = [];
       };
+      wsl = mkHost {
+        hostName = "wsl";
+        system = "x86_64-linux";
+        secureboot = false;
+        install = false;
+        modulesx = [];
+      };
     };
   };
 }
