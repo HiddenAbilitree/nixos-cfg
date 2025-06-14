@@ -8,7 +8,10 @@
 
   syncthing.enable = true;
 
-  bootx.plymouth.enable = true;
+  bootx = {
+    plymouth.enable = true;
+    bootloader.enable = true;
+  };
 
   distributed-builds.enable = true;
 

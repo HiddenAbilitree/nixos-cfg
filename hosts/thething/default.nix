@@ -11,6 +11,8 @@
     "net.core.wmem_max" = 7500000;
   };
 
+  bootx.bootloader.enable = true;
+
   syncthing.enable = true;
 
   virtualization.docker.enable = true;

@@ -11,7 +11,11 @@
     fail2ban.enable = false;
   };
 
-  bootx.plymouth.enable = true;
+  bootx = {
+    plymouth.enable = true;
+    bootloader.enable = true;
+  };
+
   syncthing.enable = true;
   distributed-builds.enable = true;
   swap.enable = true;

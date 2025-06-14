@@ -7,17 +7,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  boot = {
-    loader = {
-      efi.canTouchEfiVariables = true;
-      systemd-boot = {
-        enable = lib.mkDefault true;
-        consoleMode = "max";
-      };
-    };
-    kernelPackages = pkgs.linuxPackages_latest;
-  };
-
   environment.systemPackages = with pkgs; [
     dmidecode
     duf
