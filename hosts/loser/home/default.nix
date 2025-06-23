@@ -19,6 +19,7 @@
     games = {
       roblox.enable = true;
       minecraft.enable = true;
+      honkers.enable = true;
     };
   };
 

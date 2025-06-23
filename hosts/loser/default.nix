@@ -13,7 +13,7 @@
     bootloader.enable = true;
   };
 
-  distributed-builds.enable = true;
+  distributed-builds.enable = false;
 
   desktop.enable = true;
 
