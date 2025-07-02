@@ -39,7 +39,7 @@ nix-init() {
 }
 
 direnv-init() {
-	echo "use flake" >>.envrc && direnv allow
+	touch .gitignore && echo ".direnv/" >> .gitignore && echo "use flake" >> .envrc && ga . && direnv allow
 }
 
 rm-spaces(){

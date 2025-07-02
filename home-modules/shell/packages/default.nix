@@ -17,6 +17,7 @@ lib.mkIf config.shell.packages.enable {
     mongosh
     nmap
     reptyr
+    rustfmt
     tldr # man pages
     w3m
   ];

@@ -13,7 +13,7 @@
     bootloader.enable = true;
   };
 
-  distributed-builds.enable = false;
+  distributed-builds.enable = true;
 
   desktop.enable = true;
 
@@ -22,7 +22,7 @@
     fail2ban.enable = false;
   };
 
-  mongodb.enable = true;
+  mongodb.enable = false;
 
   services.displayManager.autoLogin = {
     enable = true;
