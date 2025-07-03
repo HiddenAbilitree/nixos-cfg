@@ -13,7 +13,9 @@ lib.mkIf config.shell.packages.enable {
     gum
     hwinfo
     hyperfine
+    kubectl
     libqalculate
+    minikube
     mongosh
     nmap
     reptyr

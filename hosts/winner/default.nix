@@ -23,6 +23,8 @@
   # mullvad.enable = true;
   ollama.enable = true;
 
+  # hardware.openrazer.enable = true;
+
   dev.enable = true;
 
   printing.enable = true;
