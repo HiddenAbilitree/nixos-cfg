@@ -15,7 +15,10 @@
     enable = true;
     games = {
       enable = true;
-      honkers.enable = true;
+      moe = {
+        honkers.enable = true;
+        aagl.enable = true;
+      };
     };
     primary-monitor = "DP-2";
   };

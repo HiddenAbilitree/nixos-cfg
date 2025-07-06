@@ -19,7 +19,10 @@
     games = {
       roblox.enable = true;
       minecraft.enable = true;
-      honkers.enable = true;
+      moe = {
+        honkers.enable = true;
+        aagl.enable = true;
+      };
     };
   };
 

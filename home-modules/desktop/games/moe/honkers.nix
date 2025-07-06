@@ -1,21 +1,10 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
-lib.mkIf config.desktop.games.honkers.enable {
+lib.mkIf config.desktop.games.moe.honkers.enable {
   services.flatpak = {
-    remotes = [
-      {
-        name = "flathub";
-        location = "https://flathub.org/repo/flathub.flatpakrepo";
-      }
-      {
-        name = "launcher.moe";
-        location = "https://gol.launcher.moe/gol.launcher.moe.flatpakrepo";
-      }
-    ];
     packages = [
       {
         appId = "moe.launcher.the-honkers-railway-launcher";
@@ -23,6 +12,8 @@ lib.mkIf config.desktop.games.honkers.enable {
       }
     ];
   };
+
+  desktop.games.moe.enable = lib.mkForce true;
   misc.flatpak.enable = lib.mkDefault true;
   # home.packages = let
   #   aagl-gtk-on-nix = import (builtins.fetchTarball {
