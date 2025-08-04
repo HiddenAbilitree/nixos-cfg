@@ -6,11 +6,13 @@
   imports = [
     ./atuin
     ./btop
+    ./carapace
     ./eza
     ./fastfetch
     ./jj
     ./nh
     ./nvim
+    ./nushell
     ./packages
     ./starship
     ./tmux
@@ -23,11 +25,13 @@
     enable = lib.mkEnableOption "shell configuration";
     atuin.enable = lib.mkEnableOption "Atuin";
     btop.enable = lib.mkEnableOption "btop";
+    carapace.enable = lib.mkEnableOption "carapace";
     eza.enable = lib.mkEnableOption "eza";
     fastfetch.enable = lib.mkEnableOption "fastfetch";
     jj.enable = lib.mkEnableOption "Jujutsu";
     nh.enable = lib.mkEnableOption "nh";
     nvim.enable = lib.mkEnableOption "nvim";
+    nushell.enable = lib.mkEnableOption "nushell";
     packages.enable = lib.mkEnableOption "misc packages (cli)";
     starship.enable = lib.mkEnableOption "Starship";
     tmux.enable = lib.mkEnableOption "tmux";
@@ -42,14 +46,16 @@
   config.shell = lib.mkIf config.shell.enable {
     atuin.enable = lib.mkDefault true;
     btop.enable = lib.mkDefault true;
+    carapace.enable = lib.mkDefault true;
     eza.enable = lib.mkDefault true;
     fastfetch.enable = lib.mkDefault true;
     jj.enable = lib.mkDefault false;
     nh.enable = lib.mkDefault true;
     nvim.enable = lib.mkDefault true;
+    nushell.enable = lib.mkDefault true;
     packages.enable = lib.mkDefault true;
     starship.enable = lib.mkDefault true;
-    tmux.enable = lib.mkDefault true;
+    tmux.enable = lib.mkDefault false;
     zellij = {
       enable = lib.mkDefault true;
       autostart = lib.mkDefault true;

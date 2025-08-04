@@ -39,6 +39,7 @@
   desktop = {
     enable = true;
     services = {
+      ratbagd.enable = true;
       keyboard.enable = true;
       sunshine.enable = true;
     };

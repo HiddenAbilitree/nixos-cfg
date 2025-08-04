@@ -6,7 +6,7 @@
 }: {
   programs.vscode = {
     inherit (config.desktop.vscodium) enable;
-    package = pkgs.vscodium.fhsWithPackages (
+    package = pkgs.vscode.fhsWithPackages (
       ps:
         with ps; [
           gcc
@@ -16,6 +16,7 @@
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
         # general
+        ms-vsliveshare.vsliveshare
         enkia.tokyo-night
         supermaven.supermaven
         esbenp.prettier-vscode

@@ -1,9 +1,4 @@
 {
-  root,
-  lib,
-  osConfig,
-  ...
-}: {
   imports = [
     ./programs
   ];
@@ -27,9 +22,4 @@
   };
 
   misc.enable = true;
-
-  programs.zsh.shellAliases = {
-    ns = lib.mkForce "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- -j0 --accept-flake-config --show-trace && source ~/.zshrc";
-    nsl = lib.mkForce "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- --builders '' --accept-flake-config --show-trace && source ~/.zshrc";
-  };
 }

@@ -15,7 +15,7 @@ lib.mkIf config.desktop.enable {
     google-chrome
     gnome-disk-utility
     hyprsunset
-    jetbrains.idea-ultimate
+    # jetbrains.idea-ultimate
     kdePackages.xwaylandvideobridge
     libreoffice
     librewolf
@@ -25,6 +25,7 @@ lib.mkIf config.desktop.enable {
     obs-studio
     openrazer-daemon
     pavucontrol
+    piper
     polychromatic
     postman
     protonup-qt

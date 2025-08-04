@@ -4,5 +4,6 @@
     icons = "auto";
     colors = "always";
     enableZshIntegration = true;
+    enableNushellIntegration = false;
   };
 }

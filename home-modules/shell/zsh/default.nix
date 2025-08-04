@@ -27,7 +27,7 @@
       ns = "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.zshrc";
       nc = "nh clean all";
       nr = "nixos-rebuild switch --flake ${root} --rollback --use-remote-sudo";
-      nu = "nix flake update --flake ${root}";
+      # nu = "nix flake update --flake ${root}";
       nus = "nu && ns";
       nfu = "nix flake update";
 
@@ -49,6 +49,8 @@
 
       # vpn = "cat ${osConfig.sops.secrets.zeuspwd.path} | sudo openconnect --protocol=anyconnect --user=ezhang7 --authgroup=STUDENT --useragent='AnyConnect*' --passwd-on-stdin vpn.gmu.edu";
       vpn = "cat ${osConfig.sops.secrets.zeuspwd.path} | sudo openconnect --background --user=ezhang7 --authgroup=STUDENT --passwd-on-stdin vpn.gmu.edu > /dev/null";
+      # ns = lib.mkForce "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- -j0 --accept-flake-config --show-trace && source ~/.zshrc";
+      # nsl = lib.mkForce "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- --builders '' --accept-flake-config --show-trace && source ~/.zshrc";
     };
     plugins = [
       # {
@@ -74,7 +76,6 @@
         "fzf"
         "docker"
         "docker-compose"
-        "tmux"
       ];
     };
   };

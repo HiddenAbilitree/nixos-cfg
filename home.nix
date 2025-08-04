@@ -10,7 +10,6 @@
   home = {
     username = "ezhang";
     homeDirectory = "/home/ezhang";
-
     sessionVariables = {
       EDITOR = "nvim";
       NH_FLAKE = root;
@@ -35,6 +34,7 @@
 
       # development
       bun
+      cargo
       nodejs_latest
       gh
       man-pages

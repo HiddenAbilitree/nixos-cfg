@@ -22,6 +22,8 @@
     unzip
     wget
     zip
+    zsh
+    nushell
 
     usbutils
     udiskie

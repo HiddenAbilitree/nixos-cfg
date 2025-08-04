@@ -17,10 +17,15 @@ lib.mkIf config.shell.packages.enable {
     libqalculate
     minikube
     mongosh
+    gdu
     nmap
     reptyr
+    eslint_d
+    oxlint
     rustfmt
     tldr # man pages
+    xh
+    dua
     w3m
   ];
 }
