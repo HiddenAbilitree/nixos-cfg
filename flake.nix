@@ -21,6 +21,11 @@
 
     # hyprland.url = "git+ssh://git@github.com/hyprwm/Hyprland.git?rev=3577a6be31fa26539b4088ea07aa2221f84b132e&ref=main";
 
+    twopass = {
+      url = "github:ultramicroscope/2pass";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
 
     impermanence.url = "github:nix-community/impermanence";

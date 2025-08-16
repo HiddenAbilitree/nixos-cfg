@@ -19,6 +19,12 @@ lib.mkIf config.desktop.fonts.enable {
         noto-fonts-cjk-serif
         ubuntu_font_family
         liberation_ttf
+        maple-mono.truetype
+        maple-mono.variable
+        maple-mono.NF
+        maple-mono.NF-unhinted
+        maple-mono.NF-CN
+        maple-mono.NF-CN-unhinted
       ]
       ++ (with pkgs.nerd-fonts; [
         fira-code

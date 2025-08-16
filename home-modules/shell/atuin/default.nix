@@ -1,7 +1,7 @@
 {config, ...}: {
   programs.atuin = {
     inherit (config.shell.atuin) enable;
-    enableZshIntegration = true;
+    enableZshIntegration = false;
     settings = {
       auto_sync = true;
       sync_frequency = "5m";

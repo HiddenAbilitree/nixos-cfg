@@ -41,6 +41,7 @@ lib.mkIf config.desktop.enable {
     wireshark-qt
     wl-clicker
     wl-clipboard
+    ydotool
     zoom
     zotero
   ];

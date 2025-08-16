@@ -27,7 +27,7 @@
       ns = "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.zshrc";
       nc = "nh clean all";
       nr = "nixos-rebuild switch --flake ${root} --rollback --use-remote-sudo";
-      # nu = "nix flake update --flake ${root}";
+      nu = "nix flake update --flake ${root}";
       nus = "nu && ns";
       nfu = "nix flake update";
 

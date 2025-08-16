@@ -23,7 +23,7 @@
     wget
     zip
     zsh
-    nushell
+    # nushell
 
     usbutils
     udiskie

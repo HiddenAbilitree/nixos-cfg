@@ -13,14 +13,11 @@ lib.mkIf config.shell.packages.enable {
     gum
     hwinfo
     hyperfine
-    kubectl
     libqalculate
-    minikube
     mongosh
     gdu
     nmap
     reptyr
-    eslint_d
     oxlint
     rustfmt
     tldr # man pages

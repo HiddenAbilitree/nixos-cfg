@@ -19,6 +19,7 @@
     ./vscodium
     ./waybar
     ./zathura
+    ./zed
   ];
   options.desktop = {
     enable = lib.mkEnableOption "desktop configuration";
@@ -49,6 +50,7 @@
     vscodium.enable = lib.mkEnableOption "VSCodium";
     waybar.enable = lib.mkEnableOption "Waybar";
     zathura.enable = lib.mkEnableOption "Zathura";
+    zed.enable = lib.mkEnableOption "Zed Editor";
   };
 
   config = lib.mkIf config.desktop.enable {
@@ -81,6 +83,7 @@
       vscodium.enable = lib.mkDefault true;
       waybar.enable = lib.mkDefault true;
       zathura.enable = lib.mkDefault true;
+      zed.enable = lib.mkDefault true;
     };
 
     xdg.mimeApps.defaultApplications = {

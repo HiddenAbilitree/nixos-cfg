@@ -26,7 +26,7 @@
           inputs.sops-nix.nixosModules.sops
           inputs.fonts.nixosModules
           {
-            environment.systemPackages = [inputs.alejandra.defaultPackage.${system}];
+            environment.systemPackages = [inputs.alejandra.defaultPackage.${system} inputs.twopass.packages.${system}.default];
             networking.hostName = hostName;
             home-manager = {
               extraSpecialArgs =

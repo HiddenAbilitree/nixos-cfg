@@ -1,4 +1,8 @@
 {
+  config,
+  lib,
+  ...
+}: {
   imports = [./disk-config.nix ./hardware-configuration.nix];
 
   ssh = {
@@ -11,11 +15,21 @@
     "net.core.wmem_max" = 7500000;
   };
 
+  virtualisation.docker = {
+    enable = lib.mkForce true;
+    enableNvidia = lib.mkForce true;
+  };
+
+  hardware.nvidia-container-toolkit = {inherit (config.virtualisation.docker) enable;};
+
   bootx.bootloader.enable = true;
 
   syncthing.enable = true;
+  ollama.enable = true;
 
-  virtualization.docker.enable = true;
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia.open = true;
+  hardware.graphics.enable32Bit = true;
 
   wireguard.server.enable = true;
 
