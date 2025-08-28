@@ -1,5 +1,6 @@
 {
   config,
+  swww,
   lib,
   pkgs,
   ...
@@ -16,6 +17,7 @@ lib.mkIf config.desktop.enable {
     gnome-disk-utility
     hyprsunset
     # jetbrains.idea-ultimate
+    kdePackages.kdenlive
     kdePackages.xwaylandvideobridge
     libreoffice
     librewolf
@@ -30,7 +32,7 @@ lib.mkIf config.desktop.enable {
     postman
     protonup-qt
     rquickshare
-    swww
+    swww.packages.${pkgs.system}.swww
     themechanger
     tor-browser
     typst

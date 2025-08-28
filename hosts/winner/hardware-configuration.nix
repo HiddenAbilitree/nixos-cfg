@@ -48,6 +48,7 @@
     graphics = {
       enable = true;
       extraPackages = with pkgs; [
+        rocmPackages.clr.icd
         intel-media-driver
         libvdpau-va-gl
         vaapiIntel

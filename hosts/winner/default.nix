@@ -39,6 +39,10 @@
 
   desktop = {
     enable = true;
+    games.moe = {
+      honkers.enable = true;
+      aagl.enable = true;
+    };
     services = {
       ratbagd.enable = true;
       keyboard.enable = true;

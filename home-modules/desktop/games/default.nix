@@ -4,26 +4,21 @@
   config,
   prismlauncher,
   ...
-}:
-{
-  imports = [
-    ./lutris.nix
-    ./roblox.nix
-    ./moe
-  ];
+}: {
+  imports = [./lutris.nix ./roblox.nix];
   home = {
-    packages =
-      with pkgs;
+    packages = with pkgs;
       [
         mangohud
         (lib.mkIf config.desktop.games.osu.enable osu-lazer-bin)
         (lib.mkIf config.desktop.games.emulators.enable (
           retroarch.withCores (
-            cores: with cores; [
-              mgba
-              dolphin
-              citra
-            ]
+            cores:
+              with cores; [
+                mgba
+                dolphin
+                citra
+              ]
           )
         ))
       ]
@@ -46,10 +41,10 @@
     minecraft.enable = lib.mkDefault true;
     lutris.enable = lib.mkDefault true;
     roblox.enable = lib.mkDefault true;
-    moe = {
-      aagl.enable = lib.mkDefault true;
-      honkers.enable = lib.mkDefault true;
-    };
+    # moe = {
+    #   aagl.enable = lib.mkDefault true;
+    #   honkers.enable = lib.mkDefault true;
+    # };
     emulators.enable = lib.mkDefault true;
   };
 }

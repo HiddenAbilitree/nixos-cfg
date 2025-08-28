@@ -1,4 +1,3 @@
-{ config, ... }:
-{
-  services.hyprpaper.enable = config.desktop.hyprland.hyprpaper.enable;
+{config, ...}: {
+  services.hyprpaper.enable = config.desktop.wallpaper.enable;
 }

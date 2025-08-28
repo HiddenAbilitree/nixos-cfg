@@ -22,7 +22,7 @@
     # hyprland.url = "git+ssh://git@github.com/hyprwm/Hyprland.git?rev=3577a6be31fa26539b4088ea07aa2221f84b132e&ref=main";
 
     twopass = {
-      url = "github:ultramicroscope/2pass";
+      url = "github:ultramicroscope/2pass?rev=248434d383d4b4cc8bf690965c100adf3093b0ba";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -55,6 +55,13 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    swww.url = "github:LGFae/swww";
 
     split-monitor-workspaces = {
       # url = "git+ssh://git@github.com/Duckonaut/split-monitor-workspaces.git?rev=a8e39ff10dfb5ff451416a791a30388a8517e038&ref=main";

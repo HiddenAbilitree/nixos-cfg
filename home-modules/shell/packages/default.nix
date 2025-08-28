@@ -9,6 +9,7 @@ lib.mkIf config.shell.packages.enable {
     bat # fancy cat
     bluetuith
     dig
+    ffmpeg
     glow # markdown renderer
     gum
     hwinfo

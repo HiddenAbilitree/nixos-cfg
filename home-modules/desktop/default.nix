@@ -18,6 +18,7 @@
     ./rofi
     ./spicetify
     ./vscodium
+    ./wallpaper
     ./waybar
     ./zathura
     ./zed
@@ -27,6 +28,7 @@
     browser.enable = lib.mkEnableOption "Browser";
     cava.enable = lib.mkEnableOption "Cava";
     dark-mode.enable = lib.mkEnableOption "Dark Mode";
+    wallpaper.enable = lib.mkEnableOption "Wallpaper";
     games = {
       enable = lib.mkEnableOption "Games";
       lutris.enable = lib.mkEnableOption "lutris";
@@ -72,8 +74,8 @@
       hyprland = {
         enable = lib.mkDefault true;
         hyprlock.enable = lib.mkDefault true;
-        hypridle.enable = lib.mkDefault true;
         hyprpaper.enable = lib.mkDefault true;
+        hypridle.enable = lib.mkDefault true;
       };
       kitty.enable = lib.mkDefault true;
       mpv.enable = lib.mkDefault true;
@@ -85,6 +87,7 @@
       waybar.enable = lib.mkDefault true;
       zathura.enable = lib.mkDefault true;
       zed.enable = lib.mkDefault true;
+      wallpaper.enable = lib.mkDefault true;
     };
 
     xdg.mimeApps.defaultApplications = {

@@ -15,8 +15,12 @@
     lazygit = {
       enable = true;
       settings = {
-        gui.nerdFontsVersion = "3";
+        gui = {
+          nerdFontsVersion = "3";
+          showCommandLog = false;
+        };
         git.overrideGpg = true;
+        disableStartupPopups = true;
       };
     };
 

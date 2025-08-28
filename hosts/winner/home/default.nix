@@ -13,13 +13,14 @@
       hypridle.enable = false;
       hyprlock.enable = false;
     };
+    # wallpaper.enable = true;
     enable = true;
     games = {
       enable = true;
-      moe = {
-        honkers.enable = true;
-        aagl.enable = true;
-      };
+      # moe = {
+      #   # honkers.enable = true;
+      #   aagl.enable = true;
+      # };
     };
     primary-monitor = "DP-2";
   };
