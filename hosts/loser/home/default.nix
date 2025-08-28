@@ -14,10 +14,6 @@
     games = {
       roblox.enable = true;
       minecraft.enable = true;
-      moe = {
-        honkers.enable = true;
-        aagl.enable = true;
-      };
     };
   };
 
