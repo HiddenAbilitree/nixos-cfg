@@ -3,7 +3,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   config = lib.mkIf config.virtualization.vm.enable {
     virtualisation = {
       libvirtd = {
@@ -12,13 +13,13 @@
           package = pkgs.qemu_kvm;
           swtpm.enable = true;
           ovmf.enable = true;
-          ovmf.packages = [pkgs.OVMFFull.fd];
+          ovmf.packages = [ pkgs.OVMFFull.fd ];
         };
       };
       spiceUSBRedirection.enable = true;
     };
 
-    users.users.ezhang.extraGroups = ["libvirtd"];
+    users.users.ezhang.extraGroups = [ "libvirtd" ];
 
     environment.systemPackages = with pkgs; [
       spice
@@ -34,8 +35,8 @@
     home-manager.users.ezhang = {
       dconf.settings = {
         "org/virt-manager/virt-manager/connections" = {
-          autoconnect = ["qemu:///system"];
-          uris = ["qemu:///system"];
+          autoconnect = [ "qemu:///system" ];
+          uris = [ "qemu:///system" ];
         };
       };
     };

@@ -2,8 +2,14 @@
   lib,
   config,
   ...
-}: {
-  imports = [./pipewire.nix ./keyboard.nix ./sunshine.nix ./ratbagd.nix];
+}:
+{
+  imports = [
+    ./pipewire.nix
+    ./keyboard.nix
+    ./sunshine.nix
+    ./ratbagd.nix
+  ];
 
   options.desktop.services = {
     enable = lib.mkEnableOption "desktop services";

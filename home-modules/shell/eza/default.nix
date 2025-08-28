@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   programs.eza = {
     inherit (config.shell.eza) enable;
     icons = "auto";

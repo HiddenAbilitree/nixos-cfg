@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     mullvad = {
       enable = lib.mkEnableOption "mullvad";
@@ -14,18 +15,30 @@
       };
 
       obfuscation.mode = lib.mkOption {
-        type = lib.types.enum ["auto" "on" "off" "udp2tcp" "shadowsocks"];
+        type = lib.types.enum [
+          "auto"
+          "on"
+          "off"
+          "udp2tcp"
+          "shadowsocks"
+        ];
         default = "off";
       };
 
       tunnel.wireguard = {
         quantum-resistant = lib.mkOption {
-          type = lib.types.enum ["on" "off"];
+          type = lib.types.enum [
+            "on"
+            "off"
+          ];
           description = "Enable quantum resistant encryption for WireGuard tunnels. (Preshared Keys)";
           default = "off";
         };
         daita = lib.mkOption {
-          type = lib.types.enum ["on" "off"];
+          type = lib.types.enum [
+            "on"
+            "off"
+          ];
           default = "off";
         };
         rotation-interval = lib.mkOption {

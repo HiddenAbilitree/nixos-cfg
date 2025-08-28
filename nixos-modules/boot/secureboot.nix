@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   boot = lib.mkIf config.bootx.secureboot.enable {
     lanzaboote = {
       enable = true;

@@ -2,8 +2,12 @@
   lib,
   config,
   ...
-}: {
-  imports = [./aagl.nix ./honkers.nix];
+}:
+{
+  imports = [
+    ./aagl.nix
+    ./honkers.nix
+  ];
 
   config.services.flatpak.remotes = lib.mkIf config.desktop.games.moe.enable [
     {

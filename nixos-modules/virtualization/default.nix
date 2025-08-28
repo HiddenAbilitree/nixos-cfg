@@ -1,1 +1,6 @@
-{imports = [./docker.nix ./vm.nix];}
+{
+  imports = [
+    ./docker.nix
+    ./vm.nix
+  ];
+}

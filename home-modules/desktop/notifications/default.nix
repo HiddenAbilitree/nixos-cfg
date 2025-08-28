@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   services.mako = {
     inherit (config.desktop.notifications) enable;
   };

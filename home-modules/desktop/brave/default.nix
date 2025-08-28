@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   programs.chromium = {
     inherit (config.desktop.browser) enable;
     # package = pkgs.brave;
@@ -23,17 +24,17 @@
     #   };
     # };
     extensions = [
-      {id = "nngceckbapebfimnlniiiahkandclblb";} # 7tv nightly
-      {id = "fphegifdehlodcepfkgofelcenelpedj";} # better canvas
-      {id = "cndibmoanboadcifjkjbdpjgfedanolh";} # bitwarden
-      {id = "enamippconapkdmgfgjchkhakpfinmaj";} # dearrow
-      {id = "kbfnbcaeplbcioakkpcpgfkobkghlhen";} # grammarly
-      {id = "fmkadmapgofadopljbjfkapdkoienihi";} # react developer tools
-      {id = "hlepfoohegkhhmjieoechaddaejaokhf";} # refined github
-      {id = "gebbhagfogifgggkldgodflihgfeippi";} # return youtube dislike
-      {id = "mnjggcdmjocbbbhaepdhchncahnbgone";} # sponsorblock
-      {id = "bpaoeijjlplfjbagceilcgbkcdjbomjd";} # ttv lol pro
-      {id = "dbepggeogbaibhgnhhndojpepiihcmeb";} # vimium
+      { id = "nngceckbapebfimnlniiiahkandclblb"; } # 7tv nightly
+      { id = "fphegifdehlodcepfkgofelcenelpedj"; } # better canvas
+      { id = "cndibmoanboadcifjkjbdpjgfedanolh"; } # bitwarden
+      { id = "enamippconapkdmgfgjchkhakpfinmaj"; } # dearrow
+      { id = "kbfnbcaeplbcioakkpcpgfkobkghlhen"; } # grammarly
+      { id = "fmkadmapgofadopljbjfkapdkoienihi"; } # react developer tools
+      { id = "hlepfoohegkhhmjieoechaddaejaokhf"; } # refined github
+      { id = "gebbhagfogifgggkldgodflihgfeippi"; } # return youtube dislike
+      { id = "mnjggcdmjocbbbhaepdhchncahnbgone"; } # sponsorblock
+      { id = "bpaoeijjlplfjbagceilcgbkcdjbomjd"; } # ttv lol pro
+      { id = "dbepggeogbaibhgnhhndojpepiihcmeb"; } # vimium
     ];
   };
 }

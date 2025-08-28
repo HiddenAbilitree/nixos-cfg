@@ -2,8 +2,14 @@
   lib,
   config,
   ...
-}: {
-  imports = [./fingerprint ./sleep ./hibernate.nix ./wifi];
+}:
+{
+  imports = [
+    ./fingerprint
+    ./sleep
+    ./hibernate.nix
+    ./wifi
+  ];
 
   options.laptop = {
     enable = lib.mkEnableOption "laptop";

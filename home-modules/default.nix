@@ -1,5 +1,9 @@
 {
-  imports = [./desktop ./misc ./shell];
+  imports = [
+    ./desktop
+    ./misc
+    ./shell
+  ];
 
   programs = {
     git = {

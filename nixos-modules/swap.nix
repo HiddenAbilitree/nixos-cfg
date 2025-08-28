@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   swapDevices = lib.mkIf config.swap.enable [
     {
       device = "/swapfile";

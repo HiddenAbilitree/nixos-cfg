@@ -1,5 +1,6 @@
-{lib, ...}: {
-  imports = [./programs];
+{ lib, ... }:
+{
+  imports = [ ./programs ];
   shell.enable = true;
   programs = {
     kitty.enable = lib.mkForce true;

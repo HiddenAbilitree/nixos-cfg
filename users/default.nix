@@ -1,3 +1,7 @@
-{pkgs, ...}: {
-  imports = [./ezhang ./root];
+{ pkgs, ... }:
+{
+  imports = [
+    ./ezhang
+    ./root
+  ];
 }

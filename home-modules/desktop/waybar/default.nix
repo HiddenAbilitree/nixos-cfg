@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   programs.waybar = {
     inherit (config.desktop.waybar) enable;
 
@@ -84,7 +85,7 @@
             "memory"
             "disk"
           ];
-          drawer = {};
+          drawer = { };
         };
         temperature = {
           format = "{icon} {temperatureC}°C";
@@ -149,7 +150,10 @@
         };
 
         pulseaudio = {
-          ignored-sinks = ["easyeffects_sink" "asla_output.pci-0000_c1_00.6.analog-stereo"];
+          ignored-sinks = [
+            "easyeffects_sink"
+            "asla_output.pci-0000_c1_00.6.analog-stereo"
+          ];
           scroll-step = 1;
           format = "{icon}";
           format-muted = "󰖁";

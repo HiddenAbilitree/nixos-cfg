@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./brave
     ./games
@@ -87,12 +88,12 @@
     };
 
     xdg.mimeApps.defaultApplications = {
-      "application/pdf" = ["zathura"];
-      "text/plain" = ["kitty"];
-      "text/html" = ["brave"];
-      "image/png" = ["brave"];
-      "image/jpeg" = ["brave"];
-      "image/gif" = ["brave"];
+      "application/pdf" = [ "zathura" ];
+      "text/plain" = [ "kitty" ];
+      "text/html" = [ "brave" ];
+      "image/png" = [ "brave" ];
+      "image/jpeg" = [ "brave" ];
+      "image/gif" = [ "brave" ];
     };
   };
 }

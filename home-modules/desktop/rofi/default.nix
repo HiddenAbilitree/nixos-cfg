@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   programs.rofi = {
     inherit (config.desktop.rofi) enable;
     terminal = "${pkgs.kitty}/bin/kitty";

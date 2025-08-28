@@ -2,8 +2,9 @@
   lib,
   config,
   ...
-}: {
-  imports = [./flatpak];
+}:
+{
+  imports = [ ./flatpak ];
   options.misc = {
     enable = lib.mkEnableOption "misc configuration";
     flatpak.enable = lib.mkEnableOption "flatpak";

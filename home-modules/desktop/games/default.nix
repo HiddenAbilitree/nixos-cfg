@@ -4,17 +4,34 @@
   config,
   prismlauncher,
   ...
-}: {
-  imports = [./lutris.nix ./roblox.nix ./moe];
+}:
+{
+  imports = [
+    ./lutris.nix
+    ./roblox.nix
+    ./moe
+  ];
   home = {
-    packages = with pkgs;
+    packages =
+      with pkgs;
       [
         mangohud
         (lib.mkIf config.desktop.games.osu.enable osu-lazer-bin)
-        (lib.mkIf config.desktop.games.emulators.enable
-          (retroarch.withCores (cores: with cores; [mgba dolphin citra])))
+        (lib.mkIf config.desktop.games.emulators.enable (
+          retroarch.withCores (
+            cores: with cores; [
+              mgba
+              dolphin
+              citra
+            ]
+          )
+        ))
       ]
-      ++ lib.optionals config.desktop.games.minecraft.enable [lunar-client prismlauncher.packages.${pkgs.system}.prismlauncher badlion-client];
+      ++ lib.optionals config.desktop.games.minecraft.enable [
+        lunar-client
+        prismlauncher.packages.${pkgs.system}.prismlauncher
+        badlion-client
+      ];
 
     file = {
       ".local/share/PrismLauncher/themes/Tokyo-Night-Storm" = {

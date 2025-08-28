@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   services.hypridle = lib.mkIf config.desktop.hyprland.hypridle.enable {
     enable = true;
     settings = {

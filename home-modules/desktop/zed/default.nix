@@ -2,10 +2,15 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   programs.zed-editor = {
     inherit (config.desktop.zed) enable;
-    extensions = ["tokyo-night" "nix" "oxlint"];
+    extensions = [
+      "tokyo-night"
+      "nix"
+      "oxlint"
+    ];
     userSettings = {
       buffer_font_family = "0xProto Nerd Font";
       buffer_font_weight = 600;
@@ -14,7 +19,9 @@
         metrics = false;
       };
       vim_mode = true;
-      vim = {toggle_relative_line_numbers = true;};
+      vim = {
+        toggle_relative_line_numbers = true;
+      };
       languages = {
         JavaScript = {
           code_actions_on_format = {

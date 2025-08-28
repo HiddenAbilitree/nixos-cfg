@@ -5,4 +5,4 @@
   nixvim-cfg,
   ...
 }:
-lib.mkIf config.shell.nvim.enable {home.packages = [nixvim-cfg.packages.${system}.default];}
+lib.mkIf config.shell.nvim.enable { home.packages = [ nixvim-cfg.packages.${system}.default ]; }

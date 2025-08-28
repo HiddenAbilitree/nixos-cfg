@@ -8,7 +8,8 @@ lib.mkIf config.desktop.fonts.enable {
   fonts = {
     fontDir.enable = true;
     enableGhostscriptFonts = true;
-    packages = with pkgs;
+    packages =
+      with pkgs;
       [
         inter
         dejavu_fonts

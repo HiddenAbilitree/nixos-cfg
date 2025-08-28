@@ -7,7 +7,8 @@
   config,
   osConfig,
   ...
-}: {
+}:
+{
   programs.zsh = {
     inherit (config.shell.zsh) enable;
     enableCompletion = true;

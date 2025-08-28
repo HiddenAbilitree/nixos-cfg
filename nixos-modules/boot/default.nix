@@ -3,8 +3,12 @@
   pkgs,
   config,
   ...
-}: {
-  imports = [./plymouth.nix ./secureboot.nix];
+}:
+{
+  imports = [
+    ./plymouth.nix
+    ./secureboot.nix
+  ];
 
   config.boot = lib.mkIf config.bootx.bootloader.enable {
     loader = {

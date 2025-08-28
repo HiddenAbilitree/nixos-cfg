@@ -1,5 +1,9 @@
-{lib, ...}: {
-  imports = [./client.nix ./server.nix];
+{ lib, ... }:
+{
+  imports = [
+    ./client.nix
+    ./server.nix
+  ];
 
   options = {
     wireguard = {

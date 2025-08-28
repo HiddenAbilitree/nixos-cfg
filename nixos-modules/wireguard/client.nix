@@ -21,7 +21,11 @@ lib.mkIf config.wireguard.client.enable {
           {
             inherit (config.wireguard.client) PresharedKeyFile;
             PublicKey = "lHHJlzI/DCtaptEw75Uz121FcPeiAPAq91l6PZET0xc="; # server public key
-            AllowedIPs = ["10.100.0.1" "10.100.0.2" "10.100.0.3"];
+            AllowedIPs = [
+              "10.100.0.1"
+              "10.100.0.2"
+              "10.100.0.3"
+            ];
             Endpoint = "${config.ip}:${toString config.wireguard.listenPort}";
             PersistentKeepalive = 25;
           }
@@ -31,7 +35,7 @@ lib.mkIf config.wireguard.client.enable {
     networks.wg0 = {
       matchConfig.Name = "wg0";
       # IP addresses the client interface will have
-      address = [config.wireguard.client.address];
+      address = [ config.wireguard.client.address ];
       DHCP = "no";
       networkConfig = {
         IPv6AcceptRA = false;

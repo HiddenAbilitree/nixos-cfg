@@ -5,7 +5,8 @@
   config,
   hyprland,
   ...
-}: {
+}:
+{
   imports = [
     ./hyprlock
     ./hypridle

@@ -1,4 +1,5 @@
-{root, ...}: {
+{ root, ... }:
+{
   services.hyprpaper = {
     settings = {
       preload = [

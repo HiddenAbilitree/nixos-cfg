@@ -2,8 +2,12 @@
   config,
   lib,
   ...
-}: {
-  imports = [./disk-config.nix ./hardware-configuration.nix];
+}:
+{
+  imports = [
+    ./disk-config.nix
+    ./hardware-configuration.nix
+  ];
 
   ssh = {
     enable = true;
@@ -20,14 +24,14 @@
     enableNvidia = lib.mkForce true;
   };
 
-  hardware.nvidia-container-toolkit = {inherit (config.virtualisation.docker) enable;};
+  hardware.nvidia-container-toolkit = { inherit (config.virtualisation.docker) enable; };
 
   bootx.bootloader.enable = true;
 
   syncthing.enable = true;
   ollama.enable = true;
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;
   hardware.graphics.enable32Bit = true;
 

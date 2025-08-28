@@ -4,8 +4,9 @@
   osConfig,
   root,
   ...
-}: {
-  imports = [./hosts/${osConfig.networking.hostName}/home];
+}:
+{
+  imports = [ ./hosts/${osConfig.networking.hostName}/home ];
 
   home = {
     username = "ezhang";

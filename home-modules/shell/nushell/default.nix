@@ -8,7 +8,8 @@
   config,
   osConfig,
   ...
-}: {
+}:
+{
   config = {
     programs.nushell = {
       inherit (config.shell.nushell) enable;

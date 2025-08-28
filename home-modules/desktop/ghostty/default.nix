@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   programs.ghostty = lib.mkIf config.desktop.ghostty.enable {
     enable = true;
     # clearDefaultKeybinds = true;

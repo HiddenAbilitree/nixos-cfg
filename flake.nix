@@ -85,39 +85,42 @@
     ];
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
-    inherit (nixpkgs) lib;
-    inherit ((import ./lib/mkHost.nix {inherit lib inputs;})) mkHost;
-  in {
-    nixosConfigurations = {
-      loser = mkHost {
-        hostName = "loser";
-        system = "x86_64-linux";
-        secureboot = true;
-        install = false;
-        modulesx = [inputs.nixos-hardware.nixosModules.framework-13-7040-amd];
-      };
-      winner = mkHost {
-        hostName = "winner";
-        system = "x86_64-linux";
-        secureboot = true;
-        install = false;
-        modulesx = [];
-      };
-      thething = mkHost {
-        hostName = "thething";
-        system = "x86_64-linux";
-        secureboot = false;
-        install = false;
-        modulesx = [];
-      };
-      wsl = mkHost {
-        hostName = "wsl";
-        system = "x86_64-linux";
-        secureboot = false;
-        install = false;
-        modulesx = [];
+  outputs =
+    { nixpkgs, ... }@inputs:
+    let
+      inherit (nixpkgs) lib;
+      inherit ((import ./lib/mkHost.nix { inherit lib inputs; })) mkHost;
+    in
+    {
+      nixosConfigurations = {
+        loser = mkHost {
+          hostName = "loser";
+          system = "x86_64-linux";
+          secureboot = true;
+          install = false;
+          modulesx = [ inputs.nixos-hardware.nixosModules.framework-13-7040-amd ];
+        };
+        winner = mkHost {
+          hostName = "winner";
+          system = "x86_64-linux";
+          secureboot = true;
+          install = false;
+          modulesx = [ ];
+        };
+        thething = mkHost {
+          hostName = "thething";
+          system = "x86_64-linux";
+          secureboot = false;
+          install = false;
+          modulesx = [ ];
+        };
+        wsl = mkHost {
+          hostName = "wsl";
+          system = "x86_64-linux";
+          secureboot = false;
+          install = false;
+          modulesx = [ ];
+        };
       };
     };
-  };
 }
