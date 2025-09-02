@@ -1,9 +1,8 @@
 {
-  config,
   lib,
+  pkgs,
   ...
-}:
-{
+}: {
   imports = [
     ./disk-config.nix
     ./hardware-configuration.nix
@@ -21,19 +20,23 @@
 
   virtualisation.docker = {
     enable = lib.mkForce true;
-    enableNvidia = lib.mkForce true;
   };
 
-  hardware.nvidia-container-toolkit = { inherit (config.virtualisation.docker) enable; };
+  environment.systemPackages = [pkgs.zfs];
 
   bootx.bootloader.enable = true;
 
+  nextcloud.enable = true;
+  pterodactyl.enable = false;
   syncthing.enable = true;
   ollama.enable = true;
+  services.xserver.videoDrivers = ["nvidia"];
 
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = true;
-  hardware.graphics.enable32Bit = true;
+  hardware = {
+    nvidia.open = true;
+    nvidia-container-toolkit.enable = true;
+    graphics.enable32Bit = true;
+  };
 
   wireguard.server.enable = true;
 
@@ -44,5 +47,8 @@
     "nixos-test"
   ];
 
-  thething.enable = false;
+  thething = {
+    enable = false;
+    networking.enable = true;
+  };
 }

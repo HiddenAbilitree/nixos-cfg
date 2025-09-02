@@ -6,6 +6,8 @@
 }:
 lib.mkIf config.shell.packages.enable {
   home.packages = with pkgs; [
+    awscli2
+    rclone
     bat # fancy cat
     bluetuith
     dig
