@@ -16,6 +16,7 @@ lib.mkIf config.desktop.enable {
     google-chrome
     gnome-disk-utility
     hyprsunset
+    inkscape
     # jetbrains.idea-ultimate
     kdePackages.kdenlive
     kdePackages.xwaylandvideobridge
