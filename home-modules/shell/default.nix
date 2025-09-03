@@ -2,14 +2,15 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   imports = [
     ./atuin
+    ./bat
     ./btop
     ./carapace
     ./eza
     ./fastfetch
+    ./helix
     ./jj
     ./nh
     ./nvim
@@ -25,10 +26,12 @@
   options.shell = {
     enable = lib.mkEnableOption "shell configuration";
     atuin.enable = lib.mkEnableOption "Atuin";
+    bat.enable = lib.mkEnableOption "bat";
     btop.enable = lib.mkEnableOption "btop";
     carapace.enable = lib.mkEnableOption "carapace";
     eza.enable = lib.mkEnableOption "eza";
     fastfetch.enable = lib.mkEnableOption "fastfetch";
+    helix.enable = lib.mkEnableOption "helix";
     jj.enable = lib.mkEnableOption "Jujutsu";
     nh.enable = lib.mkEnableOption "nh";
     nvim.enable = lib.mkEnableOption "nvim";
@@ -49,10 +52,12 @@
 
     shell = lib.mkIf config.shell.enable {
       atuin.enable = lib.mkDefault true;
+      bat.enable = lib.mkDefault true;
       btop.enable = lib.mkDefault true;
       carapace.enable = lib.mkDefault true;
       eza.enable = lib.mkDefault true;
       fastfetch.enable = lib.mkDefault true;
+      helix.enable = lib.mkDefault true;
       jj.enable = lib.mkDefault false;
       nh.enable = lib.mkDefault true;
       nvim.enable = lib.mkDefault true;

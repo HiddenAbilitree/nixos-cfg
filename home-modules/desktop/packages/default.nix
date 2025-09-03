@@ -8,6 +8,8 @@
 lib.mkIf config.desktop.enable {
   home.packages = with pkgs; [
     brave
+    blender-hip
+    davinci-resolve
     dbeaver-bin
     easyeffects
     element-desktop
@@ -27,6 +29,7 @@ lib.mkIf config.desktop.enable {
     nautilus
     obsidian
     obs-studio
+    obs-cmd
     openrazer-daemon
     pavucontrol
     piper
@@ -46,7 +49,7 @@ lib.mkIf config.desktop.enable {
     wl-clicker
     wl-clipboard
     ydotool
-    zoom
+    zoom-us
     zotero
   ];
 }

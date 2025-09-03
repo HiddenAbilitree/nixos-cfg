@@ -5,8 +5,7 @@
   config,
   hyprland,
   ...
-}:
-{
+}: {
   imports = [
     ./hyprlock
     ./hypridle
@@ -17,6 +16,7 @@
     home.packages = with pkgs; [
       hyprshot
       hyprpicker
+      hyprpolkitagent
       xdg-desktop-portal-gtk
     ];
 

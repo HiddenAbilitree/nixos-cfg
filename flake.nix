@@ -26,7 +26,9 @@
     # hyprland.url = "git+ssh://git@github.com/hyprwm/Hyprland.git?rev=3577a6be31fa26539b4088ea07aa2221f84b132e&ref=main";
 
     twopass = {
-      url = "github:ultramicroscope/2pass?rev=248434d383d4b4cc8bf690965c100adf3093b0ba";
+      # url = "github:ultramicroscope/2pass?rev=248434d383d4b4cc8bf690965c100adf3093b0ba";
+      url = "github:ultramicroscope/2pass";
+      # url = "github:HiddenAbilitree/2pass";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

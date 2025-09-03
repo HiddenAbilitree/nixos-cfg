@@ -2,9 +2,8 @@
   pkgs,
   lib,
   ...
-}:
-{
-  imports = [ ./users ];
+}: {
+  imports = [./users];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -32,7 +31,7 @@
   ];
 
   networking = {
-    networkmanager.enable = lib.mkDefault false;
+    networkmanager.enable = true;
     useNetworkd = true;
   };
 

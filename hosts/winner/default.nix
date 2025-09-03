@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -56,7 +55,13 @@
   };
 
   programs = {
-    steam.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
+    gamescope = {
+      enable = true;
+    };
     gamemode.enable = true;
   };
 

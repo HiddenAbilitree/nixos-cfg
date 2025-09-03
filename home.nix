@@ -4,9 +4,8 @@
   osConfig,
   root,
   ...
-}:
-{
-  imports = [ ./hosts/${osConfig.networking.hostName}/home ];
+}: {
+  imports = [./hosts/${osConfig.networking.hostName}/home];
 
   home = {
     username = "ezhang";
@@ -30,6 +29,7 @@
       glib
       hyprls
       openconnect
+      vpn-slice
       playerctl
       texliveFull
 
@@ -40,6 +40,7 @@
       gh
       man-pages
       man-pages-posix
+      python3
       rustlings
     ];
     stateVersion = "24.05";

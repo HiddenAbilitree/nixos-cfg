@@ -3,8 +3,7 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   imports = [
     ./brave
     ./games
@@ -80,7 +79,7 @@
       kitty.enable = lib.mkDefault true;
       mpv.enable = lib.mkDefault true;
       rofi.enable = lib.mkDefault true;
-      spicetify.enable = lib.mkDefault true;
+      spicetify.enable = lib.mkDefault false; # https://github.com/nixos/nixpkgs/issues/443348
       notifications.enable = lib.mkDefault true;
       tor-browser.enable = lib.mkDefault true;
       vscodium.enable = lib.mkDefault true;
@@ -91,12 +90,12 @@
     };
 
     xdg.mimeApps.defaultApplications = {
-      "application/pdf" = [ "zathura" ];
-      "text/plain" = [ "kitty" ];
-      "text/html" = [ "brave" ];
-      "image/png" = [ "brave" ];
-      "image/jpeg" = [ "brave" ];
-      "image/gif" = [ "brave" ];
+      "application/pdf" = ["zathura"];
+      "text/plain" = ["kitty"];
+      "text/html" = ["brave"];
+      "image/png" = ["brave"];
+      "image/jpeg" = ["brave"];
+      "image/gif" = ["brave"];
     };
   };
 }

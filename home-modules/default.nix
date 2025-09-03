@@ -21,6 +21,7 @@
         };
         git.overrideGpg = true;
         disableStartupPopups = true;
+        quitOnTopLevelReturn = true;
       };
     };
 

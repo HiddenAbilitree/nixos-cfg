@@ -1429,17 +1429,16 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1754829041,
-        "narHash": "sha256-aNZDrmh33AQgxOHhxFXysSe+fcKf0U0xDHQzcibyZAw=",
+        "lastModified": 1757824515,
+        "narHash": "sha256-n97sjibGPgvaW5PbKdxt3lXhRI3gWHLOyMjFoxz3OiM=",
         "owner": "ultramicroscope",
         "repo": "2pass",
-        "rev": "248434d383d4b4cc8bf690965c100adf3093b0ba",
+        "rev": "865878292f57b131762a8269e9481319d168254d",
         "type": "github"
       },
       "original": {
         "owner": "ultramicroscope",
         "repo": "2pass",
-        "rev": "248434d383d4b4cc8bf690965c100adf3093b0ba",
         "type": "github"
       }
     },

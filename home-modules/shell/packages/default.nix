@@ -8,8 +8,9 @@ lib.mkIf config.shell.packages.enable {
   home.packages = with pkgs; [
     awscli2
     rclone
-    bat # fancy cat
     bluetuith
+    charm-freeze
+    devenv
     dig
     ffmpeg
     glow # markdown renderer
@@ -24,6 +25,7 @@ lib.mkIf config.shell.packages.enable {
     oxlint
     rustfmt
     tldr # man pages
+    vhs
     xh
     dua
     w3m

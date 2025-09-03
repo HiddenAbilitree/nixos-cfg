@@ -22,7 +22,5 @@
     };
   };
 
-  programs.spicetify.enable = lib.mkForce false;
-
   misc.enable = true;
 }
