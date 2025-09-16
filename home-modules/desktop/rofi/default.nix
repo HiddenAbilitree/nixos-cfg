@@ -2,14 +2,13 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   programs.rofi = {
     inherit (config.desktop.rofi) enable;
     terminal = "${pkgs.kitty}/bin/kitty";
     # font = "JetBrainsMono Nerd Font 12";
     font = "0xProto Nerd Font 12";
-    package = pkgs.rofi-wayland;
+    package = pkgs.rofi;
     theme = ./theme.rasi;
     extraConfig = {
       kb-mode-next = "Right,Control+Tab";
