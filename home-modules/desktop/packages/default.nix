@@ -10,6 +10,7 @@ lib.mkIf config.desktop.enable {
     brave
     dbeaver-bin
     easyeffects
+    element-desktop
     firefox
     font-manager
     gimp
