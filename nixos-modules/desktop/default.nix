@@ -13,6 +13,8 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = lib.mkIf config.desktop.enable 1;
 
+  services.gnome.gnome-keyring.enable = true;
+
   networking.extraHosts =
     lib.mkIf config.desktop.games.moe.enable
     ''

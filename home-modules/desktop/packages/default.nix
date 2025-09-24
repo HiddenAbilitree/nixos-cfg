@@ -25,10 +25,11 @@ lib.mkIf config.desktop.enable {
     kdePackages.xwaylandvideobridge
     libreoffice
     librewolf
+    libsecret
     moonlight-qt
     nautilus
     obsidian
-    obs-studio
+    # obs-studio
     obs-cmd
     openrazer-daemon
     pavucontrol

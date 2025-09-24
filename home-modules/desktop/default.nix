@@ -13,6 +13,7 @@
     ./kitty
     ./mpv
     ./notifications
+    ./obs
     ./packages
     ./rofi
     ./spicetify
@@ -45,6 +46,7 @@
     };
     kitty.enable = lib.mkEnableOption "Kitty";
     mpv.enable = lib.mkEnableOption "mpv";
+    obs.enable = lib.mkEnableOption "obs";
     rofi.enable = lib.mkEnableOption "Rofi";
     spicetify.enable = lib.mkEnableOption "Spicetify";
     notifications.enable = lib.mkEnableOption "Notifications";
@@ -78,8 +80,9 @@
       };
       kitty.enable = lib.mkDefault true;
       mpv.enable = lib.mkDefault true;
+      obs.enable = lib.mkDefault true;
       rofi.enable = lib.mkDefault true;
-      spicetify.enable = lib.mkDefault false; # https://github.com/nixos/nixpkgs/issues/443348
+      spicetify.enable = lib.mkDefault true;
       notifications.enable = lib.mkDefault true;
       tor-browser.enable = lib.mkDefault true;
       vscodium.enable = lib.mkDefault true;

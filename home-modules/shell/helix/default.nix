@@ -14,7 +14,7 @@
       pkgs.astro-language-server
       pkgs.clang-tools
       pkgs.docker-compose-language-service
-      pkgs.dockerfile-language-server-nodejs
+      pkgs.dockerfile-language-server
       pkgs.go-tools
       pkgs.gopls
       pkgs.lldb
