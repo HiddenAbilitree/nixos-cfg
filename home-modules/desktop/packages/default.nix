@@ -39,6 +39,7 @@ lib.mkIf config.desktop.enable {
     protonup-qt
     rquickshare
     swww.packages.${pkgs.system}.swww
+    sqlite-web
     themechanger
     tor-browser
     typst
