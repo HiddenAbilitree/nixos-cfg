@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   programs.kitty = {
     inherit (config.desktop.kitty) enable;
     font.name = "0xProto Nerd Font";

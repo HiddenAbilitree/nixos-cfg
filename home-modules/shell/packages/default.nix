@@ -25,6 +25,7 @@ lib.mkIf config.shell.packages.enable {
     oxlint
     rustfmt
     tldr # man pages
+    tokei
     vhs
     xh
     dua
