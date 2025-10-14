@@ -45,6 +45,6 @@
     #   aagl.enable = lib.mkDefault true;
     #   honkers.enable = lib.mkDefault true;
     # };
-    emulators.enable = lib.mkDefault true;
+    emulators.enable = lib.mkDefault false;
   };
 }

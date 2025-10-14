@@ -6,7 +6,7 @@
 }:
 lib.mkIf config.shell.packages.enable {
   home.packages = with pkgs; [
-    awscli2
+    # awscli2
     rclone
     bluetuith
     charm-freeze

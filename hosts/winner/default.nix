@@ -21,7 +21,7 @@
   swap.enable = true;
 
   # mullvad.enable = true;
-  ollama.enable = true;
+  ollama.enable = false;
 
   hardware.openrazer.enable = true;
 
