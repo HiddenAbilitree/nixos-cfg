@@ -2,8 +2,7 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   programs.zed-editor = {
     inherit (config.desktop.zed) enable;
     extensions = [

@@ -24,6 +24,7 @@
           inputs.private.nixosModules
           inputs.sops-nix.nixosModules.sops
           inputs.fonts.nixosModules
+
           {
             environment.systemPackages = [
               inputs.alejandra.defaultPackage.${system}
@@ -44,6 +45,7 @@
                 inputs.spicetify-nix.homeManagerModules.default
                 inputs.nix-flatpak.homeManagerModules.nix-flatpak
                 inputs.private.homeManagerModules.private
+                inputs.vicinae.homeManagerModules.default
                 ../home-modules
               ];
               users.ezhang = import ../home.nix;

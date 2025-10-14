@@ -78,6 +78,11 @@
     #   url = "github:Duckonaut/split-monitor-workspaces";
     #   inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
     # };
+
+    vicinae = {
+      url = "github:vicinaehq/vicinae";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -87,6 +92,7 @@
       "https://lanzaboote.cachix.org"
       "https://nix-community.cachix.org"
       "https://prismlauncher.cachix.org"
+      "https://vicinae.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -95,6 +101,7 @@
       "lanzaboote.cachix.org-1:Nt9//zGmqkg1k5iu+B3bkj3OmHKjSw9pvf3faffLLNk="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
+      "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
     ];
   };
 

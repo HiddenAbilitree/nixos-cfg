@@ -17,6 +17,7 @@
     ./packages
     ./rofi
     ./spicetify
+    ./vicinae
     ./vscodium
     ./wallpaper
     ./waybar
@@ -51,6 +52,7 @@
     spicetify.enable = lib.mkEnableOption "Spicetify";
     notifications.enable = lib.mkEnableOption "Notifications";
     tor-browser.enable = lib.mkEnableOption "Tor Browser";
+    vicinae.enable = lib.mkEnableOption "Vicinae";
     vscodium.enable = lib.mkEnableOption "VSCodium";
     waybar.enable = lib.mkEnableOption "Waybar";
     zathura.enable = lib.mkEnableOption "Zathura";
@@ -85,6 +87,7 @@
       spicetify.enable = lib.mkDefault true;
       notifications.enable = lib.mkDefault true;
       tor-browser.enable = lib.mkDefault true;
+      vicinae.enable = lib.mkDefault true;
       vscodium.enable = lib.mkDefault true;
       waybar.enable = lib.mkDefault true;
       zathura.enable = lib.mkDefault true;

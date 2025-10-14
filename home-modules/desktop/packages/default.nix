@@ -16,6 +16,7 @@ lib.mkIf config.desktop.enable {
     firefox
     font-manager
     gimp
+    godot
     google-chrome
     gnome-disk-utility
     hyprsunset
