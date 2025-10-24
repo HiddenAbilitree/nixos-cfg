@@ -1,7 +1,10 @@
 {pkgs, ...}: {
   imports = [./users];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = true;
+  };
 
   environment.systemPackages = with pkgs; [
     dmidecode
