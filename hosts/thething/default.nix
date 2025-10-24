@@ -1,8 +1,24 @@
 {
   lib,
   pkgs,
+  config,
   ...
-}: {
+}: let
+  zfsCompatibleKernelPackages =
+    lib.filterAttrs (
+      name: kernelPackages:
+        (builtins.match "linux_[0-9]+_[0-9]+" name)
+        != null
+        && (builtins.tryEval kernelPackages).success
+        && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
+    )
+    pkgs.linuxKernel.packages;
+  latestKernelPackage = lib.last (
+    lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
+      builtins.attrValues zfsCompatibleKernelPackages
+    )
+  );
+in {
   imports = [
     ./disk-config.nix
     ./hardware-configuration.nix
@@ -22,7 +38,7 @@
     enable = lib.mkForce true;
   };
 
-  environment.systemPackages = [pkgs.zfs];
+  # environment.systemPackages = [pkgs.zfs];
 
   bootx.bootloader.enable = true;
 
@@ -37,6 +53,9 @@
     nvidia-container-toolkit.enable = true;
     graphics.enable32Bit = true;
   };
+
+  # Note this might jump back and forth as kernels are added or removed.
+  boot.kernelPackages = lib.mkForce latestKernelPackage;
 
   wireguard.server.enable = true;
 
