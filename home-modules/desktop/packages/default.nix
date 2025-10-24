@@ -23,7 +23,7 @@ lib.mkIf config.desktop.enable {
     inkscape
     # jetbrains.idea-ultimate
     kdePackages.kdenlive
-    kdePackages.xwaylandvideobridge
+    # kdePackages.xwaylandvideobridge
     libreoffice
     librewolf
     libsecret
@@ -39,7 +39,7 @@ lib.mkIf config.desktop.enable {
     postman
     protonup-qt
     rquickshare
-    swww.packages.${pkgs.system}.swww
+    # swww.packages.${pkgs.system}.swww
     sqlite-web
     themechanger
     tor-browser

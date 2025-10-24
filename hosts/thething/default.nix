@@ -26,7 +26,7 @@
 
   bootx.bootloader.enable = true;
 
-  nextcloud.enable = true;
+  nextcloud.enable = false;
   pterodactyl.enable = false;
   syncthing.enable = true;
   ollama.enable = true;

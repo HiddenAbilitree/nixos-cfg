@@ -8,8 +8,10 @@
   programs = {
     git = {
       enable = true;
-      userName = "Eric Zhang";
-      userEmail = "me@ericzhang.dev";
+      settings.user = {
+        name = "Eric Zhang";
+        email = "me@ericzhang.dev";
+      };
     };
 
     lazygit = {

@@ -19,9 +19,6 @@
       oneko
       betterGenres
       songStats
-      oldSidebar
-      fullAlbumDate
-      powerBar
     ];
     # https://github.com/Gerg-L/spicetify-nix/blob/master/docs/THEMES.md
     theme = spicePkgs.themes.catppuccin;

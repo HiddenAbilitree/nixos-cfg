@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [./users];
 
   nixpkgs.config.allowUnfree = true;

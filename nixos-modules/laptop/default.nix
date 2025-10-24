@@ -45,7 +45,7 @@
         strategies = mkOption {
           default = defaultConfig.strategies;
           type = attrsOf (submodule (
-            {...}: {
+            _: {
               options = {
                 fanSpeedUpdateFrequency = mkOption {
                   type = int;
@@ -61,7 +61,7 @@
                   default = [];
                   description = "How should the speed curve look like";
                   type = listOf (submodule (
-                    {...}: {
+                    _: {
                       options = {
                         temp = mkOption {
                           type = int;

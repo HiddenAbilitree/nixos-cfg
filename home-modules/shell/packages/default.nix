@@ -23,6 +23,7 @@ lib.mkIf config.shell.packages.enable {
     nmap
     reptyr
     oxlint
+    ruff
     rustfmt
     tldr # man pages
     tokei

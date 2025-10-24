@@ -7,7 +7,7 @@
 with lib;
 with lib.types; let
   cfg = config.laptop.fan;
-  fw-fanctrl = pkgs.fw-fanctrl;
+  inherit (pkgs) fw-fanctrl;
 in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
