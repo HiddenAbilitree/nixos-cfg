@@ -25,7 +25,7 @@
       ++ lib.optionals config.desktop.games.minecraft.enable [
         lunar-client
         prismlauncher.packages.${pkgs.system}.prismlauncher
-        badlion-client
+        # badlion-client
       ];
 
     file = {

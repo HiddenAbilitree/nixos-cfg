@@ -9,7 +9,7 @@ lib.mkIf config.desktop.enable {
   home.packages = with pkgs; [
     brave
     blender-hip
-    davinci-resolve
+    # davinci-resolve
     dbeaver-bin
     easyeffects
     element-desktop
