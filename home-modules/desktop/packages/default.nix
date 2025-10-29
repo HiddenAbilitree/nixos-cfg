@@ -47,7 +47,6 @@ lib.mkIf config.desktop.enable {
     vesktop
     vlc
     wineWowPackages.waylandFull
-    wireguard-tools
     wireshark-qt
     wl-clicker
     wl-clipboard

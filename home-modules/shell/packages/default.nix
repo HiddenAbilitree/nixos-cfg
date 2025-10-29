@@ -28,6 +28,7 @@ lib.mkIf config.shell.packages.enable {
     tldr # man pages
     tokei
     vhs
+    wireguard-tools
     xh
     dua
     w3m
