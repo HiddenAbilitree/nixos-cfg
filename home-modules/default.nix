@@ -25,6 +25,10 @@
         disableStartupPopups = true;
         quitOnTopLevelReturn = true;
       };
+      enableZshIntegration = false;
+      enableBashIntegration = false;
+      enableFishIntegration = false;
+      enableNushellIntegration = false;
     };
 
     direnv = {
