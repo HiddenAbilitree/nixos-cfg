@@ -5,6 +5,7 @@
 
   virtualization.enable = true;
 
+  environment.localBinInPath = true;
   ssh = {
     enable = true;
     x11forwarding = true;
@@ -63,6 +64,7 @@
       enable = true;
     };
     gamemode.enable = true;
+    nix-ld.enable = true;
   };
 
   nix.settings.system-features = [

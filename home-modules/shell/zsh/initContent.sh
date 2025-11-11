@@ -1,24 +1,24 @@
-disassemble() {
-	if ! command -v objdump '{ cmd > file; } 2>&1' >/dev/null; then
-		echo "objdump could not be found"
-	else
-		if [ -z "$1" ]; then
-			echo Pick a file to disassemble:
-			FILE=$(gum file ./ --height 5)
-		else
-			FILE=$1
-		fi
-		if gum confirm "Select symbols?"; then
-			if ! command -v nm '{ cmd > file; } 2>&1' >/dev/null; then
-				echo "nm could not be found"
-			else
-				objdump -rwC --visualize-jumps=color --no-show-raw-insn -Matt --disassembler-color=on --show-all-symbols --file-headers --disassemble=$(nm -gjUWC "$FILE" | gum filter --height 5 --placeholder "Pick a symbol...") "$FILE"
-			fi
-		else
-			objdump -rwCd --visualize-jumps=color --no-show-raw-insn -Matt --disassembler-color=on --show-all-symbols --file-headers "$FILE"
-		fi
-	fi
-}
+# disassemble() {
+# 	if ! command -v objdump '{ cmd > file; } 2>&1' >/dev/null; then
+# 		echo "objdump could not be found"
+# 	else
+# 		if [ -z "$1" ]; then
+# 			echo Pick a file to disassemble:
+# 			FILE=$(gum file ./ --height 5)
+# 		else
+# 			FILE=$1
+# 		fi
+# 		if gum confirm "Select symbols?"; then
+# 			if ! command -v nm '{ cmd > file; } 2>&1' >/dev/null; then
+# 				echo "nm could not be found"
+# 			else
+# 				objdump -rwC --visualize-jumps=color --no-show-raw-insn -Matt --disassembler-color=on --show-all-symbols --file-headers --disassemble="$(nm -gjUWC "$FILE" | gum filter --height 5 --placeholder "Pick a symbol...")" "$FILE"
+# 			fi
+# 		else
+# 			objdump -rwCd --visualize-jumps=color --no-show-raw-insn -Matt --disassembler-color=on --show-all-symbols --file-headers "$FILE"
+# 		fi
+# 	fi
+# }
 
 xvim() {
 	curdir=$(pwd) && [ -z "$1" ] && nvim || cd "$1" && nvim "$1" && trap 'cd "$curdir" || return' EXIT

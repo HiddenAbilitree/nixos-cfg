@@ -35,12 +35,12 @@
 
       # development
       bun
+      uv
       cargo
       nodejs_latest
       gh
       man-pages
       man-pages-posix
-      python3
       rustlings
     ];
     stateVersion = "24.05";

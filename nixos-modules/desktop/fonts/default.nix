@@ -8,17 +8,15 @@ lib.mkIf config.desktop.fonts.enable {
   fonts = {
     fontDir.enable = true;
     enableGhostscriptFonts = true;
-    packages =
-      with pkgs;
+    packages = with pkgs;
       [
         inter
         dejavu_fonts
         noto-fonts
-        noto-fonts-extra
         babelstone-han
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
-        ubuntu_font_family
+        ubuntu-classic
         liberation_ttf
         maple-mono.truetype
         maple-mono.variable

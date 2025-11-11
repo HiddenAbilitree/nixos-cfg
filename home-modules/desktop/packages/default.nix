@@ -1,11 +1,12 @@
 {
   config,
-  swww,
+  # swww,
   lib,
   pkgs,
   ...
 }:
-lib.mkIf config.desktop.enable {
+lib.mkIf config.desktop.enable
+{
   home.packages = with pkgs; [
     brave
     blender-hip

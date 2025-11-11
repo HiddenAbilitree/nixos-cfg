@@ -54,7 +54,7 @@
         rocmPackages.rocm-runtime
         intel-media-driver
         libvdpau-va-gl
-        vaapiIntel
+        intel-vaapi-driver
       ];
     };
   };
