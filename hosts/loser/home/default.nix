@@ -1,9 +1,4 @@
 {
-  lib,
-  root,
-  osConfig,
-  ...
-}: {
   imports = [
     ./programs
   ];
@@ -17,8 +12,8 @@
     enable = true;
     primary-monitor = "eDP-1";
     games = {
-      roblox.enable = true;
-      minecraft.enable = true;
+      roblox.enable = false;
+      minecraft.enable = false;
     };
   };
 

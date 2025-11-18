@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ./disk-config.nix
   ];
+  virtualization.enable = true;
 
   laptop.enable = true;
 
@@ -30,8 +31,8 @@
   };
 
   programs = {
-    steam.enable = true;
-    gamemode.enable = true;
+    steam.enable = false;
+    gamemode.enable = false;
   };
 
   # mullvad.enable = true;
