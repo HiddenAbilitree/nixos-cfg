@@ -59,6 +59,12 @@ remote-nvim(){
   nvim oil-ssh://"$user"@"$host"/
 }
 
+haod() {
+  if [ -f "package.json" ]; then
+    bunx @hiddenability/opinionated-defaults
+  fi
+}
+
 eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(direnv hook zsh)"
 
