@@ -1,1 +1,1 @@
-{ imports = [ ./mkHost.nix ]; }
+{imports = [./mkHost.nix];}

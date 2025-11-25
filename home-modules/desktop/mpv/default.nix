@@ -2,8 +2,7 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   programs.mpv = {
     inherit (config.desktop.mpv) enable;
     config = {

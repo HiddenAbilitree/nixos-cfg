@@ -35,7 +35,7 @@ lib.mkIf config.wireguard.client.enable {
     networks.wg0 = {
       matchConfig.Name = "wg0";
       # IP addresses the client interface will have
-      address = [ config.wireguard.client.address ];
+      address = [config.wireguard.client.address];
       DHCP = "no";
       networkConfig = {
         IPv6AcceptRA = false;

@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   programs.fastfetch = {
     inherit (config.shell.fastfetch) enable;
     settings = {

@@ -1,16 +1,13 @@
 {
   config,
-  # swww,
   lib,
   pkgs,
   ...
 }:
-lib.mkIf config.desktop.enable
-{
+lib.mkIf config.desktop.enable {
   home.packages = with pkgs; [
     brave
     blender-hip
-    # davinci-resolve
     dbeaver-bin
     easyeffects
     element-desktop
@@ -22,16 +19,13 @@ lib.mkIf config.desktop.enable
     gnome-disk-utility
     hyprsunset
     inkscape
-    # jetbrains.idea-ultimate
     kdePackages.kdenlive
-    # kdePackages.xwaylandvideobridge
     libreoffice
     librewolf
     libsecret
     moonlight-qt
     nautilus
     obsidian
-    # obs-studio
     obs-cmd
     openrazer-daemon
     pavucontrol
@@ -40,7 +34,6 @@ lib.mkIf config.desktop.enable
     postman
     protonup-qt
     rquickshare
-    # swww.packages.${pkgs.system}.swww
     sqlite-web
     themechanger
     tor-browser
@@ -54,5 +47,10 @@ lib.mkIf config.desktop.enable
     ydotool
     zoom-us
     zotero
+
+    # lol
+    code-cursor
+    windsurf
+    warp-terminal
   ];
 }

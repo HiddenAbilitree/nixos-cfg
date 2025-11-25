@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   services.cloudflared = {
     inherit (config.cloudflared) enable;
     tunnels = {

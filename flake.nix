@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # master or nixos-unstable
 
     alejandra = {
-      url = "github:kamadorueda/alejandra/3.1.0";
+      url = "github:kamadorueda/alejandra";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -13,10 +13,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # fw-fanctrl = {
-    #   url = "github:TamtamHero/fw-fanctrl/packaging/nix";
-    # };
 
     home-manager = {
       url = "github:nix-community/home-manager";

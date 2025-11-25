@@ -32,10 +32,13 @@ in {
       wantedBy = ["multi-user.target"];
     };
 
-    environment.etc."systemd/system-sleep/fw-fanctrl-suspend.sh".source = pkgs.writeShellScript "fw-fanctrl-suspend" (
-      builtins.replaceStrings [''/usr/bin/python3 "%PREFIX_DIRECTORY%/bin/fw-fanctrl"'' "/bin/bash"] ["${fw-fanctrl}/bin/fw-fanctrl" ""] (
-        builtins.readFile ./fw-fanctrl-suspend
-      )
-    );
+    environment.etc."systemd/system-sleep/fw-fanctrl-suspend.sh".source =
+      pkgs.writeShellScript "fw-fanctrl-suspend"
+      (
+        builtins.replaceStrings
+        [''/usr/bin/python3 "%PREFIX_DIRECTORY%/bin/fw-fanctrl"'' "/bin/bash"]
+        ["${fw-fanctrl}/bin/fw-fanctrl" ""]
+        (builtins.readFile ./fw-fanctrl-suspend)
+      );
   };
 }

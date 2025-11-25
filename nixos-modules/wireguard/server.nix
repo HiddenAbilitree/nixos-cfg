@@ -6,8 +6,8 @@
 lib.mkIf config.wireguard.server.enable {
   networking = {
     firewall = {
-      allowedUDPPorts = [ config.wireguard.listenPort ];
-      trustedInterfaces = [ "wg0" ];
+      allowedUDPPorts = [config.wireguard.listenPort];
+      trustedInterfaces = ["wg0"];
     };
     useNetworkd = true;
   };
@@ -34,13 +34,13 @@ lib.mkIf config.wireguard.server.enable {
           {
             PresharedKeyFile = config.sops.secrets.wg-loser-psk.path;
             PublicKey = "nL4DkJLnD/EwRGg+DHAsjDE2rg/hEibFb88b6Y7szBc=";
-            AllowedIPs = [ "10.100.0.2" ];
+            AllowedIPs = ["10.100.0.2"];
             PersistentKeepalive = 25;
           }
           {
             PresharedKeyFile = config.sops.secrets.wg-winner-psk.path;
             PublicKey = "qPEAvFY7/rwheiLX1Xn3EI1pnDmbF4VslClPmkDn10o=";
-            AllowedIPs = [ "10.100.0.3" ];
+            AllowedIPs = ["10.100.0.3"];
             PersistentKeepalive = 25;
           }
         ];
@@ -48,7 +48,7 @@ lib.mkIf config.wireguard.server.enable {
 
       networks.wg0 = {
         matchConfig.Name = "wg0";
-        address = [ "10.100.0.1/24" ];
+        address = ["10.100.0.1/24"];
         networkConfig = {
           IPMasquerade = "ipv4";
           IPv4Forwarding = true;

@@ -3,8 +3,7 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   imports = [
     ./plymouth.nix
     ./secureboot.nix

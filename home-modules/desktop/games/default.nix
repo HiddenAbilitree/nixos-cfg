@@ -5,7 +5,10 @@
   prismlauncher,
   ...
 }: {
-  imports = [./lutris.nix ./roblox.nix];
+  imports = [
+    ./lutris.nix
+    ./roblox.nix
+  ];
   home = {
     packages = with pkgs;
       [

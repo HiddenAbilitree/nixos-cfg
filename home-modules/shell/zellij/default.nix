@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   programs.zellij = {
     inherit (config.shell.zellij) enable;
     enableZshIntegration = config.shell.zellij.autostart;

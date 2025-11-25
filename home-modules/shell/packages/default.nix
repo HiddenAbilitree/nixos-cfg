@@ -32,5 +32,9 @@ lib.mkIf config.shell.packages.enable {
     xh
     dua
     w3m
+
+    claude-code
+    codex
+    gemini-cli
   ];
 }

@@ -15,13 +15,11 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  networking.extraHosts =
-    lib.mkIf config.desktop.games.moe.enable
-    ''
-        0.0.0.0 log-upload-os.hoyoverse.com
-        0.0.0.0 sg-public-data-api.hoyoverse.com
+  networking.extraHosts = lib.mkIf config.desktop.games.moe.enable ''
+      0.0.0.0 log-upload-os.hoyoverse.com
+      0.0.0.0 sg-public-data-api.hoyoverse.com
 
-      0.0.0.0 log-upload.mihoyo.com
-      0.0.0.0 public-data-api.mihoyo.com
-    '';
+    0.0.0.0 log-upload.mihoyo.com
+    0.0.0.0 public-data-api.mihoyo.com
+  '';
 }

@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   programs.waybar = {
     inherit (config.desktop.waybar) enable;
 
@@ -85,7 +84,7 @@
             "memory"
             "disk"
           ];
-          drawer = { };
+          drawer = {};
         };
         temperature = {
           format = "{icon} {temperatureC}°C";

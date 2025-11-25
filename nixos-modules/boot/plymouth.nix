@@ -3,14 +3,13 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   boot = lib.mkIf config.bootx.plymouth.enable {
     plymouth = {
       enable = true;
       theme = "colorful_loop";
       themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override { selected_themes = [ "colorful_loop" ]; })
+        (adi1090x-plymouth-themes.override {selected_themes = ["colorful_loop"];})
       ];
     };
     consoleLogLevel = 0;

@@ -2,8 +2,7 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   programs.tmux = {
     inherit (config.shell.tmux) enable;
     terminal = "xterm-kitty";

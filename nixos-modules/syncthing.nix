@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   services.syncthing = {
     inherit (config.syncthing) enable;
     group = "syncthing";

@@ -1,5 +1,4 @@
-{ root, ... }:
-{
+{root, ...}: {
   services.hyprpaper = {
     settings = let
       bg = "field";

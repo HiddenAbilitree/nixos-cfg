@@ -22,13 +22,13 @@ lib.mkIf config.desktop.dark-mode.enable {
     theme = {
       name = "Tokyonight-Dark-Storm";
       package = pkgs.tokyonight-gtk-theme.override {
-        colorVariants = [ "dark" ];
+        colorVariants = ["dark"];
         tweakVariants = [
           "storm"
           "macos"
           "outline"
         ];
-        iconVariants = [ "Dark-Cyan" ];
+        iconVariants = ["Dark-Cyan"];
       };
     };
 

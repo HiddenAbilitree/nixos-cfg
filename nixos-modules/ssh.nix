@@ -2,14 +2,13 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   config = lib.mkIf config.ssh.enable {
     services = {
       fail2ban.enable = config.ssh.fail2ban.enable;
       openssh = {
         enable = true;
-        ports = [ 22 ];
+        ports = [22];
         settings = {
           KbdInteractiveAuthentication = false;
           PasswordAuthentication = false;

@@ -3,14 +3,14 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   programs.vscode = {
     inherit (config.desktop.vscodium) enable;
     package = pkgs.vscode.fhsWithPackages (
-      ps: with ps; [
-        gcc
-      ]
+      ps:
+        with ps; [
+          gcc
+        ]
     );
     mutableExtensionsDir = false;
     profiles.default = {

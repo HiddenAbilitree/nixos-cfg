@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   programs.atuin = {
     inherit (config.shell.atuin) enable;
     enableZshIntegration = false;

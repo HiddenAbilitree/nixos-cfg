@@ -3,20 +3,18 @@
   pkgs,
   lib,
   ...
-}:
-{
-  config =
-    let
-      hibernateEnvironment = {
-        HIBERNATE_SECONDS = "10";
-        HIBERNATE_LOCK = "/var/run/autohibernate.lock";
-      };
-    in
+}: {
+  config = let
+    hibernateEnvironment = {
+      HIBERNATE_SECONDS = "10";
+      HIBERNATE_LOCK = "/var/run/autohibernate.lock";
+    };
+  in
     lib.mkIf config.laptop.hibernate.enable {
       systemd.services."awake-after-suspend-for-a-time" = {
         description = "Sets up the suspend so that it'll wake for hibernation only if not on AC power";
-        wantedBy = [ "suspend.target" ];
-        before = [ "systemd-suspend.service" ];
+        wantedBy = ["suspend.target"];
+        before = ["systemd-suspend.service"];
         environment = hibernateEnvironment;
         script = ''
           if [ $(cat /sys/class/power_supply/ACAD/online) -eq 0 ]; then
@@ -33,8 +31,8 @@
 
       systemd.services."hibernate-after-recovery" = {
         description = "Hibernates after a suspend recovery due to timeout";
-        wantedBy = [ "suspend.target" ];
-        after = [ "systemd-suspend.service" ];
+        wantedBy = ["suspend.target"];
+        after = ["systemd-suspend.service"];
         environment = hibernateEnvironment;
         script = ''
           curtime=$(date +%s)

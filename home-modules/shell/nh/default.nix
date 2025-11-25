@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   programs.nh = {
     inherit (config.shell.nh) enable;
     clean = {
