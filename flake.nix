@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    helium = {
+      url = "github:forkprince/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # hyprland.url = "git+ssh://git@github.com/hyprwm/Hyprland.git?rev=3577a6be31fa26539b4088ea07aa2221f84b132e&ref=main";
 
     twopass = {

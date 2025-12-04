@@ -2,10 +2,12 @@
   config,
   lib,
   pkgs,
+  helium,
   ...
 }:
 lib.mkIf config.desktop.enable {
   home.packages = with pkgs; [
+    affine
     brave
     blender-hip
     dbeaver-bin
@@ -25,6 +27,7 @@ lib.mkIf config.desktop.enable {
     libsecret
     moonlight-qt
     nautilus
+    helium.legacyPackages.${pkgs.stdenv.hostPlatform.system}.helium-nightly
     obsidian
     obs-cmd
     openrazer-daemon

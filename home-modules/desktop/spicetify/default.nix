@@ -5,7 +5,7 @@
   ...
 }: {
   programs.spicetify = let
-    spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
+    spicePkgs = spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
   in {
     inherit (config.desktop.spicetify) enable;
     spotifyPackage = pkgs.spotify;

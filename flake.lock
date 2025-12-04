@@ -394,6 +394,26 @@
         "type": "github"
       }
     },
+    "helium": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1764833504,
+        "narHash": "sha256-kz0gQjlM+iB7RlC+R2ZJ3on1dOPHKeNTl36VlLDloSQ=",
+        "owner": "forkprince",
+        "repo": "nur-packages",
+        "rev": "ffe3c18f26a0878e81e880338b0f94b476f326e7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "forkprince",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -1183,10 +1203,10 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1763694471,
-        "narHash": "sha256-MjMk2XtXZNyJi/WRLHjqCq/etf2pxFJzLVbYba6vf6I=",
+        "lastModified": 1764889681,
+        "narHash": "sha256-8MJ1hudNAl8dtc3dSehXl9vq1yrrZ13IwxiC68sJg1Q=",
         "ref": "main",
-        "rev": "055131f51356f0fcdfd9e62a3420560f21d6fea5",
+        "rev": "6ea3e14c43c9d9f5f9a78c375d76b461fc659227",
         "revCount": 114,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git"
@@ -1204,6 +1224,7 @@
         "awww": "awww",
         "disko": "disko",
         "fonts": "fonts",
+        "helium": "helium",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "impermanence": "impermanence",

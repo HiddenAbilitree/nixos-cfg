@@ -2,11 +2,14 @@
   config,
   pkgs,
   lib,
+  twopass,
+  alejandra,
   ...
 }:
 lib.mkIf config.shell.packages.enable {
   home.packages = with pkgs; [
     # awscli2
+    amdgpu_top
     rclone
     bluetuith
     charm-freeze
@@ -32,6 +35,8 @@ lib.mkIf config.shell.packages.enable {
     xh
     dua
     w3m
+    twopass.packages.${pkgs.stdenv.hostPlatform.system}.default
+    alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system}
 
     claude-code
     codex
