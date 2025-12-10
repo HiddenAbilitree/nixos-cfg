@@ -40,6 +40,6 @@ lib.mkIf config.shell.packages.enable {
 
     claude-code
     codex
-    gemini-cli
+    # gemini-cli
   ];
 }

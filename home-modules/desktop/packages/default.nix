@@ -36,7 +36,7 @@ lib.mkIf config.desktop.enable {
     polychromatic
     postman
     protonup-qt
-    rquickshare
+    # rquickshare
     sqlite-web
     themechanger
     tor-browser

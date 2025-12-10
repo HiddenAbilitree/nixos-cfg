@@ -10,6 +10,7 @@
     ./carapace
     ./eza
     ./fastfetch
+    ./gemini-cli
     ./helix
     ./jj
     ./nh
