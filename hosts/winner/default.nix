@@ -1,6 +1,11 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
+    ./disk-config.nix
   ];
 
   virtualization.enable = true;
@@ -16,6 +21,8 @@
     plymouth.enable = true;
     bootloader.enable = true;
   };
+
+  boot.lanzaboote.pkiBundle = lib.mkForce "/var/lib/sbctl";
 
   syncthing.enable = true;
   distributed-builds.enable = true;

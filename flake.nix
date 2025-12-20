@@ -42,6 +42,9 @@
     prismlauncher.url = "github:PrismLauncher/PrismLauncher";
 
     private.url = "git+ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git?ref=main";
+    # private.url = "path:/home/ezhang/code/nix/private-nixos-cfg";
+    # fonts.url = "path:/home/ezhang/code/nix/fonts";
+    # nixvim-cfg.url = "path:/home/ezhang/code/nix/nixvim-cfg";
 
     fonts.url = "git+ssh://git@github.com/HiddenAbilitree/fonts.git?ref=main";
 

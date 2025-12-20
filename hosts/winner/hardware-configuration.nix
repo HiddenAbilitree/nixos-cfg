@@ -24,22 +24,6 @@
     kernelModules = ["kvm-amd"];
   };
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-uuid/cd84749f-3fbf-4d18-9411-82c81d4982ef";
-      fsType = "ext4";
-    };
-
-    "/boot" = {
-      device = "/dev/disk/by-uuid/66CF-EADA";
-      fsType = "vfat";
-      options = [
-        "fmask=0077"
-        "dmask=0077"
-      ];
-    };
-  };
-
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware = {
