@@ -33,6 +33,7 @@
   programs = {
     steam.enable = false;
     gamemode.enable = false;
+    nix-ld.enable = true;
   };
 
   # mullvad.enable = true;

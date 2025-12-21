@@ -10,15 +10,15 @@
     inherit (config.desktop.spicetify) enable;
     spotifyPackage = pkgs.spotify;
     enabledExtensions = with spicePkgs.extensions; [
-      # https://github.com/Gerg-L/spicetify-nix/blob/master/docs/EXTENSIONS.md
-      adblock
+      # https://github.com/Gerg-L/spicetify-nix/blob/master/docs/extensions.md
+      # adblock
       hidePodcasts
       shuffle
-      fullAppDisplay
-      loopyLoop
+      # fullAppDisplay
+      # loopyLoop
       oneko
       betterGenres
-      songStats
+      # songStats
     ];
     # https://github.com/Gerg-L/spicetify-nix/blob/master/docs/THEMES.md
     theme = spicePkgs.themes.catppuccin;

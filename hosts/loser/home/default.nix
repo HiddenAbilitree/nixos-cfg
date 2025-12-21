@@ -13,7 +13,7 @@
     primary-monitor = "eDP-1";
     games = {
       roblox.enable = false;
-      minecraft.enable = false;
+      minecraft.enable = true;
     };
   };
 
