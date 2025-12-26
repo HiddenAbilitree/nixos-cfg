@@ -21,7 +21,7 @@
 
   services.vicinae = {
     inherit (config.desktop.vicinae) enable;
-    autoStart = true;
+    systemd.autoStart = true;
     settings = {
       theme.name = "tokyo_night_storm.json";
       closeOnFocusLoss = false;

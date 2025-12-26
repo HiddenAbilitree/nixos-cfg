@@ -36,6 +36,7 @@
   dev.enable = true;
 
   printing.enable = true;
+  networking.nameservers = ["1.1.1.1" "8.8.8.8"];
 
   wireguard.client = {
     enable = true;
