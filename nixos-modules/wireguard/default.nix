@@ -91,5 +91,13 @@
       allowedIPs = ["10.100.0.3"];
       presharedKeySecret = "wg-winner-psk";
     };
+    vps = {
+      publicKey = "uuRHwpFxt1Rfx7evsx7Q9ElnFuVA6ToAqHKigK+eIxk=";
+      privateKeyFile = config.sops.secrets.wg-vps-private-key.path;
+      address = "10.101.0.1/24";
+      allowedIPs = ["10.101.0.1"];
+      endpoint = "15.204.232.112";
+      presharedKeySecret = "wg-vps-psk";
+    };
   };
 }

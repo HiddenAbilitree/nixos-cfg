@@ -8,6 +8,13 @@
 
   otherPeers = lib.filterAttrs (name: _: name != cfg.peer) cfg.peers;
 
+  allAllowedIPs = lib.flatten (lib.mapAttrsToList (_: peer: peer.allowedIPs) otherPeers);
+
+  mkRoute = ip: {
+    Destination = ip;
+    Scope = "link";
+  };
+
   getPskSecret = name: peer:
     if thisPeer.isRelay
     then peer.presharedKeySecret
@@ -60,6 +67,7 @@ in
         matchConfig.Name = "wg0";
         address = [thisPeer.address];
         DHCP = "no";
+        routes = map mkRoute allAllowedIPs;
         networkConfig =
           {
             IPv6AcceptRA = false;
