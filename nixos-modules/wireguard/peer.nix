@@ -8,6 +8,16 @@
 
   otherPeers = lib.filterAttrs (name: _: name != cfg.peer) cfg.peers;
 
+  extractIP = addr: lib.head (lib.splitString "/" addr);
+
+  relayIP =
+    (lib.findFirst (peer: peer.isRelay) null (lib.attrValues cfg.peers)).address
+    or null;
+  dnsServer =
+    if relayIP != null
+    then extractIP relayIP
+    else null;
+
   allAllowedIPs = lib.flatten (lib.mapAttrsToList (_: peer: peer.allowedIPs) otherPeers);
 
   mkRoute = ip: {
@@ -75,6 +85,10 @@ in
           // lib.optionalAttrs thisPeer.isRelay {
             IPMasquerade = "ipv4";
             IPv4Forwarding = true;
+          }
+          // lib.optionalAttrs (!thisPeer.isRelay && dnsServer != null) {
+            DNS = dnsServer;
+            Domains = "~wg";
           };
       };
     };

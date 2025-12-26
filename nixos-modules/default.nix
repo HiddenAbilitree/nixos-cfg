@@ -8,6 +8,7 @@
     ./cloudflared.nix
     ./desktop
     ./distributed-builds.nix
+    ./dns
     ./laptop
     ./mongodb.nix
     ./mullvad

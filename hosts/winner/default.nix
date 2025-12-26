@@ -32,7 +32,13 @@
   dev.enable = true;
 
   printing.enable = true;
-  networking.nameservers = ["1.1.1.1" "8.8.8.8"];
+
+  networking.nameservers = ["1.1.1.1" "1.0.0.1"];
+
+  services.resolved = {
+    enable = true;
+    fallbackDns = ["8.8.8.8" "8.8.4.4"];
+  };
 
   wireguard.peer = "winner";
 

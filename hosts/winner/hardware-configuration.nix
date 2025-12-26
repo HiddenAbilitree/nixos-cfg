@@ -25,6 +25,7 @@
   };
 
   networking.useDHCP = lib.mkDefault true;
+  networking.dhcpcd.extraConfig = "nohook resolv.conf";
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

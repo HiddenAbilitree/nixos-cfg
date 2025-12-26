@@ -59,6 +59,17 @@ in {
 
   wireguard.peer = "thething";
 
+  internal-dns = {
+    enable = true;
+    extraHosts = {
+      "observability.wg" = "10.100.0.1";
+      "git.wg" = "10.100.0.1";
+      "panel.wg" = "10.100.0.1";
+      "wings.wg" = "10.100.0.1";
+      "cloud.wg" = "10.100.0.1";
+    };
+  };
+
   nix.settings.system-features = [
     "kvm"
     "big-parallel"
