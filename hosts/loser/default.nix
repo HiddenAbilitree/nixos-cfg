@@ -1,4 +1,4 @@
-{config, ...}: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
     ./disk-config.nix
@@ -38,10 +38,5 @@
 
   # mullvad.enable = true;
 
-  wireguard.client = {
-    enable = true;
-    PrivateKeyFile = config.sops.secrets.wg-loser-private-key.path;
-    PresharedKeyFile = config.sops.secrets.wg-loser-psk.path;
-    address = "10.100.0.2/24";
-  };
+  wireguard.peer = "loser";
 }

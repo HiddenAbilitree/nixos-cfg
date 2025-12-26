@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   imports = [
     ./hardware-configuration.nix
     ./disk-config.nix
@@ -38,12 +34,7 @@
   printing.enable = true;
   networking.nameservers = ["1.1.1.1" "8.8.8.8"];
 
-  wireguard.client = {
-    enable = true;
-    PrivateKeyFile = config.sops.secrets.wg-winner-private-key.path;
-    PresharedKeyFile = config.sops.secrets.wg-winner-psk.path;
-    address = "10.100.0.3/24";
-  };
+  wireguard.peer = "winner";
 
   desktop = {
     enable = true;
