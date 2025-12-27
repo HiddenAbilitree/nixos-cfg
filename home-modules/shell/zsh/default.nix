@@ -15,6 +15,7 @@
     syntaxHighlighting.enable = true;
     autocd = true;
     initContent = builtins.readFile ./initContent.sh;
+    dotDir = "${config.xdg.configHome}/zsh";
     shellAliases = {
       cfg = "xvim ${root}";
       pcfg = "xvim ${proot}";

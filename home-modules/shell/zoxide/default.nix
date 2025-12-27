@@ -1,3 +1,6 @@
 {config, ...}: {
-  programs.zoxide.enable = config.shell.zoxide.enable;
+  programs.zoxide = {
+    enable = config.shell.zoxide.enable;
+    enableZshIntegration = true;
+  };
 }

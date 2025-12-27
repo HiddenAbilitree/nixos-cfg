@@ -8,7 +8,7 @@
     # clearDefaultKeybinds = true;
     enableZshIntegration = true;
     settings = {
-      font-family = "MonoLisa Aria";
+      font-family = "0xProto Nerd Font";
       theme = "TokyoNight Storm";
       # gtk-adwaita = true;
       gtk-single-instance = true;

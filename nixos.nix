@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [./users];
 
   nixpkgs.config = {
@@ -35,6 +39,7 @@
   };
 
   nix.settings = {
+    access-tokens = config.sops.secrets.github-token.path;
     auto-optimise-store = true;
 
     download-buffer-size = 524288000;

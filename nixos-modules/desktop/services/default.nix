@@ -6,6 +6,7 @@
   imports = [
     ./pipewire.nix
     ./keyboard.nix
+    ./mouse.nix
     ./sunshine.nix
     ./ratbagd.nix
   ];
@@ -14,6 +15,7 @@
     enable = lib.mkEnableOption "desktop services";
     pipewire.enable = lib.mkEnableOption "Pipewire";
     keyboard.enable = lib.mkEnableOption "Keyboard udev options";
+    mouse.enable = lib.mkEnableOption "Mouse udev options";
     sunshine.enable = lib.mkEnableOption "Sunshine";
     ratbagd.enable = lib.mkEnableOption "Ratbagd";
   };

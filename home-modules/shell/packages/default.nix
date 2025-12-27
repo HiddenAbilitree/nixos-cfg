@@ -4,11 +4,12 @@
   lib,
   twopass,
   alejandra,
+  slop,
   ...
 }:
 lib.mkIf config.shell.packages.enable {
   home.packages = with pkgs; [
-    # awscli2
+    awscli2
     amdgpu_top
     rclone
     bluetuith
@@ -21,13 +22,14 @@ lib.mkIf config.shell.packages.enable {
     hwinfo
     hyperfine
     libqalculate
-    mongosh
+    # mongosh
     gdu
     nmap
     reptyr
     oxlint
     ruff
     rustfmt
+    terraform
     tldr # man pages
     tokei
     vhs
@@ -37,7 +39,7 @@ lib.mkIf config.shell.packages.enable {
     w3m
     twopass.packages.${pkgs.stdenv.hostPlatform.system}.default
     alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system}
-
+    slop.packages.${pkgs.stdenv.hostPlatform.system}.default
     claude-code
     codex
     # gemini-cli

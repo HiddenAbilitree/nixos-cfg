@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./boot
+    ./certs
     ./cloudflared.nix
     ./desktop
     ./distributed-builds.nix

@@ -61,7 +61,7 @@ remote-nvim(){
 
 haod() {
   if [ -f "package.json" ]; then
-    bunx @hiddenability/opinionated-defaults
+    bunx @hiddenability/opinionated-defaults@latest
   fi
 }
 

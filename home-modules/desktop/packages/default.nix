@@ -50,10 +50,5 @@ lib.mkIf config.desktop.enable {
     ydotool
     zoom-us
     zotero
-
-    # lol
-    code-cursor
-    windsurf
-    warp-terminal
   ];
 }

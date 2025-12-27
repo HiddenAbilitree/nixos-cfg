@@ -1,6 +1,6 @@
 {
   programs.gemini-cli = {
-    enable = true;
+    enable = false;
     defaultModel = "gemini-3-pro-preview";
     settings = {
       general = {

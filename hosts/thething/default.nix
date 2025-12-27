@@ -42,6 +42,8 @@ in {
 
   bootx.bootloader.enable = true;
 
+  runners.enable = true;
+
   nextcloud.enable = false;
   pterodactyl.enable = false;
   syncthing.enable = true;
@@ -67,6 +69,9 @@ in {
       "panel.wg" = "10.100.0.1";
       "wings.wg" = "10.100.0.1";
       "cloud.wg" = "10.100.0.1";
+      "s3.wg" = "10.100.0.1";
+      "garage-web.wg" = "10.100.0.1";
+      "garage-admin.wg" = "10.100.0.1";
     };
   };
 

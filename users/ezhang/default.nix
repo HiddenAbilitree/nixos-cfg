@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   users.users.ezhang = {
     isNormalUser = true;
     description = "Eric Zhang";

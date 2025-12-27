@@ -46,6 +46,8 @@
     # fonts.url = "path:/home/ezhang/code/nix/fonts";
     # nixvim-cfg.url = "path:/home/ezhang/code/nix/nixvim-cfg";
 
+    slop.url = "git+ssh://git@github.com/HiddenAbilitree/slop.git?ref=main";
+
     fonts.url = "git+ssh://git@github.com/HiddenAbilitree/fonts.git?ref=main";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";

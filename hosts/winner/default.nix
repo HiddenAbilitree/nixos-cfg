@@ -51,6 +51,7 @@
     services = {
       ratbagd.enable = true;
       keyboard.enable = true;
+      mouse.enable = true;
       sunshine.enable = true;
     };
   };
