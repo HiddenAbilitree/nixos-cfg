@@ -24,12 +24,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hyprland.url = "git+ssh://git@github.com/hyprwm/Hyprland.git?rev=3577a6be31fa26539b4088ea07aa2221f84b132e&ref=main";
-
     twopass = {
-      # url = "github:ultramicroscope/2pass?rev=248434d383d4b4cc8bf690965c100adf3093b0ba";
       url = "github:ultramicroscope/2pass";
-      # url = "github:HiddenAbilitree/2pass";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -76,14 +72,9 @@
     awww.url = "git+https://codeberg.org/LGFae/awww";
 
     split-monitor-workspaces = {
-      # url = "git+ssh://git@github.com/Duckonaut/split-monitor-workspaces.git?rev=a8e39ff10dfb5ff451416a791a30388a8517e038&ref=main";
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
-    # split-monitor-workspaces = {
-    #   url = "github:Duckonaut/split-monitor-workspaces";
-    #   inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
-    # };
 
     vicinae = {
       url = "github:vicinaehq/vicinae";

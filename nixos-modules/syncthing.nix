@@ -36,13 +36,6 @@
             "thething"
           ];
         };
-        "notes" = {
-          path = "/home/ezhang/notes";
-          devices = [
-            "winner"
-            "loser"
-          ];
-        };
         "prismlauncher" = {
           path = "/home/ezhang/.local/share/PrismLauncher/instances";
           devices = [

@@ -9,7 +9,6 @@ lib.mkIf config.desktop.enable {
   home.packages = with pkgs; [
     affine
     brave
-    blender-hip
     dbeaver-bin
     easyeffects
     element-desktop

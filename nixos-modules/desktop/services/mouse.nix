@@ -9,6 +9,10 @@ lib.mkIf config.desktop.services.mouse.enable {
     (pkgs.writeTextFile {
       name = "pulsar-udev";
       text = ''
+        # Pulsar X2 CrazyLight
+        SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3710", ATTRS{idProduct}=="3414", TAG+="uaccess"
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="3710", ATTRS{idProduct}=="3414", TAG+="uaccess"
+
         # Pulsar 8K Dongle
         SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3710", ATTRS{idProduct}=="5406", TAG+="uaccess"
         SUBSYSTEM=="usb", ATTRS{idVendor}=="3710", ATTRS{idProduct}=="5406", TAG+="uaccess"
