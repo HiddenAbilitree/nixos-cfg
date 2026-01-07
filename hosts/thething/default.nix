@@ -40,6 +40,8 @@ in {
 
   # environment.systemPackages = [pkgs.zfs];
 
+  programs.nix-ld.enable = true;
+
   bootx.bootloader.enable = true;
 
   runners.enable = true;
