@@ -27,7 +27,15 @@
       ]
       ++ lib.optionals config.desktop.games.minecraft.enable [
         lunar-client
-        prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher
+        (prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher.override {
+          jdks = [
+            graalvmPackages.graalvm-ce
+            zulu25
+            zulu21
+            zulu17
+            zulu8
+          ];
+        })
         badlion-client
       ];
 

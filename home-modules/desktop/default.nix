@@ -91,7 +91,7 @@
       vscodium.enable = lib.mkDefault true;
       waybar.enable = lib.mkDefault true;
       zathura.enable = lib.mkDefault true;
-      zed.enable = lib.mkDefault true;
+      zed.enable = lib.mkDefault false;
       wallpaper.enable = lib.mkDefault true;
     };
 

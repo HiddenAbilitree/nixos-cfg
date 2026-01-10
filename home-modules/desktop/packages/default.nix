@@ -9,6 +9,7 @@ lib.mkIf config.desktop.enable {
   home.packages = with pkgs; [
     affine
     brave
+    copyq
     dbeaver-bin
     easyeffects
     element-desktop
@@ -44,8 +45,8 @@ lib.mkIf config.desktop.enable {
     vlc
     wineWowPackages.waylandFull
     wireshark-qt
-    wl-clicker
-    wl-clipboard
+    # wl-clicker
+    # wl-clipboard
     ydotool
     zoom-us
     zotero
