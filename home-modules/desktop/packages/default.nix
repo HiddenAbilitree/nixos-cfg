@@ -46,7 +46,7 @@ lib.mkIf config.desktop.enable {
     wineWowPackages.waylandFull
     wireshark-qt
     # wl-clicker
-    # wl-clipboard
+    wl-clipboard
     ydotool
     zoom-us
     zotero

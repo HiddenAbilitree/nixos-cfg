@@ -37,7 +37,7 @@
 
   services.resolved = {
     enable = true;
-    fallbackDns = ["8.8.8.8" "8.8.4.4"];
+    settings.Resolve.FallbackDNS = ["8.8.8.8" "8.8.4.4"];
   };
 
   wireguard.peer = "winner";
