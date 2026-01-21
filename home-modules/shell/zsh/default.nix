@@ -39,6 +39,8 @@
 
       gh = "GITHUB_TOKEN=$(cat ${osConfig.sops.secrets.github-token.path}) gh";
 
+      claude = "GITHUB_PERSONAL_ACCESS_TOKEN=#(open --raw ${osConfig.sops.secrets.github-token.path}) claude";
+
       edit = "$EDITOR";
       code = "codium";
 

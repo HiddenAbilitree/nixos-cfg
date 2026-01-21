@@ -25,39 +25,39 @@
         options = {
           publicKey = lib.mkOption {
             type = lib.types.str;
-            description = "WireGuard public key for this peer";
+            description = "wg public key";
           };
 
           privateKeyFile = lib.mkOption {
             type = lib.types.str;
-            description = "Path to the private key file for this peer";
+            description = "wg private key file";
           };
 
           address = lib.mkOption {
             type = lib.types.str;
-            description = "WireGuard IP address with CIDR (e.g., 10.100.0.1/24)";
+            description = "wg ip";
           };
 
           allowedIPs = lib.mkOption {
             type = lib.types.listOf lib.types.str;
-            description = "IPs this peer is allowed to route";
+            description = "";
           };
 
           endpoint = lib.mkOption {
             type = lib.types.nullOr lib.types.str;
-            description = "Public endpoint (IP/hostname) for this peer, null if behind NAT";
+            description = "public endpoint";
             default = null;
           };
 
           isRelay = lib.mkOption {
             type = lib.types.bool;
-            description = "Whether this peer relays traffic for other peers (enables IP forwarding)";
+            description = "";
             default = false;
           };
 
           presharedKeySecret = lib.mkOption {
             type = lib.types.nullOr lib.types.str;
-            description = "Name of the sops secret for the PSK used when connecting TO this peer";
+            description = "sops secret name containing psk";
             default = null;
           };
         };

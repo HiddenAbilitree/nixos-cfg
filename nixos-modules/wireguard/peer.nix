@@ -25,6 +25,18 @@
     Scope = "link";
   };
 
+  reachablePeers =
+    if thisPeer.isRelay
+    then otherPeers
+    else lib.filterAttrs (_: peer: peer.endpoint != null) otherPeers;
+
+  relayedIPs =
+    if thisPeer.isRelay
+    then []
+    else
+      lib.flatten (lib.mapAttrsToList (_: peer: peer.allowedIPs)
+        (lib.filterAttrs (_: peer: peer.endpoint == null) otherPeers));
+
   getPskSecret = name: peer:
     if thisPeer.isRelay
     then peer.presharedKeySecret
@@ -34,10 +46,14 @@
 
   mkWireguardPeer = name: peer: let
     pskSecret = getPskSecret name peer;
+    effectiveAllowedIPs =
+      if peer.isRelay && !thisPeer.isRelay
+      then peer.allowedIPs ++ relayedIPs
+      else peer.allowedIPs;
   in
     {
       PublicKey = peer.publicKey;
-      AllowedIPs = peer.allowedIPs;
+      AllowedIPs = effectiveAllowedIPs;
     }
     // lib.optionalAttrs (pskSecret != null) {
       PresharedKeyFile = config.sops.secrets.${pskSecret}.path;
@@ -70,7 +86,7 @@ in
           ListenPort = cfg.listenPort;
         };
 
-        wireguardPeers = lib.mapAttrsToList mkWireguardPeer otherPeers;
+        wireguardPeers = lib.mapAttrsToList mkWireguardPeer reachablePeers;
       };
 
       networks.wg0 = {
