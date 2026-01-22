@@ -50,5 +50,6 @@ lib.mkIf config.desktop.enable {
     ydotool
     zoom-us
     zotero
+    androidStudioPackages.canary
   ];
 }
