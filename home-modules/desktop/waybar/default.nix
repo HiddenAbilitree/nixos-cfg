@@ -84,7 +84,6 @@
             "memory"
             "disk"
           ];
-          drawer = {};
         };
         temperature = {
           format = "{icon} {temperatureC}°C";
