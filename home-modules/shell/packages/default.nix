@@ -21,6 +21,7 @@ lib.mkIf config.shell.packages.enable {
     gum
     hwinfo
     hyperfine
+    lean4
     libqalculate
     # mongosh
     gdu

@@ -21,9 +21,9 @@ lib.mkIf config.desktop.enable {
     gnome-disk-utility
     hyprsunset
     inkscape
-    kdePackages.kdenlive
+    # kdePackages.kdenlive
     libreoffice
-    librewolf
+    # librewolf
     libsecret
     moonlight-qt
     nautilus
@@ -50,6 +50,6 @@ lib.mkIf config.desktop.enable {
     ydotool
     zoom-us
     zotero
-    androidStudioPackages.canary
+    android-studio
   ];
 }
