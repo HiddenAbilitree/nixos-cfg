@@ -12,6 +12,9 @@
         name = "Eric Zhang";
         email = "me@ericzhang.dev";
       };
+      extraConfig = {
+        init.defaultBranch = "main";
+      };
     };
 
     lazygit = {
