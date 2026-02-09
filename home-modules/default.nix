@@ -11,8 +11,6 @@
       settings.user = {
         name = "Eric Zhang";
         email = "me@ericzhang.dev";
-      };
-      extraConfig = {
         init.defaultBranch = "main";
       };
     };

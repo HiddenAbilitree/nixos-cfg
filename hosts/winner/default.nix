@@ -44,9 +44,12 @@
 
   desktop = {
     enable = true;
-    games.moe = {
-      honkers.enable = true;
-      aagl.enable = true;
+    games = {
+      moe = {
+        honkers.enable = true;
+        aagl.enable = true;
+      };
+      pokepath-td.enable = true;
     };
     services = {
       ratbagd.enable = true;
