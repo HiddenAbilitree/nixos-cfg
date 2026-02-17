@@ -43,7 +43,7 @@ lib.mkIf config.desktop.enable {
     typst
     vesktop
     vlc
-    wineWowPackages.waylandFull
+    wineWow64Packages.waylandFull
     wireshark
     # wl-clicker
     wl-clipboard
