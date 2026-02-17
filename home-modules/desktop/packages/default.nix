@@ -27,7 +27,6 @@ lib.mkIf config.desktop.enable {
     libsecret
     moonlight-qt
     nautilus
-    helium.legacyPackages.${pkgs.stdenv.hostPlatform.system}.helium-nightly
     obsidian
     obs-cmd
     openrazer-daemon
