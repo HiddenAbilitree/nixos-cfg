@@ -50,7 +50,10 @@ in {
   pterodactyl.enable = false;
   syncthing.enable = true;
   ollama.enable = true;
-  services.xserver.videoDrivers = ["nvidia"];
+  services = {
+    xserver.videoDrivers = ["nvidia"];
+    dokploy.enable = true;
+  };
 
   hardware = {
     nvidia.open = true;

@@ -46,6 +46,8 @@
 
     fonts.url = "git+ssh://git@github.com/HiddenAbilitree/fonts.git?ref=main";
 
+    nix-dokploy.url = "github:el-kurto/nix-dokploy";
+
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -126,7 +128,7 @@
         system = "x86_64-linux";
         secureboot = false;
         install = false;
-        modulesx = [];
+        modulesx = [inputs.nix-dokploy.nixosModules.default];
       };
       wsl = mkHost {
         hostName = "wsl";
