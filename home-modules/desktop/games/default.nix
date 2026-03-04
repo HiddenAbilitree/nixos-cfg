@@ -36,7 +36,6 @@
             zulu8
           ];
         })
-        badlion-client
       ];
 
     file = {

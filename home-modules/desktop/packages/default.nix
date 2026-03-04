@@ -22,7 +22,7 @@ lib.mkIf config.desktop.enable {
     hyprsunset
     inkscape
     # kdePackages.kdenlive
-    libreoffice
+    # libreoffice
     # librewolf
     libsecret
     moonlight-qt
