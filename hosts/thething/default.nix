@@ -52,7 +52,10 @@ in {
   ollama.enable = true;
   services = {
     xserver.videoDrivers = ["nvidia"];
-    dokploy.enable = true;
+    dokploy = {
+      enable = true;
+      image = "dokploy/dokploy:latest";
+    };
   };
 
   hardware = {
@@ -65,20 +68,6 @@ in {
   boot.kernelPackages = lib.mkForce latestKernelPackage;
 
   wireguard.peer = "thething";
-
-  internal-dns = {
-    enable = true;
-    extraHosts = {
-      "observability.wg" = "10.100.0.1";
-      "git.wg" = "10.100.0.1";
-      "panel.wg" = "10.100.0.1";
-      "wings.wg" = "10.100.0.1";
-      "cloud.wg" = "10.100.0.1";
-      "s3.wg" = "10.100.0.1";
-      "garage-web.wg" = "10.100.0.1";
-      "garage-admin.wg" = "10.100.0.1";
-    };
-  };
 
   nix.settings.system-features = [
     "kvm"
