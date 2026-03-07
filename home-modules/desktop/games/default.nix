@@ -12,8 +12,8 @@
   home = {
     packages = with pkgs;
       [
-        deadlock-mod-manager
-        mangohud
+        (lib.mkIf config.desktop.games.enable deadlock-mod-manager)
+        (lib.mkIf config.desktop.games.enable mangohud)
         (lib.mkIf config.desktop.games.osu.enable osu-lazer-bin)
         (lib.mkIf config.desktop.games.emulators.enable (
           retroarch.withCores (
