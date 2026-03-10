@@ -28,13 +28,28 @@ lib.mkIf config.desktop.noctalia.enable {
           right = [
             {
               id = "System Monitor";
+              compactMode = true;
+              iconColor = "none";
+              showCpuUsage = true;
+              showCpuCores = false;
+              showCpuFreq = false;
+              showCpuTemp = true;
+              showLoadAverage = false;
+              showMemoryUsage = true;
+              showMemoryAsPercent = false;
+              showSwapUsage = false;
+              showNetworkStats = false;
+              showDiskUsage = false;
+              showDiskUsageAsPercent = false;
+              showDiskAvailable = false;
+              diskPath = "/";
             }
             {
               id = "Network";
             }
             {
-              formatHorizontal = "HH:mm";
-              formatVertical = "HH mm";
+              formatHorizontal = "h:mm AP";
+              formatVertical = "h mm";
               id = "Clock";
               useMonospacedFont = true;
               usePrimaryColor = true;
@@ -44,12 +59,11 @@ lib.mkIf config.desktop.noctalia.enable {
       };
       colorSchemes.predefinedScheme = "Monochrome";
       general = {
-        avatarImage = "/home/drfoobar/.face";
         radiusRatio = 0.2;
       };
       location = {
         monthBeforeDay = true;
-        name = "Marseille, France";
+        name = "New York, United States";
       };
     };
   };
