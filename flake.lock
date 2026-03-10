@@ -399,11 +399,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773043134,
-        "narHash": "sha256-RTBRHMYhYHPiUQuMuK+Af17gYE8NaqOy8F9BBBZA+ws=",
+        "lastModified": 1773129186,
+        "narHash": "sha256-pvUx0MGVjf0+JfaLYlN+cAjexeQK8D4hiRTmyQHrTDg=",
         "owner": "forkprince",
         "repo": "nur-packages",
-        "rev": "801afddfb7b1dfd23255c4f97bcc4f80a33bec57",
+        "rev": "b828990a842a5ce058ae27d450b6dba8d94ec6d6",
         "type": "github"
       },
       "original": {
@@ -1310,10 +1310,10 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1773128323,
-        "narHash": "sha256-pujRQhfqfSFPwTnv+0FneDNimJF1DRqjCRZZ7KNNdds=",
+        "lastModified": 1773129509,
+        "narHash": "sha256-hjZE4cwdW7IUyR5B9UE7kMhuMkhG8JqvcwSYJPESbXE=",
         "ref": "main",
-        "rev": "45666edbbd59a1050f29777030e0a45cf952f0e5",
+        "rev": "2393aae176abb976979aa938193bf90b50af0013",
         "revCount": 138,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git"
