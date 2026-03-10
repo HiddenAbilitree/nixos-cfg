@@ -29,6 +29,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ambxst.url = "github:Axenide/Ambxst";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.noctalia-qs.follows = "noctalia-qs";
+    };
+    noctalia-qs = {
+      url = "github:noctalia-dev/noctalia-qs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
 
     impermanence.url = "github:nix-community/impermanence";

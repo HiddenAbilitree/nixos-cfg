@@ -7,7 +7,7 @@
   config = lib.mkIf config.virtualization.vm.enable {
     virtualisation = {
       libvirtd = {
-        enable = true;
+        enable = false;
         qemu = {
           package = pkgs.qemu_kvm;
           swtpm.enable = true;

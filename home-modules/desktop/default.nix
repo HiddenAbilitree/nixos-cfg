@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  noctalia,
   ...
 }: {
   imports = [
@@ -12,6 +13,7 @@
     ./hyprland
     ./kitty
     ./mpv
+    ./noctalia
     ./notifications
     ./obs
     ./packages
@@ -23,6 +25,8 @@
     ./waybar
     ./zathura
     ./zed
+
+    noctalia.homeModules.default
   ];
   options.desktop = {
     enable = lib.mkEnableOption "desktop configuration";
@@ -51,6 +55,7 @@
     rofi.enable = lib.mkEnableOption "Rofi";
     spicetify.enable = lib.mkEnableOption "Spicetify";
     notifications.enable = lib.mkEnableOption "Notifications";
+    noctalia.enable = lib.mkEnableOption "noctalia";
     tor-browser.enable = lib.mkEnableOption "Tor Browser";
     vicinae.enable = lib.mkEnableOption "Vicinae";
     vscodium.enable = lib.mkEnableOption "VSCodium";
@@ -85,6 +90,7 @@
       obs.enable = lib.mkDefault true;
       rofi.enable = lib.mkDefault true;
       spicetify.enable = lib.mkDefault true;
+      noctalia.enable = lib.mkDefault false;
       notifications.enable = lib.mkDefault true;
       tor-browser.enable = lib.mkDefault true;
       vicinae.enable = lib.mkDefault true;

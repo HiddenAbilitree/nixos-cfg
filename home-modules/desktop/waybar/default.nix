@@ -1,6 +1,6 @@
 {config, ...}: {
   programs.waybar = {
-    inherit (config.desktop.waybar) enable;
+    enable = config.desktop.waybar.enable && !config.desktop.noctalia.enable;
 
     style = builtins.readFile ./style.css;
 

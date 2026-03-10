@@ -8,6 +8,7 @@
     zellij.autostart = false;
   };
   desktop = {
+    noctalia.enable = true;
     hyprland = {
       hypridle.enable = false;
       hyprlock.enable = false;

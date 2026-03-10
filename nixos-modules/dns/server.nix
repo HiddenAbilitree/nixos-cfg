@@ -39,7 +39,7 @@ in
         no-resolv = true;
 
         local = "/${cfg.domain}/";
-        domain = cfg.domain;
+        inherit (cfg) domain;
 
         addn-hosts = toString hostsFile;
 

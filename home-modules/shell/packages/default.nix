@@ -41,6 +41,7 @@ lib.mkIf config.shell.packages.enable {
     twopass.packages.${pkgs.stdenv.hostPlatform.system}.default
     alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system}
     slop.packages.${pkgs.stdenv.hostPlatform.system}.default
+    statix
     claude-code
     codex
     # gemini-cli

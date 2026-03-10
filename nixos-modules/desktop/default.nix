@@ -13,7 +13,10 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = lib.mkIf config.desktop.enable 1;
 
-  services.gnome.gnome-keyring.enable = true;
+  services = {
+    gnome.gnome-keyring.enable = true;
+    power-profiles-daemon.enable = true;
+  };
 
   networking.extraHosts = lib.mkIf config.desktop.games.moe.enable ''
       0.0.0.0 log-upload-os.hoyoverse.com

@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  helium,
   ...
 }:
 lib.mkIf config.desktop.enable {
