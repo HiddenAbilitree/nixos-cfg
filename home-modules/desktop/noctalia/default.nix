@@ -12,6 +12,7 @@
       enable = true;
       systemd.enable = true;
       settings = {
+        settingsVersion = 57;
         bar = {
           barType = "framed";
           density = "compact";
