@@ -54,10 +54,9 @@ in {
   services = {
     xserver.videoDrivers = ["nvidia"];
     dokploy = {
-      TZ = "America/New_York";
+      environment.TZ = "America/New_York";
       enable = true;
       image = "dokploy/dokploy:latest";
-      port = null;
       database.passwordFile = config.sops.secrets.dokploy-db-pwd.path;
     };
   };
