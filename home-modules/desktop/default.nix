@@ -1,12 +1,13 @@
 {
-  lib,
   config,
-  pkgs,
+  lib,
   noctalia,
+  pkgs,
   ...
 }: {
   imports = [
     ./brave
+    ./cava
     ./games
     ./ghostty
     ./gtk
@@ -28,40 +29,13 @@
 
     noctalia.homeModules.default
   ];
+
   options.desktop = {
     enable = lib.mkEnableOption "desktop configuration";
-    browser.enable = lib.mkEnableOption "Browser";
-    cava.enable = lib.mkEnableOption "Cava";
-    dark-mode.enable = lib.mkEnableOption "Dark Mode";
-    wallpaper.enable = lib.mkEnableOption "Wallpaper";
-    games = {
-      enable = lib.mkEnableOption "Games";
-      lutris.enable = lib.mkEnableOption "lutris";
-      minecraft.enable = lib.mkEnableOption "Minecraft";
-      osu.enable = lib.mkEnableOption "osu!";
-      roblox.enable = lib.mkEnableOption "Roblox";
-      emulators.enable = lib.mkEnableOption "emulators";
+    primary-monitor = lib.mkOption {
+      type = lib.types.str;
+      description = "primary monitor";
     };
-    ghostty.enable = lib.mkEnableOption "Ghostty";
-    hyprland = {
-      enable = lib.mkEnableOption "Hyprland";
-      hyprlock.enable = lib.mkEnableOption "Hyprlock";
-      hypridle.enable = lib.mkEnableOption "Hypridle";
-      hyprpaper.enable = lib.mkEnableOption "Hyprpaper";
-    };
-    kitty.enable = lib.mkEnableOption "Kitty";
-    mpv.enable = lib.mkEnableOption "mpv";
-    obs.enable = lib.mkEnableOption "obs";
-    rofi.enable = lib.mkEnableOption "Rofi";
-    spicetify.enable = lib.mkEnableOption "Spicetify";
-    notifications.enable = lib.mkEnableOption "Notifications";
-    noctalia.enable = lib.mkEnableOption "noctalia";
-    tor-browser.enable = lib.mkEnableOption "Tor Browser";
-    vicinae.enable = lib.mkEnableOption "Vicinae";
-    vscodium.enable = lib.mkEnableOption "VSCodium";
-    waybar.enable = lib.mkEnableOption "Waybar";
-    zathura.enable = lib.mkEnableOption "Zathura";
-    zed.enable = lib.mkEnableOption "Zed Editor";
   };
 
   config = lib.mkIf config.desktop.enable {
@@ -92,7 +66,6 @@
       spicetify.enable = lib.mkDefault true;
       noctalia.enable = lib.mkDefault false;
       notifications.enable = lib.mkDefault true;
-      tor-browser.enable = lib.mkDefault true;
       vicinae.enable = lib.mkDefault true;
       vscodium.enable = lib.mkDefault true;
       waybar.enable = lib.mkDefault true;

@@ -1,9 +1,11 @@
 {
   config,
-  pkgs,
   lib,
+  pkgs,
   ...
 }: {
+  options.virtualization.vm.enable = lib.mkEnableOption "vm";
+
   config = lib.mkIf config.virtualization.vm.enable {
     virtualisation = {
       libvirtd = {
@@ -24,8 +26,6 @@
       spice-protocol
       virt-viewer
       distrobox
-      #virtio-win
-      #win-spice
     ];
     programs.virt-manager.enable = true;
 

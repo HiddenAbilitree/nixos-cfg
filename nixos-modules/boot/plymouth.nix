@@ -4,7 +4,9 @@
   pkgs,
   ...
 }: {
-  boot = lib.mkIf config.bootx.plymouth.enable {
+  options.bootx.plymouth.enable = lib.mkEnableOption "Plymouth";
+
+  config.boot = lib.mkIf config.bootx.plymouth.enable {
     plymouth = {
       enable = true;
       theme = "colorful_loop";

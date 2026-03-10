@@ -1,11 +1,12 @@
-{config, ...}: {
-  services.mako = {
-    inherit (config.desktop.notifications) enable;
-  };
-  home.file = {
-    ".config/mako/config" = {
-      inherit (config.desktop.notifications) enable;
-      source = ./mako.conf;
-    };
+{
+  config,
+  lib,
+  ...
+}: {
+  options.desktop.notifications.enable = lib.mkEnableOption "Notifications";
+
+  config = lib.mkIf config.desktop.notifications.enable {
+    services.mako.enable = true;
+    home.file.".config/mako/config".source = ./mako.conf;
   };
 }

@@ -49,7 +49,6 @@
         honkers.enable = true;
         aagl.enable = true;
       };
-      pokepath-td.enable = true;
     };
     services = {
       ratbagd.enable = true;

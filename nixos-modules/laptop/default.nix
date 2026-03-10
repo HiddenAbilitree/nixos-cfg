@@ -1,6 +1,6 @@
 {
-  lib,
   config,
+  lib,
   ...
 }: {
   imports = [
@@ -11,65 +11,60 @@
     ./wifi
   ];
 
-  options.laptop = with lib;
-  with lib.types; let
+  options.laptop = let
     defaultConfig = builtins.fromJSON (builtins.readFile ./fw-fancontrol/config.json);
   in {
-    enable = mkEnableOption "laptop";
+    enable = lib.mkEnableOption "laptop";
     fan = {
-      enable = mkOption {
-        type = bool;
+      enable = lib.mkOption {
+        type = lib.types.bool;
         default = false;
-        description = ''
-          Enable fw-fanctrl systemd service and install the needed packages.
-        '';
+        description = "Enable fw-fanctrl systemd service and install the needed packages.";
       };
-      disableBatteryTempCheck = mkOption {
-        type = bool;
+      disableBatteryTempCheck = lib.mkOption {
+        type = lib.types.bool;
         default = false;
-        description = ''
-          Disable checking battery temperature sensor
-        '';
+        description = "Disable checking battery temperature sensor";
       };
       config = {
-        defaultStrategy = mkOption {
-          type = str;
+        defaultStrategy = lib.mkOption {
+          type = lib.types.str;
           default = defaultConfig.defaultStrategy;
           description = "Default strategy to use";
         };
-        strategyOnDischarging = mkOption {
-          type = str;
+        strategyOnDischarging = lib.mkOption {
+          type = lib.types.str;
           default = defaultConfig.strategyOnDischarging;
           description = "Default strategy on discharging";
         };
-        strategies = mkOption {
+        strategies = lib.mkOption {
           default = defaultConfig.strategies;
-          type = attrsOf (
-            submodule (_: {
+          type = lib.types.attrsOf (
+            lib.types.submodule (_: {
               options = {
-                fanSpeedUpdateFrequency = mkOption {
-                  type = int;
+                fanSpeedUpdateFrequency = lib.mkOption {
+                  type = lib.types.int;
                   default = 5;
                   description = "How often the fan speed should be updated in seconds";
                 };
-                movingAverageInterval = mkOption {
-                  type = int;
+                movingAverageInterval = lib.mkOption {
+                  type = lib.types.int;
                   default = 25;
                   description = "Interval (seconds) of the last temperatures to use to calculate the average temperature";
                 };
-                speedCurve = mkOption {
+                speedCurve = lib.mkOption {
                   default = [];
                   description = "How should the speed curve look like";
-                  type = listOf (
-                    submodule (_: {
+                  type = lib.types.listOf (
+                    lib.types.submodule (_: {
                       options = {
-                        temp = mkOption {
-                          type = int;
+                        temp = lib.mkOption {
+                          type = lib.types.int;
                           default = 0;
                           description = "Temperature at which the fan speed should be changed";
                         };
-                        speed = mkOption {
-                          type = int;
+                        speed = lib.mkOption {
+                          type = lib.types.int;
                           default = 0;
                           description = "Percent how fast the fan should run at";
                         };

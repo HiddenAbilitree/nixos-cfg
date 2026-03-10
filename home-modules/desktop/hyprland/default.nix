@@ -1,9 +1,9 @@
 {
-  pkgs,
-  split-monitor-workspaces,
-  lib,
   config,
   hyprland,
+  lib,
+  pkgs,
+  split-monitor-workspaces,
   ...
 }: {
   imports = [
@@ -11,6 +11,8 @@
     ./hypridle
     ./hyprpaper
   ];
+
+  options.desktop.hyprland.enable = lib.mkEnableOption "Hyprland";
 
   config = lib.mkIf config.desktop.hyprland.enable {
     home.packages = with pkgs; [

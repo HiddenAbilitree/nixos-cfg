@@ -1,6 +1,6 @@
 {
-  lib,
   config,
+  lib,
   ...
 }: {
   imports = [
@@ -11,18 +11,21 @@
     ./games
   ];
 
-  environment.sessionVariables.NIXOS_OZONE_WL = lib.mkIf config.desktop.enable 1;
+  options.desktop.enable = lib.mkEnableOption "desktop";
 
-  services = {
-    gnome.gnome-keyring.enable = true;
-    power-profiles-daemon.enable = true;
+  config = lib.mkIf config.desktop.enable {
+    environment.sessionVariables.NIXOS_OZONE_WL = 1;
+
+    services = {
+      gnome.gnome-keyring.enable = true;
+      power-profiles-daemon.enable = true;
+    };
+
+    desktop = {
+      fonts.enable = lib.mkDefault true;
+      hyprland.enable = lib.mkDefault true;
+      xserver.enable = lib.mkDefault true;
+      services.enable = lib.mkDefault true;
+    };
   };
-
-  networking.extraHosts = lib.mkIf config.desktop.games.moe.enable ''
-      0.0.0.0 log-upload-os.hoyoverse.com
-      0.0.0.0 sg-public-data-api.hoyoverse.com
-
-    0.0.0.0 log-upload.mihoyo.com
-    0.0.0.0 public-data-api.mihoyo.com
-  '';
 }

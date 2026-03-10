@@ -1,7 +1,7 @@
 {
-  pkgs,
   lib,
   osConfig,
+  pkgs,
   root,
   ...
 }: {

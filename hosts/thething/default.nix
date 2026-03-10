@@ -1,7 +1,7 @@
 {
+  config,
   lib,
   pkgs,
-  config,
   ...
 }: let
   zfsCompatibleKernelPackages =
@@ -36,6 +36,7 @@ in {
 
   virtualisation.docker = {
     enable = lib.mkForce true;
+    daemon.settings.live-restore = false;
   };
 
   # environment.systemPackages = [pkgs.zfs];

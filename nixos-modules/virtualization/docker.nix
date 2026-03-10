@@ -1,6 +1,11 @@
-{config, ...}: {
-  virtualisation.docker = {
-    inherit (config.virtualization.docker) enable;
-    daemon.settings.live-restore = false;
+{
+  config,
+  lib,
+  ...
+}: {
+  options.virtualization.docker.enable = lib.mkEnableOption "docker";
+
+  config = lib.mkIf config.virtualization.docker.enable {
+    virtualisation.docker.enable = true;
   };
 }

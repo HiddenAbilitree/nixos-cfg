@@ -1,15 +1,23 @@
-{config, ...}: {
-  services.flatpak = {
-    inherit (config.misc.flatpak) enable;
-    uninstallUnmanaged = true;
+{
+  config,
+  lib,
+  ...
+}: {
+  options.misc.flatpak.enable = lib.mkEnableOption "flatpak";
 
-    packages = [
-      "com.hypixel.HytaleLauncher"
-    ];
+  config = lib.mkIf config.misc.flatpak.enable {
+    services.flatpak = {
+      enable = true;
+      uninstallUnmanaged = true;
 
-    overrides.global = {
-      Context.sockets = ["wayland"];
-      Environment.GTK_THEME = "Tokyonight-Dark";
+      packages = [
+        "com.hypixel.HytaleLauncher"
+      ];
+
+      overrides.global = {
+        Context.sockets = ["wayland"];
+        Environment.GTK_THEME = "Tokyonight-Dark";
+      };
     };
   };
 }

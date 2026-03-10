@@ -1,11 +1,15 @@
 {
-  lib,
   config,
+  lib,
   ...
 }: {
-  services.avahi = lib.mkIf config.printing.enable {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
+  options.printing.enable = lib.mkEnableOption "printing";
+
+  config = lib.mkIf config.printing.enable {
+    services.avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
   };
 }

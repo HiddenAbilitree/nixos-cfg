@@ -1,16 +1,18 @@
 {
+  config,
+  froot,
   lib,
+  nroot,
+  osConfig,
   proot,
   root,
-  nroot,
-  froot,
-  config,
-  osConfig,
   ...
 }: {
-  config = {
+  options.shell.nushell.enable = lib.mkEnableOption "nushell";
+
+  config = lib.mkIf config.shell.nushell.enable {
     programs.nushell = {
-      inherit (config.shell.nushell) enable;
+      enable = true;
       configFile.source = ./config.nu;
       settings = {
         show_banner = false;
@@ -25,7 +27,6 @@
           };
         };
       };
-      # plugins = [pkgs.nushellPlugins.semver];
       shellAliases = {
         cfg = "xvim ${root}";
         pcfg = "xvim ${proot}";
@@ -42,8 +43,6 @@
         nus = "nu and ns";
         nfu = "nix flake update";
 
-        # fetch = "fastfetch\nsource /etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh";
-
         cd = "z";
 
         gh = "GITHUB_TOKEN=$(open --raw ${osConfig.sops.secrets.github-token.path}) gh";
@@ -52,9 +51,7 @@
 
         q = "qalc";
         b = "bluetuith";
-        # lg = "lazygit";
 
-        # vpn = "cat ${osConfig.sops.secrets.zeuspwd.path} | sudo openconnect --protocol=anyconnect --user=ezhang7 --authgroup=STUDENT --useragent='AnyConnect*' --passwd-on-stdin vpn.gmu.edu";
         vpn = "cat ${osConfig.sops.secrets.zeuspwd.path} | sudo openconnect --background --user=ezhang7 --authgroup=STUDENT --passwd-on-stdin vpn.gmu.edu > /dev/null";
       };
     };

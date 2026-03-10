@@ -1,15 +1,15 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  imports = [
-    <nixos-wsl/modules>
-  ];
+{lib, ...}: {
+  wsl = {
+    enable = true;
+    defaultUser = "ezhang";
+  };
 
-  wsl.enable = true;
-  wsl.defaultUser = "nixos";
+  ssh = {
+    enable = true;
+    fail2ban.enable = false;
+  };
 
-  system.stateVersion = "24.11";
+  programs.nix-ld.enable = true;
+
+  system.stateVersion = lib.mkForce "24.11";
 }

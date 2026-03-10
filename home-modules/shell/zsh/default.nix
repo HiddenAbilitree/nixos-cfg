@@ -1,85 +1,82 @@
 {
+  config,
+  froot,
+  lib,
+  nroot,
+  osConfig,
   pkgs,
   proot,
   root,
-  nroot,
-  froot,
-  config,
-  osConfig,
   ...
 }: {
-  programs.zsh = {
-    inherit (config.shell.zsh) enable;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-    autocd = true;
-    initContent = builtins.readFile ./initContent.sh;
-    dotDir = "${config.xdg.configHome}/zsh";
-    shellAliases = {
-      cfg = "xvim ${root}";
-      pcfg = "xvim ${proot}";
-      ncfg = "xvim ${nroot}";
-      fcfg = "xvim ${froot}";
+  options.shell.zsh.enable = lib.mkEnableOption "zsh";
 
-      secrets = "sops ${proot}/nixos/sops/secrets.yaml";
-
-      nt = "git -C ${root} add -A && nh os test ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.config/zsh/.zshrc";
-      ns = "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.config/zsh/.zshrc";
-      nc = "nh clean all";
-      nr = "nixos-rebuild switch --flake ${root} --rollback --use-remote-sudo";
-      nu = "nix flake update --flake ${root}";
-      nus = "nu && ns";
-      nfu = "nix flake update";
-
-      fetch = "fastfetch\nsource /etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh";
-
-      cd = "z";
-      ls = "eza";
-
-      gh = "GITHUB_TOKEN=$(cat ${osConfig.sops.secrets.github-token.path}) gh";
-
-      claude = "GITHUB_PERSONAL_ACCESS_TOKEN=#(open --raw ${osConfig.sops.secrets.github-token.path}) claude";
-
-      edit = "$EDITOR";
-      code = "codium";
-
-      pdf = "nohup zathura $(fzf)";
-
-      q = "qalc";
-      b = "bluetuith";
-      lg = "lazygit";
-
-      # vpn = "cat ${osConfig.sops.secrets.zeuspwd.path} | sudo openconnect --protocol=anyconnect --user=ezhang7 --authgroup=STUDENT --useragent='AnyConnect*' --passwd-on-stdin vpn.gmu.edu";
-      vpn = "cat ${osConfig.sops.secrets.zeuspwd.path} | sudo openconnect --background --user=ezhang7 --authgroup=STUDENT --passwd-on-stdin vpn.gmu.edu > /dev/null";
-      # ns = lib.mkForce "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- -j0 --accept-flake-config --show-trace && source ~/.zshrc";
-      # nsl = lib.mkForce "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- --builders '' --accept-flake-config --show-trace && source ~/.zshrc";
-    };
-    plugins = [
-      # {
-      #   name = "fzf-tab";
-      #   src = pkgs.zsh-fzf-tab;
-      #   file = "share/fzf-tab/fzf-tab.plugin.zsh";
-      # }
-      {
-        name = "zsh-you-should-use";
-        src = pkgs.fetchFromGitHub {
-          owner = "MichaelAquilina";
-          repo = "zsh-you-should-use";
-          rev = "f13d39a1ae84219e4ee14e77d31bb774c91f2fe3";
-          sha256 = "sha256-+3iAmWXSsc4OhFZqAMTwOL7AAHBp5ZtGGtvqCnEOYc0=";
-        };
-      }
-    ];
-    oh-my-zsh = {
+  config = lib.mkIf config.shell.zsh.enable {
+    programs.zsh = {
       enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      autocd = true;
+      initContent = builtins.readFile ./initContent.sh;
+      dotDir = "${config.xdg.configHome}/zsh";
+      shellAliases = {
+        cfg = "xvim ${root}";
+        pcfg = "xvim ${proot}";
+        ncfg = "xvim ${nroot}";
+        fcfg = "xvim ${froot}";
+
+        secrets = "sops ${proot}/nixos/sops/secrets.yaml";
+
+        nt = "git -C ${root} add -A && nh os test ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.config/zsh/.zshrc";
+        ns = "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.config/zsh/.zshrc";
+        nc = "nh clean all";
+        nr = "nixos-rebuild switch --flake ${root} --rollback --use-remote-sudo";
+        nu = "nix flake update --flake ${root}";
+        nus = "nu && ns";
+        nfu = "nix flake update";
+
+        fetch = "fastfetch\nsource /etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh";
+
+        cd = "z";
+        ls = "eza";
+
+        gh = "GITHUB_TOKEN=$(cat ${osConfig.sops.secrets.github-token.path}) gh";
+
+        claude = "GITHUB_PERSONAL_ACCESS_TOKEN=#(open --raw ${osConfig.sops.secrets.github-token.path}) claude";
+
+        edit = "$EDITOR";
+        code = "codium";
+
+        pdf = "nohup zathura $(fzf)";
+
+        q = "qalc";
+        b = "bluetuith";
+        lg = "lazygit";
+
+        vpn = "cat ${osConfig.sops.secrets.zeuspwd.path} | sudo openconnect --background --user=ezhang7 --authgroup=STUDENT --passwd-on-stdin vpn.gmu.edu > /dev/null";
+      };
       plugins = [
-        "bun"
-        "git"
-        "fzf"
-        "docker"
-        "docker-compose"
+        {
+          name = "zsh-you-should-use";
+          src = pkgs.fetchFromGitHub {
+            owner = "MichaelAquilina";
+            repo = "zsh-you-should-use";
+            rev = "f13d39a1ae84219e4ee14e77d31bb774c91f2fe3";
+            sha256 = "sha256-+3iAmWXSsc4OhFZqAMTwOL7AAHBp5ZtGGtvqCnEOYc0=";
+          };
+        }
       ];
+      oh-my-zsh = {
+        enable = true;
+        plugins = [
+          "bun"
+          "git"
+          "fzf"
+          "docker"
+          "docker-compose"
+        ];
+      };
     };
   };
 }

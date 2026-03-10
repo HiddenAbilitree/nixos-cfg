@@ -1,43 +1,46 @@
 {
-  pkgs,
   config,
   lib,
+  pkgs,
   ...
-}:
-lib.mkIf config.desktop.dark-mode.enable {
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-  };
+}: {
+  options.desktop.dark-mode.enable = lib.mkEnableOption "Dark Mode";
 
-  gtk = {
-    enable = true;
-
-    iconTheme = {
-      name = "Papirus";
-      package = pkgs.papirus-icon-theme;
-    };
-
-    theme = {
-      name = "Tokyonight-Dark-Storm";
-      package = pkgs.tokyonight-gtk-theme.override {
-        colorVariants = ["dark"];
-        tweakVariants = [
-          "storm"
-          "macos"
-          "outline"
-        ];
-        iconVariants = ["Dark-Cyan"];
+  config = lib.mkIf config.desktop.dark-mode.enable {
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
       };
     };
 
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
+    gtk = {
+      enable = true;
 
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
+      iconTheme = {
+        name = "Papirus";
+        package = pkgs.papirus-icon-theme;
+      };
+
+      theme = {
+        name = "Tokyonight-Dark-Storm";
+        package = pkgs.tokyonight-gtk-theme.override {
+          colorVariants = ["dark"];
+          tweakVariants = [
+            "storm"
+            "macos"
+            "outline"
+          ];
+          iconVariants = ["Dark-Cyan"];
+        };
+      };
+
+      gtk3.extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+
+      gtk4.extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
     };
   };
 }

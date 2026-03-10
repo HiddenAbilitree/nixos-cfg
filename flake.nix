@@ -2,41 +2,34 @@
   description = "loser flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # master or nixos-unstable
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     alejandra = {
       url = "github:kamadorueda/alejandra";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    awww.url = "git+https://codeberg.org/LGFae/awww";
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    fonts.url = "git+ssh://git@github.com/HiddenAbilitree/fonts.git?ref=main";
 
     helium = {
       url = "github:forkprince/nur-packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    twopass = {
-      url = "github:ultramicroscope/2pass";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    ambxst.url = "github:Axenide/Ambxst";
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.noctalia-qs.follows = "noctalia-qs";
-    };
-    noctalia-qs = {
-      url = "github:noctalia-dev/noctalia-qs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -46,6 +39,30 @@
 
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
 
+    nix-dokploy.url = "github:el-kurto/nix-dokploy";
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixvim-cfg.url = "git+ssh://git@github.com/HiddenAbilitree/nixvim-cfg.git?ref=main";
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.noctalia-qs.follows = "noctalia-qs";
+    };
+
+    noctalia-qs = {
+      url = "github:noctalia-dev/noctalia-qs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     prismlauncher.url = "github:PrismLauncher/PrismLauncher";
 
     private.url = "git+ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git?ref=main";
@@ -54,18 +71,6 @@
     # nixvim-cfg.url = "path:/home/ezhang/code/nix/nixvim-cfg";
 
     slop.url = "git+ssh://git@github.com/HiddenAbilitree/slop.git?ref=main";
-
-    fonts.url = "git+ssh://git@github.com/HiddenAbilitree/fonts.git?ref=main";
-
-    nix-dokploy.url = "github:el-kurto/nix-dokploy";
-
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
-
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    nixvim-cfg = {
-      url = "git+ssh://git@github.com/HiddenAbilitree/nixvim-cfg.git?ref=main";
-    };
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -77,16 +82,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    awww.url = "git+https://codeberg.org/LGFae/awww";
-
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
+    };
+
+    twopass = {
+      url = "github:ultramicroscope/2pass";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     vicinae = {
@@ -146,7 +149,7 @@
         system = "x86_64-linux";
         secureboot = false;
         install = false;
-        modulesx = [];
+        modulesx = [inputs.nixos-wsl.nixosModules.default];
       };
     };
   };

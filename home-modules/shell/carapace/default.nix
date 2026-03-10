@@ -1,6 +1,14 @@
-{config, ...}: {
-  programs.carapace = {
-    inherit (config.shell.carapace) enable;
-    enableNushellIntegration = true;
+{
+  config,
+  lib,
+  ...
+}: {
+  options.shell.carapace.enable = lib.mkEnableOption "carapace";
+
+  config = lib.mkIf config.shell.carapace.enable {
+    programs.carapace = {
+      enable = true;
+      enableNushellIntegration = true;
+    };
   };
 }

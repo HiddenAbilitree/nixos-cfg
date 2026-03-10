@@ -1,13 +1,18 @@
 {
+  config,
   lib,
   pkgs,
-  config,
   ...
 }: {
   imports = [
     ./plymouth.nix
     ./secureboot.nix
   ];
+
+  options.bootx = {
+    bootloader.enable = lib.mkEnableOption "bootloader";
+    install.enable = lib.mkEnableOption "install";
+  };
 
   config.boot = lib.mkIf config.bootx.bootloader.enable {
     loader = {
@@ -19,6 +24,4 @@
     };
     kernelPackages = pkgs.linuxPackages_latest;
   };
-
-  options.bootx.bootloader.enable = lib.mkEnableOption "bootloader";
 }

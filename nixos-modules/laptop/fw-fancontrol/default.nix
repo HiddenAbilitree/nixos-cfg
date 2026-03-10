@@ -3,13 +3,11 @@
   lib,
   pkgs,
   ...
-}:
-with lib;
-with lib.types; let
+}: let
   cfg = config.laptop.fan;
   inherit (pkgs) fw-fanctrl;
 in {
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       fw-fanctrl
       fw-ectool

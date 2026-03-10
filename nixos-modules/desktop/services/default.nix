@@ -1,6 +1,6 @@
 {
-  lib,
   config,
+  lib,
   ...
 }: {
   imports = [
@@ -19,9 +19,8 @@
     sunshine.enable = lib.mkEnableOption "Sunshine";
     ratbagd.enable = lib.mkEnableOption "Ratbagd";
   };
-  config = {
-    desktop.services = lib.mkIf config.desktop.services.enable {
-      pipewire.enable = lib.mkDefault true;
-    };
+
+  config.desktop.services = lib.mkIf config.desktop.services.enable {
+    pipewire.enable = lib.mkDefault true;
   };
 }

@@ -1,10 +1,15 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
-  programs.starship = {
-    inherit (config.shell.starship) enable;
-    settings = pkgs.lib.importTOML ./starship.toml;
+  options.shell.starship.enable = lib.mkEnableOption "Starship";
+
+  config = lib.mkIf config.shell.starship.enable {
+    programs.starship = {
+      enable = true;
+      settings = pkgs.lib.importTOML ./starship.toml;
+    };
   };
 }

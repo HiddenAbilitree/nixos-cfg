@@ -1,12 +1,11 @@
 {
   config,
-  pkgs,
+  lib,
   ...
 }: {
-  # services.swww = {
-  #   enable = config.desktop.wallpaper.enable;
-  #   package = swww.packages.${pkgs.system}.swww;
-  # };
+  options.desktop.wallpaper.enable = lib.mkEnableOption "Wallpaper";
 
-  programs.mpvpaper.enable = config.desktop.wallpaper.enable;
+  config = lib.mkIf config.desktop.wallpaper.enable {
+    programs.mpvpaper.enable = true;
+  };
 }
