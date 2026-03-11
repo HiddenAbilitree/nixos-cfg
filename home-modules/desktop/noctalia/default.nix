@@ -13,6 +13,7 @@
       systemd.enable = true;
       settings = {
         settingsVersion = 57;
+        dock.enabled = false;
         bar = {
           barType = "framed";
           density = "compact";

@@ -63,6 +63,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    no-num-keys.url = "git+ssh://git@github.com/HiddenAbilitree/no-num-keys.git?ref=main";
+
     prismlauncher.url = "github:PrismLauncher/PrismLauncher";
 
     private.url = "git+ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git?ref=main";
