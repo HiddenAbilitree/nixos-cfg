@@ -25,7 +25,7 @@
         {id = "gebbhagfogifgggkldgodflihgfeippi";}
         {id = "mnjggcdmjocbbbhaepdhchncahnbgone";}
         {id = "bpaoeijjlplfjbagceilcgbkcdjbomjd";}
-        {id = "dbepggeogbaibhgnhhndojpepiihcmeb";}
+        # {id = "dbepggeogbaibhgnhhndojpepiihcmeb";} # vimium
       ];
     };
   };

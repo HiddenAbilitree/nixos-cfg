@@ -67,13 +67,21 @@
         };
         colorSchemes.predefinedScheme = "Monochrome";
         general = {
+          enableShadows = true;
+          enableBlurBehind = true;
+          shadowDirection = "center";
           radiusRatio = 0.2;
+        };
+        ui = {
+          settingsPanelMode = "centered";
+          translucentWidgets = true;
         };
         location = {
           monthBeforeDay = true;
           name = "New York, United States";
           useFahrenheit = true;
           use12hourFormat = true;
+          hideWeatherCityName = true;
         };
       };
     };

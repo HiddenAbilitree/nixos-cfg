@@ -17,5 +17,7 @@
     };
   };
 
+  noctalia = true;
+
   misc.enable = true;
 }

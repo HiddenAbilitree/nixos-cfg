@@ -8,9 +8,11 @@
   programs = {
     git = {
       enable = true;
-      settings.user = {
-        name = "Eric Zhang";
-        email = "me@ericzhang.dev";
+      settings = {
+        user = {
+          name = "Eric Zhang";
+          email = "me@ericzhang.dev";
+        };
         init.defaultBranch = "main";
       };
     };

@@ -8,6 +8,7 @@
     zellij.autostart = false;
   };
   desktop = {
+    zed.enable = true;
     noctalia.enable = true;
     hyprland = {
       hypridle.enable = false;
@@ -17,6 +18,7 @@
     enable = true;
     games = {
       enable = true;
+      emulators.enable = true;
       # moe = {
       #   # honkers.enable = true;
       #   aagl.enable = true;
