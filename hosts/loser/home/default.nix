@@ -10,14 +10,13 @@
 
   desktop = {
     enable = true;
+    noctalia.enable = true;
     primary-monitor = "eDP-1";
     games = {
       roblox.enable = false;
       minecraft.enable = true;
     };
   };
-
-  noctalia = true;
 
   misc.enable = true;
 }

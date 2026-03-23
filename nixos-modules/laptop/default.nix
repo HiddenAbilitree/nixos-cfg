@@ -84,11 +84,14 @@
     wifi.enable = lib.mkEnableOption "wifi";
   };
 
-  config.laptop = lib.mkIf config.laptop.enable {
-    fan.enable = lib.mkDefault true;
-    fingerprint.enable = lib.mkDefault true;
-    hibernate.enable = lib.mkDefault false;
-    sleep.enable = lib.mkDefault true;
-    wifi.enable = lib.mkDefault true;
+  config = lib.mkIf config.laptop.enable {
+    laptop = {
+      fan.enable = lib.mkDefault true;
+      fingerprint.enable = lib.mkDefault true;
+      hibernate.enable = lib.mkDefault false;
+      sleep.enable = lib.mkDefault true;
+      wifi.enable = lib.mkDefault true;
+    };
+    services.upower.enable = true;
   };
 }
