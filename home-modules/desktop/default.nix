@@ -46,7 +46,9 @@
       size = 24;
     };
 
-    services.clipman.enable = true;
+    services = {
+      clipman.enable = true;
+    };
 
     desktop = {
       browser.enable = lib.mkDefault true;

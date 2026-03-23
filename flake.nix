@@ -98,6 +98,11 @@
       url = "github:vicinaehq/vicinae";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    vite-plus = {
+      url = "git+ssh://git@github.com/HiddenAbilitree/vite-plus-nix.git?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {

@@ -49,6 +49,7 @@
                   showMemoryUsage = true;
                   showMemoryAsPercent = false;
                   showSwapUsage = false;
+                  enableDgpuMonitoring = true;
                   showNetworkStats = false;
                   showDiskUsage = false;
                   showDiskUsageAsPercent = false;

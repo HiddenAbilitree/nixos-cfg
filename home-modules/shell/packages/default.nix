@@ -5,6 +5,7 @@
   pkgs,
   slop,
   twopass,
+  vite-plus,
   ...
 }: {
   options.shell.packages.enable = lib.mkEnableOption "misc packages (cli)";
@@ -43,6 +44,7 @@
       alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system}
       slop.packages.${pkgs.stdenv.hostPlatform.system}.default
       statix
+      vite-plus.packages.${pkgs.stdenv.hostPlatform.system}.default
       claude-code
       codex
     ];
