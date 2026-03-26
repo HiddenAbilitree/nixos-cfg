@@ -54,7 +54,9 @@ in {
   services = {
     xserver.videoDrivers = ["nvidia"];
     dokploy = {
-      environment.TZ = "America/New_York";
+      environment = {
+        TZ = "America/New_York";
+      };
       enable = true;
       image = "dokploy/dokploy:latest";
       database.passwordFile = config.sops.secrets.dokploy-db-pwd.path;
@@ -63,7 +65,7 @@ in {
 
   hardware = {
     nvidia.open = true;
-    nvidia-container-toolkit.enable = true;
+    nvidia-container-toolkit.enable = false;
     graphics.enable32Bit = true;
   };
 
