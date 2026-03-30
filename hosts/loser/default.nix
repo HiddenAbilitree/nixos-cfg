@@ -7,7 +7,7 @@
 
   laptop.enable = true;
 
-  syncthing.enable = true;
+  syncthing.enable = false;
 
   bootx = {
     plymouth.enable = true;

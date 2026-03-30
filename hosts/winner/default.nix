@@ -20,7 +20,7 @@
 
   boot.lanzaboote.pkiBundle = lib.mkForce "/var/lib/sbctl";
 
-  syncthing.enable = true;
+  syncthing.enable = false;
   distributed-builds.enable = true;
   swap.enable = true;
 
