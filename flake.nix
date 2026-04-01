@@ -39,6 +39,11 @@
 
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
 
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-dokploy.url = "github:el-kurto/nix-dokploy";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";

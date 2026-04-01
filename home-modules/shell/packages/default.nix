@@ -2,10 +2,10 @@
   alejandra,
   config,
   lib,
+  llm-agents,
   pkgs,
   slop,
   twopass,
-  vite-plus,
   ...
 }: {
   options.shell.packages.enable = lib.mkEnableOption "misc packages (cli)";
@@ -44,9 +44,10 @@
       alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system}
       slop.packages.${pkgs.stdenv.hostPlatform.system}.default
       statix
-      vite-plus.packages.${pkgs.stdenv.hostPlatform.system}.default
-      claude-code
-      codex
+
+      llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
+      llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.droid
+      llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.forge
     ];
   };
 }
