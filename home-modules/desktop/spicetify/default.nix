@@ -16,7 +16,6 @@
       enabledExtensions = with spicePkgs.extensions; [
         hidePodcasts
         shuffle
-        oneko
         betterGenres
       ];
       theme = spicePkgs.themes.catppuccin;

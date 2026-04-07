@@ -19,6 +19,7 @@ lib.mkIf config.desktop.enable {
     gnome-disk-utility
     hyprsunset
     inkscape
+    jetbrains.idea
     # kdePackages.kdenlive
     # libreoffice
     # librewolf
