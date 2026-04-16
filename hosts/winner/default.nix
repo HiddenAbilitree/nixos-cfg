@@ -18,7 +18,12 @@
     bootloader.enable = true;
   };
 
-  boot.lanzaboote.pkiBundle = lib.mkForce "/var/lib/sbctl";
+  boot = {
+    lanzaboote.pkiBundle = lib.mkForce "/var/lib/sbctl";
+    kernel.sysctl = {
+      "vm.max_map_count" = 1048576;
+    };
+  };
 
   syncthing.enable = false;
   distributed-builds.enable = true;
