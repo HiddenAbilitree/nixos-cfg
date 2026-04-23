@@ -7,7 +7,7 @@
 
   config = lib.mkIf config.syncthing.enable {
     services.syncthing = {
-      enable = true;
+      enable = false;
       group = "syncthing";
       user = "ezhang";
       dataDir = "/home/ezhang/";
