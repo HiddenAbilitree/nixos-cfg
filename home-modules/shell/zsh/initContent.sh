@@ -30,6 +30,15 @@ tre() {
 	else eza --icons=always -T -L "$1"; fi
 }
 
+port() {
+	if [ -z "$1" ]; then
+		echo "usage: port <port_number>"
+		return 1
+	fi
+
+	sudo ss -tulpn | grep ":$1"
+}
+
 nix-init() {
 	if [ -z "$1" ]; then
 		echo Please specify a flake template.
@@ -67,4 +76,3 @@ haod() {
 
 eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(direnv hook zsh)"
-

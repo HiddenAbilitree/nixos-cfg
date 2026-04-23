@@ -21,6 +21,8 @@
       initContent = builtins.readFile ./initContent.sh;
       dotDir = "${config.xdg.configHome}/zsh";
       shellAliases = {
+        ai = "codex";
+
         cfg = "xvim ${root}";
         pcfg = "xvim ${proot}";
         ncfg = "xvim ${nroot}";

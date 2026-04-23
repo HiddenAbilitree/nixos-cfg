@@ -18,6 +18,7 @@
     ./notifications
     ./obs
     ./packages
+    ./paper
     ./rofi
     ./spicetify
     ./vicinae
@@ -46,10 +47,6 @@
       size = 24;
     };
 
-    services = {
-      clipman.enable = true;
-    };
-
     desktop = {
       browser.enable = lib.mkDefault true;
       cava.enable = lib.mkDefault true;
@@ -64,6 +61,7 @@
       kitty.enable = lib.mkDefault true;
       mpv.enable = lib.mkDefault true;
       obs.enable = lib.mkDefault true;
+      paper.enable = lib.mkDefault true;
       rofi.enable = lib.mkDefault true;
       spicetify.enable = lib.mkDefault true;
       noctalia.enable = lib.mkDefault false;

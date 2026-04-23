@@ -20,6 +20,10 @@ def xvim [path?: string] {
   cd $curdir
 }
 
+def port [port_number: string] {
+  ^sudo ss -tulpn | lines | find $":($port_number)"
+}
+
 # $env.config = (
 #     $env.config | upsert keybindings (
 #         $env.config.keybindings

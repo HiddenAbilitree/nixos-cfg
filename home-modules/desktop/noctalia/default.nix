@@ -11,7 +11,6 @@
     home.packages = [pkgs.quickshell];
     programs.noctalia-shell = {
       enable = true;
-      systemd.enable = true;
       colors = removeAttrs (builtins.fromJSON (builtins.readFile ./tokyo-night-storm.json)).dark ["terminal"];
       settings = {
         settingsVersion = 57;

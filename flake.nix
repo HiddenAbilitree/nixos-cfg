@@ -14,6 +14,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    brave-origin = {
+      url = "git+ssh://git@github.com/HiddenAbilitree/brave-origin-nix.git?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    paper = {
+      url = "git+ssh://git@github.com/HiddenAbilitree/paper-nix.git?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     awww.url = "git+https://codeberg.org/LGFae/awww";
 
     disko = {
@@ -118,6 +128,7 @@
       "https://nix-community.cachix.org"
       "https://prismlauncher.cachix.org"
       "https://vicinae.cachix.org"
+      "https://cache.numtide.com"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -127,6 +138,7 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
       "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
+      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
     ];
   };
 

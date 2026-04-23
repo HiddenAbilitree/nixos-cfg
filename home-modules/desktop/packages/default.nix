@@ -7,7 +7,6 @@
 lib.mkIf config.desktop.enable {
   home.packages = with pkgs; [
     affine
-    copyq
     dbeaver-bin
     easyeffects
     element-desktop
