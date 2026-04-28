@@ -9,6 +9,7 @@
     ./fonts
     ./services
     ./games
+    ./obs
   ];
 
   options.desktop.enable = lib.mkEnableOption "desktop";
@@ -24,6 +25,7 @@
     desktop = {
       fonts.enable = lib.mkDefault true;
       hyprland.enable = lib.mkDefault true;
+      obs.enable = lib.mkDefault true;
       xserver.enable = lib.mkDefault true;
       services.enable = lib.mkDefault true;
     };

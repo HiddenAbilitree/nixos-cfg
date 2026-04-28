@@ -16,7 +16,6 @@
     ./mpv
     ./noctalia
     ./notifications
-    ./obs
     ./packages
     ./paper
     ./rofi
@@ -60,13 +59,12 @@
       };
       kitty.enable = lib.mkDefault true;
       mpv.enable = lib.mkDefault true;
-      obs.enable = lib.mkDefault true;
       paper.enable = lib.mkDefault true;
       rofi.enable = lib.mkDefault true;
       spicetify.enable = lib.mkDefault true;
       noctalia.enable = lib.mkDefault false;
       notifications.enable = lib.mkDefault true;
-      vicinae.enable = lib.mkDefault true;
+      vicinae.enable = lib.mkDefault false;
       vscodium.enable = lib.mkDefault true;
       waybar.enable = lib.mkDefault true;
       zathura.enable = lib.mkDefault true;

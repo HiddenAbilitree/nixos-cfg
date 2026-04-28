@@ -23,7 +23,7 @@
     desktop.games = {
       osu.enable = lib.mkDefault true;
       minecraft.enable = lib.mkDefault true;
-      lutris.enable = lib.mkDefault true;
+      lutris.enable = lib.mkDefault false;
       roblox.enable = lib.mkDefault true;
       emulators.enable = lib.mkDefault false;
     };

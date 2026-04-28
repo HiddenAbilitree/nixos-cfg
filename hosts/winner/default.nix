@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./disk-config.nix
@@ -74,6 +78,9 @@
       gamescopeSession.enable = true;
     };
     gamescope = {
+      package = pkgs.gamescope.overrideAttrs (_: {
+        NIX_CFLAGS_COMPILE = ["-fno-fast-math"];
+      });
       enable = true;
     };
     gamemode.enable = true;
