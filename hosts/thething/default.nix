@@ -72,7 +72,7 @@ in {
   # Note this might jump back and forth as kernels are added or removed.
   boot.kernelPackages = lib.mkForce latestKernelPackage;
 
-  wireguard.peer = "thething";
+  wireguard.enable = true;
 
   nix.settings.system-features = [
     "kvm"

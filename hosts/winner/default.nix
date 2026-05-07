@@ -49,7 +49,7 @@
     settings.Resolve.FallbackDNS = ["8.8.8.8" "8.8.4.4"];
   };
 
-  wireguard.peer = "winner";
+  wireguard.enable = true;
 
   desktop = {
     enable = true;

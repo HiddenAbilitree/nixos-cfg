@@ -8,7 +8,7 @@
   config.boot = lib.mkIf config.bootx.secureboot.enable {
     lanzaboote = {
       enable = true;
-      pkiBundle = lib.mkDefault "/etc/secureboot";
+      pkiBundle = lib.mkDefault "/var/lib/sbctl";
     };
     loader.systemd-boot.enable = false;
   };

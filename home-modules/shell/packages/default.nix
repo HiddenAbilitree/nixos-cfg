@@ -45,10 +45,8 @@
       slop.packages.${pkgs.stdenv.hostPlatform.system}.default
       statix
 
-      llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
       llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.codex
       llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.oh-my-codex
-      llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.droid
     ];
   };
 }

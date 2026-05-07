@@ -21,8 +21,6 @@
       initContent = builtins.readFile ./initContent.sh;
       dotDir = "${config.xdg.configHome}/zsh";
       shellAliases = {
-        ai = "codex";
-
         cfg = "xvim ${root}";
         pcfg = "xvim ${proot}";
         ncfg = "xvim ${nroot}";
@@ -44,8 +42,6 @@
         ls = "eza";
 
         gh = "GITHUB_TOKEN=$(cat ${osConfig.sops.secrets.github-token.path}) gh";
-
-        claude = "GITHUB_PERSONAL_ACCESS_TOKEN=#(open --raw ${osConfig.sops.secrets.github-token.path}) claude";
 
         edit = "$EDITOR";
         code = "codium";

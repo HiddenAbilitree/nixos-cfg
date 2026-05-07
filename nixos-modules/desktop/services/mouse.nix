@@ -23,5 +23,13 @@ lib.mkIf config.desktop.services.mouse.enable {
       '';
       destination = "/etc/udev/rules.d/70-pulsar.rules";
     })
+    (pkgs.writeTextFile {
+      name = "gwolves-udev";
+      text = ''
+        SUBSYSTEM=="hidraw", ATTRS{idVendor}=="33e4", TAG+="uaccess"
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="33e4", TAG+="uaccess"
+      '';
+      destination = "/etc/udev/rules.d/70-gwolves.rules";
+    })
   ];
 }

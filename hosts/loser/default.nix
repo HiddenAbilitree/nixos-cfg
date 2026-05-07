@@ -38,5 +38,5 @@
 
   # mullvad.enable = true;
 
-  wireguard.peer = "loser";
+  wireguard.enable = true;
 }

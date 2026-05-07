@@ -4,9 +4,11 @@
   ...
 }: let
   cfg = config.wireguard;
-  thisPeer = cfg.peers.${cfg.peer};
+  inherit (cfg) peerName;
+  hasPeer = builtins.hasAttr peerName cfg.peers;
+  thisPeer = cfg.peers.${peerName} or null;
 
-  otherPeers = lib.filterAttrs (name: _: name != cfg.peer) cfg.peers;
+  otherPeers = lib.filterAttrs (name: _: name != peerName) cfg.peers;
 
   allAllowedIPs = lib.flatten (lib.mapAttrsToList (_: peer: peer.allowedIPs) otherPeers);
 
@@ -27,15 +29,15 @@
       lib.flatten (lib.mapAttrsToList (_: peer: peer.allowedIPs)
         (lib.filterAttrs (_: peer: peer.endpoint == null) otherPeers));
 
-  getPskSecret = name: peer:
+  getPskFile = peer:
     if thisPeer.isRelay
-    then peer.presharedKeySecret
+    then peer.presharedKeyFile
     else if peer.isRelay
-    then thisPeer.presharedKeySecret
-    else peer.presharedKeySecret;
+    then thisPeer.presharedKeyFile
+    else peer.presharedKeyFile;
 
   mkWireguardPeer = name: peer: let
-    pskSecret = getPskSecret name peer;
+    pskFile = getPskFile peer;
     effectiveAllowedIPs =
       if peer.isRelay && !thisPeer.isRelay
       then peer.allowedIPs ++ relayedIPs
@@ -45,53 +47,66 @@
       PublicKey = peer.publicKey;
       AllowedIPs = effectiveAllowedIPs;
     }
-    // lib.optionalAttrs (pskSecret != null) {
-      PresharedKeyFile = config.sops.secrets.${pskSecret}.path;
+    // lib.optionalAttrs (pskFile != null) {
+      PresharedKeyFile = pskFile;
     }
     // lib.optionalAttrs (peer.endpoint != null) {
       Endpoint = "${peer.endpoint}:${toString cfg.listenPort}";
       PersistentKeepalive = 25;
     };
 in
-  lib.mkIf (cfg.peer != null) {
-    networking = {
-      firewall = {
-        allowedUDPPorts = [cfg.listenPort];
-        trustedInterfaces = ["wg0"];
+  lib.mkMerge [
+    {
+      assertions = lib.optional cfg.enable {
+        assertion = hasPeer;
+        message = ''
+          wireguard.peerName (${peerName}) must refer to one of config.wireguard.peers:
+          ${lib.concatStringsSep ", " (lib.attrNames cfg.peers)}
+        '';
       };
-      useNetworkd = true;
-    };
-
-    systemd.network = {
-      enable = true;
-      netdevs."50-wg0" = {
-        netdevConfig = {
-          Kind = "wireguard";
-          Name = "wg0";
-          MTUBytes = "1440";
+    }
+    (lib.mkIf (cfg.enable && hasPeer) {
+      networking = {
+        firewall = {
+          allowedUDPPorts = [cfg.listenPort];
+          trustedInterfaces = ["wg0"];
         };
-
-        wireguardConfig = {
-          PrivateKeyFile = thisPeer.privateKeyFile;
-          ListenPort = cfg.listenPort;
-        };
-
-        wireguardPeers = lib.mapAttrsToList mkWireguardPeer reachablePeers;
+        useNetworkd = true;
       };
 
-      networks.wg0 = {
-        matchConfig.Name = "wg0";
-        address = [thisPeer.address];
-        DHCP = "no";
-        routes = map mkRoute allAllowedIPs;
-        networkConfig =
-          {
-            IPv6AcceptRA = false;
-          }
-          // lib.optionalAttrs thisPeer.isRelay {
-            IPMasquerade = "ipv4";
-            IPv4Forwarding = true;
+      systemd.network = {
+        enable = true;
+        netdevs."50-wg0" = {
+          netdevConfig = {
+            Kind = "wireguard";
+            Name = "wg0";
+            MTUBytes = "1440";
           };
+
+          wireguardConfig = {
+            PrivateKeyFile = thisPeer.privateKeyFile;
+            ListenPort = cfg.listenPort;
+          };
+
+          wireguardPeers = lib.mapAttrsToList mkWireguardPeer reachablePeers;
+        };
+
+        networks.wg0 = {
+          matchConfig.Name = "wg0";
+          addresses = [
+            {Address = thisPeer.address;}
+          ];
+          routes = map mkRoute allAllowedIPs;
+          networkConfig =
+            {
+              DHCP = "no";
+              IPv6AcceptRA = false;
+            }
+            // lib.optionalAttrs thisPeer.isRelay {
+              IPMasquerade = "ipv4";
+              IPv4Forwarding = true;
+            };
+        };
       };
-    };
-  }
+    })
+  ]

@@ -39,9 +39,9 @@ lib.mkIf config.desktop.enable {
     tor-browser
     typst
     vesktop
+    vinegar
     vlc
     wineWow64Packages.waylandFull
-    wireshark
     # wl-clicker
     wl-clipboard
     ydotool
