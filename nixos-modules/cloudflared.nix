@@ -14,7 +14,7 @@
           default = "http_status:404";
           ingress = {
             "grafana.ericzhang.dev" = {
-              service = "http://localhost:3000";
+              service = "http://localhost:${toString config.observability.grafanaPort}";
             };
             "git.ericzhang.dev" = {
               service = "http://localhost:3001";

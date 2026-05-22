@@ -34,6 +34,8 @@ in {
     "net.core.wmem_max" = 7500000;
   };
 
+  networking.firewall.interfaces.enp6s0.allowedTCPPorts = [config.observability.grafanaPort];
+
   virtualisation.docker = {
     enable = lib.mkForce true;
     daemon.settings.live-restore = false;
@@ -51,6 +53,11 @@ in {
   pterodactyl.enable = false;
   syncthing.enable = true;
   ollama.enable = true;
+  observability = {
+    enable = true;
+    sops.enable = true;
+    grafanaListenAddress = "0.0.0.0";
+  };
   services = {
     xserver.videoDrivers = ["nvidia"];
     dokploy = {
