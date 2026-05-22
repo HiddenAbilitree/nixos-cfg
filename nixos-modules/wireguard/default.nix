@@ -116,5 +116,13 @@ in {
       endpoint = "15.204.232.112";
       presharedKeyFile = config.sops.secrets.wg-vps-psk.path;
     };
+    ionos = {
+      publicKey = "TfiQ1sab9qT+Qi0Jhg2FtRrNtugN3V9hWaO+sm2CUXw=";
+      privateKeyFile = config.sops.secrets.wg-ionos-private-key.path;
+      address = "10.101.0.2/24";
+      endpoint = "74.208.200.220";
+      isRelay = true;
+      presharedKeyFile = config.sops.secrets.wg-ionos-psk.path;
+    };
   };
 }

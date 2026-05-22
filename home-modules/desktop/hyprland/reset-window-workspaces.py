@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""Move Hyprland clients back to workspaces from workspace window rules.
+"""Move Hyprland clients back to workspaces from Lua workspace window rules.
 
 Hyprland applies static `workspace` window-rule effects when a client opens. It
 does not expose a documented command to re-run those rules for already-open
-clients, so this script rebuilds the workspace mapping from the current config
-file and applies it with targeted `movetoworkspacesilent` dispatches.
+clients, so this script rebuilds the workspace mapping from the current
+`hyprland.lua` config file and applies it with targeted `movetoworkspacesilent`
+dispatches.
 """
 
 from __future__ import annotations
 
 import argparse
-import glob
 import json
 import os
 import re
@@ -37,75 +37,151 @@ class WindowRule:
     line_number: int
 
 
-def strip_comment(line: str) -> str:
-    return line.split("#", 1)[0].strip()
+def iter_lua_call_tables(text: str, function_name: str):
+    call_pattern = re.compile(rf"{re.escape(function_name)}\s*\(\s*\{{")
 
-
-def expand_config_path(raw_path: str, base_dir: Path) -> list[Path]:
-    expanded = os.path.expanduser(os.path.expandvars(raw_path.strip()))
-    path = Path(expanded)
-    if not path.is_absolute():
-        path = base_dir / path
-
-    if any(char in str(path) for char in "*?["):
-        return [Path(match) for match in glob.glob(str(path))]
-
-    return [path]
-
-
-def iter_config_lines(config_path: Path, seen: set[Path] | None = None):
-    seen = seen or set()
-    path = config_path.expanduser()
-
-    try:
-        resolved = path.resolve(strict=True)
-    except FileNotFoundError:
-        print(f"warning: config source not found: {path}", file=sys.stderr)
-        return
-
-    if resolved in seen:
-        return
-
-    seen.add(resolved)
-
-    try:
-        lines = resolved.read_text().splitlines()
-    except OSError as error:
-        print(f"warning: cannot read {resolved}: {error}", file=sys.stderr)
-        return
-
-    for line_number, raw_line in enumerate(lines, start=1):
-        line = strip_comment(raw_line)
-        source = re.match(r"^source\s*=\s*(.+)$", line)
-        if source:
-            for sourced_path in expand_config_path(source.group(1), resolved.parent):
-                yield from iter_config_lines(sourced_path, seen)
+    for match in call_pattern.finditer(text):
+        table_start = text.find("{", match.start(), match.end())
+        if table_start == -1:
             continue
 
-        yield resolved, line_number, raw_line
+        depth = 0
+        quote: str | None = None
+        escaped = False
+        line_comment = False
+
+        for index in range(table_start, len(text)):
+            char = text[index]
+            next_two = text[index : index + 2]
+
+            if line_comment:
+                if char == "\n":
+                    line_comment = False
+                continue
+
+            if quote:
+                if escaped:
+                    escaped = False
+                elif char == "\\":
+                    escaped = True
+                elif char == quote:
+                    quote = None
+                continue
+
+            if next_two == "--":
+                line_comment = True
+                continue
+
+            if char in {'"', "'"}:
+                quote = char
+                continue
+
+            if char == "{":
+                depth += 1
+                continue
+
+            if char == "}":
+                depth -= 1
+                if depth == 0:
+                    line_number = text.count("\n", 0, match.start()) + 1
+                    yield line_number, text[table_start : index + 1]
+                    break
 
 
-def parse_window_rule(path: Path, line_number: int, raw_line: str) -> WindowRule | None:
-    line = strip_comment(raw_line)
-    if not re.match(r"^windowrule\s*=", line):
+LUA_STRING = r'"((?:\\.|[^"\\])*)"|\'((?:\\.|[^\'\\])*)\''
+
+
+def unescape_lua_string(match: re.Match[str]) -> str:
+    raw_value = next(group for group in match.groups() if group is not None)
+    # Python and Lua share the simple escapes used in these config regexes.
+    return bytes(raw_value, "utf-8").decode("unicode_escape")
+
+
+def lua_string_field(body: str, field: str) -> str | None:
+    match = re.search(rf"\b{re.escape(field)}\s*=\s*(?:{LUA_STRING})", body)
+    if not match:
         return None
 
-    body = line.split("=", 1)[1].strip()
-    parts = [part.strip() for part in body.split(",") if part.strip()]
-    workspace: str | None = None
-    matchers: list[tuple[str, str]] = []
+    return unescape_lua_string(match)
 
-    for part in parts:
-        match = re.match(r"^match:(class|initial_class|title|initial_title)\s+(.+)$", part)
-        if match:
-            matchers.append((match.group(1), match.group(2).strip()))
+
+def lua_workspace_field(body: str) -> str | None:
+    string_workspace = lua_string_field(body, "workspace")
+    if string_workspace is not None:
+        return re.sub(r"\s+silent$", "", string_workspace.strip())
+
+    numeric_workspace = re.search(r"\bworkspace\s*=\s*(-?\d+)\b", body)
+    if numeric_workspace:
+        return numeric_workspace.group(1)
+
+    return None
+
+
+def lua_match_body(rule_body: str) -> str | None:
+    match = re.search(r"\bmatch\s*=\s*\{", rule_body)
+    if not match:
+        return None
+
+    start = rule_body.find("{", match.start(), match.end())
+    depth = 0
+    quote: str | None = None
+    escaped = False
+    line_comment = False
+
+    for index in range(start, len(rule_body)):
+        char = rule_body[index]
+        next_two = rule_body[index : index + 2]
+
+        if line_comment:
+            if char == "\n":
+                line_comment = False
             continue
 
-        workspace_match = re.match(r"^workspace\s+(.+)$", part)
-        if workspace_match:
-            workspace = re.sub(r"\s+silent$", "", workspace_match.group(1).strip())
+        if quote:
+            if escaped:
+                escaped = False
+            elif char == "\\":
+                escaped = True
+            elif char == quote:
+                quote = None
+            continue
 
-    if not workspace or workspace == "unset" or not matchers:
+        if next_two == "--":
+            line_comment = True
+            continue
+
+        if char in {'"', "'"}:
+            quote = char
+            continue
+
+        if char == "{":
+            depth += 1
+            continue
+
+        if char == "}":
+            depth -= 1
+            if depth == 0:
+                return rule_body[start + 1 : index]
+
+    return None
+
+
+def parse_lua_window_rule(path: Path, line_number: int, body: str) -> WindowRule | None:
+    workspace = lua_workspace_field(body)
+    if not workspace or workspace == "unset":
+        return None
+
+    match_body = lua_match_body(body)
+    if not match_body:
+        return None
+
+    matchers = [
+        (field, value)
+        for field in MATCH_FIELDS
+        if (value := lua_string_field(match_body, field)) is not None
+    ]
+
+    if not matchers:
         return None
 
     return WindowRule(
@@ -116,18 +192,24 @@ def parse_window_rule(path: Path, line_number: int, raw_line: str) -> WindowRule
     )
 
 
+def load_lua_rules(config_path: Path) -> list[WindowRule]:
+    path = config_path.expanduser().resolve(strict=True)
+    text = path.read_text()
+    return [
+        rule
+        for line_number, body in iter_lua_call_tables(text, "hl.window_rule")
+        if (rule := parse_lua_window_rule(path, line_number, body)) is not None
+    ]
+
+
 def load_rules(config_path: Path) -> list[WindowRule]:
     if not config_path.expanduser().exists():
         raise FileNotFoundError(f"Hyprland config not found: {config_path}")
 
-    rules: list[WindowRule] = []
+    if config_path.suffix != ".lua":
+        raise ValueError(f"expected a Hyprland Lua config, got: {config_path}")
 
-    for path, line_number, line in iter_config_lines(config_path):
-        rule = parse_window_rule(path, line_number, line)
-        if rule:
-            rules.append(rule)
-
-    return rules
+    return load_lua_rules(config_path)
 
 
 def client_value(client: dict[str, Any], field: str) -> str:
@@ -233,7 +315,8 @@ def default_config_path() -> Path:
         return Path(explicit)
 
     xdg_config_home = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config"))
-    return xdg_config_home / "hypr" / "hyprland.conf"
+    hypr_config_dir = xdg_config_home / "hypr"
+    return hypr_config_dir / "hyprland.lua"
 
 
 def parse_args() -> argparse.Namespace:
@@ -242,7 +325,7 @@ def parse_args() -> argparse.Namespace:
         "--config",
         type=Path,
         default=default_config_path(),
-        help="Hyprland config to parse, default: $XDG_CONFIG_HOME/hypr/hyprland.conf",
+        help="Hyprland Lua config to parse, default: $XDG_CONFIG_HOME/hypr/hyprland.lua",
     )
     parser.add_argument(
         "--clients-json",

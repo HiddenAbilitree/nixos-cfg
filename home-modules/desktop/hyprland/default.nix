@@ -44,12 +44,16 @@ in {
       enable = true;
       package = hyprlandPackage;
       portalPackage = hyprlandPortalPackage;
+      configType = "lua";
       extraConfig =
-        builtins.readFile ./hyprland.conf
+        ''
+          hl.plugin.load("${splitMonitorWorkspacesPackage}/lib/libsplit-monitor-workspaces.so")
+
+        ''
+        + builtins.readFile ./hyprland.lua
         + lib.optionalString (!osConfig.laptop.enable) ''
-          bindl = $mod, M, exec, hyprctl dispatch dpms toggle
+          hl.bind(mod .. " + M", hl.dsp.dpms({ action = "toggle" }), { locked = true })
         '';
-      plugins = [splitMonitorWorkspacesPackage];
     };
   };
 }
