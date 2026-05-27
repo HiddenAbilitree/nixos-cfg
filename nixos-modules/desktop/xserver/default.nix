@@ -16,6 +16,8 @@
       enable = true;
     };
 
+    displayManager.defaultSession = lib.mkIf config.desktop.hyprland.enable (lib.mkDefault "hyprland");
+
     desktopManager.gnome.enable = false;
   };
 }
