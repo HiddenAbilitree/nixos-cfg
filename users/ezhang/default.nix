@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   users.users.ezhang = {
     isNormalUser = true;
     description = "Eric Zhang";
@@ -13,7 +10,6 @@
       "networkmanager"
       "sudo"
       "wheel"
-      "openrazer"
       "wireshark"
       "inputs"
     ];

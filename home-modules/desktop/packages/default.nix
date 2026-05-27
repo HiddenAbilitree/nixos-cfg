@@ -27,7 +27,6 @@ lib.mkIf config.desktop.enable {
     nautilus
     obsidian
     obs-cmd
-    openrazer-daemon
     pavucontrol
     piper
     polychromatic
