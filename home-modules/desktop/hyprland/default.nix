@@ -9,7 +9,6 @@
 }: let
   hyprlandPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   hyprlandPortalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  splitMonitorWorkspacesPackage = split-monitor-workspaces.packages.${pkgs.stdenv.hostPlatform.system}.split-monitor-workspaces;
 
   resetWindowWorkspaces = pkgs.writeShellApplication {
     name = "hyprland-reset-window-workspaces";
@@ -47,7 +46,8 @@ in {
       configType = "lua";
       extraConfig =
         ''
-          hl.plugin.load("${splitMonitorWorkspacesPackage}/lib/libsplit-monitor-workspaces.so")
+          package.path = package.path .. ";${split-monitor-workspaces}/lua/?.lua"
+          local smw = require("split-monitor-workspaces")
 
         ''
         + builtins.readFile ./hyprland.lua

@@ -31,29 +31,6 @@ local function current_monitor()
   return hl.get_active_monitor() or hl.get_monitor_at_cursor()
 end
 
-local function split_workspace_for_monitor(monitor, workspace)
-  local offset = 0
-  for _, candidate in ipairs(split_monitors()) do
-    if monitor ~= nil and candidate.name == monitor.name then
-      return tostring(offset + workspace)
-    end
-
-    offset = offset + split_workspace_count
-  end
-
-  return tostring(workspace)
-end
-
-local function split_workspace(workspace)
-  local target = split_workspace_for_monitor(current_monitor(), workspace)
-  return hl.dispatch(hl.dsp.focus({ workspace = target }))
-end
-
-local function split_move_to_workspace(workspace)
-  local target = split_workspace_for_monitor(current_monitor(), workspace)
-  return hl.dispatch(hl.dsp.window.move({ workspace = target }))
-end
-
 local function split_change_monitor(direction)
   local monitors = split_monitors()
   local monitor = current_monitor()
@@ -77,47 +54,22 @@ local function split_change_monitor(direction)
   end
 end
 
-local function split_grab_rogue_windows()
-  local monitor = current_monitor()
-  local workspace = monitor and monitor.active_workspace or nil
-  if monitor == nil or workspace == nil then
-    return
-  end
-
-  for _, window in ipairs(hl.get_windows({ monitor = monitor })) do
-    if window.workspace ~= nil and window.workspace.id ~= workspace.id then
-      hl.dispatch(hl.dsp.window.move({
-        workspace = workspace,
-        window = window,
-        follow = false,
-      }))
-    end
-  end
-end
-
 local function bind_split_monitor_workspaces()
-  hl.config({
-    plugin = {
-      split_monitor_workspaces = {
-        count = split_workspace_count,
-        keep_focused = 0,
-        enable_notifications = 1,
-        enable_persistent_workspaces = 1,
-      },
-    },
+  smw.setup({
+    workspace_count = split_workspace_count,
+    keep_focused = false,
+    enable_notifications = true,
+    enable_persistent_workspaces = true,
+    enable_wrapping = true,
   })
 
   for workspace = 1, split_workspace_count do
     local key = tostring(workspace)
-    hl.bind(mod .. " + " .. key, function()
-      return split_workspace(workspace)
-    end)
-    hl.bind(mod .. " + SHIFT + " .. key, function()
-      return split_move_to_workspace(workspace)
-    end)
+    hl.bind(mod .. " + " .. key, smw.workspace(key))
+    hl.bind(mod .. " + SHIFT + " .. key, smw.move_to_workspace_silent(key))
   end
 
-  hl.bind(mod .. " + z + x + c + v", split_grab_rogue_windows)
+  hl.bind(mod .. " + z + x + c + v", smw.grab_rogue_windows())
   hl.bind(mod .. " + Right", function()
     return split_change_monitor("next")
   end)
