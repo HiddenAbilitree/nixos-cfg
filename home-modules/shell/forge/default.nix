@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  forge = llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.forge;
+  forge = llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.forgecode;
   forgeZshPlugin = pkgs.runCommand "forge-zsh-plugin" {} ''
     mkdir -p $out
     export HOME=$TMPDIR
