@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./brave
     ./hyprland
     ./xserver
     ./fonts

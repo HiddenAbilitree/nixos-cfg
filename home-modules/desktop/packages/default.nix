@@ -20,6 +20,7 @@ lib.mkIf config.desktop.enable {
     inkscape
     jetbrains.idea
     # kdePackages.kdenlive
+    ladybird
     # libreoffice
     # librewolf
     libsecret
