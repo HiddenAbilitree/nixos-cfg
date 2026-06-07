@@ -47,6 +47,11 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    kitty = {
+      url = "git+ssh://git@github.com/HiddenAbilitree/kitty-nix.git?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
 
     llm-agents = {

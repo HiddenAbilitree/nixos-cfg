@@ -927,6 +927,45 @@
         "type": "github"
       }
     },
+    "kitty": {
+      "inputs": {
+        "kitty-src": "kitty-src",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780801951,
+        "narHash": "sha256-iqf/u9mGkzocMo1wolLznaaPgijCKuU5X3sVOpRa5RE=",
+        "ref": "main",
+        "rev": "c1484cc4147979f5dc89cb559ddcea2f6f44f2e4",
+        "revCount": 3,
+        "type": "git",
+        "url": "ssh://git@github.com/HiddenAbilitree/kitty-nix.git"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "ssh://git@github.com/HiddenAbilitree/kitty-nix.git"
+      }
+    },
+    "kitty-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780752193,
+        "narHash": "sha256-abIUQxeiDGPkTNnqG/dvQsGNPdoznj59PJ4mqIr1RHU=",
+        "owner": "kovidgoyal",
+        "repo": "kitty",
+        "rev": "72c1ff6085b62d62fbf8bbb0be9b330074ae6ed7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kovidgoyal",
+        "ref": "nightly",
+        "repo": "kitty",
+        "type": "github"
+      }
+    },
     "lanzaboote": {
       "inputs": {
         "crane": "crane",
@@ -1575,6 +1614,7 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "impermanence": "impermanence",
+        "kitty": "kitty",
         "lanzaboote": "lanzaboote",
         "llm-agents": "llm-agents",
         "nix-dokploy": "nix-dokploy",
