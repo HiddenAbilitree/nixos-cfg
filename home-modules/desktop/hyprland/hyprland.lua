@@ -80,7 +80,7 @@ end
 
 on_start({
   "systemctl --user start hyprpolkitagent",
-  "noctalia-shell",
+  "noctalia",
   "vicinae server",
   "vesktop",
   "spotify",

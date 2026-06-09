@@ -2,95 +2,89 @@
   config,
   osConfig,
   lib,
-  pkgs,
   ...
 }: {
   options.desktop.noctalia.enable = lib.mkEnableOption "noctalia";
 
   config = lib.mkIf config.desktop.noctalia.enable {
-    home.packages = [pkgs.quickshell];
-    programs.noctalia-shell = {
+    programs.noctalia = {
       enable = true;
-      colors = removeAttrs (builtins.fromJSON (builtins.readFile ./tokyo-night-storm.json)).dark ["terminal"];
+      customPalettes.tokyo-night-storm = builtins.fromJSON (builtins.readFile ./tokyo-night-storm.json);
       settings = {
-        settingsVersion = 57;
+        theme = {
+          mode = "dark";
+          source = "custom";
+          custom_palette = "tokyo-night-storm";
+        };
+
         dock.enabled = false;
-        bar = {
-          barType = "framed";
-          density = "compact";
+
+        bar.main = {
           position = "top";
-          showCapsule = false;
-          widgets = {
-            left = [
-              {
-                id = "ControlCenter";
-                useDistroLogo = true;
-              }
-              {
-                hideUnoccupied = false;
-                id = "Workspace";
-                labelMode = "none";
-              }
+          thickness = 30;
+          margin_ends = 0;
+          margin_edge = 4;
+          padding = 10;
+          widget_spacing = 6;
+          shadow = true;
+          capsule = false;
+
+          start = [
+            "control-center"
+            "workspaces"
+          ];
+          center = [];
+          end =
+            [
+              "cpu"
+              "temp"
+              "ram"
+              "network"
+              "clock"
+            ]
+            ++ lib.optionals osConfig.laptop.enable [
+              "battery"
+              "power_profile"
             ];
-            center = [
-            ];
-            right =
-              [
-                {
-                  id = "SystemMonitor";
-                  compactMode = true;
-                  iconColor = "none";
-                  showCpuUsage = true;
-                  showCpuCores = true;
-                  showCpuFreq = false;
-                  showCpuTemp = true;
-                  showLoadAverage = false;
-                  showMemoryUsage = true;
-                  showMemoryAsPercent = false;
-                  showSwapUsage = false;
-                  enableDgpuMonitoring = true;
-                  showNetworkStats = false;
-                  showDiskUsage = false;
-                  showDiskUsageAsPercent = false;
-                  showDiskAvailable = false;
-                  diskPath = "/";
-                }
-                {
-                  id = "Network";
-                }
-                {
-                  formatHorizontal = "h:mm AP";
-                  formatVertical = "h mm";
-                  id = "Clock";
-                  useMonospacedFont = true;
-                  usePrimaryColor = true;
-                }
-              ]
-              ++ (lib.optionals osConfig.laptop.enable [
-                {
-                  id = "Battery";
-                }
-                {id = "PowerProfile";}
-              ]);
+        };
+
+        widget = {
+          workspaces = {
+            hide_when_empty = false;
+            display = "none";
+          };
+          cpu.display = "text";
+          temp.display = "text";
+          ram.display = "text";
+          network.show_label = false;
+          clock = {
+            format = "{:%-I:%M %p}";
+            vertical_format = "{:%-I\n%M}";
+            color = "primary";
           };
         };
-        general = {
-          enableShadows = true;
-          enableBlurBehind = true;
-          shadowDirection = "center";
-          radiusRatio = 0.2;
+
+        system.monitor = {
+          enabled = true;
+          gpu_poll_seconds = 5.0;
         };
-        ui = {
-          settingsPanelMode = "centered";
-          translucentWidgets = true;
+
+        shell = {
+          corner_radius_scale = 0.2;
+          show_location = false;
+          shadow.direction = "center";
+          panel = {
+            transparency_mode = "glass";
+            shadow = true;
+            control_center_placement = "centered";
+          };
         };
+
         location = {
-          monthBeforeDay = true;
-          name = "New York, United States";
-          useFahrenheit = true;
-          use12hourFormat = true;
-          hideWeatherCityName = true;
+          auto_locate = false;
+          address = "New York, United States";
         };
+        weather.unit = "fahrenheit";
       };
     };
   };
