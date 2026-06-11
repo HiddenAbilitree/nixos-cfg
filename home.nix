@@ -40,7 +40,6 @@
       uv
       cargo
       nodejs_latest
-      gh
       man-pages
       man-pages-posix
       rustlings
