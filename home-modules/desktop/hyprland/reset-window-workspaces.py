@@ -93,7 +93,6 @@ LUA_STRING = r'"((?:\\.|[^"\\])*)"|\'((?:\\.|[^\'\\])*)\''
 
 def unescape_lua_string(match: re.Match[str]) -> str:
     raw_value = next(group for group in match.groups() if group is not None)
-    # Python and Lua share the simple escapes used in these config regexes.
     return bytes(raw_value, "utf-8").decode("unicode_escape")
 
 

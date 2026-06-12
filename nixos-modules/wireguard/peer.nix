@@ -172,9 +172,6 @@ in
 
       systemd.services = {
         systemd-networkd = {
-          # NixOS treats .netdev changes as non-reloadable and would restart
-          # networkd during switches. WireGuard peer changes are applied below
-          # with wg syncconf instead, so do not bounce the network stack.
           restartIfChanged = false;
         };
 

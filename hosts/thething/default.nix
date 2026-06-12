@@ -59,6 +59,13 @@ in {
     grafanaListenAddress = "0.0.0.0";
   };
   services = {
+    atuin = {
+      enable = true;
+      host = "0.0.0.0";
+      port = 18888;
+      openRegistration = true;
+    };
+
     xserver.videoDrivers = ["nvidia"];
     dokploy = {
       environment = {
