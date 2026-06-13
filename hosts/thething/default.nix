@@ -22,6 +22,7 @@ in {
   imports = [
     ./disk-config.nix
     ./hardware-configuration.nix
+    ./zfs.nix
   ];
 
   ssh = {
@@ -40,8 +41,6 @@ in {
     enable = lib.mkForce true;
     daemon.settings.live-restore = false;
   };
-
-  # environment.systemPackages = [pkgs.zfs];
 
   programs.nix-ld.enable = true;
 
