@@ -1018,11 +1018,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1781330261,
-        "narHash": "sha256-2fFAGel2VVXr5mwrTXldqXva2ng3T3HHxyuBKRIxauI=",
+        "lastModified": 1781314753,
+        "narHash": "sha256-jYUqaiwYXDaYyAD37BkjfdokNOUKldSrgDuGClKgesc=",
         "owner": "numtide",
         "repo": "llm-agents.nix",
-        "rev": "24ec6b7b1ddf8896ac8df3b65dc564575e0a1928",
+        "rev": "62824228f20bd515681e7dcab3ff13799ef5186c",
         "type": "github"
       },
       "original": {
@@ -1563,11 +1563,11 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1781329357,
-        "narHash": "sha256-yv+5zq6qGrowrMosA4Hc56rjyxwYO3TqU0s6iB9vKy0=",
+        "lastModified": 1781331200,
+        "narHash": "sha256-HZ+ricvhfK7eCKvdIMmRksKizZO1Kz46bcpTz41Nfu0=",
         "ref": "main",
-        "rev": "a354df4dd66f26fa260295ddd486b4ed44eb4476",
-        "revCount": 152,
+        "rev": "fcd74f570ab9a3fb97842f4b2feca72fca7ca1f9",
+        "revCount": 153,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git"
       },
