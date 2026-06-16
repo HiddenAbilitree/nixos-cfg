@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    deadworks-nix = {
+      url = "git+ssh://git@github.com/HiddenAbilitree/deadworks-nix.git?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     paper = {
       url = "git+ssh://git@github.com/HiddenAbilitree/paper-nix.git?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";

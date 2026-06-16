@@ -191,6 +191,27 @@
         "type": "github"
       }
     },
+    "deadworks-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1781612448,
+        "narHash": "sha256-GHHwZleSxrF71CJC7eF8tdkqyKKCwlL+bqAkq0BYw3M=",
+        "ref": "main",
+        "rev": "1983c8eefc4be802f84cdb77aec8f777a310d595",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/HiddenAbilitree/deadworks-nix.git"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "ssh://git@github.com/HiddenAbilitree/deadworks-nix.git"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -1583,6 +1604,7 @@
         "alejandra": "alejandra",
         "awww": "awww",
         "brave-origin": "brave-origin",
+        "deadworks-nix": "deadworks-nix",
         "disko": "disko",
         "fonts": "fonts",
         "helium": "helium",
