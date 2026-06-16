@@ -22,7 +22,7 @@
         bar.main = {
           position = "top";
           thickness = 30;
-          margin_ends = 0;
+          margin_ends = 4;
           margin_edge = 4;
           padding = 10;
           widget_spacing = 6;
