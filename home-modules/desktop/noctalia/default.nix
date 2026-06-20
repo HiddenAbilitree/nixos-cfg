@@ -20,6 +20,7 @@ in {
         };
 
         dock.enabled = false;
+        desktop_widgets.enabled = false;
 
         wallpaper = {
           enabled = true;
@@ -31,6 +32,9 @@ in {
           thickness = 30;
           margin_ends = 4;
           margin_edge = 4;
+          border = "#4d5fc2";
+          border_width = 2.0;
+          radius = 8;
           padding = 10;
           widget_spacing = 6;
           shadow = true;
@@ -80,6 +84,12 @@ in {
           corner_radius_scale = 0.2;
           show_location = false;
           shadow.direction = "center";
+          screen_corners = {
+            enabled = true;
+            # Hyprland windows use gaps_out = 4 and rounding = 8, so the
+            # screen corner radius is 4 + 8 for concentric outer corners.
+            size = 12;
+          };
           panel = {
             transparency_mode = "glass";
             shadow = true;
@@ -87,11 +97,11 @@ in {
           };
         };
 
-        location = {
-          auto_locate = false;
-          address = "New York, United States";
+        location.auto_locate = true;
+        weather = {
+          enabled = true;
+          unit = "imperial";
         };
-        weather.unit = "fahrenheit";
       };
     };
   };
