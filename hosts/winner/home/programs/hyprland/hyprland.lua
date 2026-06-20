@@ -1,6 +1,9 @@
 hl.config({
   general = {
-    allow_tearing = true,
+    allow_tearing = false,
+  },
+  cursor = {
+    no_hardware_cursors = 1,
   },
 })
 

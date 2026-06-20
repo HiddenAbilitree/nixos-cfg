@@ -57,7 +57,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/0403b4b7e8b2612657f0053a4c315e6c43eee9e6";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     llm-agents = {
       url = "github:numtide/llm-agents.nix";

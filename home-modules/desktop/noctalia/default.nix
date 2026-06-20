@@ -3,7 +3,9 @@
   osConfig,
   lib,
   ...
-}: {
+}: let
+  fujiWallpaper = ../../../assets/wallpapers/1920x1080/mount_fuji.png;
+in {
   options.desktop.noctalia.enable = lib.mkEnableOption "noctalia";
 
   config = lib.mkIf config.desktop.noctalia.enable {
@@ -18,6 +20,11 @@
         };
 
         dock.enabled = false;
+
+        wallpaper = {
+          enabled = true;
+          default.path = "${fujiWallpaper}";
+        };
 
         bar.main = {
           position = "top";
