@@ -129,6 +129,7 @@
 
   nixConfig = {
     extra-substituters = [
+      "https://noctalia.cachix.org"
       "https://ezkea.cachix.org"
       "https://hyprland.cachix.org"
       "https://lanzaboote.cachix.org"
@@ -146,6 +147,7 @@
       "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
       "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
       "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
     ];
   };
 

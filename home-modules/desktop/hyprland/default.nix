@@ -33,6 +33,7 @@ in {
     home.packages = with pkgs;
       [
         hyprshot
+        normcap
         hyprpicker
         hyprpolkitagent
         xdg-desktop-portal-gtk
