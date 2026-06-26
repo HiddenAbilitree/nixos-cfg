@@ -7,6 +7,7 @@
 lib.mkIf config.desktop.enable {
   home.packages = with pkgs; [
     affine
+    blender
     dbeaver-bin
     easyeffects
     element-desktop

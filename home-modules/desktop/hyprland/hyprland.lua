@@ -140,36 +140,36 @@ hl.config({
 })
 
 for name, points in pairs({
-  linear = {{ 0, 0 }, { 1, 1 }},
-  md3_standard = {{ 0.2, 0 }, { 0, 1 }},
-  md3_decel = {{ 0.05, 0.7 }, { 0.1, 1 }},
-  md3_accel = {{ 0.3, 0 }, { 0.8, 0.15 }},
-  overshot = {{ 0.05, 0.9 }, { 0.1, 1.1 }},
-  crazyshot = {{ 0.1, 1.5 }, { 0.76, 0.92 }},
-  hyprnostretch = {{ 0.05, 0.9 }, { 0.1, 1.0 }},
-  menu_decel = {{ 0.1, 1 }, { 0, 1 }},
-  menu_accel = {{ 0.38, 0.04 }, { 1, 0.07 }},
-  easeInOutCirc = {{ 0.85, 0 }, { 0.15, 1 }},
-  easeOutCirc = {{ 0, 0.55 }, { 0.45, 1 }},
-  easeOutExpo = {{ 0.16, 1 }, { 0.3, 1 }},
-  softAcDecel = {{ 0.26, 0.26 }, { 0.15, 1 }},
-  md2 = {{ 0.4, 0 }, { 0.2, 1 }},
+  linear = { { 0, 0 }, { 1, 1 } },
+  md3_standard = { { 0.2, 0 }, { 0, 1 } },
+  md3_decel = { { 0.05, 0.7 }, { 0.1, 1 } },
+  md3_accel = { { 0.3, 0 }, { 0.8, 0.15 } },
+  overshot = { { 0.05, 0.9 }, { 0.1, 1.1 } },
+  crazyshot = { { 0.1, 1.5 }, { 0.76, 0.92 } },
+  hyprnostretch = { { 0.05, 0.9 }, { 0.1, 1.0 } },
+  menu_decel = { { 0.1, 1 }, { 0, 1 } },
+  menu_accel = { { 0.38, 0.04 }, { 1, 0.07 } },
+  easeInOutCirc = { { 0.85, 0 }, { 0.15, 1 } },
+  easeOutCirc = { { 0, 0.55 }, { 0.45, 1 } },
+  easeOutExpo = { { 0.16, 1 }, { 0.3, 1 } },
+  softAcDecel = { { 0.26, 0.26 }, { 0.15, 1 } },
+  md2 = { { 0.4, 0 }, { 0.2, 1 } },
 }) do
   hl.curve(name, { type = "bezier", points = points })
 end
 
 for _, animation in ipairs({
-  { leaf = "windows", enabled = true, speed = 3, bezier = "md3_decel", style = "popin 60%" },
-  { leaf = "windowsIn", enabled = true, speed = 3, bezier = "md3_decel", style = "popin 60%" },
-  { leaf = "windowsOut", enabled = true, speed = 3, bezier = "md3_accel", style = "popin 60%" },
-  { leaf = "border", enabled = true, speed = 10, bezier = "default" },
-  { leaf = "fade", enabled = true, speed = 3, bezier = "md3_decel" },
-  { leaf = "layersIn", enabled = true, speed = 3, bezier = "menu_decel", style = "slide" },
-  { leaf = "layersOut", enabled = true, speed = 1.6, bezier = "menu_accel" },
-  { leaf = "fadeLayersIn", enabled = true, speed = 2, bezier = "menu_decel" },
-  { leaf = "fadeLayersOut", enabled = true, speed = 0.5, bezier = "menu_accel" },
-  { leaf = "workspaces", enabled = true, speed = 7, bezier = "menu_decel", style = "slide" },
-  { leaf = "specialWorkspace", enabled = true, speed = 3, bezier = "md3_decel", style = "slidevert" },
+  { leaf = "windows",          enabled = true, speed = 3,   bezier = "md3_decel",  style = "popin 60%" },
+  { leaf = "windowsIn",        enabled = true, speed = 3,   bezier = "md3_decel",  style = "popin 60%" },
+  { leaf = "windowsOut",       enabled = true, speed = 3,   bezier = "md3_accel",  style = "popin 60%" },
+  { leaf = "border",           enabled = true, speed = 10,  bezier = "default" },
+  { leaf = "fade",             enabled = true, speed = 3,   bezier = "md3_decel" },
+  { leaf = "layersIn",         enabled = true, speed = 3,   bezier = "menu_decel", style = "slide" },
+  { leaf = "layersOut",        enabled = true, speed = 1.6, bezier = "menu_accel" },
+  { leaf = "fadeLayersIn",     enabled = true, speed = 2,   bezier = "menu_decel" },
+  { leaf = "fadeLayersOut",    enabled = true, speed = 0.5, bezier = "menu_accel" },
+  { leaf = "workspaces",       enabled = true, speed = 7,   bezier = "menu_decel", style = "slide" },
+  { leaf = "specialWorkspace", enabled = true, speed = 3,   bezier = "md3_decel",  style = "slidevert" },
 }) do
   hl.animation(animation)
 end
@@ -184,17 +184,17 @@ bind_exec(mod .. " + grave", menu)
 bind_exec(mod .. " + space", "vicinae toggle")
 bind_exec("ALT + Tab", "rofi -show window")
 bind_exec("ALT + CTRL + SHIFT + P", "rofi -show filebrowser")
-bind_exec(mod .. " + mouse_down", "wpctl set-volume @DEFAULT_SINK@ 0.01-")
-bind_exec(mod .. " + mouse_up", "wpctl set-volume @DEFAULT_SINK@ 0.01+")
+bind_exec(mod .. " + mouse_down", "wpctl set-volume @DEFAULT_SINK@ 0.1-")
+bind_exec(mod .. " + mouse_up", "wpctl set-volume @DEFAULT_SINK@ 0.1+")
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mod .. " + SHIFT + Q", hl.dsp.window.close())
 hl.bind(mod .. " + SHIFT + F", hl.dsp.window.float({ action = "toggle" }))
 
 for _, binding in ipairs({
-  { key = "Left", direction = "left" },
+  { key = "Left",  direction = "left" },
   { key = "Right", direction = "right" },
-  { key = "Up", direction = "up" },
-  { key = "Down", direction = "down" },
+  { key = "Up",    direction = "up" },
+  { key = "Down",  direction = "down" },
 }) do
   hl.bind(mod .. " + SHIFT + " .. binding.key, hl.dsp.window.swap({ direction = binding.direction }))
   hl.bind(mod .. " + " .. binding.key, hl.dsp.window.move({ direction = binding.direction }))
@@ -207,14 +207,14 @@ bind_exec(mod .. " + SHIFT + S", "hyprshot -m region --clipboard-only --freeze -
 bind_exec("Print", "hyprshot -m output -m eDP-1", { locked = true })
 
 for _, binding in ipairs({
-  { key = "XF86AudioRaiseVolume", command = "wpctl set-volume @DEFAULT_SINK@ 0.01+", repeating = true },
-  { key = "XF86AudioLowerVolume", command = "wpctl set-volume @DEFAULT_SINK@ 0.01-", repeating = true },
-  { key = "XF86MonBrightnessUp", command = "brightnessctl set 5%+", repeating = true },
-  { key = "XF86MonBrightnessDown", command = "brightnessctl set 5%-", repeating = true },
-  { key = "XF86AudioPlay", command = "playerctl play-pause" },
-  { key = "XF86AudioMute", command = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" },
-  { key = "XF86AudioNext", command = "playerctl next" },
-  { key = "XF86AudioPrev", command = "playerctl previous" },
+  { key = "XF86AudioRaiseVolume",  command = "wpctl set-volume @DEFAULT_SINK@ 0.01+",     repeating = true },
+  { key = "XF86AudioLowerVolume",  command = "wpctl set-volume @DEFAULT_SINK@ 0.01-",     repeating = true },
+  { key = "XF86MonBrightnessUp",   command = "brightnessctl set 5%+",                     repeating = true },
+  { key = "XF86MonBrightnessDown", command = "brightnessctl set 5%-",                     repeating = true },
+  { key = "XF86AudioPlay",         command = "playerctl play-pause" },
+  { key = "XF86AudioMute",         command = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" },
+  { key = "XF86AudioNext",         command = "playerctl next" },
+  { key = "XF86AudioPrev",         command = "playerctl previous" },
 }) do
   local flags = { locked = true }
   if binding.repeating == true then
