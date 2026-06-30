@@ -6,7 +6,15 @@
 }: let
   fujiWallpaper = ../../../assets/wallpapers/1920x1080/mount_fuji.png;
 in {
-  options.desktop.noctalia.enable = lib.mkEnableOption "noctalia";
+  options.desktop.noctalia = {
+    enable = lib.mkEnableOption "noctalia";
+
+    wallpaper = lib.mkOption {
+      type = lib.types.path;
+      default = fujiWallpaper;
+      description = "Wallpaper to use for Noctalia.";
+    };
+  };
 
   config = lib.mkIf config.desktop.noctalia.enable {
     programs.noctalia = {
@@ -24,7 +32,7 @@ in {
 
         wallpaper = {
           enabled = true;
-          default.path = "${fujiWallpaper}";
+          default.path = "${config.desktop.noctalia.wallpaper}";
         };
 
         bar.main = {
