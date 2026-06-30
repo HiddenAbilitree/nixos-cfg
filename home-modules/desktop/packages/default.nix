@@ -6,22 +6,22 @@
 }:
 lib.mkIf config.desktop.enable {
   home.packages = with pkgs; [
-    affine
-    blender
-    dbeaver-bin
+    # affine
+    # blender
+    # dbeaver-bin
     easyeffects
-    element-desktop
+    # element-desktop
     firefox
     font-manager
-    gimp
-    godot
+    # gimp
+    # godot
     google-chrome
-    gnome-disk-utility
+    # gnome-disk-utility
     hyprsunset
-    inkscape
-    jetbrains.idea
+    # inkscape
+    # jetbrains.idea
     # kdePackages.kdenlive
-    ladybird
+    # ladybird
     # libreoffice
     # librewolf
     libsecret
@@ -31,25 +31,25 @@ lib.mkIf config.desktop.enable {
     obs-cmd
     pavucontrol
     piper
-    polychromatic
-    postman
+    # polychromatic
+    # postman
     protonup-qt
     # rquickshare
-    sqlite-web
+    # sqlite-web
     themechanger
     tor-browser
-    typst
+    # typst
     vesktop
-    vinegar
-    vlc
+    # vinegar
+    # vlc
     wineWow64Packages.waylandFull
     # wl-clicker
     wl-clipboard
-    ydotool
-    zoom-us
-    zotero
+    # ydotool
+    # zoom-us
+    # zotero
     # androidStudioPackages.canary
     # android-studio-full
-    android-studio
+    # android-studio
   ];
 }
