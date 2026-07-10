@@ -23,7 +23,7 @@
           inputs.lanzaboote.nixosModules.lanzaboote
           inputs.private.nixosModules
           inputs.sops-nix.nixosModules.sops
-          inputs.fonts.nixosModules
+          inputs.packages-nix.nixosModules.fonts
           {
             networking.hostName = hostName;
             home-manager = {
@@ -34,7 +34,6 @@
                   root = "/home/ezhang/code/nix/nixos-cfg";
                   proot = "/home/ezhang/code/nix/private-nixos-cfg";
                   nroot = "/home/ezhang/code/nix/nixvim-cfg";
-                  froot = "/home/ezhang/code/nix/fonts";
                 };
               sharedModules = [
                 inputs.spicetify-nix.homeManagerModules.default

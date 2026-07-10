@@ -1,6 +1,6 @@
 {
   config,
-  deadworks-nix,
+  packages-nix,
   lib,
   pkgs,
   prismlauncher,
@@ -33,7 +33,7 @@
       packages = with pkgs;
         [
           deadlock-mod-manager
-          deadworks-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+          packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.deadworks
           mangohud
           (lib.mkIf config.desktop.games.osu.enable osu-lazer-bin)
           (lib.mkIf config.desktop.games.emulators.enable (

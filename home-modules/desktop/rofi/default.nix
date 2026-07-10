@@ -1,15 +1,18 @@
 {
   config,
+  packages-nix,
   lib,
   pkgs,
   ...
-}: {
+}: let
+  kittyPackage = packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.kitty;
+in {
   options.desktop.rofi.enable = lib.mkEnableOption "Rofi";
 
   config = lib.mkIf config.desktop.rofi.enable {
     programs.rofi = {
       enable = true;
-      terminal = "${pkgs.kitty}/bin/kitty";
+      terminal = "${kittyPackage}/bin/kitty";
       font = "0xProto Nerd Font 12";
       package = pkgs.rofi;
       theme = ./theme.rasi;

@@ -14,18 +14,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    brave-origin = {
-      url = "git+ssh://git@github.com/HiddenAbilitree/brave-origin-nix.git?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    deadworks-nix = {
-      url = "git+ssh://git@github.com/HiddenAbilitree/deadworks-nix.git?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    paper = {
-      url = "git+ssh://git@github.com/HiddenAbilitree/paper-nix.git?ref=main";
+    packages-nix = {
+      url = "git+ssh://git@github.com/HiddenAbilitree/packages.git?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -35,8 +25,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    fonts.url = "git+ssh://git@github.com/HiddenAbilitree/fonts.git?ref=main";
 
     helium = {
       url = "github:forkprince/nur-packages";
@@ -51,11 +39,6 @@
     hyprland.url = "github:hyprwm/Hyprland";
 
     impermanence.url = "github:nix-community/impermanence";
-
-    kitty = {
-      url = "git+ssh://git@github.com/HiddenAbilitree/kitty-nix.git?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/0403b4b7e8b2612657f0053a4c315e6c43eee9e6";
@@ -91,7 +74,6 @@
 
     private.url = "git+ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git?ref=main";
     # private.url = "path:/home/ezhang/code/nix/private-nixos-cfg";
-    # fonts.url = "path:/home/ezhang/code/nix/fonts";
     # nixvim-cfg.url = "path:/home/ezhang/code/nix/nixvim-cfg";
 
     slop.url = "git+ssh://git@github.com/HiddenAbilitree/slop.git?ref=main";
@@ -132,6 +114,7 @@
       "https://noctalia.cachix.org"
       "https://ezkea.cachix.org"
       "https://hyprland.cachix.org"
+      "https://hiddenability.cachix.org"
       "https://lanzaboote.cachix.org"
       "https://nix-community.cachix.org"
       "https://prismlauncher.cachix.org"
@@ -142,6 +125,7 @@
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "hiddenability.cachix.org-1:XoQgwtf8NLgOSELrDs0vOwB5WofUaYqVCJdn1ANf6n0="
       "lanzaboote.cachix.org-1:Nt9//zGmqkg1k5iu+B3bkj3OmHKjSw9pvf3faffLLNk="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="

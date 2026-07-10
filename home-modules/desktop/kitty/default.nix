@@ -1,13 +1,18 @@
 {
   config,
+  packages-nix,
   lib,
+  pkgs,
   ...
-}: {
+}: let
+  kittyPackage = packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.kitty;
+in {
   options.desktop.kitty.enable = lib.mkEnableOption "Kitty";
 
   config = lib.mkIf config.desktop.kitty.enable {
     programs.kitty = {
       enable = true;
+      package = kittyPackage;
       font.name = "0xProto Nerd Font";
       themeFile = "tokyo_night_storm";
       settings = {

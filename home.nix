@@ -37,6 +37,7 @@
 
       # development
       bun
+      python315
       uv
       cargo
       nodejs_latest

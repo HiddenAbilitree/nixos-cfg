@@ -1,4 +1,4 @@
-hl.monitor({ output = "eDP-1", mode = "highrr", position = "0x0", scale = "2" })
+hl.monitor({ output = "eDP-1", mode = "2880x1920@120", position = "0x0", scale = "2" })
 
 hl.config({
   general = {
@@ -36,7 +36,11 @@ hl.window_rule({ name = "loser-lunar-workspace", match = { initial_class = ".*[l
 hl.window_rule({ name = "loser-lunar-immediate", match = { initial_class = ".*[lL]unar.*" }, immediate = true })
 hl.window_rule({ name = "loser-steam-workspace", match = { initial_class = ".*steam.*" }, workspace = "2 silent" })
 hl.window_rule({ name = "loser-zed-workspace", match = { initial_class = ".*zed.*" }, workspace = "2 silent" })
-hl.window_rule({ name = "loser-minecraft-workspace", match = { initial_class = ".*Minecraft.*" }, workspace = "2 silent" })
+hl.window_rule({
+  name = "loser-minecraft-workspace",
+  match = { initial_class = ".*Minecraft.*" },
+  workspace = "2 silent",
+})
 hl.window_rule({ name = "loser-prism-workspace", match = { initial_class = ".*prism.*" }, workspace = "2 silent" })
 hl.window_rule({ name = "loser-kitty-workspace", match = { initial_class = "kitty" }, workspace = "3" })
 hl.window_rule({ name = "loser-vesktop-workspace", match = { initial_class = "vesktop" }, workspace = "4" })

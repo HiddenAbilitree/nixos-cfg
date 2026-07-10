@@ -1,19 +1,14 @@
 {
   config,
-  kitty,
   pkgs,
   ...
 }: {
   imports = [./users];
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowBroken = true;
-      android_sdk.accept_license = true;
-    };
-
-    overlays = [kitty.overlays.default];
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = true;
+    android_sdk.accept_license = true;
   };
 
   environment.systemPackages = with pkgs; [

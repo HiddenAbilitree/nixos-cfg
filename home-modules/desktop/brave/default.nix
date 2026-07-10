@@ -2,7 +2,7 @@
   config,
   lib,
   no-num-keys,
-  brave-origin,
+  packages-nix,
   pkgs,
   system,
   ...
@@ -45,7 +45,7 @@ in {
   options.desktop.browser.enable = lib.mkEnableOption "Browser";
 
   config = lib.mkIf config.desktop.browser.enable {
-    home.packages = [brave-origin.packages.${system}.default];
+    home.packages = [packages-nix.packages.${system}.brave-origin];
     home.file = lib.listToAttrs (map extensionJson extensions);
   };
 }
