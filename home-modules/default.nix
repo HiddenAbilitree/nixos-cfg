@@ -1,9 +1,14 @@
 {
-  imports = [
-    ./desktop
-    ./misc
-    ./shell
-  ];
+  lib,
+  system,
+  ...
+}: {
+  imports =
+    [./shell]
+    ++ lib.optionals (lib.hasSuffix "-linux" system) [
+      ./desktop
+      ./misc
+    ];
 
   programs = {
     git = {

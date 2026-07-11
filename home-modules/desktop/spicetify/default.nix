@@ -10,17 +10,20 @@
   config = lib.mkIf config.desktop.spicetify.enable {
     programs.spicetify = let
       spicePkgs = spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-    in {
-      enable = true;
-      spotifyPackage = pkgs.spotify;
-      enabledExtensions = with spicePkgs.extensions; [
-        hidePodcasts
-        shuffle
-        betterGenres
-      ];
-      theme = spicePkgs.themes.catppuccin;
-      colorScheme = "macchiato";
-      windowManagerPatch = true;
-    };
+    in
+      {
+        enable = true;
+        spotifyPackage = pkgs.spotify;
+        enabledExtensions = with spicePkgs.extensions; [
+          hidePodcasts
+          shuffle
+          betterGenres
+        ];
+        theme = spicePkgs.themes.catppuccin;
+        colorScheme = "macchiato";
+      }
+      // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
+        windowManagerPatch = true;
+      };
   };
 }

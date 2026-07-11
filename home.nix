@@ -11,7 +11,10 @@
 
   home = {
     username = "ezhang";
-    homeDirectory = "/home/ezhang";
+    homeDirectory =
+      if pkgs.stdenv.hostPlatform.isDarwin
+      then "/Users/ezhang"
+      else "/home/ezhang";
     sessionVariables = {
       EDITOR = "nvim";
       NH_FLAKE = root;
@@ -22,29 +25,30 @@
       XDG_STATE_HOME = lib.mkForce "$HOME/.local/state";
     };
 
-    packages = with pkgs; [
-      # cli/tuis
+    packages = with pkgs;
+      [
+        # utils
+        texliveFull
 
-      # utils
-      brightnessctl
-      colemak-dh
-      glib
-      hyprls
-      openconnect
-      vpn-slice
-      playerctl
-      texliveFull
-
-      # development
-      bun
-      python315
-      uv
-      cargo
-      nodejs_latest
-      man-pages
-      man-pages-posix
-      rustlings
-    ];
+        # development
+        bun
+        python315
+        uv
+        cargo
+        nodejs_latest
+        rustlings
+      ]
+      ++ lib.optionals stdenv.hostPlatform.isLinux [
+        brightnessctl
+        colemak-dh
+        glib
+        hyprls
+        openconnect
+        vpn-slice
+        playerctl
+        man-pages
+        man-pages-posix
+      ];
     stateVersion = "24.05";
   };
 

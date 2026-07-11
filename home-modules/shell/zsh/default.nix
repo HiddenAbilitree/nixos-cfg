@@ -19,39 +19,44 @@
       autocd = true;
       initContent = builtins.readFile ./initContent.sh;
       dotDir = "${config.xdg.configHome}/zsh";
-      shellAliases = {
-        cfg = "xvim ${root}";
-        pcfg = "xvim ${proot}";
-        ncfg = "xvim ${nroot}";
+      shellAliases =
+        {
+          cfg = "xvim ${root}";
+          pcfg = "xvim ${proot}";
+          ncfg = "xvim ${nroot}";
 
-        secrets = "sops ${proot}/nixos/sops/secrets.yaml";
+          secrets = "sops ${proot}/nixos/sops/secrets.yaml";
 
-        nt = "git -C ${root} add -A && nh os test ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.config/zsh/.zshrc";
-        ns = "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.config/zsh/.zshrc";
-        nc = "nh clean all";
-        nr = "nixos-rebuild switch --flake ${root} --rollback --use-remote-sudo";
-        nu = "nix flake update --flake ${root}";
-        nus = "nu && ns";
-        nfu = "nix flake update";
+          nc = "nh clean all";
+          nu = "nix flake update --flake ${root}";
+          nus = "nu && ns";
+          nfu = "nix flake update";
 
-        fetch = "fastfetch\nsource /etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh";
+          fetch = "fastfetch\nsource /etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh";
 
-        cd = "z";
-        ls = "eza";
+          cd = "z";
+          ls = "eza";
 
-        gh = "GITHUB_TOKEN=$(cat ${osConfig.sops.secrets.github-token.path}) gh";
+          edit = "$EDITOR";
 
-        edit = "$EDITOR";
-        code = "codium";
-
-        pdf = "nohup zathura $(fzf)";
-
-        q = "qalc";
-        b = "bluetuith";
-        lg = "lazygit";
-
-        vpn = "cat ${osConfig.sops.secrets.zeuspwd.path} | sudo openconnect --background --user=ezhang7 --authgroup=STUDENT --passwd-on-stdin vpn.gmu.edu > /dev/null";
-      };
+          q = "qalc";
+          lg = "lazygit";
+        }
+        // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
+          nt = "git -C ${root} add -A && nh os test ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.config/zsh/.zshrc";
+          ns = "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.config/zsh/.zshrc";
+          nr = "nixos-rebuild switch --flake ${root} --rollback --use-remote-sudo";
+          gh = "GITHUB_TOKEN=$(cat ${osConfig.sops.secrets.github-token.path}) gh";
+          code = "codium";
+          pdf = "nohup zathura $(fzf)";
+          b = "bluetuith";
+          vpn = "cat ${osConfig.sops.secrets.zeuspwd.path} | sudo openconnect --background --user=ezhang7 --authgroup=STUDENT --passwd-on-stdin vpn.gmu.edu > /dev/null";
+        }
+        // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
+          nt = "git -C ${root} add -A && nh darwin build ${root} -H ${osConfig.networking.hostName} && source ~/.config/zsh/.zshrc";
+          ns = "git -C ${root} add -A && nh darwin switch ${root} -H ${osConfig.networking.hostName} && source ~/.config/zsh/.zshrc";
+          code = "zed";
+        };
       plugins = [
         {
           name = "zsh-you-should-use";

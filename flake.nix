@@ -54,6 +54,11 @@
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nixos-wsl = {
@@ -137,8 +142,16 @@
 
   outputs = {nixpkgs, ...} @ inputs: let
     inherit (nixpkgs) lib;
+    inherit ((import ./lib/mkDarwinHost.nix {inherit inputs;})) mkDarwinHost;
     inherit ((import ./lib/mkHost.nix {inherit lib inputs;})) mkHost;
   in {
+    darwinConfigurations = {
+      chud = mkDarwinHost {
+        hostName = "chud";
+        system = "aarch64-darwin";
+      };
+    };
+
     nixosConfigurations = {
       loser = mkHost {
         hostName = "loser";
