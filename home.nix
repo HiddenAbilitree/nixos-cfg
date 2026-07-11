@@ -27,10 +27,8 @@
 
     packages = with pkgs;
       [
-        # utils
         texliveFull
 
-        # development
         bun
         python315
         uv
