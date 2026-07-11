@@ -15,7 +15,11 @@
       [
         awscli2
         devenv
+      ]
+      ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
         dig
+      ]
+      ++ [
         ffmpeg
         libqalculate
         gdu

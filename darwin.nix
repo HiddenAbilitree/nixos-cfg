@@ -6,13 +6,10 @@
     fd
     fzf
     jq
-    killall
     p7zip
     ripgrep
     sops
-    unzip
     wget
-    zip
   ];
 
   nix = {

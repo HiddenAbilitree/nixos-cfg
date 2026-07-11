@@ -19,9 +19,7 @@ in {
       ./gtk
       ./hyprland
       ./kitty
-    ]
-    ++ [./mpv]
-    ++ lib.optionals isLinux [
+      ./mpv
       ./noctalia
       ./notifications
     ]
@@ -54,7 +52,6 @@ in {
     {
       desktop = {
         ghostty.enable = lib.mkDefault true;
-        mpv.enable = lib.mkDefault true;
         spicetify.enable = lib.mkDefault true;
       };
     }
@@ -78,6 +75,7 @@ in {
           hypridle.enable = lib.mkDefault true;
         };
         kitty.enable = lib.mkDefault true;
+        mpv.enable = lib.mkDefault true;
         paper.enable = lib.mkDefault true;
         rofi.enable = lib.mkDefault true;
         noctalia.enable = lib.mkDefault false;
