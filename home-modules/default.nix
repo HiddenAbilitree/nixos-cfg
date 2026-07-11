@@ -4,11 +4,12 @@
   ...
 }: {
   imports =
-    [./shell]
-    ++ lib.optionals (lib.hasSuffix "-linux" system) [
+    [
+      ./shell
       ./desktop
-      ./misc
-    ];
+    ]
+    ++ lib.optionals (lib.hasSuffix "-darwin" system) [./darwin]
+    ++ lib.optionals (lib.hasSuffix "-linux" system) [./misc];
 
   programs = {
     git = {

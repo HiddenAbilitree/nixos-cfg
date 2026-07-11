@@ -6,6 +6,8 @@
     inputs.nix-darwin.lib.darwinSystem {
       specialArgs = inputs // args;
       modules = [
+        ../darwin.nix
+        ../darwin-modules
         (../. + "/hosts/${hostName}")
         inputs.home-manager.darwinModules.home-manager
         {

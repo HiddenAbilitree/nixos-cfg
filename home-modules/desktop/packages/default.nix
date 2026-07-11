@@ -5,51 +5,59 @@
   ...
 }:
 lib.mkIf config.desktop.enable {
-  home.packages = with pkgs; [
-    # affine
-    # blender
-    # dbeaver-bin
-    easyeffects
-    # element-desktop
-    firefox
-    font-manager
-    # gimp
-    # godot
-    google-chrome
-    # gnome-disk-utility
-    hyprsunset
-    # inkscape
-    # jetbrains.idea
-    # kdePackages.kdenlive
-    # ladybird
-    # libreoffice
-    # librewolf
-    libsecret
-    moonlight-qt
-    nautilus
-    obsidian
-    obs-cmd
-    pavucontrol
-    piper
-    # polychromatic
-    # postman
-    protonup-qt
-    # rquickshare
-    # sqlite-web
-    themechanger
-    tor-browser
-    # typst
-    vesktop
-    # vinegar
-    # vlc
-    wineWow64Packages.waylandFull
-    # wl-clicker
-    wl-clipboard
-    # ydotool
-    # zoom-us
-    # zotero
-    # androidStudioPackages.canary
-    # android-studio-full
-    # android-studio
-  ];
+  home.packages = with pkgs;
+    lib.optionals stdenv.hostPlatform.isDarwin [
+      brave
+      nerd-fonts._0xproto
+      obsidian
+      raycast
+      zed-editor
+    ]
+    ++ lib.optionals stdenv.hostPlatform.isLinux [
+      # affine
+      # blender
+      # dbeaver-bin
+      easyeffects
+      # element-desktop
+      firefox
+      font-manager
+      # gimp
+      # godot
+      google-chrome
+      # gnome-disk-utility
+      hyprsunset
+      # inkscape
+      # jetbrains.idea
+      # kdePackages.kdenlive
+      # ladybird
+      # libreoffice
+      # librewolf
+      libsecret
+      moonlight-qt
+      nautilus
+      obsidian
+      obs-cmd
+      pavucontrol
+      piper
+      # polychromatic
+      # postman
+      protonup-qt
+      # rquickshare
+      # sqlite-web
+      themechanger
+      tor-browser
+      # typst
+      vesktop
+      # vinegar
+      # vlc
+      wineWow64Packages.waylandFull
+      # wl-clicker
+      wl-clipboard
+      # ydotool
+      # zoom-us
+      # zotero
+      # androidStudioPackages.canary
+      # android-studio-full
+      # android-studio
+    ];
 }
