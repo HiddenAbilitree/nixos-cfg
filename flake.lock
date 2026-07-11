@@ -452,11 +452,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783679825,
-        "narHash": "sha256-gpIbUVDbd64p80I5TypVA9jJ9bu6gQBnD1YoSbUBDXw=",
+        "lastModified": 1783722535,
+        "narHash": "sha256-j6ijJU8MndF+NOG4RkRxU3UaxWkDFVoTVR8oJ+FPLCM=",
         "owner": "forkprince",
         "repo": "nur-packages",
-        "rev": "8e9fb8d26f7b3cfb3f1b1908309b899f87df8f59",
+        "rev": "9ca2352b47d334a06517997675b5dcbc64b5c6d9",
         "type": "github"
       },
       "original": {
@@ -472,11 +472,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783711151,
-        "narHash": "sha256-232L3Nku2nLch/TQHsJEIhiZJKr+VTehnVUs1NZ0SNc=",
+        "lastModified": 1783742794,
+        "narHash": "sha256-RJCOGGuLFsCMnrzfDfMru8m6atjfYHZ4SuHQcK3pvt0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f938277527aa084929261879d50d9832b9eab6d3",
+        "rev": "3e2af6c9e5d32d6fa766d4ca675bace5bfe01dc6",
         "type": "github"
       },
       "original": {
@@ -913,11 +913,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1783713893,
-        "narHash": "sha256-Jfe98zxuyIRit1pEVcF7R4QCon5u2OmxpHv5c1vwAnY=",
+        "lastModified": 1783738657,
+        "narHash": "sha256-gVS7RTK4lDeHc18V5vhbD6yR+dkj6spiUzlgYS2OP9M=",
         "owner": "numtide",
         "repo": "llm-agents.nix",
-        "rev": "cdd2b21be54e644e1f450492cf71e4180bd90401",
+        "rev": "c69b3057113428150630c05682fa3cfbd312b4d5",
         "type": "github"
       },
       "original": {
@@ -1314,11 +1314,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1781029114,
-        "narHash": "sha256-riRkNhhSYB42UNMGcpEinIKoTaOwLj5HELLNyCQDBTw=",
+        "lastModified": 1783742345,
+        "narHash": "sha256-Z6HRC7dPV8se1r+vWcITW05rU2RrozSMA78HvIXmJhU=",
         "ref": "main",
-        "rev": "559f0ac0bd809c6e76414450bd66d9ed719f392e",
-        "revCount": 108,
+        "rev": "bbaa4f37692ea56319ba1eec666b5739a1659d6c",
+        "revCount": 109,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/nixvim-cfg.git"
       },
@@ -1354,11 +1354,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783717732,
-        "narHash": "sha256-3WzoXhPL5Pvvb02s6A79/+Tq98rNtD8csAmXPWG8ETE=",
+        "lastModified": 1783733984,
+        "narHash": "sha256-mUIn6L5GRdbii+rM9sj68fj19TbQAbFsV8hvbOYBvp8=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "4f2b614846e22e4718f79a489c7e17f8ff258abb",
+        "rev": "5c7e2fba2338125339c6556b5cfb0ca5864ea448",
         "type": "github"
       },
       "original": {
@@ -1459,11 +1459,11 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1783492015,
-        "narHash": "sha256-S4s+2p2izcQjIq4xnqhvaYaOO0cAr0R29egb7oHDWyU=",
+        "lastModified": 1783741132,
+        "narHash": "sha256-xlV6h38Dar2fDbsja/g4DLECjeJIh2JcoCgaSOPOHEc=",
         "ref": "main",
-        "rev": "2684ec8fbdab5ae4aa16c2c3c230984389e030d2",
-        "revCount": 154,
+        "rev": "2c0c22e9575375597fa27c0505e4574715ad8410",
+        "revCount": 157,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git"
       },
