@@ -3,6 +3,7 @@
   config,
   lib,
   llm-agents,
+  nix-bisect,
   pkgs,
   slop,
   twopass,
@@ -25,6 +26,10 @@
         gdu
         wireguard-tools
         dua
+        (nix-bisect.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (_: {
+          # Upstream's Nix build has flaky process tests and omits integration fixtures.
+          doCheck = false;
+        }))
         twopass.packages.${pkgs.stdenv.hostPlatform.system}.default
         slop.packages.${pkgs.stdenv.hostPlatform.system}.default
         statix

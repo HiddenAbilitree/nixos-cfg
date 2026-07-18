@@ -101,7 +101,8 @@ in {
           panel = {
             transparency_mode = "glass";
             shadow = true;
-            control_center_placement = "centered";
+            control_center_placement = "floating";
+            control_center_position = "center";
           };
         };
 

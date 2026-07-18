@@ -9,6 +9,13 @@
 }: let
   hyprlandPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   hyprlandPortalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  patchedSplitMonitorWorkspaces = pkgs.applyPatches {
+    name = "split-monitor-workspaces-patched";
+    src = split-monitor-workspaces;
+    patches = [
+      ./patches/split-monitor-workspaces-rogue-workspace-exclusions.patch
+    ];
+  };
 
   resetWindowWorkspaces = pkgs.writeShellApplication {
     name = "hyprland-reset-window-workspaces";
@@ -47,7 +54,7 @@ in {
       configType = "lua";
       extraConfig =
         ''
-          package.path = package.path .. ";${split-monitor-workspaces}/lua/?.lua"
+          package.path = package.path .. ";${patchedSplitMonitorWorkspaces}/lua/?.lua"
           local smw = require("split-monitor-workspaces")
 
         ''

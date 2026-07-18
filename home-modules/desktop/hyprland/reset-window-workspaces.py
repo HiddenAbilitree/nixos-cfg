@@ -4,8 +4,8 @@
 Hyprland applies static `workspace` window-rule effects when a client opens. It
 does not expose a documented command to re-run those rules for already-open
 clients, so this script rebuilds the workspace mapping from the current
-`hyprland.lua` config file and applies it with targeted `movetoworkspacesilent`
-dispatches.
+`hyprland.lua` config file and applies it with targeted Lua window-move
+dispatchers.
 """
 
 from __future__ import annotations
@@ -308,6 +308,16 @@ def planned_moves(
     return moves
 
 
+def lua_move_dispatcher(move: dict[str, str]) -> str:
+    workspace = json.dumps(move["workspace"], ensure_ascii=False)
+    window = json.dumps(f"address:{move['address']}", ensure_ascii=False)
+    return (
+        "hl.dsp.window.move({ "
+        f"workspace = {workspace}, window = {window}, follow = false "
+        "})"
+    )
+
+
 def default_config_path() -> Path:
     explicit = os.environ.get("HYPRLAND_RESET_WORKSPACES_CONFIG")
     if explicit:
@@ -378,10 +388,9 @@ def main() -> int:
             [
                 "hyprctl",
                 "dispatch",
-                "movetoworkspacesilent",
-                f"{move['workspace']},address:{move['address']}",
+                lua_move_dispatcher(move),
             ],
-            check=False,
+            check=True,
         )
 
     return 0

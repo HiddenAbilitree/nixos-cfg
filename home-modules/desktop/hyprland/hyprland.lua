@@ -3,6 +3,8 @@ local mod = "SUPER"
 local browser = "brave"
 local terminal = "kitty"
 local split_workspace_count = 9
+local obsidian_workspace_name = "obsidian"
+local obsidian_workspace_selector = "name:" .. obsidian_workspace_name
 
 local function on_start(commands)
   hl.on("hyprland.start", function()
@@ -61,6 +63,7 @@ local function bind_split_monitor_workspaces()
     enable_notifications = true,
     enable_persistent_workspaces = true,
     enable_wrapping = true,
+    rogue_workspace_exclusions = { obsidian_workspace_name },
   })
 
   for workspace = 1, split_workspace_count do
@@ -181,6 +184,8 @@ hl.bind(mod .. " + F", hl.dsp.window.fullscreen())
 bind_exec(mod .. " + B", browser)
 bind_exec(mod .. " + Q", terminal)
 bind_exec(mod .. " + grave", menu)
+hl.bind(mod .. " + Tab", hl.dsp.focus({ workspace = obsidian_workspace_selector }))
+hl.bind(mod .. " + SHIFT + Tab", hl.dsp.window.move({ workspace = obsidian_workspace_selector, follow = false }))
 bind_exec(mod .. " + space", "vicinae toggle")
 bind_exec("ALT + Tab", "rofi -show window")
 bind_exec("ALT + CTRL + SHIFT + P", "rofi -show filebrowser")
@@ -223,3 +228,14 @@ for _, binding in ipairs({
 
   bind_exec(binding.key, binding.command, flags)
 end
+
+hl.workspace_rule({
+  workspace = obsidian_workspace_selector,
+  persistent = true,
+})
+
+hl.window_rule({
+  name = "obsidian-workspace",
+  match = { initial_class = "obsidian" },
+  workspace = "name:obsidian silent",
+})

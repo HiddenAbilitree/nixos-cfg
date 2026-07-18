@@ -1,0 +1,24 @@
+diff --git a/lua/dispatchers.lua b/lua/dispatchers.lua
+index 8c333d4..d8944d7 100644
+--- a/lua/dispatchers.lua
++++ b/lua/dispatchers.lua
+@@ -191 +191,4 @@ function dispatchers.do_grab_rogue_windows()
+-	local mapped = {}
++	local mapped = {}
++	for _, name in ipairs(globals.cfg.rogue_workspace_exclusions) do
++		mapped[name] = true
++	end
+diff --git a/lua/globals.lua b/lua/globals.lua
+index 916b2af..663c3da 100644
+--- a/lua/globals.lua
++++ b/lua/globals.lua
+@@ -17 +17,2 @@
+----@field max_workspaces table<string, integer>?
++---@field max_workspaces table<string, integer>?
++---@field rogue_workspace_exclusions string[]?
+@@ -57 +58,4 @@ globals.cfg = {
+-	max_workspaces = {},
++	max_workspaces = {},
++
++	--- Workspace names that rogue-window recovery must leave in place.
++	rogue_workspace_exclusions = {},

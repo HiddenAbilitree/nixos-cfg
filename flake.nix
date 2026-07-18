@@ -50,6 +50,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-bisect = {
+      url = "git+ssh://git@github.com/HiddenAbilitree/nix-bisect.git?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-dokploy.url = "github:el-kurto/nix-dokploy";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
@@ -125,6 +130,7 @@
       "https://prismlauncher.cachix.org"
       "https://vicinae.cachix.org"
       "https://cache.numtide.com"
+      "https://cache.thalheim.io"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -136,6 +142,7 @@
       "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
       "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
       "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
+      "cache.thalheim.io-1:R7msbosLEZKrxk/lKxf9BTjOOH7Ax3H0Qj0/6wiHOgc="
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
     ];
   };
