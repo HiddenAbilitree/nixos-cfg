@@ -27,7 +27,6 @@
     wget
     zip
     zsh
-    # nushell
 
     usbutils
     udiskie
@@ -39,8 +38,20 @@
     useNetworkd = true;
   };
 
+  sops.templates."nix-access-tokens" = {
+    content = ''
+      access-tokens = github.com=${config.sops.placeholder.github-token}
+    '';
+    owner = "ezhang";
+    mode = "0400";
+    restartUnits = ["nix-daemon.service"];
+  };
+
+  nix.extraOptions = ''
+    !include ${config.sops.templates."nix-access-tokens".path}
+  '';
+
   nix.settings = {
-    access-tokens = config.sops.secrets.github-token.path;
     auto-optimise-store = true;
 
     download-buffer-size = 524288000;
@@ -87,9 +98,8 @@
   };
 
   services = {
-    fwupd.enable = true; # firmware updates
+    fwupd.enable = true;
 
-    # auto mount/unmount usb drives
     gvfs.enable = true;
     udisks2.enable = true;
   };

@@ -16,9 +16,7 @@ index 916b2af..663c3da 100644
 ----@field max_workspaces table<string, integer>?
 +---@field max_workspaces table<string, integer>?
 +---@field rogue_workspace_exclusions string[]?
-@@ -57 +58,4 @@ globals.cfg = {
+@@ -57 +58,2 @@ globals.cfg = {
 -	max_workspaces = {},
 +	max_workspaces = {},
-+
-+	--- Workspace names that rogue-window recovery must leave in place.
 +	rogue_workspace_exclusions = {},

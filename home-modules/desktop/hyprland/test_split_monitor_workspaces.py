@@ -20,7 +20,6 @@ PATCH_PATH = (
 )
 SMW_REVISION = "08947bcd474fd5e8e4b558cc908dd4b7659f4dc4"
 NOCTALIA_REVISION = "034115fb80b4fc5121b7ff26aedd634a04119884"
-# Noctalia persists this schema in ~/.local/state/noctalia/settings.toml.
 NOCTALIA_CONFIG_VERSION = 2
 
 

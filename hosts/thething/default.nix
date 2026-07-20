@@ -82,7 +82,6 @@ in {
     graphics.enable32Bit = true;
   };
 
-  # Note this might jump back and forth as kernels are added or removed.
   boot.kernelPackages = lib.mkForce latestKernelPackage;
 
   wireguard.enable = true;

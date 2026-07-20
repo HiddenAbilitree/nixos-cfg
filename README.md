@@ -39,7 +39,7 @@ lsblk -o NAME,SIZE,MODEL,TYPE
 then set `device` in `hosts/<host>/disk-config.nix` (on existing host):
 
 ```nix
-device = "/dev/nvme0n1"; # this disk gets wiped
+device = "/dev/nvme0n1";
 ```
 
 update `flake.nix`:

@@ -37,7 +37,6 @@ QCalendarWidget *,
   color: #ffffff;
 }
 
-/*TOOLBUTTON*/
 QToolBar {
   background-color: transparent;
   spacing: 0;
@@ -96,7 +95,6 @@ QToolButton::menu-button {
   border: none;
 }
 
-/*MENU*/
 QMenuBar {
   background-color: transparent;
   color: #ffffff;
@@ -162,7 +160,6 @@ QMenu::item:disabled {
   background-color: transparent;
 }
 
-/*PUSHBUTTON*/
 QPushButton {
   background-color: rgba(255, 255, 255, 18);
   border-radius: 4px;
@@ -187,7 +184,6 @@ QPushButton:disabled {
   background-color: rgba(150, 150, 150, 23);
 }
 
-/*GROUPBOX*/
 QGroupBox {
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.23);
@@ -207,7 +203,6 @@ QGroupBox::title::disabled {
   color: rgba(150, 150, 150)
 }
 
-/*LISTVIEW*/
 QListView {}
 
 QListView::indicator,
@@ -234,7 +229,6 @@ QListView::item:selected {
   border-color: rgba(255, 255, 255, 0);
 }
 
-/*TREEVIEW*/
 QTreeView {
   background-color: transparent;
   color: #ffffff;
@@ -284,7 +278,6 @@ QTreeView::branch:has-children:open:hover {
   image: url(theme:TreeViewOpen.png);
 }
 
-/*HEADERVIEW*/
 QHeaderView {
   font-family: "Segoe UI Variable Small", serif;
   font-size: 12px;
@@ -329,7 +322,6 @@ QHeaderView::down-arrow {
   image: url(theme:SpinBoxUp.png);
 }
 
-/*TABWIDGET*/
 QTabWidget::pane {
   border: 0px solid rgba(255, 255, 255, 0);
   border-radius: 8px;
@@ -360,7 +352,6 @@ QTabBar::tab:disabled {
   color: rgba(150, 150, 150);
 }
 
-/*SCROLL VERTICAL*/
 QScrollBar:vertical {
   border: 6px solid rgba(255, 255, 255, 0);
   background-color: transparent;
@@ -411,7 +402,6 @@ QScrollBar::sub-page:vertical {
   background: none;
 }
 
-/*SCROLL HORIZONTAL*/
 QScrollBar:horizontal {
   border: 6px solid rgba(255, 255, 255, 0);
   background-color: transparent;
@@ -466,7 +456,6 @@ QAbstractScrollArea {
   background-color: transparent;
 }
 
-/*PROGRESSBAR*/
 QProgressBar {
   text-align: right;
   background-color: qlineargradient(spread:reflect, x1:0.5, y1:0.5, x2:0.5, y2:1, stop:0.119403 rgba(255, 255, 255, 20), stop:0.273632 rgba(0, 0, 0, 0));
@@ -494,7 +483,6 @@ QProgressBar::chunk {
     border-radius: 3px;
 }*/
 
-/*SPINBOXES*/
 QSpinBox {
   background-color: rgba(255, 255, 255, 10);
   border: 1px solid rgba(255, 255, 255, 8);
@@ -753,7 +741,6 @@ QDateTimeEdit::down-button:disabled {
   image: url(theme:SpinBoxDownDisabled.png);
 }
 
-/*COMBOBOX*/
 QComboBox {
   background-color: rgba(255, 255, 255, 18);
   border-radius: 4px;
@@ -807,7 +794,6 @@ QComboBox QAbstractItemView {
   padding: 4px;
 }
 
-/*TEXTEDIT*/
 QTextEdit,
 QPlainTextEdit {
   background-color: rgba(255, 255, 255, 16);
@@ -837,7 +823,6 @@ QPlainTextEdit:disabled {
   border: 1px solid rgba(255, 255, 255, 5);
 }
 
-/*LINEDIT*/
 QLineEdit {
   background-color: rgba(255, 255, 255, 16);
   border: 1px solid rgba(255, 255, 255, 5);
@@ -876,7 +861,6 @@ QLineEdit:pressed QToolButton:pressed {
   background-color: transparent;
 }
 
-/*RADIOBUTTON*/
 QRadioButton {
   min-height: 30px;
   max-height: 30px;
@@ -924,7 +908,6 @@ QRadioButton::indicator:disabled {
   background-color: rgba(255, 255, 255, 0);
 }
 
-/*SLIDER VERTICAL*/
 QSlider:vertical {
   min-width: 30px;
   min-height: 100px;
@@ -972,7 +955,6 @@ QSlider::handle:vertical:disabled {
   border: 6px solid #8495cf;
 }
 
-/*SLIDER HORIZONTAL*/
 QSlider:horizontal {
   min-width: 100px;
   min-height: 30px;
@@ -1022,7 +1004,6 @@ QSlider::handle:horizontal:disabled {
   border: 6px solid #8495cf;
 }
 
-/*CHECKBOX,MENU,GROUPBOX, TREEVIEW*/
 QCheckBox,
 QLabel,
 QCheckBox,
@@ -1137,7 +1118,6 @@ QTreeView::indicator:disabled {
   background-color: rgba(255, 255, 255, 0);
 }
 
-/*OTHER*/
 QStatusBar::item {
   background: transparent;
 }

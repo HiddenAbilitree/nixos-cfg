@@ -94,8 +94,6 @@ in {
           shadow.direction = "center";
           screen_corners = {
             enabled = true;
-            # Hyprland windows use gaps_out = 4 and rounding = 8, so the
-            # screen corner radius is 4 + 8 for concentric outer corners.
             size = 12;
           };
           panel = {

@@ -7,7 +7,7 @@ hl.config({
   input = {
     touchpad = {
       disable_while_typing = false,
-      clickfinger_behavior = false, -- 1 finger : m1, 2 fingers : m2, 3 fingers : m3
+      clickfinger_behavior = false,
     },
   },
   xwayland = {
