@@ -209,6 +209,7 @@ end
 bind_exec(mod .. " + l", "hyprlock")
 bind_exec(mod .. " + p", "hyprpicker -a -f hex")
 bind_exec(mod .. " + SHIFT + S", "hyprshot -m region --clipboard-only --freeze --silent", { locked = true })
+bind_exec(mod .. " + SHIFT + O", "hyprland-ocr")
 bind_exec("Print", "hyprshot -m output -m eDP-1", { locked = true })
 
 for _, binding in ipairs({
