@@ -1,9 +1,11 @@
 {
   config,
   lib,
+  packages-nix,
   pkgs,
   ...
-}: {
+}:
+{
   options.desktop.dark-mode.enable = lib.mkEnableOption "Dark Mode";
 
   config = lib.mkIf config.desktop.dark-mode.enable {
@@ -23,15 +25,7 @@
 
       theme = {
         name = "Tokyonight-Dark-Storm";
-        package = pkgs.tokyonight-gtk-theme.override {
-          colorVariants = ["dark"];
-          tweakVariants = [
-            "storm"
-            "macos"
-            "outline"
-          ];
-          iconVariants = ["Dark-Cyan"];
-        };
+        package = packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.tokyonight-gtk-theme;
       };
 
       gtk3.extraConfig = {

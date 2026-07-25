@@ -1,5 +1,5 @@
-{lib, ...}: {
-  imports = [./programs];
+{ lib, ... }: {
+  imports = [ ./programs ];
   shell = {
     enable = true;
     zellij.autostart = false;

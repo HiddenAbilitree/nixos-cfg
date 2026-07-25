@@ -4,7 +4,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options.desktop.hyprland.enable = lib.mkEnableOption "Hyprland";
 
   config = lib.mkIf config.desktop.hyprland.enable {
@@ -15,13 +16,16 @@
     };
 
     xdg.portal = {
-      extraPortals = [pkgs.xdg-desktop-portal-wlr];
+      extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
       config.common = {
         "org.freedesktop.impl.portal.ScreenCast" = "wlr";
         "org.freedesktop.impl.portal.Screenshot" = "wlr";
       };
       config.hyprland = {
-        default = ["hyprland" "gtk"];
+        default = [
+          "hyprland"
+          "gtk"
+        ];
         "org.freedesktop.impl.portal.ScreenCast" = "wlr";
         "org.freedesktop.impl.portal.Screenshot" = "wlr";
       };

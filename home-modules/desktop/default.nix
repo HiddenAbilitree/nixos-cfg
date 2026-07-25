@@ -5,16 +5,18 @@
   pkgs,
   system,
   ...
-}: let
+}:
+let
   isLinux = lib.hasSuffix "-linux" system;
-in {
+in
+{
   imports =
     lib.optionals isLinux [
       ./brave
       ./cava
       ./games
     ]
-    ++ [./ghostty]
+    ++ [ ./ghostty ]
     ++ lib.optionals isLinux [
       ./gtk
       ./hyprland
@@ -23,12 +25,12 @@ in {
       ./noctalia
       ./notifications
     ]
-    ++ [./packages]
+    ++ [ ./packages ]
     ++ lib.optionals isLinux [
       ./paper
       ./rofi
     ]
-    ++ [./spicetify]
+    ++ [ ./spicetify ]
     ++ lib.optionals isLinux [
       ./vicinae
       ./vscodium
@@ -48,54 +50,56 @@ in {
     };
   };
 
-  config = lib.mkIf config.desktop.enable (lib.mkMerge [
-    {
-      desktop = {
-        ghostty.enable = lib.mkDefault true;
-        spicetify.enable = lib.mkDefault true;
-      };
-    }
-    (lib.optionalAttrs isLinux {
-      home.pointerCursor = {
-        enable = true;
-        gtk.enable = true;
-        package = pkgs.bibata-cursors;
-        name = "Bibata-Modern-Classic";
-        size = 24;
-      };
-
-      desktop = {
-        browser.enable = lib.mkDefault true;
-        cava.enable = lib.mkDefault true;
-        dark-mode.enable = lib.mkDefault true;
-        hyprland = {
-          enable = lib.mkDefault true;
-          hyprlock.enable = lib.mkDefault true;
-          hyprpaper.enable = lib.mkDefault true;
-          hypridle.enable = lib.mkDefault true;
+  config = lib.mkIf config.desktop.enable (
+    lib.mkMerge [
+      {
+        desktop = {
+          ghostty.enable = lib.mkDefault true;
+          spicetify.enable = lib.mkDefault true;
         };
-        kitty.enable = lib.mkDefault true;
-        mpv.enable = lib.mkDefault true;
-        paper.enable = lib.mkDefault true;
-        rofi.enable = lib.mkDefault true;
-        noctalia.enable = lib.mkDefault false;
-        notifications.enable = lib.mkDefault true;
-        vicinae.enable = lib.mkDefault false;
-        vscodium.enable = lib.mkDefault true;
-        waybar.enable = lib.mkDefault true;
-        zathura.enable = lib.mkDefault true;
-        zed.enable = lib.mkDefault false;
-        wallpaper.enable = lib.mkDefault false;
-      };
+      }
+      (lib.optionalAttrs isLinux {
+        home.pointerCursor = {
+          enable = true;
+          gtk.enable = true;
+          package = pkgs.bibata-cursors;
+          name = "Bibata-Modern-Classic";
+          size = 24;
+        };
 
-      xdg.mimeApps.defaultApplications = {
-        "application/pdf" = ["zathura"];
-        "text/plain" = ["kitty"];
-        "text/html" = ["brave"];
-        "image/png" = ["brave"];
-        "image/jpeg" = ["brave"];
-        "image/gif" = ["brave"];
-      };
-    })
-  ]);
+        desktop = {
+          browser.enable = lib.mkDefault true;
+          cava.enable = lib.mkDefault true;
+          dark-mode.enable = lib.mkDefault true;
+          hyprland = {
+            enable = lib.mkDefault true;
+            hyprlock.enable = lib.mkDefault true;
+            hyprpaper.enable = lib.mkDefault true;
+            hypridle.enable = lib.mkDefault true;
+          };
+          kitty.enable = lib.mkDefault true;
+          mpv.enable = lib.mkDefault true;
+          paper.enable = lib.mkDefault true;
+          rofi.enable = lib.mkDefault true;
+          noctalia.enable = lib.mkDefault false;
+          notifications.enable = lib.mkDefault true;
+          vicinae.enable = lib.mkDefault false;
+          vscodium.enable = lib.mkDefault true;
+          waybar.enable = lib.mkDefault true;
+          zathura.enable = lib.mkDefault true;
+          zed.enable = lib.mkDefault false;
+          wallpaper.enable = lib.mkDefault false;
+        };
+
+        xdg.mimeApps.defaultApplications = {
+          "application/pdf" = [ "zathura" ];
+          "text/plain" = [ "kitty" ];
+          "text/html" = [ "brave" ];
+          "image/png" = [ "brave" ];
+          "image/jpeg" = [ "brave" ];
+          "image/gif" = [ "brave" ];
+        };
+      })
+    ]
+  );
 }

@@ -6,7 +6,8 @@
   proot,
   root,
   ...
-}: {
+}:
+{
   options.shell.nushell.enable = lib.mkEnableOption "nushell";
 
   config = lib.mkIf config.shell.nushell.enable {

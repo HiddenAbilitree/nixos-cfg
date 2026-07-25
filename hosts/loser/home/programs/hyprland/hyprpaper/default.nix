@@ -1,4 +1,4 @@
-{root, ...}: {
+{ root, ... }: {
   services.hyprpaper.settings = {
     preload = [
       "${root}/assets/wallpapers/2880x1920/water.png"

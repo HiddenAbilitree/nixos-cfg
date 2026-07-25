@@ -4,13 +4,15 @@
   pkgs,
   spicetify-nix,
   ...
-}: {
+}:
+{
   options.desktop.spicetify.enable = lib.mkEnableOption "Spicetify";
 
   config = lib.mkIf config.desktop.spicetify.enable {
-    programs.spicetify = let
-      spicePkgs = spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-    in
+    programs.spicetify =
+      let
+        spicePkgs = spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+      in
       {
         enable = true;
         spotifyPackage = pkgs.spotify;

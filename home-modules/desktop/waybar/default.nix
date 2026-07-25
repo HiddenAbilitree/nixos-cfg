@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.desktop.waybar.enable = lib.mkEnableOption "Waybar";
 
   config = lib.mkIf (config.desktop.waybar.enable && !config.desktop.noctalia.enable) {

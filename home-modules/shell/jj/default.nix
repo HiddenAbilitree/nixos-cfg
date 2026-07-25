@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options.shell.jj.enable = lib.mkEnableOption "Jujutsu";
 
   config = lib.mkIf config.shell.jj.enable {

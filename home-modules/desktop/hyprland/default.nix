@@ -6,10 +6,12 @@
   pkgs,
   split-monitor-workspaces,
   ...
-}: let
+}:
+let
   hyprlandPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  hyprlandPortalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  tesseractEnglish = pkgs.tesseract5.override {enableLanguages = ["eng"];};
+  hyprlandPortalPackage =
+    hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  tesseractEnglish = pkgs.tesseract5.override { enableLanguages = [ "eng" ]; };
   patchedSplitMonitorWorkspaces = pkgs.applyPatches {
     name = "split-monitor-workspaces-patched";
     src = split-monitor-workspaces;
@@ -33,7 +35,7 @@
     name = "hyprland-ocr";
     runtimeInputs = [
       pkgs.coreutils
-      pkgs.hyprshot
+      pkgs.grimblast
       pkgs.imagemagick
       pkgs.libnotify
       tesseractEnglish
@@ -121,7 +123,7 @@
       screenshot_file="$(mktemp --suffix=.png)"
       trap 'rm -f "$screenshot_file"' EXIT
 
-      if ! hyprshot --mode region --freeze --raw --silent >"$screenshot_file"; then
+      if ! grimblast --freeze save area "$screenshot_file" >/dev/null; then
         exit 0
       fi
 
@@ -168,7 +170,8 @@
       notify-send --app-name="Hyprland OCR" "OCR complete" "Text copied to the clipboard."
     '';
   };
-in {
+in
+{
   imports = [
     ./hyprlock
     ./hypridle
@@ -178,9 +181,10 @@ in {
   options.desktop.hyprland.enable = lib.mkEnableOption "Hyprland";
 
   config = lib.mkIf config.desktop.hyprland.enable {
-    home.packages = with pkgs;
+    home.packages =
+      with pkgs;
       [
-        hyprshot
+        grimblast
         hyprpicker
         hyprpolkitagent
         xdg-desktop-portal-gtk
@@ -195,16 +199,15 @@ in {
       package = hyprlandPackage;
       portalPackage = hyprlandPortalPackage;
       configType = "lua";
-      extraConfig =
-        ''
-          package.path = package.path .. ";${patchedSplitMonitorWorkspaces}/lua/?.lua"
-          local smw = require("split-monitor-workspaces")
+      extraConfig = ''
+        package.path = package.path .. ";${patchedSplitMonitorWorkspaces}/lua/?.lua"
+        local smw = require("split-monitor-workspaces")
 
-        ''
-        + builtins.readFile ./hyprland.lua
-        + lib.optionalString (!osConfig.laptop.enable) ''
-          hl.bind(mod .. " + M", hl.dsp.dpms({ action = "toggle" }), { locked = true })
-        '';
+      ''
+      + builtins.readFile ./hyprland.lua
+      + lib.optionalString (!osConfig.laptop.enable) ''
+        hl.bind(mod .. " + M", hl.dsp.dpms({ action = "toggle" }), { locked = true })
+      '';
     };
   };
 }

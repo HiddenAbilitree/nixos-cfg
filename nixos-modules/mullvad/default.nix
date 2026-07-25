@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options = {
     mullvad = {
       enable = lib.mkEnableOption "mullvad";

@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.shell.tmux.enable = lib.mkEnableOption "tmux";
 
   config = lib.mkIf config.shell.tmux.enable {

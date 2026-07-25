@@ -4,9 +4,11 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   kittyPackage = packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.kitty;
-in {
+in
+{
   options.desktop.rofi.enable = lib.mkEnableOption "Rofi";
 
   config = lib.mkIf config.desktop.rofi.enable {

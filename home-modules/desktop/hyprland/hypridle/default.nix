@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.desktop.hyprland.hypridle.enable = lib.mkEnableOption "Hypridle";
 
   config = lib.mkIf config.desktop.hyprland.hypridle.enable {

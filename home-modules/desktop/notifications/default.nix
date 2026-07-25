@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.desktop.notifications.enable = lib.mkEnableOption "Notifications";
 
   config = lib.mkIf config.desktop.notifications.enable {

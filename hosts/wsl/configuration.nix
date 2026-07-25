@@ -1,4 +1,4 @@
-{lib, ...}: {
+{ lib, ... }: {
   wsl = {
     enable = true;
     defaultUser = "ezhang";

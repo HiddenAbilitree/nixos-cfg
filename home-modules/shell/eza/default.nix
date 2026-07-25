@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.shell.eza.enable = lib.mkEnableOption "eza";
 
   config = lib.mkIf config.shell.eza.enable {

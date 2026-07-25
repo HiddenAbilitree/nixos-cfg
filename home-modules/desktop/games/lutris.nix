@@ -3,11 +3,13 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   home.packages = lib.mkIf config.desktop.games.lutris.enable (
-    with pkgs; [
+    with pkgs;
+    [
       (lutris.override {
-        extraPkgs = pkgs: [corefonts];
+        extraPkgs = pkgs: [ corefonts ];
       })
     ]
   );

@@ -2,7 +2,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ./disk-config.nix
@@ -40,11 +41,17 @@
 
   printing.enable = true;
 
-  networking.nameservers = ["1.1.1.1" "1.0.0.1"];
+  networking.nameservers = [
+    "1.1.1.1"
+    "1.0.0.1"
+  ];
 
   services.resolved = {
     enable = true;
-    settings.Resolve.FallbackDNS = ["8.8.8.8" "8.8.4.4"];
+    settings.Resolve.FallbackDNS = [
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
   };
 
   wireguard.enable = true;
@@ -77,7 +84,7 @@
     };
     gamescope = {
       package = pkgs.gamescope.overrideAttrs (_: {
-        NIX_CFLAGS_COMPILE = ["-fno-fast-math"];
+        NIX_CFLAGS_COMPILE = [ "-fno-fast-math" ];
       });
       enable = true;
     };

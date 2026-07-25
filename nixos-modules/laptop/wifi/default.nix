@@ -2,6 +2,7 @@
   config,
   lib,
   ...
-}: {
-  config = lib.mkIf config.laptop.wifi.enable {};
+}:
+{
+  config = lib.mkIf config.laptop.wifi.enable { };
 }

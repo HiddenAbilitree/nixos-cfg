@@ -5,7 +5,8 @@
   pkgs,
   prismlauncher,
   ...
-}: {
+}:
+{
   imports = [
     ./lutris.nix
     ./roblox.nix
@@ -30,7 +31,8 @@
     };
 
     home = {
-      packages = with pkgs;
+      packages =
+        with pkgs;
         [
           deadlock-mod-manager
           packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.deadworks
@@ -38,12 +40,11 @@
           (lib.mkIf config.desktop.games.osu.enable osu-lazer-bin)
           (lib.mkIf config.desktop.games.emulators.enable (
             retroarch.withCores (
-              cores:
-                with cores; [
-                  mgba
-                  dolphin
-                  citra
-                ]
+              cores: with cores; [
+                mgba
+                dolphin
+                citra
+              ]
             )
           ))
         ]

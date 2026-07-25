@@ -3,22 +3,21 @@
   lib,
   pkgs,
   ...
-}: let
-  zfsCompatibleKernelPackages =
-    lib.filterAttrs (
-      name: kernelPackages:
-        (builtins.match "linux_[0-9]+_[0-9]+" name)
-        != null
-        && (builtins.tryEval kernelPackages).success
-        && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
-    )
-    pkgs.linuxKernel.packages;
+}:
+let
+  zfsCompatibleKernelPackages = lib.filterAttrs (
+    name: kernelPackages:
+    (builtins.match "linux_[0-9]+_[0-9]+" name) != null
+    && (builtins.tryEval kernelPackages).success
+    && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
+  ) pkgs.linuxKernel.packages;
   latestKernelPackage = lib.last (
     lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
       builtins.attrValues zfsCompatibleKernelPackages
     )
   );
-in {
+in
+{
   imports = [
     ./disk-config.nix
     ./hardware-configuration.nix
@@ -35,7 +34,7 @@ in {
     "net.core.wmem_max" = 7500000;
   };
 
-  networking.firewall.interfaces.enp6s0.allowedTCPPorts = [config.observability.grafanaPort];
+  networking.firewall.interfaces.enp6s0.allowedTCPPorts = [ config.observability.grafanaPort ];
 
   virtualisation.docker = {
     enable = lib.mkForce true;
@@ -65,7 +64,9 @@ in {
       openRegistration = true;
     };
 
-    xserver.videoDrivers = ["nvidia"];
+    fwupd.enable = lib.mkForce false;
+
+    xserver.videoDrivers = [ "nvidia" ];
     dokploy = {
       environment = {
         TZ = "America/New_York";
@@ -73,6 +74,16 @@ in {
       enable = true;
       image = "dokploy/dokploy:latest";
       database.passwordFile = config.sops.secrets.dokploy-db-pwd.path;
+    };
+
+    paseo = {
+      enable = true;
+      user = "ezhang";
+      group = "users";
+      listenAddress = "10.100.0.1";
+      port = 6767;
+      hostnames = [ "thething" ];
+      relay.enable = false;
     };
   };
 

@@ -1,11 +1,13 @@
 {
   config,
   lib,
+  llm-agents,
   pkgs,
   ...
 }:
 lib.mkIf config.desktop.enable {
-  home.packages = with pkgs;
+  home.packages =
+    with pkgs;
     lib.optionals stdenv.hostPlatform.isDarwin [
       brave
       nerd-fonts._0xproto
@@ -20,6 +22,7 @@ lib.mkIf config.desktop.enable {
       google-chrome
       hyprsunset
       libsecret
+      llm-agents.packages.${stdenv.hostPlatform.system}.paseo-desktop
       moonlight-qt
       nautilus
       obsidian

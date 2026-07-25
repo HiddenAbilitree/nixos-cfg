@@ -2,18 +2,22 @@
   lib,
   system,
   ...
-}: {
-  imports =
-    [
-      ./shell
-      ./desktop
-    ]
-    ++ lib.optionals (lib.hasSuffix "-darwin" system) [./darwin]
-    ++ lib.optionals (lib.hasSuffix "-linux" system) [./misc];
+}:
+{
+  imports = [
+    ./shell
+    ./desktop
+  ]
+  ++ lib.optionals (lib.hasSuffix "-darwin" system) [ ./darwin ]
+  ++ lib.optionals (lib.hasSuffix "-linux" system) [ ./misc ];
 
   programs = {
     git = {
       enable = true;
+      ignores = [
+        ".omx"
+        "**/.claude/settings.local.json"
+      ];
       signing.format = null;
       settings = {
         user = {
@@ -55,4 +59,6 @@
       silent = true;
     };
   };
+
+  xdg.configFile."git/ignore".force = true;
 }

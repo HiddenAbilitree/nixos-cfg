@@ -4,17 +4,15 @@
   pkgs,
   root,
   ...
-}: {
+}:
+{
   imports = [
     ./hosts/${osConfig.networking.hostName}/home
   ];
 
   home = {
     username = "ezhang";
-    homeDirectory =
-      if pkgs.stdenv.hostPlatform.isDarwin
-      then "/Users/ezhang"
-      else "/home/ezhang";
+    homeDirectory = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/ezhang" else "/home/ezhang";
     sessionVariables = {
       EDITOR = "nvim";
       NH_FLAKE = root;
@@ -25,7 +23,8 @@
       XDG_STATE_HOME = lib.mkForce "$HOME/.local/state";
     };
 
-    packages = with pkgs;
+    packages =
+      with pkgs;
       [
         texliveFull
 

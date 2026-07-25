@@ -2,8 +2,9 @@
   config,
   pkgs,
   ...
-}: {
-  imports = [./users];
+}:
+{
+  imports = [ ./users ];
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -44,12 +45,15 @@
     '';
     owner = "ezhang";
     mode = "0400";
-    restartUnits = ["nix-daemon.service"];
   };
 
   nix.extraOptions = ''
     !include ${config.sops.templates."nix-access-tokens".path}
   '';
+
+  systemd.services.nix-daemon.restartTriggers = [
+    config.sops.secrets.github-token.sopsFileHash
+  ];
 
   nix.settings = {
     auto-optimise-store = true;

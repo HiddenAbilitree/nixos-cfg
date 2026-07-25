@@ -3,12 +3,15 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   installAgeCommand =
-    if pkgs.stdenv.hostPlatform.isDarwin
-    then "birth_install=$(stat -f %B /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
-    else "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
-in {
+    if pkgs.stdenv.hostPlatform.isDarwin then
+      "birth_install=$(stat -f %B /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+    else
+      "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
+in
+{
   options.shell.fastfetch.enable = lib.mkEnableOption "fastfetch";
 
   config = lib.mkIf config.shell.fastfetch.enable {

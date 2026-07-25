@@ -2,66 +2,70 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   inherit (lib) mkOption types;
 
-  mkHostAllowedIP = address: let
-    ip = lib.head (lib.splitString "/" address);
-    prefixLength =
-      if lib.hasInfix ":" ip
-      then "128"
-      else "32";
-  in "${ip}/${prefixLength}";
+  mkHostAllowedIP =
+    address:
+    let
+      ip = lib.head (lib.splitString "/" address);
+      prefixLength = if lib.hasInfix ":" ip then "128" else "32";
+    in
+    "${ip}/${prefixLength}";
 
-  peerType = types.submodule ({config, ...}: {
-    options = {
-      publicKey = mkOption {
-        type = types.str;
-        description = "WireGuard public key for this peer.";
-      };
+  peerType = types.submodule (
+    { config, ... }: {
+      options = {
+        publicKey = mkOption {
+          type = types.str;
+          description = "WireGuard public key for this peer.";
+        };
 
-      privateKeyFile = mkOption {
-        type = types.str;
-        description = "Path to the runtime file containing this peer's private key.";
-      };
+        privateKeyFile = mkOption {
+          type = types.str;
+          description = "Path to the runtime file containing this peer's private key.";
+        };
 
-      address = mkOption {
-        type = types.str;
-        description = "Interface address assigned to this peer, including prefix length.";
-        example = "10.100.0.1/24";
-      };
+        address = mkOption {
+          type = types.str;
+          description = "Interface address assigned to this peer, including prefix length.";
+          example = "10.100.0.1/24";
+        };
 
-      allowedIPs = mkOption {
-        type = types.listOf types.str;
-        default = [(mkHostAllowedIP config.address)];
-        defaultText = lib.literalExpression ''[ "<host address>/32" ]'';
-        description = ''
-          WireGuard AllowedIPs advertised for this peer. Defaults to the host
-          route derived from `address`.
-        '';
-        example = ["10.100.0.1/32"];
-      };
+        allowedIPs = mkOption {
+          type = types.listOf types.str;
+          default = [ (mkHostAllowedIP config.address) ];
+          defaultText = lib.literalExpression ''[ "<host address>/32" ]'';
+          description = ''
+            WireGuard AllowedIPs advertised for this peer. Defaults to the host
+            route derived from `address`.
+          '';
+          example = [ "10.100.0.1/32" ];
+        };
 
-      endpoint = mkOption {
-        type = types.nullOr types.str;
-        description = "Public endpoint host/IP. The mesh listenPort is appended when rendering the peer.";
-        default = null;
-      };
+        endpoint = mkOption {
+          type = types.nullOr types.str;
+          description = "Public endpoint host/IP. The mesh listenPort is appended when rendering the peer.";
+          default = null;
+        };
 
-      isRelay = mkOption {
-        type = types.bool;
-        description = "Whether this peer relays otherwise unreachable mesh peers.";
-        default = false;
-      };
+        isRelay = mkOption {
+          type = types.bool;
+          description = "Whether this peer relays otherwise unreachable mesh peers.";
+          default = false;
+        };
 
-      presharedKeyFile = mkOption {
-        type = types.nullOr types.str;
-        description = "Path to the runtime file containing the preshared key for links to this peer.";
-        default = null;
+        presharedKeyFile = mkOption {
+          type = types.nullOr types.str;
+          description = "Path to the runtime file containing the preshared key for links to this peer.";
+          default = null;
+        };
       };
-    };
-  });
-in {
+    }
+  );
+in
+{
   imports = [
     ./peer.nix
   ];
@@ -85,7 +89,7 @@ in {
     peers = mkOption {
       type = types.attrsOf peerType;
       description = "Attrset of all WireGuard peers in the mesh";
-      default = {};
+      default = { };
     };
   };
 

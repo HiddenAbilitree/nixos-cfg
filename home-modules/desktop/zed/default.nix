@@ -4,7 +4,8 @@
   osConfig,
   pkgs,
   ...
-}: {
+}:
+{
   options.desktop.zed.enable = lib.mkEnableOption "Zed Editor";
 
   config = lib.mkIf config.desktop.zed.enable {
@@ -13,8 +14,8 @@
 
       package = pkgs.symlinkJoin {
         name = "zed-editor-with-secrets";
-        paths = [pkgs.zed-editor];
-        nativeBuildInputs = [pkgs.makeWrapper];
+        paths = [ pkgs.zed-editor ];
+        nativeBuildInputs = [ pkgs.makeWrapper ];
         postBuild = ''
           wrapProgram $out/bin/zeditor \
             --run 'export Z_AI_API_KEY="$(cat ${osConfig.sops.secrets.z-ai-api-key.path})"'
@@ -22,9 +23,9 @@
       };
 
       extraPackages = with pkgs; [
-        alejandra
-        shfmt
         nixd
+        nixfmt
+        shfmt
       ];
 
       mutableUserKeymaps = false;
@@ -186,7 +187,7 @@
           nixd = {
             settings = {
               formatting = {
-                command = ["alejandra"];
+                command = [ "nixfmt" ];
               };
             };
           };
@@ -194,32 +195,47 @@
 
         languages = {
           JavaScript = {
-            language_servers = ["tsgo" "!vtsls" "..."];
+            language_servers = [
+              "tsgo"
+              "!vtsls"
+              "..."
+            ];
             formatter = [
-              {code_action = "source.fixAll.eslint";}
+              { code_action = "source.fixAll.eslint"; }
             ];
             format_on_save = "on";
           };
           TypeScript = {
-            language_servers = ["tsgo" "!vtsls" "..."];
+            language_servers = [
+              "tsgo"
+              "!vtsls"
+              "..."
+            ];
             formatter = [
-              {code_action = "source.fixAll.eslint";}
+              { code_action = "source.fixAll.eslint"; }
             ];
             format_on_save = "on";
           };
           TSX = {
-            language_servers = ["tsgo" "!vtsls" "..."];
+            language_servers = [
+              "tsgo"
+              "!vtsls"
+              "..."
+            ];
             formatter = [
-              {code_action = "source.fixAll.eslint";}
+              { code_action = "source.fixAll.eslint"; }
             ];
             format_on_save = "on";
           };
           Nix = {
-            language_servers = ["nixd" "!nil"];
+            language_servers = [
+              "nixd"
+              "!nil"
+            ];
             formatter = {
               external = {
-                command = "alejandra";
-                arguments = ["-q" "-"];
+                command = "nixfmt";
+                arguments = [ "-" ];
               };
             };
             format_on_save = "on";
@@ -228,7 +244,12 @@
             formatter = {
               external = {
                 command = "ruff";
-                arguments = ["format" "--stdin-filename" "{buffer_path}" "-"];
+                arguments = [
+                  "format"
+                  "--stdin-filename"
+                  "{buffer_path}"
+                  "-"
+                ];
               };
             };
             format_on_save = "on";
@@ -237,7 +258,11 @@
             formatter = {
               external = {
                 command = "shfmt";
-                arguments = ["-i" "2" "-"];
+                arguments = [
+                  "-i"
+                  "2"
+                  "-"
+                ];
               };
             };
             format_on_save = "on";
@@ -259,7 +284,10 @@
             format_on_save = "on";
           };
           CSS = {
-            language_servers = ["tailwindcss-intellisense-css" "!vscode-css-language-server"];
+            language_servers = [
+              "tailwindcss-intellisense-css"
+              "!vscode-css-language-server"
+            ];
             formatter = "language_server";
             format_on_save = "on";
           };

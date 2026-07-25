@@ -3,9 +3,11 @@
   osConfig,
   lib,
   ...
-}: let
+}:
+let
   fujiWallpaper = ../../../assets/wallpapers/1920x1080/mount_fuji.png;
-in {
+in
+{
   options.desktop.noctalia = {
     enable = lib.mkEnableOption "noctalia";
 
@@ -52,19 +54,18 @@ in {
             "control-center"
             "workspaces"
           ];
-          center = [];
-          end =
-            [
-              "cpu"
-              "temp"
-              "ram"
-              "network"
-              "clock"
-            ]
-            ++ lib.optionals osConfig.laptop.enable [
-              "battery"
-              "power_profile"
-            ];
+          center = [ ];
+          end = [
+            "cpu"
+            "temp"
+            "ram"
+            "network"
+            "clock"
+          ]
+          ++ lib.optionals osConfig.laptop.enable [
+            "battery"
+            "power_profile"
+          ];
         };
 
         widget = {

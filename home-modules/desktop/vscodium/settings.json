@@ -17,7 +17,7 @@
     "editor.defaultFormatter": "James-Yu.latex-workshop"
   },
   "[nix]": {
-    "editor.defaultFormatter": "kamadorueda.alejandra"
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
   },
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
@@ -80,6 +80,7 @@
   "explorer.confirmDragAndDrop": false,
   "git.openRepositoryInParentFolders": "never",
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "nix.formatterPath": "nixfmt",
   "terminal.integrated.smoothScrolling": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "update.mode": "none",

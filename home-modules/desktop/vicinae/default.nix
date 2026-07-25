@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.desktop.vicinae.enable = lib.mkEnableOption "Vicinae";
 
   config = lib.mkIf config.desktop.vicinae.enable {
@@ -12,8 +13,8 @@
     };
 
     systemd.user.services.vicinae = {
-      Service.Environment = lib.mkForce ["USE_LAYER_SHELL=0"];
-      Service.EnvironmentFile = lib.mkForce [];
+      Service.Environment = lib.mkForce [ "USE_LAYER_SHELL=0" ];
+      Service.EnvironmentFile = lib.mkForce [ ];
     };
 
     services.vicinae = {

@@ -1,8 +1,9 @@
-{inputs, ...}: {
-  mkDarwinHost = {
-    hostName,
-    system,
-  } @ args:
+{ inputs, ... }: {
+  mkDarwinHost =
+    {
+      hostName,
+      system,
+    }@args:
     inputs.nix-darwin.lib.darwinSystem {
       specialArgs = inputs // args;
       modules = [

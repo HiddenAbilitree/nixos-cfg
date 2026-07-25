@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.ollama.enable = lib.mkEnableOption "ollama";
 
   config = lib.mkIf config.ollama.enable {

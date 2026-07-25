@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.cloudflared.enable = lib.mkEnableOption "Cloudflared Tunnels";
 
   config = lib.mkIf config.cloudflared.enable {

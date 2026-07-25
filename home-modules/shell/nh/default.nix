@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.shell.nh.enable = lib.mkEnableOption "nh";
 
   config = lib.mkIf config.shell.nh.enable {

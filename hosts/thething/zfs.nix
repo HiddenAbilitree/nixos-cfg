@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   boot = {
     supportedFilesystems.zfs = true;
 
@@ -9,12 +9,12 @@
     };
   };
 
-  environment.systemPackages = [pkgs.zfs];
+  environment.systemPackages = [ pkgs.zfs ];
 
   services.zfs = {
     autoScrub = {
       enable = true;
-      pools = ["thepool"];
+      pools = [ "thepool" ];
     };
     trim.enable = true;
   };

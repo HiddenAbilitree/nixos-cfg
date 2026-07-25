@@ -1,16 +1,19 @@
 {
   config,
   lib,
-  osConfig ? {},
+  osConfig ? { },
   ...
-}: let
+}:
+let
   serverHost = "thething";
   serverPort = 18888;
   serverUrl =
-    if (osConfig.networking.hostName or "") == serverHost
-    then "http://127.0.0.1:${toString serverPort}"
-    else "http://10.100.0.1:${toString serverPort}";
-in {
+    if (osConfig.networking.hostName or "") == serverHost then
+      "http://127.0.0.1:${toString serverPort}"
+    else
+      "http://10.100.0.1:${toString serverPort}";
+in
+{
   options.shell.atuin.enable = lib.mkEnableOption "Atuin";
 
   config = lib.mkIf config.shell.atuin.enable {

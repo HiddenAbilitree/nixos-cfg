@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.shell.bat.enable = lib.mkEnableOption "bat";
 
   config = lib.mkIf config.shell.bat.enable {

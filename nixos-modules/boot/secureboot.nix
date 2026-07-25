@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.bootx.secureboot.enable = lib.mkEnableOption "secureboot";
 
   config.boot = lib.mkIf config.bootx.secureboot.enable {

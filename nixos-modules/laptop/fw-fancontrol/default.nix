@@ -3,10 +3,12 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.laptop.fan;
   inherit (pkgs) fw-fanctrl;
-in {
+in
+{
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       fw-fanctrl
@@ -19,7 +21,7 @@ in {
 
     systemd.services.fw-fanctrl = {
       description = "Framework Fan Controller";
-      after = ["multi-user.target"];
+      after = [ "multi-user.target" ];
       serviceConfig = {
         Type = "simple";
         Restart = "always";
@@ -27,16 +29,16 @@ in {
         ExecStopPost = "${pkgs.fw-ectool}/bin/ectool autofanctrl";
       };
       enable = true;
-      wantedBy = ["multi-user.target"];
+      wantedBy = [ "multi-user.target" ];
     };
 
     environment.etc."systemd/system-sleep/fw-fanctrl-suspend.sh".source =
       pkgs.writeShellScript "fw-fanctrl-suspend"
-      (
-        builtins.replaceStrings
-        [''/usr/bin/python3 "%PREFIX_DIRECTORY%/bin/fw-fanctrl"'' "/bin/bash"]
-        ["${fw-fanctrl}/bin/fw-fanctrl" ""]
-        (builtins.readFile ./fw-fanctrl-suspend)
-      );
+        (
+          builtins.replaceStrings
+            [ ''/usr/bin/python3 "%PREFIX_DIRECTORY%/bin/fw-fanctrl"'' "/bin/bash" ]
+            [ "${fw-fanctrl}/bin/fw-fanctrl" "" ]
+            (builtins.readFile ./fw-fanctrl-suspend)
+        );
   };
 }

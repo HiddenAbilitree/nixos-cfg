@@ -9,11 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    alejandra = {
-      url = "github:kamadorueda/alejandra";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     packages-nix = {
       url = "git+ssh://git@github.com/HiddenAbilitree/packages.git?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,8 +45,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-bisect = {
-      url = "git+ssh://git@github.com/HiddenAbilitree/nix-bisect.git?ref=main";
+    paseo = {
+      url = "github:getpaseo/paseo";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -147,47 +142,53 @@
     ];
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
-    inherit (nixpkgs) lib;
-    inherit ((import ./lib/mkDarwinHost.nix {inherit inputs;})) mkDarwinHost;
-    inherit ((import ./lib/mkHost.nix {inherit lib inputs;})) mkHost;
-  in {
-    darwinConfigurations = {
-      chud = mkDarwinHost {
-        hostName = "chud";
-        system = "aarch64-darwin";
+  outputs =
+    { nixpkgs, ... }@inputs:
+    let
+      inherit (nixpkgs) lib;
+      inherit ((import ./lib/mkDarwinHost.nix { inherit inputs; })) mkDarwinHost;
+      inherit ((import ./lib/mkHost.nix { inherit lib inputs; })) mkHost;
+    in
+    {
+      darwinConfigurations = {
+        chud = mkDarwinHost {
+          hostName = "chud";
+          system = "aarch64-darwin";
+        };
       };
-    };
 
-    nixosConfigurations = {
-      loser = mkHost {
-        hostName = "loser";
-        system = "x86_64-linux";
-        secureboot = true;
-        install = false;
-        modulesx = [inputs.nixos-hardware.nixosModules.framework-13-7040-amd];
-      };
-      winner = mkHost {
-        hostName = "winner";
-        system = "x86_64-linux";
-        secureboot = true;
-        install = false;
-        modulesx = [];
-      };
-      thething = mkHost {
-        hostName = "thething";
-        system = "x86_64-linux";
-        secureboot = false;
-        install = false;
-        modulesx = [inputs.nix-dokploy.nixosModules.default];
-      };
-      wsl = mkHost {
-        hostName = "wsl";
-        system = "x86_64-linux";
-        secureboot = false;
-        install = false;
-        modulesx = [inputs.nixos-wsl.nixosModules.default];
+      nixosConfigurations = {
+        loser = mkHost {
+          hostName = "loser";
+          system = "x86_64-linux";
+          secureboot = true;
+          install = false;
+          modulesx = [ inputs.nixos-hardware.nixosModules.framework-13-7040-amd ];
+        };
+        winner = mkHost {
+          hostName = "winner";
+          system = "x86_64-linux";
+          secureboot = true;
+          install = false;
+          modulesx = [ ];
+        };
+        thething = mkHost {
+          hostName = "thething";
+          system = "x86_64-linux";
+          secureboot = false;
+          install = false;
+          modulesx = [
+            inputs.nix-dokploy.nixosModules.default
+            inputs.paseo.nixosModules.default
+          ];
+        };
+        wsl = mkHost {
+          hostName = "wsl";
+          system = "x86_64-linux";
+          secureboot = false;
+          install = false;
+          modulesx = [ inputs.nixos-wsl.nixosModules.default ];
+        };
       };
     };
-  };
 }

@@ -4,9 +4,11 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   kittyPackage = packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.kitty;
-in {
+in
+{
   options.desktop.kitty.enable = lib.mkEnableOption "Kitty";
 
   config = lib.mkIf config.desktop.kitty.enable {

@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.ssh = {
     enable = lib.mkEnableOption "ssh";
     x11forwarding = lib.mkEnableOption "x11 forwarding";
@@ -18,7 +19,7 @@
       fail2ban.enable = config.ssh.fail2ban.enable;
       openssh = {
         enable = true;
-        ports = [22];
+        ports = [ 22 ];
         settings = {
           KbdInteractiveAuthentication = false;
           PasswordAuthentication = false;

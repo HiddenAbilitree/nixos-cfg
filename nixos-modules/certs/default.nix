@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   security.pki.certificateFiles = [
     ./caddy-ca-cert.crt
   ];

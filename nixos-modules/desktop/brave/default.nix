@@ -2,9 +2,11 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   browserCfg = config.home-manager.users.ezhang.desktop.browser;
-in {
+in
+{
   config = lib.mkIf browserCfg.enable {
     environment.etc."brave/policies/managed/search-engines.json".text = builtins.toJSON {
       SiteSearchSettings = [

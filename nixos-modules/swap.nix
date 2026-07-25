@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.swap.enable = lib.mkEnableOption "swap";
 
   config.swapDevices = lib.mkIf config.swap.enable [

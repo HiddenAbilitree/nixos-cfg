@@ -3,7 +3,8 @@
   lib,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -18,10 +19,10 @@
         "usb_storage"
         "sd_mod"
       ];
-      kernelModules = ["dm-snapshot"];
+      kernelModules = [ "dm-snapshot" ];
     };
-    kernelModules = ["kvm-amd"];
-    extraModulePackages = [];
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [ ];
     # supportedFilesystems = ["zfs"];
     # zfs.pools = ["thepool"];
   };

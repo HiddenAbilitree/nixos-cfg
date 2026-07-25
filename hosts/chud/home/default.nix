@@ -1,5 +1,5 @@
 {
-  imports = [./programs];
+  imports = [ ./programs ];
 
   shell = {
     enable = true;

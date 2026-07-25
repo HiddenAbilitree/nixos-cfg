@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options.desktop.mpv.enable = lib.mkEnableOption "mpv";
 
   config = lib.mkIf config.desktop.mpv.enable {

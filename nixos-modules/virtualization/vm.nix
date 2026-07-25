@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options.virtualization.vm.enable = lib.mkEnableOption "vm";
 
   config = lib.mkIf config.virtualization.vm.enable {
@@ -18,7 +19,7 @@
       spiceUSBRedirection.enable = true;
     };
 
-    users.users.ezhang.extraGroups = ["libvirtd"];
+    users.users.ezhang.extraGroups = [ "libvirtd" ];
 
     environment.systemPackages = with pkgs; [
       spice
@@ -32,8 +33,8 @@
     home-manager.users.ezhang = {
       dconf.settings = {
         "org/virt-manager/virt-manager/connections" = {
-          autoconnect = ["qemu:///system"];
-          uris = ["qemu:///system"];
+          autoconnect = [ "qemu:///system" ];
+          uris = [ "qemu:///system" ];
         };
       };
     };

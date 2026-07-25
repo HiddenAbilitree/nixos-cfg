@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.shell.zellij = {
     enable = lib.mkEnableOption "Zellij";
     autostart = lib.mkEnableOption "Zellij autostart";

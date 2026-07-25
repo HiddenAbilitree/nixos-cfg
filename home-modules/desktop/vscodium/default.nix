@@ -3,17 +3,17 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options.desktop.vscodium.enable = lib.mkEnableOption "VSCodium";
 
   config = lib.mkIf config.desktop.vscodium.enable {
     programs.vscode = {
       enable = true;
       package = pkgs.vscode.fhsWithPackages (
-        ps:
-          with ps; [
-            gcc
-          ]
+        ps: with ps; [
+          gcc
+        ]
       );
       mutableExtensionsDir = false;
       profiles.default = {
@@ -29,7 +29,6 @@
           ms-vscode-remote.remote-ssh
 
           bbenoist.nix
-          kamadorueda.alejandra
           jnoortheen.nix-ide
 
           ms-vscode.cpptools
