@@ -87,6 +87,7 @@ on_start({
   "vicinae server",
   "vesktop",
   "spotify",
+  "obsidian",
   terminal,
   "btm",
   browser,
@@ -96,6 +97,7 @@ on_start({
 
 hl.config({
   ecosystem = {
+    no_donation_nag = true,
     no_update_news = true,
   },
   general = {

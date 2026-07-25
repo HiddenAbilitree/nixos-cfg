@@ -421,6 +421,30 @@ class SplitMonitorWorkspacesTest(unittest.TestCase):
                 self.assertEqual(shift_tab_bindings, [expected_move])
                 self.assertIn(expected_entry, config)
 
+    def test_obsidian_starts_exactly_once_from_on_start(self) -> None:
+        sources = {
+            "repository": (MODULE_DIR / "hyprland.lua").read_text(),
+            **{
+                host: generated_hyprland_config(host).read_text()
+                for host in ("loser", "winner")
+            },
+        }
+
+        for source, config in sources.items():
+            with self.subTest(source=source):
+                startup_lists = re.findall(
+                    r"^on_start\(\{\n(?P<commands>.*?)^\}\)$",
+                    config,
+                    flags=re.MULTILINE | re.DOTALL,
+                )
+                self.assertEqual(len(startup_lists), 1)
+                startup_commands = [
+                    line.strip().removesuffix(",")
+                    for line in startup_lists[0].splitlines()
+                    if line.strip()
+                ]
+                self.assertEqual(startup_commands.count('"obsidian"'), 1)
+
     def test_default_empty_allowlist_preserves_rogue_recovery(self) -> None:
         raw = self.lifecycle_trace(self.raw_source, monitor_count=2)
         patched = self.lifecycle_trace(self.patched_source, monitor_count=2)
