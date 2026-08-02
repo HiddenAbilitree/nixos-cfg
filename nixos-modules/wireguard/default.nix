@@ -113,6 +113,12 @@ in
       address = "10.100.0.3/24";
       presharedKeyFile = config.sops.secrets.wg-winner-psk.path;
     };
+    phone = {
+      publicKey = "n0c/yAEctBit3XzQS4Qrfz3bS8LUHkoZAVkGhI9UoGk=";
+      privateKeyFile = config.sops.secrets.wg-phone-private-key.path;
+      address = "10.100.0.4/24";
+      presharedKeyFile = config.sops.secrets.wg-phone-psk.path;
+    };
     vps = {
       publicKey = "uuRHwpFxt1Rfx7evsx7Q9ElnFuVA6ToAqHKigK+eIxk=";
       privateKeyFile = config.sops.secrets.wg-vps-private-key.path;
