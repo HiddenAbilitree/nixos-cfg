@@ -83,7 +83,11 @@ in
       listenAddress = "10.100.0.1";
       port = 6767;
       hostnames = [ "thething" ];
-      relay.enable = false;
+      relay = {
+        enable = true;
+        mode = "hosted";
+      };
+      environment.PASEO_RELAY_ENABLED = "true";
     };
   };
 
