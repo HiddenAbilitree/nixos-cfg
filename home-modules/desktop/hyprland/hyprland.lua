@@ -80,6 +80,16 @@ local function bind_split_monitor_workspaces()
     return split_change_monitor("prev")
   end)
 end
+hl.workspace_rule({
+  workspace = obsidian_workspace_selector,
+  persistent = true,
+})
+
+hl.window_rule({
+  name = "obsidian-workspace",
+  match = { initial_class = "md.Obsidian" },
+  workspace = "name:obsidian silent",
+})
 
 on_start({
   "systemctl --user start hyprpolkitagent",
@@ -232,13 +242,3 @@ for _, binding in ipairs({
   bind_exec(binding.key, binding.command, flags)
 end
 
-hl.workspace_rule({
-  workspace = obsidian_workspace_selector,
-  persistent = true,
-})
-
-hl.window_rule({
-  name = "obsidian-workspace",
-  match = { initial_class = "obsidian" },
-  workspace = "name:obsidian silent",
-})
