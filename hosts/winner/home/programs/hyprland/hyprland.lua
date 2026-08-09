@@ -27,7 +27,6 @@ hl.monitor({ output = "DP-2", mode = "highrr", position = "1920x0", scale = "1" 
 -- hl.window_rule({ name = "winner-right-obs-workspace", match = { initial_class = "com.obsproject.Studio" }, workspace = "8" })
 -- hl.window_rule({ name = "winner-right-spotify-workspace", match = { initial_class = "[Ss]potify" }, workspace = "9" })
 
-
 -- hl.window_rule({ name = "winner-left-vivaldi-workspace", match = { initial_class = "vivaldi-stable" }, workspace = "1" })
 -- hl.window_rule({ name = "winner-left-helium-workspace", match = { initial_class = "helium" }, workspace = "1" })
 -- hl.window_rule({ name = "winner-left-brave-workspace", match = { initial_class = "[bB]rave-browser" }, workspace = "1" })
@@ -54,10 +53,20 @@ hl.window_rule({ name = "winner-lunar-workspace", match = { initial_class = ".*[
 hl.window_rule({ name = "winner-lunar-immediate", match = { initial_class = ".*[lL]unar.*" }, immediate = true })
 hl.window_rule({ name = "winner-steam-workspace", match = { initial_class = ".*steam.*" }, workspace = "11 silent" })
 hl.window_rule({ name = "winner-zed-workspace", match = { initial_class = ".*zed.*" }, workspace = "11 silent" })
-hl.window_rule({ name = "winner-minecraft-workspace", match = { initial_class = ".*Minecraft.*" }, workspace = "11 silent" })
+hl.window_rule({
+  name = "winner-minecraft-workspace",
+  match = { initial_class = ".*Minecraft.*" },
+  workspace = "11 silent",
+})
 hl.window_rule({ name = "winner-prism-workspace", match = { initial_class = ".*prism.*" }, workspace = "11 silent" })
-hl.window_rule({ name = "winner-steam-game-workspace", match = { initial_class = "steam_app.*" }, workspace = "11 silent" })
+hl.window_rule({
+  name = "winner-steam-game-workspace",
+  match = { initial_class = "steam_app.*" },
+  workspace = "11 silent",
+})
 hl.window_rule({ name = "winner-kitty-workspace", match = { initial_class = "kitty" }, workspace = "12" })
 hl.window_rule({ name = "winner-vesktop-workspace", match = { initial_class = "vesktop" }, workspace = "1" })
 hl.window_rule({ name = "winner-obs-workspace", match = { initial_class = "com.obsproject.Studio" }, workspace = "8" })
 hl.window_rule({ name = "winner-spotify-workspace", match = { initial_class = "[Ss]potify" }, workspace = "9" })
+
+hl.bind("SUPER + s", hl.dsp.focus({ workspace = "9" }))

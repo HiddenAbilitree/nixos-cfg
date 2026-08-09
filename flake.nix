@@ -14,8 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    awww.url = "git+https://codeberg.org/LGFae/awww";
-
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -108,10 +106,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vite-plus = {
-      url = "git+ssh://git@github.com/HiddenAbilitree/vite-plus-nix.git?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   nixConfig = {
