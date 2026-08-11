@@ -12,6 +12,7 @@
   virtualization.enable = true;
 
   environment.localBinInPath = true;
+
   ssh = {
     enable = true;
     x11forwarding = true;
@@ -46,12 +47,21 @@
     "1.0.0.1"
   ];
 
-  services.resolved = {
-    enable = true;
-    settings.Resolve.FallbackDNS = [
-      "8.8.8.8"
-      "8.8.4.4"
-    ];
+  services = {
+    fstrim.enable = false;
+
+    resolved = {
+      enable = true;
+      settings.Resolve.FallbackDNS = [
+        "8.8.8.8"
+        "8.8.4.4"
+      ];
+    };
+
+    displayManager.autoLogin = {
+      enable = true;
+      user = "ezhang";
+    };
   };
 
   wireguard.enable = true;
@@ -70,11 +80,6 @@
       mouse.enable = true;
       sunshine.enable = true;
     };
-  };
-
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "ezhang";
   };
 
   programs = {

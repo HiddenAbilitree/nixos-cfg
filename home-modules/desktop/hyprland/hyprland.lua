@@ -138,6 +138,9 @@ hl.config({
       vibrancy = 0.1696,
     },
   },
+  render = {
+    use_fp16 = 0,
+  },
   misc = {
     disable_hyprland_logo = true,
     focus_on_activate = true,
@@ -241,4 +244,3 @@ for _, binding in ipairs({
 
   bind_exec(binding.key, binding.command, flags)
 end
-

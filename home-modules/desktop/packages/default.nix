@@ -23,6 +23,7 @@ lib.mkIf config.desktop.enable {
       hyprsunset
       libsecret
       llm-agents.packages.${stdenv.hostPlatform.system}.paseo-desktop
+      losslesscut
       moonlight-qt
       nautilus
       obsidian
