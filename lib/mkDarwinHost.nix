@@ -28,7 +28,10 @@
               inputs.spicetify-nix.homeManagerModules.default
               ../home-modules
             ];
-            users.ezhang = import ../home.nix;
+            users.ezhang = {
+              imports = [ ../home.nix ];
+              home.homeDirectory = inputs.nixpkgs.lib.mkForce "/Users/ezhang";
+            };
             useGlobalPkgs = true;
             useUserPackages = true;
           };

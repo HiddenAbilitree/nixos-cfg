@@ -10,9 +10,15 @@
     ./hosts/${osConfig.networking.hostName}/home
   ];
 
+  ai.harnesses = {
+    # codex.enable = true;
+    # oh-my-codex.enable = true;
+    omp.enable = true;
+  };
+
   home = {
     username = "ezhang";
-    homeDirectory = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/ezhang" else "/home/ezhang";
+    homeDirectory = lib.mkDefault "/home/ezhang";
     sessionVariables = {
       EDITOR = "nvim";
       NH_FLAKE = root;

@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  llm-agents,
   pkgs,
   ...
 }:
@@ -22,7 +21,6 @@ lib.mkIf config.desktop.enable {
       google-chrome
       hyprsunset
       libsecret
-      llm-agents.packages.${stdenv.hostPlatform.system}.paseo-desktop
       losslesscut
       moonlight-qt
       nautilus

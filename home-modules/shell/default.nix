@@ -11,8 +11,6 @@
     ./carapace
     ./eza
     ./fastfetch
-    ./forge
-    ./gemini-cli
     ./jj
     ./nh
     ./nvim
@@ -37,8 +35,6 @@
       carapace.enable = lib.mkDefault true;
       eza.enable = lib.mkDefault true;
       fastfetch.enable = lib.mkDefault true;
-      forge.enable = lib.mkDefault false;
-      gemini-cli.enable = lib.mkDefault false;
       jj.enable = lib.mkDefault false;
       nh.enable = lib.mkDefault true;
       nvim.enable = lib.mkDefault true;

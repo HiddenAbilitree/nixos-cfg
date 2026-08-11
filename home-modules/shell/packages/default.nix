@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  llm-agents,
   packages-nix,
   pkgs,
   slop,
@@ -33,9 +32,6 @@
         statix
         nixfmt
 
-        llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.codex
-        llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.oh-my-codex
-        llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.omp
       ]
       ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
         bluetuith

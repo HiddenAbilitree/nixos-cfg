@@ -1,3 +1,3 @@
-{ ... }: {
+_: {
   shell.enable = true;
 }

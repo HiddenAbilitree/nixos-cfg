@@ -5,6 +5,7 @@
 }:
 {
   imports = [
+    ./ai
     ./shell
     ./desktop
   ]
@@ -14,10 +15,6 @@
   programs = {
     git = {
       enable = true;
-      ignores = [
-        ".omx"
-        "**/.claude/settings.local.json"
-      ];
       signing.format = null;
       settings = {
         user = {

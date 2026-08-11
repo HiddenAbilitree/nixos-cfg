@@ -71,11 +71,20 @@ in
         widget = {
           workspaces = {
             hide_when_empty = false;
-            display = "none";
+            show_labels = false;
           };
-          cpu.display = "text";
-          temp.display = "text";
-          ram.display = "text";
+          cpu = {
+            visualization = "none";
+            show_value = true;
+          };
+          temp = {
+            visualization = "none";
+            show_value = true;
+          };
+          ram = {
+            visualization = "none";
+            show_value = true;
+          };
           network.show_label = false;
           clock = {
             format = "{:%-I:%M %p}";

@@ -10,13 +10,23 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      fw-fanctrl
-      fw-ectool
-    ];
+    environment = {
+      systemPackages = with pkgs; [
+        fw-fanctrl
+        fw-ectool
+      ];
 
-    environment.etc."fw-fanctrl/config.json" = {
-      text = builtins.toJSON cfg.config;
+      etc = {
+        "fw-fanctrl/config.json" = {
+          text = builtins.toJSON cfg.config;
+        };
+        "systemd/system-sleep/fw-fanctrl-suspend.sh".source = pkgs.writeShellScript "fw-fanctrl-suspend" (
+          builtins.replaceStrings
+            [ ''/usr/bin/python3 "%PREFIX_DIRECTORY%/bin/fw-fanctrl"'' "/bin/bash" ]
+            [ "${fw-fanctrl}/bin/fw-fanctrl" "" ]
+            (builtins.readFile ./fw-fanctrl-suspend)
+        );
+      };
     };
 
     systemd.services.fw-fanctrl = {
@@ -32,13 +42,5 @@ in
       wantedBy = [ "multi-user.target" ];
     };
 
-    environment.etc."systemd/system-sleep/fw-fanctrl-suspend.sh".source =
-      pkgs.writeShellScript "fw-fanctrl-suspend"
-        (
-          builtins.replaceStrings
-            [ ''/usr/bin/python3 "%PREFIX_DIRECTORY%/bin/fw-fanctrl"'' "/bin/bash" ]
-            [ "${fw-fanctrl}/bin/fw-fanctrl" "" ]
-            (builtins.readFile ./fw-fanctrl-suspend)
-        );
   };
 }
