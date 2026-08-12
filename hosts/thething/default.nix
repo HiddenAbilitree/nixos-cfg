@@ -72,8 +72,10 @@ in
         TZ = "America/New_York";
       };
       enable = true;
+
       image = "dokploy/dokploy:latest";
       database.passwordFile = config.sops.secrets.dokploy-db-pwd.path;
+      encryption.keyFile = config.sops.secrets.dokploy-encryption-key.path;
     };
 
     paseo = {
