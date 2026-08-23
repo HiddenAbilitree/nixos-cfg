@@ -7,10 +7,10 @@ hl.config({
   },
 })
 
--- hl.monitor({ output = "DP-1", mode = "highrr", position = "0x0", scale = "1" })
--- hl.monitor({ output = "DP-2", mode = "highrr", position = "2560x0", scale = "1" })
 hl.monitor({ output = "DP-1", mode = "highrr", position = "0x0", scale = "1" })
-hl.monitor({ output = "DP-2", mode = "highrr", position = "1920x0", scale = "1" })
+hl.monitor({ output = "DP-2", mode = "highrr", position = "2560x0", scale = "1" })
+-- hl.monitor({ output = "DP-1", mode = "highrr", position = "0x0", scale = "1" })
+-- hl.monitor({ output = "DP-2", mode = "highrr", position = "1920x0", scale = "1" })
 
 -- hl.window_rule({ name = "winner-right-vivaldi-workspace", match = { initial_class = "vivaldi-stable" }, workspace = "10" })
 -- hl.window_rule({ name = "winner-right-brave-workspace", match = { initial_class = "[bB]rave-browser" }, workspace = "10" })
