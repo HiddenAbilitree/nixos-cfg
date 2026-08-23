@@ -35,7 +35,7 @@
   distributed-builds.enable = true;
   swap.enable = true;
 
-  # mullvad.enable = true;
+  mullvad.enable = true;
   ollama.enable = true;
 
   dev.enable = true;

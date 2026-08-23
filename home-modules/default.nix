@@ -1,5 +1,7 @@
 {
   lib,
+  osConfig,
+  pkgs,
   system,
   ...
 }:
@@ -28,6 +30,18 @@
 
     gh = {
       enable = true;
+      package = pkgs.symlinkJoin {
+        name = "gh";
+        paths = [ pkgs.gh ];
+        nativeBuildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/gh \
+            --run 'export GH_TOKEN="$(cat ${osConfig.sops.secrets.github-token.path})"'
+        '';
+        meta = pkgs.gh.meta // {
+          mainProgram = "gh";
+        };
+      };
       settings.git_protocol = "ssh";
     };
 
