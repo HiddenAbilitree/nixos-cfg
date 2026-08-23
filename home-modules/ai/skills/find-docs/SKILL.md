@@ -21,16 +21,10 @@ description: >-
 
 Retrieve current documentation and code examples for any library using the Context7 CLI.
 
-Make sure the CLI is up to date before running commands:
+run directly without installing:
 
 ```bash
-npm install -g ctx7@latest
-```
-
-Or run directly without installing:
-
-```bash
-npx ctx7@latest <command>
+bunx ctx7@latest <command>
 ```
 
 ## Workflow

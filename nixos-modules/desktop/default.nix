@@ -18,6 +18,7 @@
 
   config = lib.mkIf config.desktop.enable {
     environment.sessionVariables.NIXOS_OZONE_WL = 1;
+    programs.kdeconnect.enable = true;
 
     services = {
       gnome.gnome-keyring.enable = true;
