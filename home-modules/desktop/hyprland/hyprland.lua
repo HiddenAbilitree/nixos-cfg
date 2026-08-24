@@ -63,6 +63,7 @@ local function bind_split_monitor_workspaces()
     enable_notifications = true,
     enable_persistent_workspaces = true,
     enable_wrapping = true,
+    monitor_priority = monitor_priority,
     rogue_workspace_exclusions = { obsidian_workspace_name },
   })
 
@@ -83,6 +84,7 @@ end
 hl.workspace_rule({
   workspace = obsidian_workspace_selector,
   persistent = true,
+  monitor = obsidian_monitor,
 })
 
 hl.window_rule({

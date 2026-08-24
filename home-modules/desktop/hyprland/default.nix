@@ -11,6 +11,20 @@ let
   hyprlandPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   hyprlandPortalPackage =
     hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  monitorPriority =
+    if config.desktop.monitors == null then
+      "{}"
+    else if config.desktop.monitors.primary == "left" then
+      ''{ "${config.desktop.monitors.left}", "${config.desktop.monitors.right}" }''
+    else
+      ''{ "${config.desktop.monitors.right}", "${config.desktop.monitors.left}" }'';
+  secondaryMonitor =
+    if config.desktop.monitors == null then
+      "nil"
+    else if config.desktop.monitors.primary == "left" then
+      ''"${config.desktop.monitors.right}"''
+    else
+      ''"${config.desktop.monitors.left}"'';
   tesseractEnglish = pkgs.tesseract5.override { enableLanguages = [ "eng" ]; };
   patchedSplitMonitorWorkspaces = pkgs.applyPatches {
     name = "split-monitor-workspaces-patched";
@@ -202,6 +216,8 @@ in
       extraConfig = ''
         package.path = package.path .. ";${patchedSplitMonitorWorkspaces}/lua/?.lua"
         local smw = require("split-monitor-workspaces")
+        local monitor_priority = ${monitorPriority}
+        local obsidian_monitor = ${secondaryMonitor}
 
       ''
       + builtins.readFile ./hyprland.lua

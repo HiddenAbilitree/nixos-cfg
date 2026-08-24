@@ -1,4 +1,12 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  monitors = {
+    left = "DP-1";
+    right = "DP-2";
+    primary = "left";
+  };
+in
+{
   imports = [
     ./programs
   ];
@@ -24,7 +32,8 @@
       #   aagl.enable = true;
       # };
     };
-    primary-monitor = "DP-2";
+    monitors = monitors;
+    primary-monitor = builtins.getAttr monitors.primary monitors;
   };
 
   misc.enable = true;

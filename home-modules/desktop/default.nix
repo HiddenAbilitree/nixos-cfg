@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  noctalia,
   pkgs,
   system,
   ...
@@ -39,14 +38,31 @@ in
       ./zathura
       ./zed
 
-      noctalia.homeModules.default
     ];
-
   options.desktop = {
     enable = lib.mkEnableOption "desktop configuration";
     primary-monitor = lib.mkOption {
       type = lib.types.str;
       description = "primary monitor";
+    };
+    monitors = lib.mkOption {
+      type = lib.types.nullOr (
+        lib.types.submodule {
+          options = {
+            left = lib.mkOption {
+              type = lib.types.str;
+            };
+            right = lib.mkOption {
+              type = lib.types.str;
+            };
+            primary = lib.mkOption {
+              type = lib.types.enum [ "left" "right" ];
+            };
+          };
+        }
+      );
+      default = null;
+      description = "monitor positions and primary monitor";
     };
   };
 
