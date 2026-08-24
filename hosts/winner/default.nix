@@ -38,6 +38,8 @@
   mullvad.enable = true;
   ollama.enable = true;
 
+  gpu.vendor = "amd";
+
   dev.enable = true;
 
   printing.enable = true;

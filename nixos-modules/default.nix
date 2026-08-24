@@ -5,6 +5,7 @@
     ./cloudflared.nix
     ./desktop
     ./distributed-builds.nix
+    ./gpu
     ./laptop
     ./mongodb.nix
     ./mullvad

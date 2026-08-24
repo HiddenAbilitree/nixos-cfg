@@ -7,6 +7,11 @@
 
   laptop.enable = true;
 
+  gpu = {
+    vendor = "amd";
+    rocm.enable = false;
+  };
+
   syncthing.enable = false;
 
   bootx = {

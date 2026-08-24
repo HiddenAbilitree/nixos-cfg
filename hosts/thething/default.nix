@@ -51,6 +51,8 @@ in
   pterodactyl.enable = false;
   syncthing.enable = true;
   ollama.enable = true;
+
+  gpu.vendor = "nvidia";
   observability = {
     enable = true;
     sops.enable = true;
@@ -66,7 +68,6 @@ in
 
     fwupd.enable = lib.mkForce false;
 
-    xserver.videoDrivers = [ "nvidia" ];
     dokploy = {
       environment = {
         TZ = "America/New_York";
@@ -91,12 +92,6 @@ in
       };
       environment.PASEO_RELAY_ENABLED = "true";
     };
-  };
-
-  hardware = {
-    nvidia.open = true;
-    nvidia-container-toolkit.enable = false;
-    graphics.enable32Bit = true;
   };
 
   boot.kernelPackages = lib.mkForce latestKernelPackage;

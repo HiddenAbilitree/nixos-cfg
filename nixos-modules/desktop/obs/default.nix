@@ -21,7 +21,7 @@ in
   config = lib.mkIf config.desktop.obs.enable {
     programs.obs-studio = {
       enable = true;
-      package = obsBasePackage;
+      package = if config.gpu.vendor == "amd" then obsBasePackage else pkgs.obs-studio;
       enableVirtualCamera = true;
       plugins = with pkgs.obs-studio-plugins; [
         obs-pipewire-audio-capture
