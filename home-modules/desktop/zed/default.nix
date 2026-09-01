@@ -5,6 +5,9 @@
   pkgs,
   ...
 }:
+let
+  jupyterPython = pkgs.python3.withPackages (ps: [ ps.ipykernel ]);
+in
 {
   options.desktop.zed.enable = lib.mkEnableOption "Zed Editor";
 
@@ -18,7 +21,9 @@
         nativeBuildInputs = [ pkgs.makeWrapper ];
         postBuild = ''
           wrapProgram $out/bin/zeditor \
-            --run 'export Z_AI_API_KEY="$(cat ${osConfig.sops.secrets.z-ai-api-key.path})"'
+            --run 'export Z_AI_API_KEY="$(cat ${osConfig.sops.secrets.z-ai-api-key.path})"' \
+            --set-default LOCAL_NOTEBOOK_DEV 1 \
+            --prefix PATH : ${jupyterPython}/bin
         '';
       };
 
@@ -48,6 +53,11 @@
       ];
 
       userSettings = {
+        feature_flags = {
+          notebooks = "on";
+          tabular-data-preview = "on";
+        };
+        jupyter.kernel_selections.python = "nix-python";
         theme = "Tokyo Night Storm";
         buffer_font_family = "0xProto Nerd Font";
         buffer_font_weight = 600;
@@ -352,5 +362,20 @@
         }
       ];
     };
+
+    xdg.dataFile."jupyter/kernels/nix-python/kernel.json".source =
+      (pkgs.formats.json { }).generate "zed-nix-python-kernel.json"
+        {
+          argv = [
+            "${jupyterPython}/bin/python"
+            "-m"
+            "ipykernel_launcher"
+            "-f"
+            "{connection_file}"
+          ];
+          display_name = "Python (Nix)";
+          language = "python";
+        };
+
   };
 }

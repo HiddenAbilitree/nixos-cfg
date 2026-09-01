@@ -38,7 +38,16 @@
   mullvad.enable = true;
   ollama.enable = true;
 
-  gpu.vendor = "amd";
+  gpu = {
+    vendor = "amd";
+    passthrough = {
+      enable = true;
+      ids = [
+        "1002:164e"
+        "1002:1640"
+      ];
+    };
+  };
 
   dev.enable = true;
 

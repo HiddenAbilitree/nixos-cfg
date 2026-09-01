@@ -26,6 +26,7 @@ lib.mkIf config.desktop.enable {
       moonlight-qt
       nautilus
       obsidian
+      ruff
       obs-cmd
       pavucontrol
       piper
@@ -37,4 +38,5 @@ lib.mkIf config.desktop.enable {
       wl-clipboard
       packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.nteract
     ];
+
 }

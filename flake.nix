@@ -96,6 +96,10 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    systems = {
+      url = "systems";
+    };
+
     twopass = {
       url = "github:ultramicroscope/2pass";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -137,13 +141,15 @@
   };
 
   outputs =
-    { nixpkgs, ... }@inputs:
+    { nixpkgs, systems, ... }@inputs:
     let
       inherit (nixpkgs) lib;
       inherit ((import ./lib/mkDarwinHost.nix { inherit inputs; })) mkDarwinHost;
       inherit ((import ./lib/mkHost.nix { inherit lib inputs; })) mkHost;
+      forEachSystem = nixpkgs.lib.genAttrs (import systems);
     in
     {
+      formatter = forEachSystem (system: nixpkgs.legacyPackages.${system}.pkgs.nixfmt-tree);
       darwinConfigurations = {
         chud = mkDarwinHost {
           hostName = "chud";

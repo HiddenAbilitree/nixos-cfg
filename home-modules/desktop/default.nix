@@ -23,6 +23,7 @@ in
       ./mpv
       ./noctalia
       ./notifications
+      ./positron
     ]
     ++ [ ./packages ]
     ++ lib.optionals isLinux [
@@ -56,7 +57,10 @@ in
               type = lib.types.str;
             };
             primary = lib.mkOption {
-              type = lib.types.enum [ "left" "right" ];
+              type = lib.types.enum [
+                "left"
+                "right"
+              ];
             };
           };
         }
@@ -98,6 +102,7 @@ in
           paper.enable = lib.mkDefault true;
           rofi.enable = lib.mkDefault true;
           noctalia.enable = lib.mkDefault false;
+          positron.enable = lib.mkDefault true;
           notifications.enable = lib.mkDefault true;
           vicinae.enable = lib.mkDefault false;
           vscodium.enable = lib.mkDefault false;

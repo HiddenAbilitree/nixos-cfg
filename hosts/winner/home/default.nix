@@ -32,7 +32,7 @@ in
       #   aagl.enable = true;
       # };
     };
-    monitors = monitors;
+    inherit monitors;
     primary-monitor = builtins.getAttr monitors.primary monitors;
   };
 
