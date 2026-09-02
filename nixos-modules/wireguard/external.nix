@@ -61,6 +61,7 @@ let
 
   syncWireguardConfig = pkgs.writeShellScript "wireguard-sync-external" ''
     set -euo pipefail
+    ${pkgs.systemd}/bin/busctl call org.freedesktop.network1 /org/freedesktop/network1 org.freedesktop.network1.Manager Reload
 
     wg_available=false
     for _ in {1..40}; do
