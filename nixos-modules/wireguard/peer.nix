@@ -12,8 +12,11 @@ let
   thisPeer = cfg.peers.${peerName} or null;
 
   otherPeers = lib.filterAttrs (name: _: name != peerName) cfg.peers;
+  externalPeers = lib.optionalAttrs cfg.external.enable cfg.external.clients;
+  externalAllowedIPs = map (peer: "${peer.address}/32") (builtins.attrValues externalPeers);
 
-  allAllowedIPs = lib.flatten (lib.mapAttrsToList (_: peer: peer.allowedIPs) otherPeers);
+  allAllowedIPs =
+    lib.flatten (lib.mapAttrsToList (_: peer: peer.allowedIPs) otherPeers) ++ externalAllowedIPs;
 
   mkRoute = ip: {
     Destination = ip;
@@ -64,10 +67,16 @@ let
       PersistentKeepalive = 25;
     };
 
+  mkExternalWireguardPeer = _: peer: {
+    PublicKey = peer.publicKey;
+    AllowedIPs = [ "${peer.address}/32" ];
+  };
+
   syncConfigMarker = builtins.toFile "wireguard-${peerName}-peers.json" (
     builtins.toJSON {
       inherit (cfg) listenPort peers;
       inherit peerName;
+      externalClients = externalPeers;
     }
   );
 
@@ -94,8 +103,16 @@ let
       printf '\n'
     '';
 
+  renderExternalSyncPeer = _: peer: ''
+    printf '%s\n' '[Peer]'
+    printf '%s\n' ${lib.escapeShellArg "PublicKey = ${peer.publicKey}"}
+    printf '%s\n' ${lib.escapeShellArg "AllowedIPs = ${peer.address}/32"}
+    printf '\n'
+  '';
+
   syncWireguardConfig = pkgs.writeShellScript "wireguard-sync-${peerName}" ''
     set -euo pipefail
+    ${pkgs.systemd}/bin/busctl call org.freedesktop.network1 /org/freedesktop/network1 org.freedesktop.network1.Manager Reload
 
     wg_available=false
     for _ in {1..40}; do
@@ -123,6 +140,7 @@ let
       printf '%s\n' ${lib.escapeShellArg "ListenPort = ${toString cfg.listenPort}"}
       printf '\n'
       ${lib.concatStringsSep "\n" (lib.mapAttrsToList renderSyncPeer reachablePeers)}
+      ${lib.concatStringsSep "\n" (lib.mapAttrsToList renderExternalSyncPeer externalPeers)}
     } > "$tmp"
 
     ${pkgs.wireguard-tools}/bin/wg syncconf ${lib.escapeShellArg interfaceName} "$tmp"
@@ -161,14 +179,17 @@ lib.mkMerge [
           ListenPort = cfg.listenPort;
         };
 
-        wireguardPeers = lib.mapAttrsToList mkWireguardPeer reachablePeers;
+        wireguardPeers =
+          lib.mapAttrsToList mkWireguardPeer reachablePeers
+          ++ lib.mapAttrsToList mkExternalWireguardPeer externalPeers;
       };
 
       networks.${interfaceName} = {
         matchConfig.Name = interfaceName;
         addresses = [
           { Address = thisPeer.address; }
-        ];
+        ]
+        ++ lib.optional cfg.external.enable { Address = cfg.external.serverAddress; };
         routes = map mkRoute allAllowedIPs;
         networkConfig = {
           DHCP = "no";

@@ -50,7 +50,7 @@ in
   nextcloud.enable = false;
   pterodactyl.enable = false;
   syncthing.enable = true;
-  ollama.enable = true;
+  ollama.enable = false;
 
   gpu.vendor = "nvidia";
   observability = {
@@ -80,14 +80,14 @@ in
     };
 
     paseo = {
-      enable = true;
+      enable = false;
       user = "ezhang";
       group = "users";
       listenAddress = "10.100.0.1";
       port = 6767;
       hostnames = [ "thething" ];
       relay = {
-        enable = true;
+        enable = false;
         mode = "hosted";
       };
       environment.PASEO_RELAY_ENABLED = "true";

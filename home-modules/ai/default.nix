@@ -73,14 +73,15 @@ in
     harnesses = harnessOptions;
     paseo.enable = lib.mkOption {
       type = lib.types.bool;
-      default = config.desktop.enable && pkgs.stdenv.hostPlatform.isLinux;
+      default = false && config.desktop.enable && pkgs.stdenv.hostPlatform.isLinux;
       description = "Whether to enable the Paseo desktop environment for coding agents.";
     };
   };
 
   config = {
     home.file = builtins.listToAttrs (agentLinks ++ skillLinks);
-    home.packages = enabledPackages ++ optional config.ai.paseo.enable agents.paseo-desktop;
+    # home.packages = enabledPackages ++ optional config.ai.paseo.enable agents.paseo-desktop;
+    home.packages = enabledPackages ++ optional false agents.paseo-desktop;
     programs.git.ignores = [
       ".omx"
       "**/.claude/settings.local.json"
