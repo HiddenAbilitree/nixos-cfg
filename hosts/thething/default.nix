@@ -96,7 +96,18 @@ in
 
   boot.kernelPackages = lib.mkForce latestKernelPackage;
 
-  wireguard.enable = true;
+  wireguard = {
+    enable = true;
+    external = {
+      enable = true;
+      clients = {
+        "2" = {
+          publicKey = "ic3kjVJnuahXRzDGXHrP2VdivTdCCPuaYDE0wQQPakU=";
+          address = "10.102.0.2";
+        };
+      };
+    };
+  };
 
   nix.settings.system-features = [
     "kvm"

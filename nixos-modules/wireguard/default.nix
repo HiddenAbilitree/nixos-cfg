@@ -67,6 +67,7 @@ let
 in
 {
   imports = [
+    ./external.nix
     ./peer.nix
   ];
 

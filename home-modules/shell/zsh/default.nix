@@ -9,9 +9,13 @@
   ...
 }:
 {
+  imports = [ ./nvim-filter.nix ];
+
   options.shell.zsh.enable = lib.mkEnableOption "zsh";
 
   config = lib.mkIf config.shell.zsh.enable {
+    shell.zsh.nvimFilter.enable = lib.mkDefault true;
+
     programs.zsh = {
       enable = true;
       enableCompletion = true;
