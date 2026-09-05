@@ -1,5 +1,6 @@
 {
   config,
+  canvas-video-download,
   lib,
   no-num-keys,
   packages-nix,
@@ -30,6 +31,11 @@ let
     {
       id = "fgicbpcgglhhhcmmcjcjnglhojpobbda";
       crxPath = "${no-num-keys.packages.${pkgs.stdenv.hostPlatform.system}.default}/no-num-keys.crx";
+      version = "1.0.0";
+    }
+    {
+      id = "opnladikbboelmnajcpmnfoggnpcblfi";
+      crxPath = "${canvas-video-download.packages.${pkgs.stdenv.hostPlatform.system}.default}/canvas-video-download.crx";
       version = "1.0.0";
     }
     { id = "nngceckbapebfimnlniiiahkandclblb"; }

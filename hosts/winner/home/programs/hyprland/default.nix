@@ -25,6 +25,7 @@ let
       class = ".*[bB]rave.*";
       band = "primary";
       slot = 1;
+      silent = true;
     }
     {
       name = "winner-firefox-workspace";

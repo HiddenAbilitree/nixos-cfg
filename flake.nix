@@ -72,6 +72,7 @@
     };
 
     no-num-keys.url = "git+ssh://git@github.com/HiddenAbilitree/no-num-keys.git?ref=main";
+    canvas-video-download.url = "git+ssh://git@github.com/HiddenAbilitree/canvas-video-download.git?ref=main";
 
     prismlauncher.url = "github:PrismLauncher/PrismLauncher";
 
