@@ -32,7 +32,7 @@
     packages =
       with pkgs;
       [
-        texliveFull
+        # texliveFull
 
         bun
         python315
