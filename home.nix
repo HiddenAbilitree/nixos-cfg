@@ -1,8 +1,10 @@
 {
   lib,
+  nix-bun,
   osConfig,
   pkgs,
   root,
+  system,
   ...
 }:
 {
@@ -34,8 +36,9 @@
       [
         # texliveFull
 
-        bun
+        nix-bun.packages.${system}.default
         python315
+        zulu25
         uv
         cargo
         nodejs_latest

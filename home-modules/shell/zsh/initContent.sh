@@ -24,6 +24,16 @@ xvim() {
 	curdir=$(pwd) && [ -z "$1" ] && nvim || cd "$1" && nvim "$1" && trap 'cd "$curdir" || return' EXIT
 }
 
+copy() {
+	if [ -z "$1" ]; then
+		echo "usage: copy <filename>"
+		return 1
+	fi
+
+	wl-copy < "$1"
+}
+
+
 tre() {
 	if [ -z ${1+x} ]; then
 		eza --icons=always -T
