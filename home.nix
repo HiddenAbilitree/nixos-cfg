@@ -43,6 +43,8 @@
         cargo
         nodejs_latest
         rustlings
+        tokei
+        typst
       ]
       ++ lib.optionals stdenv.hostPlatform.isLinux [
         brightnessctl
