@@ -36,7 +36,7 @@ lib.mkIf config.desktop.enable {
       vesktop
       wineWow64Packages.waylandFull
       wl-clipboard
-      packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.nteract
+      # packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.nteract
     ];
 
 }
