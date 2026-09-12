@@ -46,6 +46,9 @@
         q = "qalc";
         lg = "lazygit";
       }
+      // lib.optionalAttrs (osConfig ? sops.secrets.wg-private-key) {
+        host-secrets = "sops ${proot}/nixos/sops/hosts/${osConfig.networking.hostName}.yaml";
+      }
       // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
         nt = "git -C ${root} add -A && nh os test ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.config/zsh/.zshrc";
         ns = "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.config/zsh/.zshrc";

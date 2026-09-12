@@ -22,11 +22,6 @@ let
           description = "WireGuard public key for this peer.";
         };
 
-        privateKeyFile = mkOption {
-          type = types.str;
-          description = "Path to the runtime file containing this peer's private key.";
-        };
-
         address = mkOption {
           type = types.str;
           description = "Interface address assigned to this peer, including prefix length.";
@@ -80,6 +75,20 @@ in
       default = 51820;
     };
 
+    privateKeyFile = mkOption {
+      type = types.str;
+      default = config.sops.secrets.wg-private-key.path;
+      defaultText = lib.literalExpression "config.sops.secrets.wg-private-key.path";
+      description = "Path to this host's WireGuard private key.";
+    };
+
+    presharedKeyFile = mkOption {
+      type = types.nullOr types.str;
+      default = config.sops.secrets.wg-psk.path;
+      defaultText = lib.literalExpression "config.sops.secrets.wg-psk.path";
+      description = "Path to this host's preshared key for relay links.";
+    };
+
     peerName = mkOption {
       type = types.str;
       description = "Name of this host in the WireGuard peers attrset.";
@@ -94,46 +103,44 @@ in
     };
   };
 
-  config.wireguard.peers = {
-    thething = {
-      publicKey = "lHHJlzI/DCtaptEw75Uz121FcPeiAPAq91l6PZET0xc=";
-      privateKeyFile = config.sops.secrets.wg-thething-private-key.path;
-      address = "10.100.0.1/24";
-      endpoint = config.ip;
-      isRelay = true;
-    };
-    loser = {
-      publicKey = "nL4DkJLnD/EwRGg+DHAsjDE2rg/hEibFb88b6Y7szBc=";
-      privateKeyFile = config.sops.secrets.wg-loser-private-key.path;
-      address = "10.100.0.2/24";
-      presharedKeyFile = config.sops.secrets.wg-loser-psk.path;
-    };
-    winner = {
-      publicKey = "qPEAvFY7/rwheiLX1Xn3EI1pnDmbF4VslClPmkDn10o=";
-      privateKeyFile = config.sops.secrets.wg-winner-private-key.path;
-      address = "10.100.0.3/24";
-      presharedKeyFile = config.sops.secrets.wg-winner-psk.path;
-    };
-    phone = {
-      publicKey = "n0c/yAEctBit3XzQS4Qrfz3bS8LUHkoZAVkGhI9UoGk=";
-      privateKeyFile = config.sops.secrets.wg-phone-private-key.path;
-      address = "10.100.0.4/24";
-      presharedKeyFile = config.sops.secrets.wg-phone-psk.path;
-    };
-    vps = {
-      publicKey = "uuRHwpFxt1Rfx7evsx7Q9ElnFuVA6ToAqHKigK+eIxk=";
-      privateKeyFile = config.sops.secrets.wg-vps-private-key.path;
-      address = "10.101.0.1/24";
-      endpoint = "15.204.232.112";
-      presharedKeyFile = config.sops.secrets.wg-vps-psk.path;
-    };
-    ionos = {
-      publicKey = "TfiQ1sab9qT+Qi0Jhg2FtRrNtugN3V9hWaO+sm2CUXw=";
-      privateKeyFile = config.sops.secrets.wg-ionos-private-key.path;
-      address = "10.101.0.2/24";
-      endpoint = "74.208.200.220";
-      isRelay = true;
-      presharedKeyFile = config.sops.secrets.wg-ionos-psk.path;
-    };
-  };
+  config.wireguard.peers =
+    lib.mapAttrs
+      (
+        name: peer:
+        peer
+        // lib.optionalAttrs (builtins.hasAttr "wg-peer-psks/${name}" config.sops.secrets) {
+          presharedKeyFile = config.sops.secrets."wg-peer-psks/${name}".path;
+        }
+      )
+      {
+        thething = {
+          publicKey = "lHHJlzI/DCtaptEw75Uz121FcPeiAPAq91l6PZET0xc=";
+          address = "10.100.0.1/24";
+          endpoint = config.ip;
+          isRelay = true;
+        };
+        loser = {
+          publicKey = "nL4DkJLnD/EwRGg+DHAsjDE2rg/hEibFb88b6Y7szBc=";
+          address = "10.100.0.2/24";
+        };
+        winner = {
+          publicKey = "qPEAvFY7/rwheiLX1Xn3EI1pnDmbF4VslClPmkDn10o=";
+          address = "10.100.0.3/24";
+        };
+        phone = {
+          publicKey = "n0c/yAEctBit3XzQS4Qrfz3bS8LUHkoZAVkGhI9UoGk=";
+          address = "10.100.0.4/24";
+        };
+        vps = {
+          publicKey = "uuRHwpFxt1Rfx7evsx7Q9ElnFuVA6ToAqHKigK+eIxk=";
+          address = "10.101.0.1/24";
+          endpoint = "15.204.232.112";
+        };
+        ionos = {
+          publicKey = "TfiQ1sab9qT+Qi0Jhg2FtRrNtugN3V9hWaO+sm2CUXw=";
+          address = "10.101.0.2/24";
+          endpoint = "74.208.200.220";
+          isRelay = true;
+        };
+      };
 }

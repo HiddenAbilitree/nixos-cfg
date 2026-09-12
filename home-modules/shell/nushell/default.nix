@@ -52,6 +52,9 @@
         b = "bluetuith";
 
         vpn = "cat ${osConfig.sops.secrets.zeuspwd.path} | sudo openconnect --background --user=ezhang7 --authgroup=STUDENT --passwd-on-stdin vpn.gmu.edu > /dev/null";
+      }
+      // lib.optionalAttrs (osConfig ? sops.secrets.wg-private-key) {
+        host-secrets = "sops ${proot}/nixos/sops/hosts/${osConfig.networking.hostName}.yaml";
       };
     };
     shell.carapace.enable = lib.mkForce true;

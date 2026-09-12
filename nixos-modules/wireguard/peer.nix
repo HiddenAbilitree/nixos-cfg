@@ -44,7 +44,7 @@ let
     if thisPeer.isRelay then
       peer.presharedKeyFile
     else if peer.isRelay then
-      thisPeer.presharedKeyFile
+      cfg.presharedKeyFile
     else
       peer.presharedKeyFile;
 
@@ -74,7 +74,12 @@ let
 
   syncConfigMarker = builtins.toFile "wireguard-${peerName}-peers.json" (
     builtins.toJSON {
-      inherit (cfg) listenPort peers;
+      inherit (cfg)
+        listenPort
+        peers
+        privateKeyFile
+        presharedKeyFile
+        ;
       inherit peerName;
       externalClients = externalPeers;
     }
@@ -135,7 +140,7 @@ let
     {
       printf '%s\n' '[Interface]'
       printf '%s' 'PrivateKey = '
-      ${pkgs.coreutils}/bin/tr -d '\n' < ${lib.escapeShellArg thisPeer.privateKeyFile}
+      ${pkgs.coreutils}/bin/tr -d '\n' < ${lib.escapeShellArg cfg.privateKeyFile}
       printf '\n'
       printf '%s\n' ${lib.escapeShellArg "ListenPort = ${toString cfg.listenPort}"}
       printf '\n'
@@ -175,7 +180,7 @@ lib.mkMerge [
         };
 
         wireguardConfig = {
-          PrivateKeyFile = thisPeer.privateKeyFile;
+          PrivateKeyFile = cfg.privateKeyFile;
           ListenPort = cfg.listenPort;
         };
 
