@@ -1350,11 +1350,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1787485128,
-        "narHash": "sha256-24rxGfpn+c80dTn5FjaJ35xmsKSV+OiliFwYMo/OvIQ=",
+        "lastModified": 1789420138,
+        "narHash": "sha256-fuZsTi/xr6gFyYPfAR0pwf9zU3MQ8WVQMQkBHEZ+02Q=",
         "ref": "main",
-        "rev": "06d712009b9b382f7870c18fec08bd9c1e5d0462",
-        "revCount": 113,
+        "rev": "3f94b1d158a013d7f71e8762ca879c570aeb9c31",
+        "revCount": 114,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/nixvim-cfg.git"
       },

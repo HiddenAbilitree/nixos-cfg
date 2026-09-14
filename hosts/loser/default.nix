@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: {
   imports = [
     ./hardware-configuration.nix
     ./disk-config.nix
@@ -6,6 +6,8 @@
   virtualization.enable = true;
 
   laptop.enable = true;
+
+  time.hardwareClockInLocalTime = lib.mkForce false;
 
   gpu = {
     vendor = "amd";
