@@ -34,8 +34,8 @@ let
       slot = 1;
     }
     {
-      name = "winner-codium-workspace";
-      class = ".*codium.*";
+      name = "winner-positron-workspace";
+      class = ".*[pP]ositron.*";
       band = "primary";
       slot = 2;
     }

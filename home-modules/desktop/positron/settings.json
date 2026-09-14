@@ -78,9 +78,16 @@
   },
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "files.associations": {
+    "**/.posit/ai/providers.json": "jsonc",
+    "**/.posit/ai/auth/data.json": "jsonc",
+    "**/.posit/assistant/settings.json": "jsonc",
+    "renv.lock": "json"
+  },
   "git.openRepositoryInParentFolders": "never",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "nix.formatterPath": "nixfmt",
+  "ruff.importStrategy": "fromEnvironment",
   "terminal.integrated.smoothScrolling": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "update.mode": "none",

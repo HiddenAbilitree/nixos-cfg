@@ -54,7 +54,7 @@
         ns = "git -C ${root} add -A && nh os switch ${root} -H ${osConfig.networking.hostName} -v -- --accept-flake-config --show-trace && source ~/.config/zsh/.zshrc";
         nr = "nixos-rebuild switch --flake ${root} --rollback --use-remote-sudo";
         # gh = "GITHUB_TOKEN=$(cat ${osConfig.sops.secrets.github-token.path}) gh";
-        code = "codium";
+        code = "positron";
         pdf = "nohup zathura $(fzf)";
         b = "bluetuith";
         vpn = "cat ${osConfig.sops.secrets.zeuspwd.path} | sudo openconnect --background --user=ezhang7 --authgroup=STUDENT --passwd-on-stdin vpn.gmu.edu > /dev/null";

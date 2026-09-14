@@ -46,7 +46,7 @@
 
         gh = "GITHUB_TOKEN=$(open --raw ${osConfig.sops.secrets.github-token.path}) gh";
 
-        code = "codium";
+        code = "positron";
 
         q = "qalc";
         b = "bluetuith";

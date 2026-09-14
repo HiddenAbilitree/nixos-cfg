@@ -31,7 +31,7 @@ hl.window_rule({ name = "loser-vivaldi-workspace", match = { initial_class = "vi
 hl.window_rule({ name = "loser-brave-workspace", match = { initial_class = "[bB]rave-browser" }, workspace = "1 silent" })
 hl.window_rule({ name = "loser-helium-workspace", match = { initial_class = "helium" }, workspace = "1" })
 hl.window_rule({ name = "loser-firefox-workspace", match = { initial_class = "firefox" }, workspace = "1" })
-hl.window_rule({ name = "loser-codium-workspace", match = { initial_class = ".*codium.*" }, workspace = "2" })
+hl.window_rule({ name = "loser-positron-workspace", match = { initial_class = ".*[pP]ositron.*" }, workspace = "2" })
 hl.window_rule({ name = "loser-lunar-workspace", match = { initial_class = ".*[lL]unar.*" }, workspace = "2 silent" })
 hl.window_rule({ name = "loser-lunar-immediate", match = { initial_class = ".*[lL]unar.*" }, immediate = true })
 hl.window_rule({ name = "loser-steam-workspace", match = { initial_class = ".*steam.*" }, workspace = "2 silent" })

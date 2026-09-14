@@ -11,7 +11,6 @@
 
     packages-nix = {
       url = "git+ssh://git@github.com/HiddenAbilitree/packages.git?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     disko = {
@@ -21,7 +20,6 @@
 
     helium = {
       url = "github:forkprince/nur-packages";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
@@ -40,12 +38,10 @@
 
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     paseo = {
       url = "github:getpaseo/paseo";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-bun = {
@@ -73,7 +69,6 @@
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     no-num-keys.url = "git+ssh://git@github.com/HiddenAbilitree/no-num-keys.git?ref=main";
@@ -113,7 +108,6 @@
 
     vicinae = {
       url = "github:vicinaehq/vicinae";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };

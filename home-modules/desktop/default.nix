@@ -33,7 +33,6 @@ in
     ++ [ ./spicetify ]
     ++ lib.optionals isLinux [
       ./vicinae
-      ./vscodium
       ./wallpaper
       ./waybar
       ./zathura
@@ -105,7 +104,6 @@ in
           positron.enable = lib.mkDefault true;
           notifications.enable = lib.mkDefault true;
           vicinae.enable = lib.mkDefault false;
-          vscodium.enable = lib.mkDefault false;
           waybar.enable = lib.mkDefault true;
           zathura.enable = lib.mkDefault true;
           zed.enable = lib.mkDefault false;
