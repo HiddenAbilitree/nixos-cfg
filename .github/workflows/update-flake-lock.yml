@@ -1,0 +1,76 @@
+name: Update flake lock
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-flake-lock-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: selfhosted
+    env:
+      NIX_CONFIG: |
+        access-tokens = github.com=${{ github.token }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Update flake lock
+        shell: bash
+        run: |
+          set -euo pipefail
+          nix flake update
+
+      - name: Build configs
+        shell: bash
+        run: |
+          set -euo pipefail
+          hosts="$(nix eval --raw .#nixosConfigurations \
+            --apply 'hosts: builtins.concatStringsSep "\n" (builtins.attrNames hosts)')"
+          test -n "$hosts"
+          mapfile -t host_names <<< "$hosts"
+          targets=()
+          for host in "${host_names[@]}"; do
+            targets+=(".#nixosConfigurations.\"$host\".config.system.build.toplevel")
+          done
+
+          nix build --json --print-build-logs \
+            --out-link "$RUNNER_TEMP/flake-build" \
+            "${targets[@]}" > "$RUNNER_TEMP/flake-build.json"
+
+      - name: Push closures to Attic
+        shell: bash
+        run: |
+          set -euo pipefail
+          output_paths="$(jq -er '.[] | .outputs[]' "$RUNNER_TEMP/flake-build.json")"
+          test -n "$output_paths"
+          mapfile -t paths <<< "$output_paths"
+          attic-ci-push "${paths[@]}"
+
+      - name: Commit and push flake lock
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -z "$(git status --porcelain -- flake.lock)" ]; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- flake.lock
+          git commit -m "chore: update flake.lock" -- flake.lock
+          git push
