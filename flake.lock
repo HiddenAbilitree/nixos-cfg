@@ -271,11 +271,11 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
-        "lastModified": 1785627969,
-        "narHash": "sha256-4dtXQk/NMePegK/nWp5NSeuZKLATItOq61lpEvmXqGw=",
+        "lastModified": 1788450739,
+        "narHash": "sha256-glZLQlzIn1fXH6PazR2iUmTo7kzzyYSshrWhLS9TqCU=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "427bf4bd9435fdf21321c8cc628c24efc14c0f7a",
+        "rev": "31729ca8cbdb4fa927b34e5f4353e6a83f39e993",
         "type": "github"
       },
       "original": {
@@ -293,11 +293,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785627969,
-        "narHash": "sha256-4dtXQk/NMePegK/nWp5NSeuZKLATItOq61lpEvmXqGw=",
+        "lastModified": 1788450739,
+        "narHash": "sha256-glZLQlzIn1fXH6PazR2iUmTo7kzzyYSshrWhLS9TqCU=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "427bf4bd9435fdf21321c8cc628c24efc14c0f7a",
+        "rev": "31729ca8cbdb4fa927b34e5f4353e6a83f39e993",
         "type": "github"
       },
       "original": {
@@ -1015,11 +1015,11 @@
     },
     "nixpkgs-lib": {
       "locked": {
-        "lastModified": 1785031560,
-        "narHash": "sha256-OmshNvn2vupOFpYinLUu+1Dnpu4n7Q5N3ggGVNHpkUI=",
+        "lastModified": 1788057806,
+        "narHash": "sha256-DTQSMxzDWmT0zhguthvegnVkn7CFqGCv4IHCzk5ZUpM=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "0e79af5e3d4dcfcd676ab5ba3f95d2e3352e078c",
+        "rev": "596e2e3940e09b2abbeb03f75fa1828c57fcd72c",
         "type": "github"
       },
       "original": {
@@ -1046,11 +1046,11 @@
     },
     "nixpkgs_10": {
       "locked": {
-        "lastModified": 1787172299,
-        "narHash": "sha256-PShzS87awOlE5XWkxUGBd/58/F+AtE2ZMgFffKj4r8s=",
+        "lastModified": 1789073787,
+        "narHash": "sha256-xfX/toC2QV707s06GbP4II/TxYF0fNQj7s5/LClNDKc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "07e1d92cdc0ed416cfa11ff3ca40d17e61cfba7a",
+        "rev": "aff8a0b28396750446e5537a96461bc4facdb287",
         "type": "github"
       },
       "original": {
@@ -1309,11 +1309,11 @@
     },
     "nixpkgs_9": {
       "locked": {
-        "lastModified": 1787364730,
-        "narHash": "sha256-NcYt9QJfpJiF1lAyN8BDPB4EeScbPU+EwQqPiBElrpU=",
+        "lastModified": 1789370336,
+        "narHash": "sha256-6RSEDHIWQtesQKWSu5qRai8L2h4KgCgMEfJHstW99G4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a831408e6378bc02ebf8cc09b52c96ca86f6bab4",
+        "rev": "c7def046b9a883d46974757852106483d741586f",
         "type": "github"
       },
       "original": {
@@ -1330,11 +1330,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1787270640,
-        "narHash": "sha256-L3ZXW7MSCPsOZz5powJZZqzZLxuPLh9QXHp5shwzqb8=",
+        "lastModified": 1789344271,
+        "narHash": "sha256-ezmg5oQSZWYdmomx6K1J+/6w7dRc7bquDMggc8eAE28=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "bd46166bd8308861cd36984a52ed5d25522d0ba8",
+        "rev": "afcfb8c1dc075881bbaa6fa5745aebbdb179f8b8",
         "type": "github"
       },
       "original": {
@@ -1350,11 +1350,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1789476629,
-        "narHash": "sha256-hi0Sg03oYpRbsMIHshyVhk5aDVjhBa9TCTBfNfPX7hU=",
+        "lastModified": 1789481286,
+        "narHash": "sha256-ol5cTg/Fnty4+r7gjKDJXUgXy36pG2zqKtM4osms7P8=",
         "ref": "main",
-        "rev": "c70817f90b0b7889292acd9125107b6cba75c29e",
-        "revCount": 115,
+        "rev": "8211c1d44579351089f45c01ed05be86976bb4f3",
+        "revCount": 118,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/nixvim-cfg.git"
       },
@@ -1514,11 +1514,11 @@
         "nixpkgs": "nixpkgs_15"
       },
       "locked": {
-        "lastModified": 1789466041,
-        "narHash": "sha256-NeeirZ3yirkDXMJ44adHeW2yH/w/BMjsJKhRFM6tU9o=",
+        "lastModified": 1789479204,
+        "narHash": "sha256-a6cOrol+ZNa+vrrTB9Zg7W5ZMPaJwBjBXqVxgAxcO9w=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "e4e1260f14648456cf5b47337835c0d5178fb30c",
+        "rev": "697e7ed20f3108cd519d05d58355fff243f3b35b",
         "type": "github"
       },
       "original": {
