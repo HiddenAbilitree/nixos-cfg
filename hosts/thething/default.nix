@@ -46,6 +46,19 @@ in
   bootx.bootloader.enable = true;
 
   runners.enable = true;
+  nix.settings.trusted-substituters = [
+    "https://noctalia.cachix.org"
+    "https://ezkea.cachix.org"
+    "https://hyprland.cachix.org"
+    "https://hiddenability.cachix.org"
+    "https://lanzaboote.cachix.org"
+    "https://nix-community.cachix.org"
+    "https://prismlauncher.cachix.org"
+    "https://vicinae.cachix.org"
+    "https://cache.numtide.com"
+    "https://cache.thalheim.io"
+    "https://cache.kunet.dev/eric-cache"
+  ];
 
   nextcloud.enable = false;
   pterodactyl.enable = false;
