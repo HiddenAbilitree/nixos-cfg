@@ -865,26 +865,6 @@
         "url": "ssh://git@github.com/HiddenAbilitree/nix-bisect.git"
       }
     },
-    "nix-bun": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1789519698,
-        "narHash": "sha256-Bp9y3LoMveDuU2mzVQqlKvYmEKdOX0EQn3ZTQkai6ec=",
-        "owner": "ryoppippi",
-        "repo": "nix-bun",
-        "rev": "8d801536e2ebd3f9e962b43c43865289cfde7997",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ryoppippi",
-        "repo": "nix-bun",
-        "type": "github"
-      }
-    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -1558,7 +1538,6 @@
         "impermanence": "impermanence",
         "lanzaboote": "lanzaboote",
         "llm-agents": "llm-agents",
-        "nix-bun": "nix-bun",
         "nix-darwin": "nix-darwin",
         "nix-dokploy": "nix-dokploy",
         "nix-flatpak": "nix-flatpak",

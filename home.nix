@@ -1,10 +1,8 @@
 {
   lib,
-  nix-bun,
   osConfig,
   pkgs,
   root,
-  system,
   ...
 }:
 {
@@ -36,7 +34,7 @@
       [
         # texliveFull
 
-        nix-bun.packages.${system}.default
+        bun
         python315
         zulu25
         uv

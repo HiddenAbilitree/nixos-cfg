@@ -44,11 +44,6 @@
       url = "github:getpaseo/paseo";
     };
 
-    nix-bun = {
-      url = "github:ryoppippi/nix-bun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-dokploy.url = "github:el-kurto/nix-dokploy";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
