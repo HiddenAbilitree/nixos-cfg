@@ -4,6 +4,8 @@
     defaultUser = "ezhang";
   };
 
+  services.resolved.enable = false;
+
   ssh = {
     enable = true;
     fail2ban.enable = false;

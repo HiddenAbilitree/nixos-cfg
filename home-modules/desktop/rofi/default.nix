@@ -1,5 +1,6 @@
 {
   config,
+  options,
   packages-nix,
   lib,
   pkgs,
@@ -12,19 +13,32 @@ in
   options.desktop.rofi.enable = lib.mkEnableOption "Rofi";
 
   config = lib.mkIf config.desktop.rofi.enable {
-    programs.rofi = {
-      enable = true;
-      terminal = "${kittyPackage}/bin/kitty";
-      font = "0xProto Nerd Font 12";
-      package = pkgs.rofi;
-      theme = ./theme.rasi;
-      extraConfig = {
-        kb-mode-next = "Right,Control+Tab";
-        kb-mode-previous = "Left,Shift+Control+Tab";
-        kb-move-char-forward = "Control+f";
-        kb-move-char-back = "Control+b";
+    programs.rofi =
+      {
+        enable = true;
+        package = pkgs.rofi;
+        theme = ./theme.rasi;
+      }
+      // lib.optionalAttrs (options.programs.rofi ? settings) {
+        settings = {
+          terminal = "${kittyPackage}/bin/kitty";
+          font = "0xProto Nerd Font 12";
+          kb-mode-next = "Right,Control+Tab";
+          kb-mode-previous = "Left,Shift+Control+Tab";
+          kb-move-char-forward = "Control+f";
+          kb-move-char-back = "Control+b";
+        };
+      }
+      // lib.optionalAttrs (!(options.programs.rofi ? settings)) {
+        terminal = "${kittyPackage}/bin/kitty";
+        font = "0xProto Nerd Font 12";
+        extraConfig = {
+          kb-mode-next = "Right,Control+Tab";
+          kb-mode-previous = "Left,Shift+Control+Tab";
+          kb-move-char-forward = "Control+f";
+          kb-move-char-back = "Control+b";
+        };
       };
-    };
     home.file.".config/rofi/theme.rasi".text = builtins.readFile ./theme.rasi;
     home.file.".config/rofi/colors/tokyo-night.rasi".text = builtins.readFile ./colors/tokyo-night.rasi;
   };

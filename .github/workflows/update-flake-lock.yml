@@ -31,22 +31,19 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          nix flake update
+          nix flake update --accept-flake-config
 
       - name: Build configs
         shell: bash
         run: |
           set -euo pipefail
-          hosts="$(nix eval --raw .#nixosConfigurations \
-            --apply 'hosts: builtins.concatStringsSep "\n" (builtins.attrNames hosts)')"
-          test -n "$hosts"
-          mapfile -t host_names <<< "$hosts"
-          targets=()
-          for host in "${host_names[@]}"; do
-            targets+=(".#nixosConfigurations.\"$host\".config.system.build.toplevel")
-          done
+          targets=(
+            ".#nixosConfigurations.thething.config.system.build.toplevel"
+            ".#nixosConfigurations.winner.config.system.build.toplevel"
+            ".#nixosConfigurations.loser.config.system.build.toplevel"
+          )
 
-          nix build --json --print-build-logs \
+          nix build --accept-flake-config --json --print-build-logs \
             --out-link "$RUNNER_TEMP/flake-build" \
             "${targets[@]}" > "$RUNNER_TEMP/flake-build.json"
 
