@@ -34,6 +34,7 @@ lib.mkIf config.desktop.enable {
       themechanger
       tor-browser
       vesktop
+      equibop
       wineWow64Packages.waylandFull
       wl-clipboard
       # packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.nteract

@@ -33,16 +33,6 @@
       with pkgs;
       [
         # texliveFull
-
-        bun
-        python315
-        zulu25
-        uv
-        cargo
-        nodejs_latest
-        rustlings
-        tokei
-        typst
       ]
       ++ lib.optionals stdenv.hostPlatform.isLinux [
         brightnessctl
@@ -52,8 +42,6 @@
         openconnect
         vpn-slice
         playerctl
-        man-pages
-        man-pages-posix
       ];
     stateVersion = "24.05";
   };

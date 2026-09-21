@@ -16,6 +16,17 @@
       [
         awscli2
         devenv
+        cloudflared
+        typst
+        tokei
+
+        bun
+        python315
+        zulu25
+        uv
+        cargo
+        cargo-generate
+        nodejs_latest
       ]
       ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
         dig
