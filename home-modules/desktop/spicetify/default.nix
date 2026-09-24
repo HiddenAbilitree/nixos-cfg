@@ -19,7 +19,6 @@
         enabledExtensions = with spicePkgs.extensions; [
           hidePodcasts
           shuffle
-          betterGenres
         ];
         theme = spicePkgs.themes.catppuccin;
         colorScheme = "macchiato";
