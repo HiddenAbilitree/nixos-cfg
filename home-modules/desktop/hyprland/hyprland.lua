@@ -97,7 +97,7 @@ on_start({
   "systemctl --user start hyprpolkitagent",
   "noctalia",
   "vicinae server",
-  "vesktop",
+  "equibop",
   "spotify",
   "obsidian",
   terminal,
@@ -229,8 +229,6 @@ end
 bind_exec(mod .. " + l", "hyprlock")
 bind_exec(mod .. " + p", "hyprpicker -a -f hex")
 bind_exec(mod .. " + SHIFT + S", "grimblast --freeze copy area", { locked = true })
-bind_exec(mod .. " + SHIFT + O", "hyprland-ocr")
-bind_exec(mod .. " + SHIFT + L", "hyprland-latex-ocr")
 bind_exec("Print", "grimblast copysave output", { locked = true })
 
 for _, binding in ipairs({

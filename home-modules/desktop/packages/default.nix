@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  packages-nix,
   pkgs,
   ...
 }:
@@ -16,6 +15,7 @@ lib.mkIf config.desktop.enable {
       zed-editor
     ]
     ++ lib.optionals stdenv.hostPlatform.isLinux [
+      blender
       easyeffects
       firefox
       font-manager
@@ -33,7 +33,6 @@ lib.mkIf config.desktop.enable {
       protonup-qt
       themechanger
       tor-browser
-      vesktop
       equibop
       wineWow64Packages.waylandFull
       wl-clipboard

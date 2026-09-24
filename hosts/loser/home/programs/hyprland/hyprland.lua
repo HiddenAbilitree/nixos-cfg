@@ -43,5 +43,5 @@ hl.window_rule({
 })
 hl.window_rule({ name = "loser-prism-workspace", match = { initial_class = ".*prism.*" }, workspace = "2 silent" })
 hl.window_rule({ name = "loser-kitty-workspace", match = { initial_class = "kitty" }, workspace = "3" })
-hl.window_rule({ name = "loser-vesktop-workspace", match = { initial_class = "vesktop" }, workspace = "4" })
+hl.window_rule({ name = "loser-equibop-workspace", match = { initial_class = "[Ee]quibop" }, workspace = "4" })
 hl.window_rule({ name = "loser-spotify-workspace", match = { initial_class = "[Ss]potify" }, workspace = "9" })

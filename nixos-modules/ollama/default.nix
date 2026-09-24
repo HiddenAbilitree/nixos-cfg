@@ -11,7 +11,9 @@
       enable = true;
       openFirewall = true;
       host = "0.0.0.0";
-      loadModels = [ "gemma4:latest" ];
+      loadModels = [
+        "gemma4:latest"
+      ];
     };
   };
 }

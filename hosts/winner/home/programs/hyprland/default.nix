@@ -93,8 +93,8 @@ let
       slot = 3;
     }
     {
-      name = "winner-vesktop-workspace";
-      class = "vesktop";
+      name = "winner-equibop-workspace";
+      class = "[Ee]quibop";
       band = "secondary";
       slot = 1;
     }
