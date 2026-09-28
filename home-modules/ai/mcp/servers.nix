@@ -6,6 +6,10 @@
 }:
 {
   ai.mcp.servers = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
+    deadlock = {
+      type = "http";
+      url = "https://api.deadlock-api.com/v1/mcp";
+    };
     dokploy = {
       command = "npx";
       args = [
