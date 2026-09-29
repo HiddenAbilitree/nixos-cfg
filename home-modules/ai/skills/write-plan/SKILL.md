@@ -5,6 +5,8 @@ description: Create short implementation plans without restating prompts, instru
 
 # Planning
 
+Only use when in plan mode.
+
 Create an implementation plan focused only on the work that needs to be done.
 
 ## Rules
