@@ -37,6 +37,7 @@
 
   mullvad.enable = true;
   ollama.enable = true;
+  paddleocr.enable = true;
 
   gpu = {
     vendor = "amd";

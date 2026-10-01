@@ -229,6 +229,9 @@ end
 bind_exec(mod .. " + l", "hyprlock")
 bind_exec(mod .. " + p", "hyprpicker -a -f hex")
 bind_exec(mod .. " + SHIFT + S", "grimblast --freeze copy area", { locked = true })
+bind_exec(mod .. " + SHIFT + O", "hyprland-ocr --format markdown")
+bind_exec(mod .. " + SHIFT + L", "hyprland-ocr --format latex")
+bind_exec(mod .. " + SHIFT + T", "hyprland-ocr --format typst")
 bind_exec("Print", "grimblast copysave output", { locked = true })
 
 for _, binding in ipairs({

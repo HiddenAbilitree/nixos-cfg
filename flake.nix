@@ -69,6 +69,11 @@
     no-num-keys.url = "git+ssh://git@github.com/HiddenAbilitree/no-num-keys.git?ref=main";
     canvas-video-download.url = "git+ssh://git@github.com/HiddenAbilitree/canvas-video-download.git?ref=main";
 
+    ocr = {
+      url = "git+ssh://git@github.com/HiddenAbilitree/ocr.git?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     prismlauncher.url = "github:PrismLauncher/PrismLauncher";
 
     private.url = "git+ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git?ref=main";

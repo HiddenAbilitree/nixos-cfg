@@ -10,6 +10,7 @@
     ./mongodb.nix
     ./mullvad
     ./ollama
+    ./paddleocr
     ./printing.nix
     ./ssh.nix
     ./swap.nix

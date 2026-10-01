@@ -3,6 +3,7 @@
   osConfig,
   hyprland,
   lib,
+  ocr,
   pkgs,
   split-monitor-workspaces,
   ...
@@ -43,6 +44,34 @@ let
       exec ${pkgs.python3}/bin/python3 ${./reset-window-workspaces.py} "$@"
     '';
   };
+
+  hyprlandOcr = pkgs.writeShellApplication {
+    name = "hyprland-ocr";
+    runtimeInputs = [
+      ocr.packages.${pkgs.stdenv.hostPlatform.system}.default
+      pkgs.coreutils
+      pkgs.grimblast
+      pkgs.libnotify
+      pkgs.pandoc
+      pkgs.wl-clipboard
+    ];
+    text = ''
+      work_dir="$(mktemp -d)"
+      trap 'rm -rf "$work_dir"' EXIT
+
+      if ! grimblast --freeze save area "$work_dir/image.png" >/dev/null; then
+        exit 0
+      fi
+
+      if ! ocr "$work_dir/image.png" "$@" --output "$work_dir/text"; then
+        notify-send --app-name="Hyprland OCR" "OCR failed" "Could not transcribe the screenshot."
+        exit 1
+      fi
+
+      wl-copy --type 'text/plain;charset=utf-8' < "$work_dir/text"
+      notify-send --app-name="Hyprland OCR" "OCR complete" "Text copied to the clipboard."
+    '';
+  };
 in
 {
   imports = [
@@ -63,6 +92,7 @@ in
         xdg-desktop-portal-gtk
       ]
       ++ [
+        hyprlandOcr
         resetWindowWorkspaces
       ];
 

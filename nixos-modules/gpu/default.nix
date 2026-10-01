@@ -6,6 +6,10 @@
 }:
 let
   cfg = config.gpu;
+  rocmDevices = [
+    "dev-kfd.device"
+    "dev-dri-renderD128.device"
+  ];
 in
 {
   options.gpu = {
@@ -66,6 +70,14 @@ in
         rocmPackages.rocminfo
         rocmPackages.rocm-runtime
       ];
+      services.udev.extraRules = ''
+        KERNEL=="kfd", TAG+="systemd"
+        SUBSYSTEM=="drm", KERNEL=="renderD*", TAG+="systemd"
+      '';
+      systemd.services.ollama = lib.mkIf config.ollama.enable {
+        requires = rocmDevices;
+        after = rocmDevices;
+      };
       systemd.tmpfiles.rules = [
         "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
       ];

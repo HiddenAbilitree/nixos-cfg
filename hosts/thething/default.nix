@@ -105,7 +105,7 @@ in
     };
 
     paseo = {
-      enable = false;
+      enable = true;
       user = "ezhang";
       group = "users";
       listenAddress = "10.100.0.1";

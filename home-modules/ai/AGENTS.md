@@ -1,7 +1,9 @@
 This is a NixOS system. Use `nix-shell -p ... --run "..."` for one time commands that require packages that are not in your current environment.
 
+
 # General Style Guidelines:
 - Do not include comments in final code output.
+- Do not edit READMEs. If it is truly necessary for a future editor to know, then you should write a dedicated document file for it. Otherwise, don't add documentation at all.
 
 # Style Guidelines (Typescript):
 - Always make sure to use `undefined` instead of `null` whenever possible.
