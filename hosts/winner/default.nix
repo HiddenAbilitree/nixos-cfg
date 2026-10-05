@@ -62,6 +62,20 @@
   services = {
     fstrim.enable = false;
 
+    paseo = {
+      enable = true;
+      user = "ezhang";
+      group = "users";
+      listenAddress = "10.100.0.3";
+      port = 6767;
+      hostnames = [ "winner" ];
+      relay = {
+        enable = true;
+        mode = "hosted";
+      };
+      environment.PASEO_RELAY_ENABLED = "true";
+    };
+
     resolved = {
       enable = true;
       settings.Resolve.FallbackDNS = [

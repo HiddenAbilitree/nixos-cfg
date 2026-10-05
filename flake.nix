@@ -170,7 +170,7 @@
           system = "x86_64-linux";
           secureboot = true;
           install = false;
-          modulesx = [ ];
+          modulesx = [ inputs.paseo.nixosModules.default ];
         };
         thething = mkHost {
           hostName = "thething";
