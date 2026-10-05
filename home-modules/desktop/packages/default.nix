@@ -4,6 +4,19 @@
   pkgs,
   ...
 }:
+let
+  equibop-discord = pkgs.symlinkJoin {
+    name = "equibop-discord";
+    paths = [ pkgs.equibop ];
+    postBuild = ''
+      rm $out/share/applications/equibop.desktop
+      sed \
+        -e 's|^Name=.*|Name=Discord|' \
+        -e 's|^Icon=.*|Icon=${pkgs.papirus-icon-theme}/share/icons/Papirus/128x128/apps/discord.svg|' \
+        ${pkgs.equibop}/share/applications/equibop.desktop > $out/share/applications/equibop.desktop
+    '';
+  };
+in
 lib.mkIf config.desktop.enable {
   home.packages =
     with pkgs;
@@ -33,7 +46,7 @@ lib.mkIf config.desktop.enable {
       protonup-qt
       themechanger
       tor-browser
-      equibop
+      equibop-discord
       wineWow64Packages.waylandFull
       wl-clipboard
       # packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.nteract
