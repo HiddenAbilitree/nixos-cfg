@@ -74,7 +74,10 @@ let
 
 in
 {
-  imports = [ ./mcp ];
+  imports = [
+    ./mcp
+    ./omp.nix
+  ];
 
   options.ai = {
     harnesses = harnessOptions;

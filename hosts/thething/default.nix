@@ -57,7 +57,7 @@ in
     "https://vicinae.cachix.org"
     "https://cache.numtide.com"
     "https://cache.thalheim.io"
-    "https://cache.kunet.dev/eric-cache"
+    "http://10.100.0.1:8080/ha-cache"
   ];
   nix.settings.trusted-public-keys = [
     "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
