@@ -54,7 +54,7 @@ jobs:
           output_paths="$(jq -er '.[] | .outputs[]' "$RUNNER_TEMP/flake-build.json")"
           test -n "$output_paths"
           mapfile -t paths <<< "$output_paths"
-          attic-ci-push --jobs 1 "${paths[@]}"
+          attic-ci-push "${paths[@]}"
 
       - name: Commit and push flake lock
         shell: bash
