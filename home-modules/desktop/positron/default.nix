@@ -31,6 +31,10 @@ let
     ]
   );
 
+  venvName = "cs682";
+  venvRoot = ".venvs/${venvName}";
+  allowedInterpreters = [ "${config.home.homeDirectory}/${venvRoot}/bin/python" ];
+
   extensions = with pkgs.vscode-extensions; [
     enkia.tokyo-night
   ];
@@ -60,12 +64,20 @@ in
       '';
     };
 
+    home.file."${venvRoot}/bin/python".source = "${pythonEnv}/bin/python";
+    home.file."${venvRoot}/pyvenv.cfg".text = ''
+      home = ${pythonEnv}/bin
+      include-system-site-packages = true
+      version = ${python.version}
+      prompt = ${venvName}
+    '';
+
     xdg = {
       configFile = {
         "Positron/User/settings.json".source = (pkgs.formats.json { }).generate "positron-settings.json" (
           (lib.importJSON ./settings.json)
           // {
-            "python.interpreters.include" = [ "${pythonEnv}/bin/python" ];
+            "python.interpreters.override" = allowedInterpreters;
           }
         );
 
