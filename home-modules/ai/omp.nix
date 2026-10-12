@@ -5,13 +5,18 @@
   ...
 }:
 let
-  yaml = pkgs.formats.yaml { };
+  json = pkgs.formats.json { };
+  settings = json.generate "omp-settings.json" config.ai.omp.settings;
 in
 {
   options.ai.omp.settings = lib.mkOption {
-    type = yaml.type;
+    type = json.type;
     default = { };
-    description = "Contents of ~/.omp/agent/config.yml.";
+    description = ''
+      Settings merged into ~/.omp/agent/config.yml on activation. Only values that changed since
+      the previous activation are written, so edits made from omp persist until the same setting
+      changes here.
+    '';
   };
 
   config = lib.mkIf config.ai.harnesses.omp.enable {
@@ -52,9 +57,19 @@ in
       browser.relay = true;
     };
 
-    home.file.".omp/agent/config.yml" = {
-      source = yaml.generate "omp-config.yml" config.ai.omp.settings;
-      force = true;
-    };
+    home.activation.ompSettings = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+      (
+        target=${lib.escapeShellArg "${config.home.homeDirectory}/.omp/agent/config.yml"}
+        state=${lib.escapeShellArg "${config.xdg.stateHome}/home-manager/omp-settings.json"}
+        live=$target
+        base=$state
+        [[ -e $live ]] || live=/dev/null
+        [[ -e $base ]] || base=/dev/null
+        merged=$(${lib.getExe pkgs.jaq} --slurp --from yaml --to yaml --from-file ${./omp-settings.jq} \
+          --slurpfile base "$base" --slurpfile new ${settings} "$live")
+        run install -D -m 600 /dev/stdin "$target" <<<"$merged"
+        run install -D -m 644 ${settings} "$state"
+      )
+    '';
   };
 }

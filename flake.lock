@@ -1182,11 +1182,11 @@
     },
     "nixpkgs_16": {
       "locked": {
-        "lastModified": 1791260994,
-        "narHash": "sha256-Miqqk/ammqnTUxaoCyvtwoPeLbI1ksFyLxi/CazZpWY=",
+        "lastModified": 1791456040,
+        "narHash": "sha256-H83yz/do+hjOO0uujHyH8RgtIQP2v7Mw+cLwcZK/xKc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "151fa4e8ddfdd8dd25d945ad94ed54a13de9f6e4",
+        "rev": "e7439b6b14ad3cc35d05608ebca9bce01a25f5f8",
         "type": "github"
       },
       "original": {
@@ -1603,11 +1603,11 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1791346108,
-        "narHash": "sha256-BbFbYifxgsxN5zKvldI+qgdk8jViSVfAs15yCNGQMg0=",
+        "lastModified": 1791572082,
+        "narHash": "sha256-u8XuNbneWBc74oiIVJUkAVMiZRp2Y15tL/bLPorhsGE=",
         "ref": "main",
-        "rev": "266aba83dc9f95487949403173e658e68b291d6f",
-        "revCount": 217,
+        "rev": "27bcafb212c2c0ad09470e0b5187a8dcb10d3ad5",
+        "revCount": 219,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git"
       },

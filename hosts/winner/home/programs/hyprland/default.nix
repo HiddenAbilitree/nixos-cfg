@@ -1,9 +1,18 @@
 {
   config,
   lib,
+  osConfig,
+  pkgs,
   ...
 }:
 let
+  obsCmd = pkgs.writeShellApplication {
+    name = "obs-cmd-winner";
+    runtimeInputs = [ pkgs.obs-cmd ];
+    text = ''
+      obs-cmd --websocket "obsws://10.100.0.3:4455/$(cat ${osConfig.sops.secrets.obs-ws-pw.path})" "$@"
+    '';
+  };
   monitors = config.desktop.monitors;
   primaryMonitor = builtins.getAttr monitors.primary monitors;
   workspaceCount = 9;
@@ -152,12 +161,12 @@ in
       ${appRuleConfig}
       hl.bind("SUPER + s", hl.dsp.focus({ workspace = "${spotifyWorkspace}" }))
       hl.on("hyprland.start", function()
-        hl.exec_cmd("obs && obs-cmd --websocket obsws://10.100.0.3:4455/${config.obs-ws-pw} replay start")
+        hl.exec_cmd("obs && ${lib.getExe obsCmd} replay start")
       end)
 
-      hl.bind("CTRL + ALT + s", hl.dsp.exec_cmd("obs-cmd --websocket obsws://10.100.0.3:4455/${config.obs-ws-pw} replay save"))
-      hl.bind("CTRL + ALT + j", hl.dsp.exec_cmd("obs-cmd --websocket obsws://10.100.0.3:4455/${config.obs-ws-pw} recording start"))
-      hl.bind("CTRL + ALT + k", hl.dsp.exec_cmd("obs-cmd --websocket obsws://10.100.0.3:4455/${config.obs-ws-pw} recording stop"))
+      hl.bind("CTRL + ALT + s", hl.dsp.exec_cmd("${lib.getExe obsCmd} replay save"))
+      hl.bind("CTRL + ALT + j", hl.dsp.exec_cmd("${lib.getExe obsCmd} recording start"))
+      hl.bind("CTRL + ALT + k", hl.dsp.exec_cmd("${lib.getExe obsCmd} recording stop"))
     '';
   };
 }
