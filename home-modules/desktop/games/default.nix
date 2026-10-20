@@ -53,6 +53,7 @@
           (prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher.override {
             jdks = [
               graalvmPackages.graalvm-ce
+              temurin-bin-27
               zulu25
               zulu21
               zulu17

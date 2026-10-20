@@ -36,6 +36,8 @@ in
       disabledProviders = [
         "claude"
         "codex"
+        "amazon-bedrock"
+        "bedrock-mantle"
       ];
       dev.autoqaConsent = "granted";
       statusLine = {
