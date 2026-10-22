@@ -8,7 +8,6 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    allowBroken = true;
     android_sdk.accept_license = true;
     permittedInsecurePackages = [ "firefox-esr-140-bin-unwrapped-140.17.0esr" ];
   };
