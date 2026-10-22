@@ -93,16 +93,20 @@ hl.window_rule({
         self.assertEqual(len(rules), 1)
         self.assertEqual(rules[0].workspace, "name:obsidian")
 
-    def test_repository_obsidian_rule_remains_parseable(self) -> None:
+    def test_repository_rule_moves_obsidian_client_to_named_workspace(self) -> None:
         rules = reset_window_workspaces.load_rules(MODULE_PATH.with_name("hyprland.lua"))
+        client = {
+            "address": "0x2",
+            "class": "md.obsidian.Obsidian",
+            "initialClass": "md.obsidian.Obsidian",
+            "title": "Obsidian",
+            "workspace": {"id": 1, "name": "1"},
+        }
 
-        obsidian_rules = [
-            rule
-            for rule in rules
-            if ("initial_class", "obsidian") in rule.matchers
-        ]
-        self.assertEqual(len(obsidian_rules), 1)
-        self.assertEqual(obsidian_rules[0].workspace, "name:obsidian")
+        moves = reset_window_workspaces.planned_moves(rules, [client])
+
+        self.assertEqual(len(moves), 1)
+        self.assertEqual(moves[0]["workspace"], "name:obsidian")
 
     def test_initial_class_matches_after_runtime_class_changes(self) -> None:
         self.client["class"] = "electron-runtime-class"

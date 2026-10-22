@@ -89,7 +89,7 @@ hl.workspace_rule({
 
 hl.window_rule({
   name = "obsidian-workspace",
-  match = { initial_class = "md.Obsidian" },
+  match = { initial_class = "md.obsidian.Obsidian" },
   workspace = "name:obsidian silent",
 })
 
