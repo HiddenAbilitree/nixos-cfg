@@ -6,15 +6,7 @@
   ...
 }:
 let
-  python = pkgs.python313.override {
-    packageOverrides = _: psuper: {
-      #   ortools = psuper.ortools.override {
-      #     or-tools = (pkgs.or-tools.override { python3 = pkgs.python313; }).overrideAttrs (_: {
-      #       doCheck = false;
-      #     });
-      #   };
-    };
-  };
+  python = pkgs.python313;
   pythonEnv = python.withPackages (
     ps: with ps; [
       ipykernel
@@ -25,7 +17,7 @@ let
       matplotlib
       scipy
       scikit-image
-      # ortools
+      ortools
       opencv-python
       pandas
       requests
