@@ -30,5 +30,9 @@
         "org.freedesktop.impl.portal.Screenshot" = "wlr";
       };
     };
+
+    security.pam.services.hyprlock = lib.mkIf config.home-manager.users.ezhang.desktop.hyprland.hyprlock.enable {
+      fprintAuth = false;
+    };
   };
 }
