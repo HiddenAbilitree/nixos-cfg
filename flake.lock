@@ -1323,11 +1323,11 @@
     },
     "nixpkgs_9": {
       "locked": {
-        "lastModified": 1792506237,
-        "narHash": "sha256-Q/8KLB6jNfpaUN1HAedE/u/Et9feE/zYSsutBLKrCFk=",
+        "lastModified": 1792812153,
+        "narHash": "sha256-T2+XBfNbf9pecLUWS4+RtuVNZ3W8K5taG5QdV71mWlk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5adc50831c259f87faeb09ddf930d43597197473",
+        "rev": "674a2028661e550a97400c1cc992b9cca9a668a1",
         "type": "github"
       },
       "original": {
@@ -1364,11 +1364,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1792642057,
-        "narHash": "sha256-9ywOQ2EXah8D3UWfmfyPkQDsOrOHcvzVezr0G1fTsQs=",
+        "lastModified": 1792975040,
+        "narHash": "sha256-HNp5H4XWbzlO3AdLxV1sN7/2I5zUN3BVX3fD2M//DRI=",
         "ref": "main",
-        "rev": "647f60bf209ad92bd59c98899974c1fae45776ef",
-        "revCount": 142,
+        "rev": "8288c84a7f655fe72d71eeb6dc53c2f286b1dded",
+        "revCount": 144,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/nixvim-cfg.git"
       },
