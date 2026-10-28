@@ -2,6 +2,7 @@
   config,
   lib,
   llm-agents,
+  paseo,
   pkgs,
   ...
 }:
@@ -11,6 +12,12 @@ let
     optional
     ;
   agents = llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
+  paseoDesktop = (paseo.packages.${pkgs.stdenv.hostPlatform.system}.desktop).overrideAttrs (old: {
+    preBuild = ''
+      ${old.preBuild or ""}
+      npm run postinstall
+    '';
+  });
   skillsDirectory = ./skills;
   skillNames = builtins.attrNames (
     lib.filterAttrs (_: type: type == "directory") (builtins.readDir skillsDirectory)
@@ -83,7 +90,7 @@ in
 
   config = {
     home.file = builtins.listToAttrs (agentLinks ++ skillLinks);
-    home.packages = enabledPackages ++ optional config.ai.paseo.enable agents.paseo-desktop;
+    home.packages = enabledPackages ++ optional config.ai.paseo.enable paseoDesktop;
     programs.git.ignores = [
       ".omx"
       "**/.claude/settings.local.json"

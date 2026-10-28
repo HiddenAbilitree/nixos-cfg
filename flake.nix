@@ -42,6 +42,7 @@
 
     paseo = {
       url = "github:getpaseo/paseo";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-dokploy.url = "github:el-kurto/nix-dokploy";
