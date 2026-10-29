@@ -15,8 +15,9 @@
       with pkgs;
       [
         awscli2
-        devenv
+        cf
         cloudflared
+        devenv
         typst
         tokei
 
