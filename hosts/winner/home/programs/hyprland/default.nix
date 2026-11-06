@@ -151,6 +151,9 @@ in
           no_hardware_cursors = 1,
           default_monitor = "${primaryMonitor}",
         },
+        render = {
+          cm_auto_hdr = 0,
+        },
       })
 
       hl.monitor({ output = "${monitors.left}", mode = "highrr", position = "0x0", scale = "1" })
