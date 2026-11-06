@@ -57,7 +57,7 @@
               zulu25
               zulu21
               zulu17
-              zulu8
+              (zulu8.override { gtkSupport = false; })
             ];
           })
         ];
