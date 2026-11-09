@@ -48,6 +48,7 @@ lib.mkIf config.desktop.enable {
       equibop-discord
       wineWow64Packages.waylandFull
       wl-clipboard
+      zoom-us
       zotero
     ];
 

@@ -21,6 +21,7 @@ let
       opencv-python
       pandas
       requests
+      scikit-learn
       tqdm
       (if osConfig.gpu.rocm.enable then torchWithRocm else torch)
     ]
