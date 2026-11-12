@@ -34,7 +34,9 @@
       packages =
         with pkgs;
         [
-          deadlock-mod-manager
+          (deadlock-mod-manager.overrideAttrs (old: {
+            buildInputs = old.buildInputs ++ [ aws-lc ];
+          }))
           packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.deadworks
           mangohud
           (lib.mkIf config.desktop.games.osu.enable osu-lazer-bin)
