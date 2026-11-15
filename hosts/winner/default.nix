@@ -20,7 +20,6 @@
   };
 
   bootx = {
-    plymouth.enable = true;
     bootloader.enable = true;
   };
 

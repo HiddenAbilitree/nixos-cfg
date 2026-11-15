@@ -20,6 +20,14 @@
     environment.sessionVariables.NIXOS_OZONE_WL = 1;
     programs.kdeconnect.enable = true;
 
+    nixpkgs.overlays = [
+      (_: prev: {
+        gnome-keyring = prev.gnome-keyring.overrideAttrs (old: {
+          patches = (old.patches or [ ]) ++ [ ./patches/gnome-keyring-escape-multiline-secrets.patch ];
+        });
+      })
+    ];
+
     services = {
       gnome.gnome-keyring.enable = true;
       power-profiles-daemon.enable = true;
