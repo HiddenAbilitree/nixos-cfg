@@ -798,11 +798,11 @@
     "kitty-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1794493394,
-        "narHash": "sha256-lLPc7fM2ZpWhVAbKmZYxMBwr4UnIc95Er6R7XsyNmrA=",
+        "lastModified": 1794716383,
+        "narHash": "sha256-2Il3cZ3dPd+iaYgqAxU9vFfC3Mi+WggSq87ix7zKlGo=",
         "owner": "kovidgoyal",
         "repo": "kitty",
-        "rev": "fdea442b70ad23ebd950cdbba73a27d7d2670b03",
+        "rev": "dea5bd4c24a35792adbbcc64acaec987f86818fc",
         "type": "github"
       },
       "original": {
@@ -1105,11 +1105,11 @@
     },
     "nixpkgs_13": {
       "locked": {
-        "lastModified": 1794386569,
-        "narHash": "sha256-x9sADJvoVG0L6RejZB+/BB4YiGZFBZrfTlhF4uBq1tQ=",
+        "lastModified": 1794537146,
+        "narHash": "sha256-Wpz/7x/YWnDIBu7yj6ixe8j6fIMsidd9Y+o1PqPF3iM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d4f25a3e562008648d45bcf2d70bcc7422cad84e",
+        "rev": "d5cc6833999746cffdfe0598f7bc801a57b887a9",
         "type": "github"
       },
       "original": {
@@ -1453,11 +1453,11 @@
         "tokyonight-src": "tokyonight-src"
       },
       "locked": {
-        "lastModified": 1794662412,
-        "narHash": "sha256-s+22mvONmTqu07lVFKOeKnvgSR551Ba5wEuvshQ875c=",
+        "lastModified": 1794800057,
+        "narHash": "sha256-c0jUPo2XH0Vq5KbCMqi/oq0QjWSx5y+cBDEKfXEli8c=",
         "ref": "main",
-        "rev": "6ad79742da29187fe99f972b9e58ad9d4179d50a",
-        "revCount": 142,
+        "rev": "7d801681a21b7419c3949ad890fe9830bda2b83d",
+        "revCount": 144,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/packages.git"
       },

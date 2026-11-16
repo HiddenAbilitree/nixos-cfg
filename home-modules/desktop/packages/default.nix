@@ -5,15 +5,18 @@
   ...
 }:
 let
+  equibop = pkgs.equibop.overrideAttrs (prev: {
+    patches = (prev.patches or [ ]) ++ [ ./equibop-heading-tertiary.patch ];
+  });
   equibop-discord = pkgs.symlinkJoin {
     name = "equibop-discord";
-    paths = [ pkgs.equibop ];
+    paths = [ equibop ];
     postBuild = ''
       rm $out/share/applications/equibop.desktop
       sed \
         -e 's|^Name=.*|Name=Discord|' \
         -e 's|^Icon=.*|Icon=${pkgs.papirus-icon-theme}/share/icons/Papirus/128x128/apps/discord.svg|' \
-        ${pkgs.equibop}/share/applications/equibop.desktop > $out/share/applications/equibop.desktop
+        ${equibop}/share/applications/equibop.desktop > $out/share/applications/equibop.desktop
     '';
   };
 in

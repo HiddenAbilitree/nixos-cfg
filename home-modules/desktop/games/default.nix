@@ -38,6 +38,7 @@
             buildInputs = old.buildInputs ++ [ aws-lc ];
           }))
           packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.deadworks
+          packages-nix.packages.${pkgs.stdenv.hostPlatform.system}.pokebonk
           mangohud
           (lib.mkIf config.desktop.games.osu.enable osu-lazer-bin)
           (lib.mkIf config.desktop.games.emulators.enable (
