@@ -1,12 +1,18 @@
 {
   config,
   lib,
+  nixpkgs-torch,
   osConfig,
   pkgs,
   ...
 }:
 let
-  python = pkgs.python313;
+  pythonPkgs =
+    if osConfig.gpu.rocm.enable then
+      nixpkgs-torch.legacyPackages.${pkgs.stdenv.hostPlatform.system}
+    else
+      pkgs;
+  python = pythonPkgs.python313;
   pythonEnv = python.withPackages (
     ps: with ps; [
       ipykernel
