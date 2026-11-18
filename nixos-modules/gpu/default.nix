@@ -64,6 +64,17 @@ in
     })
 
     (lib.mkIf (cfg.vendor == "amd" && cfg.rocm.enable) {
+      nixpkgs.overlays = [
+        (_: prev: {
+          rocmPackages = prev.rocmPackages.overrideScope (
+            _: rprev: {
+              aotriton = rprev.aotriton.overrideAttrs (old: {
+                patches = (old.patches or [ ]) ++ [ ./patches/aotriton-triton-3.9-composed-tensors.patch ];
+              });
+            }
+          );
+        })
+      ];
       hardware.graphics.extraPackages = with pkgs; [
         rocmPackages.clr.icd
         rocmPackages.clr
