@@ -14,7 +14,22 @@ let
       pkgs;
   python = pythonPkgs.python313;
   pythonEnv = python.withPackages (
-    ps: with ps; [
+    ps:
+    let
+      torch = if osConfig.gpu.rocm.enable then ps.torchWithRocm else ps.torch;
+      torchvision = (ps.torchvision.override { inherit torch; }).overridePythonAttrs (old: {
+        env =
+          old.env
+          // lib.optionalAttrs torch.rocmSupport {
+            FORCE_CUDA = 1;
+            PYTORCH_ROCM_ARCH = torch.gpuTargetString;
+            ROCM_PATH = torch.rocmtoolkit_joined;
+          };
+        nativeBuildInputs = old.nativeBuildInputs ++ lib.optionals torch.rocmSupport [ torch.rocmPackages.clr ];
+      });
+    in
+    with ps;
+    [
       ipykernel
       ruff
       nbconvert
@@ -29,7 +44,8 @@ let
       requests
       scikit-learn
       tqdm
-      (if osConfig.gpu.rocm.enable then torchWithRocm else torch)
+      torch
+      torchvision
     ]
   );
 
