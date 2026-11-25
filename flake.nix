@@ -112,6 +112,14 @@
       url = "github:vicinaehq/vicinae";
     };
 
+    wynn = {
+      url = "git+ssh://git@github.com/HiddenAbilitree/wynn.git?ref=main&shallow=1";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
+    };
+
   };
 
   nixConfig = {

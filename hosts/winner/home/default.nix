@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, wynn, ... }:
 let
   monitors = {
     left = "DP-1";
@@ -9,6 +9,7 @@ in
 {
   imports = [
     ./programs
+    wynn.homeManagerModules.lootpool-refresh
   ];
 
   shell = {
@@ -37,6 +38,8 @@ in
   };
 
   misc.enable = true;
+
+  services.wynn-lootpool-refresh.enable = true;
 
   home.packages = with pkgs; [
     headsetcontrol
