@@ -15,6 +15,7 @@
     ./ssh.nix
     ./swap.nix
     ./syncthing.nix
+    ./tern.nix
     ./virtualization
     ./wireguard
   ];

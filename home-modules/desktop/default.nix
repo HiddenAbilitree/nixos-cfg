@@ -32,6 +32,7 @@ in
     ]
     ++ [ ./spicetify ]
     ++ lib.optionals isLinux [
+      ./tern
       ./vicinae
       ./wallpaper
       ./waybar
@@ -103,6 +104,7 @@ in
           noctalia.enable = lib.mkDefault false;
           positron.enable = lib.mkDefault true;
           notifications.enable = lib.mkDefault true;
+          tern.enable = lib.mkDefault true;
           vicinae.enable = lib.mkDefault false;
           waybar.enable = lib.mkDefault true;
           zathura.enable = lib.mkDefault true;

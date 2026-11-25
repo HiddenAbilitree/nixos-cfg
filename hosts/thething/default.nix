@@ -75,6 +75,7 @@ in
   pterodactyl.enable = false;
   syncthing.enable = true;
   ollama.enable = false;
+  tern.server.enable = true;
 
   gpu.vendor = "nvidia";
   observability = {
