@@ -67,7 +67,7 @@ in
         base=$state
         [[ -e $live ]] || live=/dev/null
         [[ -e $base ]] || base=/dev/null
-        merged=$(${lib.getExe pkgs.jaq} --slurp --from yaml --to yaml --from-file ${./omp-settings.jq} \
+        merged=$(${lib.getExe pkgs.jaq} --slurp --from yaml --to yaml --from-file ${../merge-settings.jq} \
           --slurpfile base "$base" --slurpfile new ${settings} "$live")
         run install -D -m 600 /dev/stdin "$target" <<<"$merged"
         run install -D -m 644 ${settings} "$state"
