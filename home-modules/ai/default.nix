@@ -12,7 +12,7 @@ let
     optional
     ;
   agents = llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
-  paseoDesktop = (paseo.packages.${pkgs.stdenv.hostPlatform.system}.desktop).overrideAttrs (old: {
+  paseoDesktop = paseo.packages.${pkgs.stdenv.hostPlatform.system}.desktop.overrideAttrs (old: {
     preBuild = ''
       ${old.preBuild or ""}
       npm run postinstall

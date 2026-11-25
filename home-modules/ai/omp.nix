@@ -10,7 +10,7 @@ let
 in
 {
   options.ai.omp.settings = lib.mkOption {
-    type = json.type;
+    inherit (json) type;
     default = { };
     description = ''
       Settings merged into ~/.omp/agent/config.yml on activation. Only values that changed since

@@ -82,7 +82,10 @@ in
       pkgs.inkscape
     ];
 
-    home.file."${venvRoot}/bin/python".source = "${pythonEnv}/bin/python";
+    home.file."${venvRoot}/bin" = {
+      source = "${pythonEnv}/bin";
+      recursive = true;
+    };
     home.file."${venvRoot}/pyvenv.cfg".text = ''
       home = ${pythonEnv}/bin
       include-system-site-packages = true

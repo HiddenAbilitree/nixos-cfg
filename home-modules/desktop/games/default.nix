@@ -62,6 +62,7 @@
               zulu17
               (zulu8.override { gtkSupport = false; })
             ];
+            additionalLibs = [ libxkbcommon ];
           })
         ];
 

@@ -42,6 +42,10 @@ Do NOT use mock data unless you are explicitly told to do so.
 When working on frontend tasks, NEVER add a description element unless it is
 explicitly asked for. Never overdescribe, the ux should describe for you.
 
+Whenever working on a codebase or documentation, always think first about how
+you can get rid of code/documentation, and only then, think about how to add
+more.
+
 The following rules apply to every task in this project unless explicitly
 overridden.
 

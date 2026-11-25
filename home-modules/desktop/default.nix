@@ -13,6 +13,7 @@ in
     lib.optionals isLinux [
       ./brave
       ./cava
+      ./doop
       ./games
     ]
     ++ [ ./ghostty ]
@@ -91,6 +92,7 @@ in
           browser.enable = lib.mkDefault true;
           cava.enable = lib.mkDefault true;
           dark-mode.enable = lib.mkDefault true;
+          doop.enable = lib.mkDefault true;
           hyprland = {
             enable = lib.mkDefault true;
             hyprlock.enable = lib.mkDefault true;

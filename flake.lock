@@ -1610,11 +1610,11 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1795323383,
-        "narHash": "sha256-Eo4XcBwt+gLatMBJDXYodFX3ZuQwti1r6XPfVWCVZxU=",
+        "lastModified": 1795570719,
+        "narHash": "sha256-4bdtCh+GaU+GF9nfkASnb9oPM8oEY4gLd0nXckEOl2s=",
         "ref": "main",
-        "rev": "ce9727379d3f46de73e89fe81f6a946b18b7a1cc",
-        "revCount": 246,
+        "rev": "2cf5bea66772e8f17e35e946154c28491e019b0e",
+        "revCount": 249,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/private-nixos-cfg.git"
       },
@@ -1778,11 +1778,11 @@
         "nixpkgs": "nixpkgs_16"
       },
       "locked": {
-        "lastModified": 1794866654,
-        "narHash": "sha256-Y28AMB8lyKjASdJ0BVsR2AqR1cUsVuo8RVVpzHoECho=",
+        "lastModified": 1795471345,
+        "narHash": "sha256-2p8/wnENYHU2Z79Ir/rpq+V1sMI9mSD6xGAlvlbVBUY=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "7c637afdccdf9bcf35c4a2d67b58a77c1fd843a4",
+        "rev": "d5abe5e53200ad48254e8e6bd95e6cef94e66577",
         "type": "github"
       },
       "original": {

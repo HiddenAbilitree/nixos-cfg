@@ -19,5 +19,10 @@
       env.DOKPLOY_URL = "https://dokploy.seer.nexus";
       secretEnv.DOKPLOY_API_KEY = osConfig.sops.secrets.dokploy-api-key.path;
     };
+    doop = {
+      type = "http";
+      url = "https://doop.design/mcp";
+      bearerTokenFile = osConfig.sops.secrets.doop-api-key.path;
+    };
   };
 }

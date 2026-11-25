@@ -31,10 +31,7 @@
 
     packages =
       with pkgs;
-      [
-        # texliveFull
-      ]
-      ++ lib.optionals stdenv.hostPlatform.isLinux [
+      lib.optionals stdenv.hostPlatform.isLinux [
         brightnessctl
         colemak-dh
         glib

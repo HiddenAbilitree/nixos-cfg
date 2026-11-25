@@ -16,6 +16,7 @@ let
     mkIf
     mkMerge
     mkOption
+    optionalAttrs
     optionalString
     types
     ;
@@ -43,6 +44,11 @@ let
     else
       server;
   servers = mapAttrs materializeServer configuredServers;
+  authorizationHeader =
+    name: server:
+    pkgs.writeShellScript "mcp-${name}-authorization" ''
+      printf 'Bearer %s' "$(${pkgs.coreutils}/bin/cat ${escapeShellArg server.bearerTokenFile})"
+    '';
 
   compact = lib.filterAttrs (_: value: value != null && value != { } && value != [ ]);
   toMcpJson =
@@ -57,9 +63,28 @@ let
         headers
         ;
     };
-  mcpServersJson = mapAttrs (_: toMcpJson) servers;
+  ompServerJson =
+    name: server:
+    toMcpJson (
+      server
+      // optionalAttrs (server.bearerTokenFile != null) {
+        headers = server.headers // {
+          Authorization = "!${authorizationHeader name server}";
+        };
+      }
+    );
+  mcpServersJson = mapAttrs ompServerJson servers;
 
-  toClaudeJson = server: builtins.toJSON (toMcpJson server);
+  toClaudeJson =
+    name: server:
+    builtins.toJSON (
+      toMcpJson server
+      // optionalAttrs (server.bearerTokenFile != null) {
+        headersHelper = "${pkgs.writeShellScript "mcp-${name}-headers" ''
+          ${pkgs.jq}/bin/jq -n --arg authorization "$(${authorizationHeader name server})" '{Authorization: $authorization}'
+        ''}";
+      }
+    );
 
   envFlags =
     env:
@@ -85,7 +110,7 @@ let
       '';
 
   claudeAdd = name: server: ''
-    ${agents.claude-code}/bin/claude mcp add-json ${escapeShellArg name} ${escapeShellArg (toClaudeJson server)} --scope user
+    ${agents.claude-code}/bin/claude mcp add-json ${escapeShellArg name} ${escapeShellArg (toClaudeJson name server)} --scope user
   '';
 
   managedNames = pkgs.writeText "home-manager-ai-mcp-servers" (
@@ -163,6 +188,11 @@ in
               default = null;
               description = "Environment variable containing an HTTP bearer token.";
             };
+            bearerTokenFile = mkOption {
+              type = types.nullOr types.str;
+              default = null;
+              description = "File containing an HTTP bearer token, read when the MCP server connects.";
+            };
           };
         }
       )
@@ -186,10 +216,18 @@ in
     }
 
     (mkIf codexEnabled {
-      assertions = mapAttrsToList (name: server: {
-        assertion = server.type != "http" || server.headers == { };
-        message = "Codex cannot declaratively add static HTTP headers for ai.mcp.servers.${name}; use bearerTokenEnvVar instead";
-      }) servers;
+      assertions = lib.concatLists (
+        mapAttrsToList (name: server: [
+          {
+            assertion = server.type != "http" || server.headers == { };
+            message = "Codex cannot declaratively add static HTTP headers for ai.mcp.servers.${name}; use bearerTokenEnvVar instead";
+          }
+          {
+            assertion = server.bearerTokenFile == null;
+            message = "Codex cannot read ai.mcp.servers.${name}.bearerTokenFile; use bearerTokenEnvVar instead";
+          }
+        ]) servers
+      );
       home.activation.aiMcpCodex = syncServers {
         binary = "${agents.codex}/bin/codex";
         remove = "mcp remove";
