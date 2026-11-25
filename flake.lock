@@ -573,11 +573,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1795553962,
-        "narHash": "sha256-4ZapJTEug2+ZEkcC1nJElAWKUgi2sAYag7wLSuw9gCg=",
+        "lastModified": 1795612209,
+        "narHash": "sha256-osnL8JR3lHxEbZMrllUZt7K4JrIdNBGla4TB6dvq6II=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "2e2a5a45c1abb989f5824a339cdf9f1ac34a206a",
+        "rev": "e822788a873d40689f016e2b7899f9286c63be5d",
         "type": "github"
       },
       "original": {
@@ -1174,11 +1174,11 @@
     },
     "nixpkgs_14": {
       "locked": {
-        "lastModified": 1794386569,
-        "narHash": "sha256-W60urNAgQVS8bhNWH0bQsYoiagds8m38oTDUjEOM9FE=",
-        "rev": "d4f25a3e562008648d45bcf2d70bcc7422cad84e",
+        "lastModified": 1795234589,
+        "narHash": "sha256-pAEASBc6wof0S58XcSEdZoQ2iFQDkCnZwH+wFLrkd1Q=",
+        "rev": "2786a2a72088ecf32aea5b3ec52099e6a7cff78f",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1117658.d4f25a3e5620/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1125864.2786a2a72088/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -1527,11 +1527,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795607987,
-        "narHash": "sha256-2V6+4jHmk4/SdmCNUU6ZR0YtVciqOtdX6llm4f2Ay6A=",
+        "lastModified": 1795612028,
+        "narHash": "sha256-IH4XFi+8T4qM/otFiYP37FM+wVhJ1iSNqfQL9hQfCMo=",
         "owner": "getpaseo",
         "repo": "paseo",
-        "rev": "7d425b2efedd303c868cc7f688fc46c46e100c54",
+        "rev": "e108fdc79203b93ee42677640d2d9a7749b23be6",
         "type": "github"
       },
       "original": {
@@ -1591,11 +1591,11 @@
         "nixpkgs": "nixpkgs_14"
       },
       "locked": {
-        "lastModified": 1795589833,
-        "narHash": "sha256-V/zNLiG5Qq5allvke20xVrX6gfTYpUmv4Ku7c7FgKd4=",
+        "lastModified": 1795612150,
+        "narHash": "sha256-Xk1cTHL6VhVZcwNlLRUBX3RP0EtydenDF5OkFOaSoOY=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "768ddbb61f78841cc0913055a6d87f179fd8b70f",
+        "rev": "ea3180a247677672c5c6e3627d3b533c65603ffc",
         "type": "github"
       },
       "original": {
