@@ -40,9 +40,10 @@ in
         base=$state
         [[ -e $live ]] || live=/dev/null
         [[ -e $base ]] || base=/dev/null
-        merged=$(${lib.getExe pkgs.jaq} --slurp --from-file ${../../merge-settings.jq} \
+        merged=$(${lib.getExe pkgs.jaq} --slurp --from-file ${../../merge-settings.jq} --argjson enforce true \
           --slurpfile base "$base" --slurpfile new ${settings} "$live")
-        run install -D -m 644 /dev/stdin "$target" <<<"$merged"
+        run install -D -m 644 /dev/stdin "$target.hm.tmp" <<<"$merged"
+        run mv -f "$target.hm.tmp" "$target"
         run install -D -m 644 ${settings} "$state"
       )
     '';

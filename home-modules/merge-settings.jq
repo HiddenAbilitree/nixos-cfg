@@ -17,7 +17,7 @@ def nest($path; $value): reduce ($path | reverse[]) as $key ($value; {($key): .}
     ($base | getpath($path)) as $old
     | if $old != null and at($path) == $old then delpaths([$path]) end
   )
-| reduce ($declared[] | select(. as $path | ($base | at($path)) != ($new | getpath($path)))) as $path (
+| reduce ($declared[] | select(. as $path | $enforce or ($base | at($path)) != ($new | getpath($path)))) as $path (
     .;
     . * nest($path; $new | getpath($path))
   )

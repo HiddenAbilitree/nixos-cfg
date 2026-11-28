@@ -25,7 +25,6 @@ in
         vision = "opencode-go/mimo-v2.5:high";
         designer = "opencode-go/qwen3.8-max:xhigh";
         advisor = "openai-codex/gpt-5.6-sol:max";
-        default = "anthropic/claude-sonnet-5-5:high";
       };
       symbolPreset = "nerd";
       theme = {
@@ -53,7 +52,6 @@ in
         codexResetFireworks = false;
       };
       terminal.showProgress = false;
-      defaultThinkingLevel = "auto";
       codexResets.autoRedeem = "no";
       hideThinkingBlock = true;
       browser.relay = true;
@@ -67,9 +65,10 @@ in
         base=$state
         [[ -e $live ]] || live=/dev/null
         [[ -e $base ]] || base=/dev/null
-        merged=$(${lib.getExe pkgs.jaq} --slurp --from yaml --to yaml --from-file ${../merge-settings.jq} \
+        merged=$(${lib.getExe pkgs.jaq} --slurp --from yaml --to yaml --from-file ${../merge-settings.jq} --argjson enforce false \
           --slurpfile base "$base" --slurpfile new ${settings} "$live")
-        run install -D -m 600 /dev/stdin "$target" <<<"$merged"
+        run install -D -m 600 /dev/stdin "$target.hm.tmp" <<<"$merged"
+        run mv -f "$target.hm.tmp" "$target"
         run install -D -m 644 ${settings} "$state"
       )
     '';

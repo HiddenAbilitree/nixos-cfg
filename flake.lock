@@ -835,11 +835,11 @@
     "kitty-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1795599937,
-        "narHash": "sha256-J404JAyI2wzgLoK6dV+Hdj37c+7x7JcUeYFqd1Pmay8=",
+        "lastModified": 1795704095,
+        "narHash": "sha256-vNny6MAJug9BuHTvOLozAfUM2cAcaa4+ZFu1LevaLiU=",
         "owner": "kovidgoyal",
         "repo": "kitty",
-        "rev": "121ef1816ea7d1d29a1653b6782804d0341a84b3",
+        "rev": "1249898c3299f099b4f08d3614a05b9fb37fff42",
         "type": "github"
       },
       "original": {
@@ -1506,11 +1506,11 @@
         "tokyonight-src": "tokyonight-src"
       },
       "locked": {
-        "lastModified": 1795711272,
-        "narHash": "sha256-r+73mY4gAq5sftxajkaLTbTysMek1bkDWlQDKuQhRWg=",
+        "lastModified": 1795797814,
+        "narHash": "sha256-brEXcxI8q1/U+ka+tLJhjcVmZ171igCiPBycdmg839M=",
         "ref": "main",
-        "rev": "b3f4792fb025ef3aa6b0e44ad3cddb9bafa5da0f",
-        "revCount": 161,
+        "rev": "9d1ca5b543306c16d6866ac520a67ccf6ac66e30",
+        "revCount": 163,
         "type": "git",
         "url": "ssh://git@github.com/HiddenAbilitree/packages.git"
       },

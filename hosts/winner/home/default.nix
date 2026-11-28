@@ -14,6 +14,7 @@ in
 
   shell = {
     enable = true;
+    nvim.cloak.enable = false;
     zellij.autostart = false;
   };
   desktop = {
